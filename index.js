@@ -2,7 +2,9 @@ const discord = require("discord.js");
 
 const client = new discord.Client();
 
-const token = "NzM5MzM5MDcyOTkyMTgyMzE0.XyZBKw.2Rs9x2fuKEPkQ9e8aSBRX5hj4_E";
+const token = "NzM5MzM5MDcyOTkyMTgyMzE0.XyZBKw.TXHryJ5FdJLVaFp0C0qcfR8lKgQ";
+
+client.login(token);
 
 client.on("ready", () => {
     console.log("Blaze Bot Is Online");
@@ -13,20 +15,44 @@ client.on("message", msg => {
     }
 });
 client.on("message", async message => {
-    // Voice only works in guilds, if the message does not come from a guild,
-    // we ignore it
     if (!message.guild) return;
-    //
     if (message.content === "/waren") {
-        // Only try to join the sender's voice channel if they are in one themselves
         if (message.member.voice.channel) {
-            const connection = await message.member.voice.channel.join();
-            const dispatcher = connection.play('http://198.178.123.8:8404/;', {
-              volume: 0.5,
+            var connection = await message.member.voice.channel.join();
+            const dispatcher = connection.play("http://198.178.123.8:8404/;", {
+                volume: 0.5
             });
-        } else {
-            message.reply("no");
+        }
+    } else {
+        console.log("else is triggerd");
+    }
+});
+
+
+
+// Create an event listener for new guild members
+client.on("guildMemberAdd", member => {
+    // Send the message to a designated channel on a server:
+    const channel = member.guild.channels.cache.find(
+        ch => ch.name === "welcome"
+    );
+    // Do nothing if the channel wasn't found on this server
+    if (!channel) return;
+    // Send the message, mentioning the member
+    channel.send(`Welcome to the server, ${member}. Have Fun and say hi to Pro Pathooke for me XD`);
+});
+
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/palayan") {
+        if (message.member.voice.channel) {
+            var connection = await message.member.voice.channel.leave();
         }
     }
 });
-client.login(token);
+client.on("message", async message => {
+    if(!message.guild) return;
+    if(message.content === "/hi wifu") {
+        message.reply("hello how are you doing", {tts: true});
+    }
+})
