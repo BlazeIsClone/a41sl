@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+     "heroku-prebuild": "echo This runs before Heroku installs dependencies.",
+     "heroku-postbuild": "echo This runs after Heroku installs dependencies, but before Heroku prunes and caches dependencies.",
+     "heroku-cleanup": "echo This runs after Heroku prunes and caches dependencies."
+   }" 
   }
 },
   { 
