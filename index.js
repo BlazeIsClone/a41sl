@@ -1,36 +1,43 @@
 const discord = require("discord.js");
-
 const client = new discord.Client();
-
 const token = process.env.token;
-
 client.login(token);
+var dispatcher;
 
+//Bot Boot
 client.on("ready", () => {
-    console.log("Blaze Bot Is Online");
+    console.log("A41SL Bot Is Online");
 });
+
+// Help Command
 client.on("message", msg => {
     if (msg.content == "/help") {
-        msg.reply("bb i luv u");
+        msg.reply("type - /waren");
     }
 });
+
+//Bot Join Command
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/waren") {
         if (message.member.voice.channel) {
             var connection = await message.member.voice.channel.join();
-            const dispatcher = connection.play("http://198.178.123.8:8404/;", {
-                volume: 0.5
-            });
+            dispatcher = connection.play("http://198.178.123.8:8404/;");
         }
-    } else {
-        console.log("else is triggerd");
     }
 });
 
+//Bot Leave Command
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/palayan") {
+        if (message.member.voice.channel) {
+            var connection = await message.member.voice.channel.leave();
+        }
+    }
+});
 
-
-// Create an event listener for new guild members
+// User Welcome Message
 client.on("guildMemberAdd", member => {
     // Send the message to a designated channel on a server:
     const channel = member.guild.channels.cache.find(
@@ -42,17 +49,36 @@ client.on("guildMemberAdd", member => {
     channel.send(`Welcome to the server, ${member}. Have Fun and stay awsome!`);
 });
 
+//TTS Message
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/palayan") {
+    if (message.content === "/hi wifu") {
+        message.reply("hello how are you doing", { tts: true });
+    }
+});
+
+const srcOne = "http://198.178.123.8:8404/;";
+const srcTwo = "http://live.tnlrn.com:8010/live.mp3";
+const srcThree = "http://209.133.216.3:7048/;";
+const srcFour = "http://209.133.216.3:7058/;stream.mp3";
+
+//Radio Command
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/sunfm dapn") {
         if (message.member.voice.channel) {
-            var connection = await message.member.voice.channel.leave();
+            var connection = await message.member.voice.channel.join();
+            dispatcher = connection.play("http://198.178.123.8:8404/;");
         }
     }
 });
+
+//Radio Stop Command
 client.on("message", async message => {
-    if(!message.guild) return;
-    if(message.content === "/hi wifu") {
-        message.reply("hello how are you doing", {tts: true});
+    if (!message.guild) return;
+    if (message.content === "/stop") {
+        if (message.member.voice.channel) {
+            dispatcher = null;
+        }
     }
-})
+});
