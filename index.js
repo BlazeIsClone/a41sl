@@ -68,7 +68,7 @@ client.on("message", async message => {
     if (message.content === "/sunfm dapn") {
         if (message.member.voice.channel) {
             var connection = await message.member.voice.channel.join();
-            dispatcher = connection.play("http://198.178.123.8:8404/;");
+            dispatcher = connection.play("http://live.tnlrn.com:8010/live.mp3");
         }
     }
 });
