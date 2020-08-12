@@ -10,7 +10,7 @@ client.on("ready", () => {
     console.log("Blaze Bot Is Online");
 });
 client.on("message", msg => {
-    if (msg.content == "hi") {
+    if (msg.content == "/help") {
         msg.reply("bb i luv u");
     }
 });
@@ -39,7 +39,7 @@ client.on("guildMemberAdd", member => {
     // Do nothing if the channel wasn't found on this server
     if (!channel) return;
     // Send the message, mentioning the member
-    channel.send(`Welcome to the server, ${member}. Have Fun and say hi to Pro Pathooke for me XD`);
+    channel.send(`Welcome to the server, ${member}. Have Fun and stay awsome!`);
 });
 
 client.on("message", async message => {
