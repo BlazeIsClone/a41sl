@@ -3,14 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-     "heroku-prebuild": "echo This runs before Heroku installs dependencies.",
-     "heroku-postbuild": "echo This runs after Heroku installs dependencies, but before Heroku prunes and caches dependencies.",
-     "heroku-cleanup": "echo This runs after Heroku prunes and caches dependencies."
-   }" 
-  }
-},
-  { 
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -24,4 +16,4 @@
       "npm": "6.14.4"
     }
   }
-}
+
