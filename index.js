@@ -14,15 +14,15 @@ client.on("ready", () => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/udaw") {
-        message.reply(exampleEmbed);
+        message.channel.send({embed: {
+          color: 3447003,
+          description: "A very simple Embed!"
+        }});
     }
 });
 const attachment = new discord.MessageAttachment(
     "https://i.imgur.com/w3duR07.png"
 );
-const exampleEmbed = new discord.MessageEmbed()
-    .setColor("#0099ff")
-    .setTitle("Some title");
 //Bot Join Command
 client.on("message", async message => {
     if (!message.guild) return;
