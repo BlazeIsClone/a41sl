@@ -14,7 +14,8 @@ client.on("ready", () => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/udaw") {
-        message.reply();
+        message.reply(new MessageAttachment('https://i.imgur.com/w3duR07.png');
+                 
     }
 });
 
