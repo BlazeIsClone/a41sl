@@ -17,7 +17,7 @@ client.on("message", msg => {
             .setColor("#0099ff")
             .setTitle("Some title")
         channel.send(
-channel.send({ embed: exampleEmbed }); 
+channel.send(exampleEmbed ); 
         );
     }
 });
