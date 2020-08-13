@@ -13,7 +13,7 @@ client.on("ready", () => {
 // Help Command
 client.on("message", msg => {
     if (msg.content == "/udaw") {
-        message.reply('no reply')
+        message.reply("hello how are you doing");
     }
 });
 
