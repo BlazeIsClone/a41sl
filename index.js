@@ -14,12 +14,10 @@ client.on("ready", () => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/udaw") {
-        message.reply(exampleEmbed);
+        message.reply();
     }
 });
-const exampleEmbed = new discord.MessageEmbed()
-    .setColor('#0099ff')
-    .setTitle('Some title');
+
 //Bot Join Command
 client.on("message", async message => {
     if (!message.guild) return;
@@ -125,5 +123,3 @@ client.on("message", async message => {
         }
     }
 });
-
-
