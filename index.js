@@ -3,6 +3,7 @@ const client = new discord.Client();
 const token = process.env.token;
 client.login(token);
 var dispatcher;
+var connection;
 
 //Bot Boot
 client.on("ready", () => {
@@ -21,7 +22,7 @@ client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/waren") {
         if (message.member.voice.channel) {
-            var connection = await message.member.voice.channel.join();
+            connection = await message.member.voice.channel.join();
         }
     }
 });
@@ -31,7 +32,7 @@ client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/palayan") {
         if (message.member.voice.channel) {
-            var connection = await message.member.voice.channel.leave();
+            connection = await message.member.voice.channel.leave();
         }
     }
 });
@@ -66,18 +67,21 @@ client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/sunfm dapn") {
         if (message.member.voice.channel) {
-            var connection = await message.member.voice.channel.join();
+            connection = await message.member.voice.channel.join();
             dispatcher = connection.play(sunRadio);
-            console.log('playing sun')
+            console.log("playing sun");
         } else if (message.content === "/kissfm dapn") {
+            connection = await message.member.voice.channel.join();
             dispatcher = connection.play(kissRadio);
-            console.log('playing kiss')
+            console.log("playing kiss");
         } else if (message.content === "/goldfm dapn") {
+            connection = await message.member.voice.channel.join();
             dispatcher = connection.play(goldRadio);
-            console.log('playing gold')
+            console.log("playing gold");
         } else if (message.content === "/tnl dapn") {
             dispatcher = connection.play(tnlrocksRadio);
-            console.log('playing tnl')
+            connection = await message.member.voice.channel.join();
+            console.log("playing tnl");
         }
     }
 });
