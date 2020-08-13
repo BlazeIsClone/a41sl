@@ -70,28 +70,51 @@ client.on("message", async message => {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(sunRadio);
             console.log("playing sun");
-        } else if (message.content === "/kissfm dapn") {
-            connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(kissRadio);
-            console.log("playing kiss");
-        } else if (message.content === "/goldfm dapn") {
-            connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(goldRadio);
-            console.log("playing gold");
-        } else if (message.content === "/tnl dapn") {
-            dispatcher = connection.play(tnlrocksRadio);
-            connection = await message.member.voice.channel.join();
-            console.log("playing tnl");
         }
     }
 });
 
+//Radio Command
+client.on("message", async message => {
+    if (!message.guild) return message.reply('You have to be in a voice channel to play music');
+    if (message.content === "/kiss dapn") {
+        if (message.member.voice.channel) {
+            connection = await message.member.voice.channel.join();
+            dispatcher = connection.play(kissRadio);
+            console.log("playing kiss");
+        }
+    }
+});
+
+//Radio Command
+client.on("message", async message => {
+    if (!message.guild) return message.reply('You have to be in a voice channel to play music');
+    if (message.content === "/gold dapn") {
+        if (message.member.voice.channel) {
+            connection = await message.member.voice.channel.join();
+            dispatcher = connection.play(goldRadio);
+            console.log("playing gold");
+        }
+    }
+});
+
+//Radio Command
+client.on("message", async message => {
+    if (!message.guild) return message.reply('You have to be in a voice channel to play music');
+    if (message.content === "/tnl dapn") {
+        if (message.member.voice.channel) {
+            connection = await message.member.voice.channel.join();
+            dispatcher = connection.play(tnlrocksRadio);
+            console.log("playing tnl");
+        }
+    }
+});
 //Radio Stop Command
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/stop karapn") {
         if (message.member.voice.channel) {
-            dispatcher = connection.pause();
+            dispatcher = connection.stop();
             console.log("audio paused");
         }
     }
