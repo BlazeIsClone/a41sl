@@ -64,7 +64,7 @@ const sunRadio = "http://209.133.216.3:7058/;stream.mp3";
 
 //Radio Command
 client.on("message", async message => {
-    if (!message.guild) return;
+    if (!message.guild) return message.reply('You have to be in a voice channel to play music');
     if (message.content === "/sunfm dapn") {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
