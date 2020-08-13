@@ -66,13 +66,18 @@ client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/sunfm dapn") {
         if (message.member.voice.channel) {
+            var connection = await message.member.voice.channel.join();
             dispatcher = connection.play(sunRadio);
+            console.log('playing sun')
         } else if (message.content === "/kissfm dapn") {
             dispatcher = connection.play(kissRadio);
+            console.log('playing kiss')
         } else if (message.content === "/goldfm dapn") {
             dispatcher = connection.play(goldRadio);
+            console.log('playing gold')
         } else if (message.content === "/tnl dapn") {
             dispatcher = connection.play(tnlrocksRadio);
+            console.log('playing tnl')
         }
     }
 });
