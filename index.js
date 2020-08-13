@@ -12,8 +12,8 @@ client.on("ready", () => {
 
 // Help Command
 client.on("message", msg => {
-    if (msg.content == "/help") {
-        msg.reply(exampleEmbed);
+    if (msg.content == "/udaw") {
+        msg.reply();
     }
 });
 
