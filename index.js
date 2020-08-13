@@ -13,7 +13,7 @@ client.on("ready", () => {
 // Help Command
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/hi wifu") {
+    if (message.content === "/udaw") {
         message.reply(exampleEmbed);
     }
 });
