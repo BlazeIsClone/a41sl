@@ -13,10 +13,7 @@ client.on("ready", () => {
 // Help Command
 client.on("message", msg => {
     if (msg.content == "/udaw") {
-        const exampleEmbed = new discord.MessageEmbed()
-            .setColor("#0099ff")
-            .setTitle("Some title");
-        channel.send(exampleEmbed );
+        channel.send(exampleEmbed);
     }
 });
 
