@@ -68,7 +68,7 @@ client.on("message", async message => {
     if (message.content === "/sunfm dapn") {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(sunRadio);
+            dispatcher = connection.play(kissRadio);
             console.log("playing sun");
         }
     }
