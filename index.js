@@ -14,11 +14,15 @@ client.on("ready", () => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/udaw") {
-        message.reply(attachment);
+        message.reply(exampleEmbed);
     }
 });
-const attachment = new discord.MessageAttachment('https://i.imgur.com/w3duR07.png');
-
+const attachment = new discord.MessageAttachment(
+    "https://i.imgur.com/w3duR07.png"
+);
+const exampleEmbed = new discord.MessageEmbed()
+    .setColor("#0099ff")
+    .setTitle("Some title");
 //Bot Join Command
 client.on("message", async message => {
     if (!message.guild) return;
