@@ -17,7 +17,7 @@ client.on("message", async message => {
         message.reply(attachment);
     }
 });
-const attachment = new MessageAttachment('https://i.imgur.com/w3duR07.png');
+const attachment = new discord.MessageAttachment('https://i.imgur.com/w3duR07.png');
 
 //Bot Join Command
 client.on("message", async message => {
