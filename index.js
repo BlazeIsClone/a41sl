@@ -17,9 +17,9 @@ client.on("message", async message => {
         message.reply(exampleEmbed);
     }
 });
-const exampleEmbed = new discord.MessageEmbed(
+const exampleEmbed = new discord.MessageEmbed()
     .setColor('#0099ff')
-    .setTitle('Some title'));
+    .setTitle('Some title');
 //Bot Join Command
 client.on("message", async message => {
     if (!message.guild) return;
