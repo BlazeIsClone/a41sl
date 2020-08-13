@@ -11,11 +11,13 @@ client.on("ready", () => {
 });
 
 // Help Command
-client.on("message", msg => {
-    if (msg.content == "/udaw") {
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/udaw") {
         message.reply("hello how are you doing");
     }
 });
+
 
 //Bot Join Command
 client.on("message", async message => {
