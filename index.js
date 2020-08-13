@@ -32,7 +32,7 @@ client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/palayan") {
         if (message.member.voice.channel) {
-            connection = await message.member.voice.channel.leave();
+            connection =  message.member.voice.channel.leave();
         }
     }
 });
@@ -57,15 +57,29 @@ client.on("message", async message => {
     }
 });
 
-const kissRadio = "http://198.178.123.8:8404/;"
-const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3"
-const goldRadio = "http://209.133.216.3:7048/;"
-const sunRadio = "http://209.133.216.3:7058/;stream.mp3"
+const kissRadio = "http://198.178.123.8:8404/;";
+const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3";
+const goldRadio = "http://209.133.216.3:7048/;";
+const sunRadio = "http://209.133.216.3:7058/;stream.mp3";
 
 //Radio Command
 client.on("message", async message => {
-    if (!message.guild) return message.reply('You have to be in a voice channel to play music');
+    if (!message.guild)
+        return message.reply("You have to be in a voice channel to play music");
     if (message.content === "/sunfm dapn") {
+        if (message.member.voice.channel) {
+            connection = await message.member.voice.channel.join();
+            dispatcher = connection.play(sunRadio);
+            console.log("playing sun");
+        }
+    }
+});
+
+//Radio Command
+client.on("message", async message => {
+    if (!message.guild)
+        return message.reply("You have to be in a voice channel to play music");
+    if (message.content === "/kissfm dapn") {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(kissRadio);
@@ -76,19 +90,8 @@ client.on("message", async message => {
 
 //Radio Command
 client.on("message", async message => {
-    if (!message.guild) return message.reply('You have to be in a voice channel to play music');
-    if (message.content === "/kiss dapn") {
-        if (message.member.voice.channel) {
-            connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(kissRadio);
-            console.log("playing kiss");
-        }
-    }
-});
-
-//Radio Command
-client.on("message", async message => {
-    if (!message.guild) return message.reply('You have to be in a voice channel to play music');
+    if (!message.guild)
+        return message.reply("You have to be in a voice channel to play music");
     if (message.content === "/gold dapn") {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
@@ -100,7 +103,8 @@ client.on("message", async message => {
 
 //Radio Command
 client.on("message", async message => {
-    if (!message.guild) return message.reply('You have to be in a voice channel to play music');
+    if (!message.guild)
+        return message.reply("You have to be in a voice channel to play music");
     if (message.content === "/tnl dapn") {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
