@@ -24,8 +24,8 @@ client.on("message", async message => {
                 title: "Mn Oyata udaw karanawa saho",
                 url: "http://google.com",
                 description:
-                    "/waren mn enawa /palayan mn yanawa /sun dapn , /kiss dapn , /tnl dapn , /gold dapn",
-               timestamp: new Date(),
+                    "waren mn enawa palayan mn yanawa sun dapn , kiss dapn , tnl dapn , gold dapn",
+                timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
                     text: "© Example"
