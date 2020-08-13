@@ -57,10 +57,10 @@ client.on("message", async message => {
     }
 });
 
-const kissRadio = "http://198.178.123.8:8404/;";
-const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3";
-const goldRadio = "http://209.133.216.3:7048/;";
-const sunRadio = "http://209.133.216.3:7058/;stream.mp3";
+const kissRadio = "http://198.178.123.8:8404/;"
+const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3"
+const goldRadio = "http://209.133.216.3:7048/;"
+const sunRadio = "http://209.133.216.3:7058/;stream.mp3"
 
 //Radio Command
 client.on("message", async message => {
