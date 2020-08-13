@@ -38,7 +38,6 @@ const exampleEmbed = new Discord.MessageEmbed()
     .setTimestamp()
     .setFooter("Some footer text here", "https://i.imgur.com/wSTFkRM.png");
 
-});
 
 //Bot Join Command
 client.on("message", async message => {
