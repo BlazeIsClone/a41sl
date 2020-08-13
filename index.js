@@ -13,7 +13,7 @@ client.on("ready", () => {
 // Help Command
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/udaw") {
+    if (message.content === "/rules") {
         message.channel.send({
             embed: {
                 color: 3447003,
