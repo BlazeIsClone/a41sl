@@ -66,9 +66,14 @@ client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/sunfm dapn") {
         if (message.member.voice.channel) {
-            var connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(kissRadio);
+            dispatcher = connection.play(sunRadio);
         }
+    } else if (message.content === "/kissfm dapn") {
+        dispatcher = connection.play(kissRadio)
+    } else if (message.content === "/goldfm dapn") {
+        dispatcher = connection.play(goldRadio)
+    }else if (message.content === "/tnl dapn") {
+        dispatcher = connection.play(tnlrocksRadio)
     }
 });
 
@@ -79,17 +84,6 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             dispatcher = connection.pause();
             console.log("audio paused");
-        }
-    }
-});
-
-//Radio Resume Command
-client.on("message", async message => {
-    if (!message.guild) return;
-    if (message.content === "/resume karapn") {
-        if (message.memeber.voice.channel) {
-            dispatcher = connenction.resume();
-            console.log("resumed");
         }
     }
 });
