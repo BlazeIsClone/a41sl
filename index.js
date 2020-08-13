@@ -21,10 +21,10 @@ client.on("message", async message => {
                     name: client.user.username,
                     icon_url: client.user.avatarURL
                 },
-                title: "This is an embed",
+                title: "Mn Oyata udaw karanawa saho",
                 url: "http://google.com",
                 description:
-                    "This is a test embed to showcase what they look like and what they can do.",
+                    "/waren mn enawa /palayan mn yanawa /sun dapn , /kiss dapn , /tnl dapn , /gold dapn",
                timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
