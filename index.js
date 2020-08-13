@@ -22,7 +22,6 @@ client.on("message", async message => {
     if (message.content === "/waren") {
         if (message.member.voice.channel) {
             var connection = await message.member.voice.channel.join();
-            dispatcher = connection.play("http://198.178.123.8:8404/;");
         }
     }
 });
@@ -57,10 +56,10 @@ client.on("message", async message => {
     }
 });
 
-const srcOne = "http://198.178.123.8:8404/;";
-const srcTwo = "http://live.tnlrn.com:8010/live.mp3";
-const srcThree = "http://209.133.216.3:7048/;";
-const srcFour = "http://209.133.216.3:7058/;stream.mp3";
+const kissRadio = "http://198.178.123.8:8404/;";
+const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3";
+const goldRadio = "http://209.133.216.3:7048/;";
+const sunRadio = "http://209.133.216.3:7058/;stream.mp3";
 
 //Radio Command
 client.on("message", async message => {
@@ -68,7 +67,7 @@ client.on("message", async message => {
     if (message.content === "/sunfm dapn") {
         if (message.member.voice.channel) {
             var connection = await message.member.voice.channel.join();
-            dispatcher = connection.play("http://live.tnlrn.com:8010/live.mp3");
+            dispatcher = connection.play(kissRadio);
         }
     }
 });
@@ -76,9 +75,21 @@ client.on("message", async message => {
 //Radio Stop Command
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/stop") {
+    if (message.content === "/stop karapn") {
         if (message.member.voice.channel) {
-            dispatcher = null;
+            dispatcher = connection.pause();
+            console.log("audio paused");
+        }
+    }
+});
+
+//Radio Resume Command
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/resume karapn") {
+        if (message.memeber.voice.channel) {
+            dispatcher = connenction.resume();
+            console.log("resumed");
         }
     }
 });
