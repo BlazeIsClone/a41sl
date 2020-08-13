@@ -12,7 +12,7 @@ client.on("ready", () => {
 
 // Help Command
 client.on("message", msg => {
-    if (msg.content == "/udaw") {
+    if (msg.content === "/udaw") {
         chennel.send('still working on')
     }
 });
