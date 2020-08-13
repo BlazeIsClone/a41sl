@@ -1,5 +1,5 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const discord = require("discord.js");
+const client = new discord.Client();
 const token = process.env.token;
 client.login(token);
 var dispatcher;
@@ -16,7 +16,7 @@ client.on("message", msg => {
         msg.reply(exampleEmbed);
     }
 });
-const exampleEmbed = new Discord.MessageEmbed()
+const exampleEmbed = new discord.MessageEmbed()
     .setColor("#0099ff")
     .setTitle("Some title")
     .setURL("https://discord.js.org/")
