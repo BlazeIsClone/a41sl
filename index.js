@@ -48,8 +48,8 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
         }else{
-            channel.send('you have to be in a voice channel')
-        }
+            message.reply('You must be in a voice chennel first!')
+        } 
     }
 });
 
