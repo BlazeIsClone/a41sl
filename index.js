@@ -20,14 +20,14 @@ client.on("message", async message => {
                 color: 3447003,
                 author: {
                     name: "Hi, Welcome to All for one SL!",
-                    icon_url:'https://i.imgur.com/wSTFkRM.png',
+                    icon_url: "https://i.imgur.com/wSTFkRM.png"
                 },
                 title: rules.title,
                 url: "http://google.com",
                 description: rules.bodyRules,
                 timestamp: new Date(),
                 footer: {
-                    icon_url:'https://i.imgur.com/wSTFkRM.png',
+                    icon_url: "https://i.imgur.com/wSTFkRM.png",
                     text: "Team A41SL"
                 }
             }
