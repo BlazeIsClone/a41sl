@@ -24,7 +24,7 @@ client.on("message", async message => {
                 },
                 title: "Mn Oyata udaw karanawa saho",
                 url: "http://google.com",
-                description: rulesList.bodyRules,
+                description: rules.rulesList.bodyRules,
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
