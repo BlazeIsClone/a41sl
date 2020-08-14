@@ -47,8 +47,6 @@ client.on("message", async message => {
     if (message.content === "/waren") {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-        } else if (!message.member.voice.channel) {
-            message.reply("You must be in a voice chennel first!");
         }
     }
 });
