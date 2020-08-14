@@ -43,12 +43,12 @@ const attachment = new discord.MessageAttachment(
 );
 //Bot Join Command
 client.on("message", async message => {
-    if (!message.guild) {
-        channel.send('you have to be in a voice channel')
-    };
+    if (!message.guild) return;
     if (message.content === "/waren") {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
+        }else{
+            channel.send('you have to be in a voice channel')
         }
     }
 });
