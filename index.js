@@ -1,6 +1,7 @@
 const discord = require("discord.js");
 const client = new discord.Client();
 const token = process.env.token;
+const rules = require('rules.js');
 client.login(token);
 var dispatcher;
 var connection;
@@ -24,7 +25,7 @@ client.on("message", async message => {
                 title: "Mn Oyata udaw karanawa saho",
                 url: "http://google.com",
                 description:
-                    "waren mn enawa palayan mn yanawa sun dapn , kiss dapn , tnl dapn , gold dapn",
+                    rulesList,
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
