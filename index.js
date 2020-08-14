@@ -25,6 +25,9 @@ client.on("message", async message => {
                 title: rules.title,
                 url: "http://google.com",
                 description: rules.bodyRules,
+                thumbnail: {
+                    url: "https://i.imgur.com/wSTFkRM.png"
+                },
                 timestamp: new Date(),
                 footer: {
                     icon_url: "https://i.imgur.com/wSTFkRM.png",
