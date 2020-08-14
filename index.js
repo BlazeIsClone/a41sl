@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 const client = new discord.Client();
 const token = process.env.token;
-const rules = require('rules.js');
+const rules = require("./rules.js");
 client.login(token);
 var dispatcher;
 var connection;
@@ -24,8 +24,7 @@ client.on("message", async message => {
                 },
                 title: "Mn Oyata udaw karanawa saho",
                 url: "http://google.com",
-                description:
-                    rules.rulesList,
+                description: rulesList.bodyRules,
                 timestamp: new Date(),
                 footer: {
                     icon_url: client.user.avatarURL,
