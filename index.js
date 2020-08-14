@@ -20,7 +20,6 @@ client.on("message", async message => {
                 color: 3447003,
                 author: {
                     name: "Hi, Welcome to All for one SL!",
-                    icon_url: client.user.avatarURL
                     icon_url:'https://i.imgur.com/wSTFkRM.png',
                 },
                 title: rules.title,
