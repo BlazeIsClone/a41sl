@@ -27,8 +27,8 @@ client.on("message", async message => {
                 description: rules.bodyRules,
                 timestamp: new Date(),
                 footer: {
-                    icon_url: client.user.avatarURL,
-                    text: "© Example"
+                    icon_url:'https://i.imgur.com/wSTFkRM.png',
+                    text: "Team A41SL"
                 }
             }
         });
