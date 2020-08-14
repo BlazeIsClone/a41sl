@@ -15,7 +15,7 @@ client.on("ready", () => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/rules") {
-        message.channel.send({
+        message.author.send({
             embed: {
                 color: 3447003,
                 author: {
