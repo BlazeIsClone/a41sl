@@ -19,10 +19,10 @@ client.on("message", async message => {
             embed: {
                 color: 3447003,
                 author: {
-                    name: client.user.username,
+                    name: client.user.username + " Server Rules",
                     icon_url: client.user.avatarURL
                 },
-                title: "Mn Oyata udaw karanawa saho",
+                title: rules.title,
                 url: "http://google.com",
                 description: rules.bodyRules,
                 timestamp: new Date(),
