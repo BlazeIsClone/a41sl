@@ -1,4 +1,4 @@
-const rulesList = {
+const rules = {
     bodyRules:
         "    No blank nicknames." +
         "    No inappropriate nicknames." +
@@ -41,4 +41,4 @@ const rulesList = {
         "    Moderators reserve the right to disconnect, mute, deafen, or move members to and from voice channels."
 };
 
-module.exports = rulesList;
+module.exports = rules;
