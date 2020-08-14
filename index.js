@@ -19,7 +19,7 @@ client.on("message", async message => {
             embed: {
                 color: 3447003,
                 author: {
-                    name: client.user.username + " Server Rules",
+                    name: "Hi, Welcome to All for one SL!",
                     icon_url: client.user.avatarURL
                 },
                 title: rules.title,
