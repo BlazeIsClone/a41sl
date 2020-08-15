@@ -3,7 +3,7 @@ const client = new discord.Client();
 const token = process.env.token;
 const rules = require("./rules.js");
 const ytdl = require("ytdl-core");
-const prefix = "!";
+const prefix = "$";
 var dispatcher;
 var connection;
 
@@ -186,7 +186,7 @@ async function execute(message, serverQueue) {
 }
 
 //Getting Audio With YTDL
-const songInfo = await ytdl.getInfo(args[1]);
+const songInfo = ytdl.getInfo(args[1]);
 const song = {
     title: songInfo.title,
     url: songInfo.video_url
