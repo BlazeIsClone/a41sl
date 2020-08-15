@@ -186,7 +186,9 @@ async function execute(message, serverQueue) {
 }
 
 //Getting Audio With YTDL
-const songInfo = ytdl.getInfo(args[1]);
+(async () => {
+const songInfo = await ytdl.getInfo(args[1]);
+})();
 const song = {
     title: songInfo.title,
     url: songInfo.video_url
@@ -211,7 +213,9 @@ if (!serverQueue) {
 
     try {
         //Here We Try To Join The Voice Chat And Save Our Connection Into Obj
+        (async () => {
         connection = await voiceChannel.join();
+        })();
 
         //Calling The Play Function To Start A Song
         play(message.guild, queueContruct.songs[0]);
