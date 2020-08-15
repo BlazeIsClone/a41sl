@@ -168,6 +168,7 @@ client.on("message", async message => {
 
 //Music Permissions
 const queue = new Map();
+const serverQueue = queue.get(guild.id);
 
 async function execute(message, serverQueue) {
     const args = message.content.split(" ");
@@ -251,7 +252,6 @@ function stop(message, serverQueue) {
 }
 
 function play(guild, song) {
-    const serverQueue = queue.get(guild.id);
     if (!song) {
         serverQueue.voiceChannel.leave();
         queue.delete(guild.id);
