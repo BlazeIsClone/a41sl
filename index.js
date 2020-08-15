@@ -1,5 +1,5 @@
-const discord = require("discord.js");
-const client = new discord.Client();
+const Discord = require("discord.js");
+const client = new Discord.Client();
 const token = process.env.token;
 const rules = require("./rules.js");
 const ytdl = require("ytdl-core");
