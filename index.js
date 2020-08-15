@@ -188,11 +188,11 @@ async function execute(message, serverQueue) {
 //Getting Audio With YTDL
 (async () => {
 const songInfo = await ytdl.getInfo(args[1]);
-})();
 const song = {
     title: songInfo.title,
     url: songInfo.video_url
 };
+})();
 
 //Creating The Contract For The Queue
 if (!serverQueue) {
