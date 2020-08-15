@@ -6,13 +6,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0",
+    "@discordjs/opus": "^0.3.2",
+    "discord.js": "^12.3.0",
+    "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.6",
-    "opusscript": "0.0.7"
+    "fluent-ffmpeg": "^2.1.2",
+    "opusscript": "0.0.7",
+    "ytdl-core": "^3.2.1"
   },
   "engines": {
-      "node": "10.19.0",
-      "npm": "6.14.4"
-    }
+    "node": "10.19.0",
+    "npm": "6.14.4"
   }
-
+}
