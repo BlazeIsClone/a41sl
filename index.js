@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const { prefix,token } = require("./config.json");
+const { prefix } = require("./config.json");
+const token = process.env.token;
 const ytdl = require("ytdl-core");
 const rules = require("./rules.js");
 const client = new Discord.Client();
