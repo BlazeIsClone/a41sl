@@ -194,11 +194,10 @@ async function execute(message, serverQueue) {
     };
 })();
 
-var textChannel = message.channel;
 //Creating The Contract For The Queue
 if (!serverQueue) {
     const queueContruct = {
-        // textChannel: message.channel,
+        textChannel: message.channel,
         voiceChannel: voiceChannel,
         connection: null,
         songs: [],
@@ -267,5 +266,6 @@ function play(guild, song) {
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
     serverQueue.textChannel.send(`Start playing: **${song.title}**`);
 }
+
 
 client.login(token);
