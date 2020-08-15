@@ -6,7 +6,7 @@ const ytdl = require("ytdl-core");
 const prefix = "$";
 var dispatcher;
 var connection;
-
+var serverQueue;
 //Bot status
 
 client.once("ready", () => {
@@ -150,7 +150,7 @@ client.on("message", async message => {
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
 
-    const serverQueue = queue.get(message.guild.id);
+    serverQueue = queue.get(message.guild.id);
 
     if (message.content.startsWith(`${prefix}play`)) {
         execute(message, serverQueue);
@@ -251,7 +251,7 @@ function stop(message, serverQueue) {
 }
 
 function play(guild, song) {
-    const serverQueue = queue.get(guild.id);
+    serverQueue = queue.get(guild.id);
     if (!song) {
         serverQueue.voiceChannel.leave();
         queue.delete(guild.id);
