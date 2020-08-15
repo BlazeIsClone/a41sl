@@ -194,10 +194,11 @@ async function execute(message, serverQueue) {
     };
 })();
 
+var textChannel = message.channel;
 //Creating The Contract For The Queue
 if (!serverQueue) {
     const queueContruct = {
-        textChannel: message.channel,
+        // textChannel: message.channel,
         voiceChannel: voiceChannel,
         connection: null,
         songs: [],
@@ -207,9 +208,7 @@ if (!serverQueue) {
 
     //Setting The Queue Using Our Contract
     queue.set(message.guild.id, queueContruct);
-
-    //Pushing The Songs To The Songs Array
-    queueContruct.songs.push(song);
+    //Pushing The Songs To The Songs Array queueContruct.songs.push(song);
 
     try {
         //Here We Try To Join The Voice Chat And Save Our Connection Into Obj
