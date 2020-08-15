@@ -168,7 +168,6 @@ client.on("message", async message => {
 
 //Music Permissions
 const queue = new Map();
-const serverQueue = queue.get(guild.id);
 
 async function execute(message, serverQueue) {
     const args = message.content.split(" ");
@@ -188,11 +187,11 @@ async function execute(message, serverQueue) {
 
 //Getting Audio With YTDL
 (async () => {
-const songInfo = await ytdl.getInfo(args[1]);
-const song = {
-    title: songInfo.title,
-    url: songInfo.video_url
-};
+    const songInfo = await ytdl.getInfo(args[1]);
+    const song = {
+        title: songInfo.title,
+        url: songInfo.video_url
+    };
 })();
 
 //Creating The Contract For The Queue
@@ -215,7 +214,7 @@ if (!serverQueue) {
     try {
         //Here We Try To Join The Voice Chat And Save Our Connection Into Obj
         (async () => {
-        connection = await voiceChannel.join();
+            connection = await voiceChannel.join();
         })();
 
         //Calling The Play Function To Start A Song
@@ -252,6 +251,7 @@ function stop(message, serverQueue) {
 }
 
 function play(guild, song) {
+    const serverQueue = queue.get(guild.id);
     if (!song) {
         serverQueue.voiceChannel.leave();
         queue.delete(guild.id);
