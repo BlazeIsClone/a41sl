@@ -166,7 +166,7 @@ client.on("message", async message => {
 });
 
 // User Welcome Message
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", async member => {
     // Send the message to a designated channel on a server:
     const channel = member.guild.channels.cache.find(
         ch => ch.name === "welcome"
