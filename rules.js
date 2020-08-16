@@ -9,6 +9,6 @@ const rulesEmbed = new Discord.MessageEmbed()
     .setImage('https://i.imgur.com/wSTFkRM.png')
     .setTimestamp()
     .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-m
+
 
 module.exports = rulesEmbed;
