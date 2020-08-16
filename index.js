@@ -137,28 +137,27 @@ function play(guild, song) {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/rules") {
-        message.author.send({
-            embed: {
-                color: 3447003,
-                author: {
-                    name: "Hi, Welcome to All for one SL!",
-                    icon_url: "https://i.imgur.com/wSTFkRM.png"
-                },
-                title: rules.title,
-                url: "http://google.com",
-                description: rules.bodyRules,
-                thumbnail: {
-                    url: "https://i.imgur.com/wSTFkRM.png"
-                },
-                timestamp: new Date(),
-                footer: {
-                    icon_url: "https://i.imgur.com/wSTFkRM.png",
-                    text: "Team A41SL"
-                }
-            }
-        });
+        message.author.send(channel.send(exampleEmbed));
     }
 });
+
+const exampleEmbed = new Discord.MessageEmbed()
+    .setColor('#0099ff')
+    .setTitle('Some title')
+    .setURL('https://discord.js.org/')
+    .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+    .setDescription('Some description here')
+    .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+    .addFields(
+            { name: 'Regular field title', value: 'Some value here' },
+            { name: '\u200B', value: '\u200B' },
+            { name: 'Inline field title', value: 'Some value here', inline: true },
+            { name: 'Inline field title', value: 'Some value here', inline: true },
+        )
+    .addField('Inline field title', 'Some value here', true)
+    .setImage('https://i.imgur.com/wSTFkRM.png')
+    .setTimestamp()
+    .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
 //Bot Join Command
 client.on("message", async message => {
