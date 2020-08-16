@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const { prefix } = require("./config.json");
 const { MessageEmbed } = require("discord.js");
+const Canvas = require('canvas');
 const token = process.env.token;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./rules.js");
