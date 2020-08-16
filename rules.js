@@ -1,3 +1,4 @@
+const Discord = require("discord.js")
 const rulesEmbed = new Discord.MessageEmbed()
     .setColor('#0099ff')
     .setTitle('Here you can meet new people and game with everyone and anyone you know. Use the server responsibly and have fun!')
