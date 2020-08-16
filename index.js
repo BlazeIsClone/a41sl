@@ -3,7 +3,7 @@ const { prefix } = require("./config.json");
 const { MessageEmbed } = require("discord.js") 
 const token = process.env.token;
 const ytdl = require("ytdl-core");
-const rules = require("./rules.js");
+const rulesEmbed = require("./rules.js");
 const client = new Discord.Client();
 var dispatcher;
 var connection;
