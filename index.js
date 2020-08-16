@@ -138,7 +138,7 @@ function play(guild, song) {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/rules") {
-        message.author.send(channel.send(exampleEmbed));
+        message.author.send(exampleEmbed);
     }
 });
 
