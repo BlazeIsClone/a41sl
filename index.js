@@ -235,7 +235,7 @@ const kissRadio = "http://198.178.123.8:8404/;";
 const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3";
 const goldRadio = "http://209.133.216.3:7048/;";
 const sunRadio = "http://209.133.216.3:7058/;stream.mp3";
-
+const yesRadio = "http://live.trusl.com:1150/;";
 //Radio Command
 client.on("message", async message => {
     if (!message.guild) return;
@@ -283,6 +283,20 @@ client.on("message", async message => {
         }
     }
 });
+
+//Radio Command
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/yes dapn") {
+        if (message.member.voice.channel) {
+            connection = await message.member.voice.channel.join();
+            dispatcher = connection.play(yesRadio);
+            console.log("playing tnl");
+        }
+    }
+});
+
+
 
 client.on("message", async message => {
     if (!message.guild) return;
