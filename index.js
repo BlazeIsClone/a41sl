@@ -13,7 +13,7 @@ var connection;
 
 client.once("ready", () => {
     console.log("Ready!");
-    bot.user.setPresence({
+    client.user.setPresence({
         status: "online",
         activity: {
             name: "with depression",
