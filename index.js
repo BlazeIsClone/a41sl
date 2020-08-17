@@ -235,7 +235,7 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("ready", () => {
-    client.user.setActivity("my code", { type: "WATCHING" });
+    client.user.setActivity("https://www.twitch.tv/snowv_streams", { type: "WATCHING" });
 });
 
 client.on("guildMemberRemove", member => {
