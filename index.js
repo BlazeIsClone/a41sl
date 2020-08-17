@@ -13,7 +13,14 @@ var connection;
 
 client.once("ready", () => {
     console.log("Ready!");
-    client.user.setActivity('https://www.twitch.tv/snowv_streams', { type: 'WATCHING' });
+    bot.user.setPresence({
+        status: "online",
+        activity: {
+            name: "with depression",
+            type: "STREAMING",
+            url: "https://www.twitch.tv/monstercat"
+        }
+    });
 });
 
 const queue = new Map();
