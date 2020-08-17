@@ -1,3 +1,4 @@
+const client = require('discord-rich-presence')('180984871685062656');
 const Discord = require("discord.js");
 const { prefix } = require("./config.json");
 const { MessageEmbed } = require("discord.js");
