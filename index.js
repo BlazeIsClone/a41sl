@@ -16,9 +16,9 @@ client.once("ready", () => {
     client.user.setPresence({
         status: "online",
         activity: {
-            name: "with depression",
-            type: "STREAMING",
-            url: "https://www.twitch.tv/monstercat"
+            name: "Chill Vibes 🎮",
+            type: "Streaming",
+            url: "https://www.twitch.tv/snowv_streams"
         }
     });
 });
