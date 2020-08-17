@@ -231,10 +231,10 @@ client.on("guildMemberAdd", async member => {
         canvas.toBuffer(),
         "welcome-image.png"
     );
-    <client>.user.setActivity('https://www.twitch.tv/snowv_streams', { type: 'WATCHING' });
     channel.send(`Hey Welcome to All For One SL, ${member}!`, attachment);
 });
 
+    client.user.setActivity('https://www.twitch.tv/snowv_streams', { type: 'WATCHING' });
 client.on("guildMemberRemove", member => {
     const channelGoodBye = member.guild.channels.cache.find(
         ch => ch.name === "goodbye"
