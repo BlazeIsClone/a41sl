@@ -168,10 +168,11 @@ client.on("message", async message => {
 
 // User Welcome Message
 client.on("guildMemberAdd", async member => {
-    // Send the message to a designated channel on a server:
+
     const channel = member.guild.channels.cache.find(
         ch => ch.name === "welcome"
     );
+
     if (!channel) return;
     const canvas = Canvas.createCanvas(700, 250);
     const ctx = canvas.getContext("2d");
@@ -179,7 +180,7 @@ client.on("guildMemberAdd", async member => {
     const background = await Canvas.loadImage("./wallpaper.png");
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-    ctx.strokeStyle = "#74037b";
+    ctx.strokeStyle = "#0800ff";
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
     // Slightly smaller text placed above the member's display name
@@ -229,7 +230,7 @@ client.on("guildMemberAdd", async member => {
         "welcome-image.png"
     );
 
-    channel.send(`Welcome to the server, ${member}!`, attachment);
+    channel.send(`Hey ${member} ${attachment}, Welcome to All For One SL`);
 });
 const kissRadio = "http://198.178.123.8:8404/;";
 const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3";
