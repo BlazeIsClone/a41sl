@@ -236,7 +236,7 @@ client.on("guildMemberRemove", member => {
     const channelGoodBye = member.guild.channels.cache.find(
         ch => ch.name === "goodbye"
     );
-    if (!channel) return;
+    if (!channelGoodBye) return;
     channelGoodBye.send(
         `**${member.username}** has just left server.. Bye Bye`
     );
