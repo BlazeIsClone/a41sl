@@ -13,6 +13,14 @@ var connection;
 
 client.once("ready", () => {
     console.log("Ready!");
+    bot.user.setStatus("available");
+    bot.user.setPresence({
+        game: {
+            name: "Playing",
+            type: "STREAMING",
+            url: "https://www.twitch.tv/monstercat"
+        }
+    });
 });
 
 client.once("reconnecting", () => {
@@ -235,7 +243,9 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("ready", () => {
-    client.user.setActivity("https://www.twitch.tv/snowv_streams", { type: "WATCHING" });
+    client.user.setActivity("https://www.twitch.tv/snowv_streams", {
+        type: "WATCHING"
+    });
 });
 
 client.on("guildMemberRemove", member => {
