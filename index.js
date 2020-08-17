@@ -223,7 +223,7 @@ client.on("guildMemberAdd", async member => {
         member.user.displayAvatarURL({ format: "jpg" })
     );
     ctx.drawImage(avatar, 25, 25, 200, 200);
-    ctx.lineWidth = 16;
+    ctx.lineWidth = 13;
     ctx.strokeStyle = "white";
     ctx.stroke();
 
