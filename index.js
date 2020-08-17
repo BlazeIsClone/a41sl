@@ -13,11 +13,11 @@ var connection;
 
 client.once("ready", () => {
     console.log("Ready!");
-    client.user.setPresence({
+    bot.user.setPresence({
         status: "online",
         activity: {
-            name: "Chill Vibes 🎮",
-            type: "Streaming",
+            name: "with depression",
+            type: "STREAMING",
             url: "https://www.twitch.tv/snowv_streams"
         }
     });
