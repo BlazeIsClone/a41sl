@@ -1,4 +1,3 @@
-const client = require('discord-rich-presence')('180984871685062656');
 const Discord = require("discord.js");
 const { prefix } = require("./config.json");
 const { MessageEmbed } = require("discord.js");
@@ -14,16 +13,8 @@ var connection;
 
 client.once("ready", () => {
     console.log("Ready!");
-    bot.user.setStatus("available");
-    bot.user.setPresence({
-        game: {
-            name: "Playing",
-            type: "STREAMING",
-            url: "https://www.twitch.tv/monstercat"
-        }
-    });
+    client.user.setGame("Game");
 });
-
 client.once("reconnecting", () => {
     console.log("Reconnecting!");
 });
