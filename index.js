@@ -15,13 +15,6 @@ client.once("ready", () => {
     console.log("Ready!");
     client.user.setActivity('YouTube', { type: 'WATCHING' });
 });
-client.once("reconnecting", () => {
-    console.log("Reconnecting!");
-});
-
-client.once("disconnect", () => {
-    console.log("Disconnect!");
-});
 
 const queue = new Map();
 
@@ -232,12 +225,6 @@ client.on("guildMemberAdd", async member => {
         "welcome-image.png"
     );
     channel.send(`Hey Welcome to All For One SL, ${member}!`, attachment);
-});
-
-client.on("ready", () => {
-    client.user.setActivity("https://www.twitch.tv/snowv_streams", {
-        type: "WATCHING"
-    });
 });
 
 client.on("guildMemberRemove", member => {
