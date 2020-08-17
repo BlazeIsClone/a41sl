@@ -223,6 +223,8 @@ client.on("guildMemberAdd", async member => {
         member.user.displayAvatarURL({ format: "jpg" })
     );
     ctx.drawImage(avatar, 25, 25, 200, 200);
+    ctx.strokeStyle = "#ffffff";
+    ctx.stroke();
 
     const attachment = new Discord.MessageAttachment(
         canvas.toBuffer(),
