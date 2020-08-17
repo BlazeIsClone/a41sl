@@ -234,11 +234,10 @@ client.on("guildMemberAdd", async member => {
     channel.send(`Hey Welcome to All For One SL, ${member}!`, attachment);
 });
 
- client.on("ready", () => {
-     client.user.setActivity("my code", { type: "WATCHING"})
-     })
+client.on("ready", () => {
+    client.user.setActivity("my code", { type: "WATCHING" });
+});
 
-    client.user.setActivity('https://www.twitch.tv/snowv_streams', { type: 'WATCHING' });
 client.on("guildMemberRemove", member => {
     const channelGoodBye = member.guild.channels.cache.find(
         ch => ch.name === "goodbye"
