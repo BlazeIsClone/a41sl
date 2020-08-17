@@ -168,7 +168,6 @@ client.on("message", async message => {
 
 // User Welcome Message
 client.on("guildMemberAdd", async member => {
-
     const channel = member.guild.channels.cache.find(
         ch => ch.name === "welcome"
     );
@@ -231,6 +230,16 @@ client.on("guildMemberAdd", async member => {
     );
 
     channel.send(`Hey Welcome to All For One SL, ${member}!`, attachment);
+});
+
+client.on("guildMemberRemove", member => {
+    const channelGoodBye = member.guild.channels.cache.find(
+        ch => ch.name === "goodbye"
+    );
+    if (!channel) return;
+    channelGoodBye.send(
+        `**${member.username}** has just left server.. Bye Bye`
+    );
 });
 
 const kissRadio = "http://198.178.123.8:8404/;";
@@ -298,8 +307,6 @@ client.on("message", async message => {
         }
     }
 });
-
-
 
 client.on("message", async message => {
     if (!message.guild) return;
