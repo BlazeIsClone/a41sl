@@ -173,7 +173,7 @@ client.on("guildMemberAdd", async member => {
     );
 
     if (!channel) return;
-    const canvas = Canvas.createCanvas(700, 300);
+    const canvas = Canvas.createCanvas(700, 250);
     const ctx = canvas.getContext("2d");
 
     const background = await Canvas.loadImage("./wallpaper.png");
@@ -222,7 +222,7 @@ client.on("guildMemberAdd", async member => {
     const avatar = await Canvas.loadImage(
         member.user.displayAvatarURL({ format: "jpg" })
     );
-    ctx.drawImage(avatar, 25, 25, 150, 150);
+    ctx.drawImage(avatar, 25, 25, 200, 200);
 
     const attachment = new Discord.MessageAttachment(
         canvas.toBuffer(),
