@@ -238,7 +238,7 @@ client.on("guildMemberRemove", member => {
     );
     if (!channelGoodBye) return;
     channelGoodBye.send(
-        `**${member.username}** has just left server.. Bye Bye`
+        `**${member.displayName}** has just left server.. Bye Bye`
     );
 });
 
