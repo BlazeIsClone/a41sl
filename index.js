@@ -13,15 +13,15 @@ var connection;
 
 client.once("ready", () => {
     console.log("Ready!");
-    bot.user.setPresence({
-        status: "online",
+    client.user.setPresence({
+        status: 'online',
         activity: {
-            name: "with depression",
-            type: "STREAMING",
-            url: "https://www.twitch.tv/snowv_streams"
-        }
-    });
-});
+                name: 'with depression',
+                type: 'STREAMING',
+                url: 'https://www.twitch.tv/snowv_streams'
+            }
+    })
+  });
 
 const queue = new Map();
 
