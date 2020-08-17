@@ -187,8 +187,8 @@ client.on("guildMemberAdd", async member => {
     ctx.fillStyle = "#ffffff";
     ctx.fillText(
         "Welcome to the server,",
-        canvas.width / 2.5,
-        canvas.height / 3.5
+        canvas.width / 3.5,
+        canvas.height / 4.5
     );
     const applyText = (canvas, text) => {
         const ctx = canvas.getContext("2d");
