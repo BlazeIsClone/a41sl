@@ -16,7 +16,7 @@ client.once("ready", () => {
     client.user.setPresence({
         status: 'online',
         activity: {
-                name: 'with depression',
+                name: 'Chill Vibes 🎮',
                 type: 'STREAMING',
                 url: 'https://www.twitch.tv/snowv_streams'
             }
