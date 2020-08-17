@@ -13,7 +13,7 @@ var connection;
 
 client.once("ready", () => {
     console.log("Ready!");
-    client.user.setGame("Game");
+    client.user.setActivity('YouTube', { type: 'WATCHING' });
 });
 client.once("reconnecting", () => {
     console.log("Reconnecting!");
