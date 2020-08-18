@@ -16,7 +16,7 @@ client.once("ready", () => {
     client.user.setPresence({
         status: "online",
         activity: {
-            name: "with Snowv 🎮",
+            name: "with Snow**V** 🎮",
             type: "STREAMING",
             details: "Watching Snowv",
             url: "https://www.twitch.tv/snowv_streams"
@@ -243,7 +243,7 @@ client.on("guildMemberRemove", member => {
     const goodbyeEmbed = new Discord.MessageEmbed()
     .setColor("#FF0000")
     .setImage(member.user.displayAvatarURL({ format: "jpg" }))
-    .setTitle(":ringed_planet: It's a goodbye! :ringed_planet:")
+    .setTitle("It's a goodbye! :ringed_planet:")
     .setDescription(
         `**${member.displayName}** has left for adventure .`
     )
