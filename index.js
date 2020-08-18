@@ -6,6 +6,7 @@ const token = process.env.token;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./rules.js");
 const client = new Discord.Client();
+const rulesEmbed = new Discord.MessageEmbed();
 var dispatcher;
 var connection;
 
@@ -239,9 +240,13 @@ client.on("guildMemberRemove", member => {
         ch => ch.name === "goodbye"
     );
     if (!channelGoodBye) return;
-    channelGoodBye.send(
-        `**${member.displayName}** has left for adventure :ringed_planet: .`
-    );
+    channelGoodBye
+        .send(
+            `**${member.displayName}** has left for adventure :ringed_planet: .`
+        )
+        .setColor("#0099ff")
+        .setImage("https://i.imgur.com/wSTFkRM.png")
+        .setTimestamp();
 });
 
 const kissRadio = "http://198.178.123.8:8404/;";
