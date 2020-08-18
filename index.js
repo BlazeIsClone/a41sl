@@ -17,7 +17,7 @@ client.once("ready", () => {
         status: "online",
         activity: {
             name: "with SnowV 🎮",
-            type: "WATCHING",
+            type: "STREAMING",
             details: "Watching Snowv",
             url: "https://www.twitch.tv/snowv_streams"
         }
