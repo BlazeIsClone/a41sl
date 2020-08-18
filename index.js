@@ -242,14 +242,15 @@ client.on("guildMemberRemove", member => {
     channelGoodBye.send(goodbyeEmbed);
 });
 
-const goodbyeEmbed = new Discord.MessageEmbed()
-    .setColor("#FF0000")
-    .setImage(message.author.avatarURL)
-    .setDescription(
-        `**${member.displayName}** has left for adventure :ringed_planet: .`
-    )
-    .setTimestamp();
-
+client.on("message", message => {
+    const goodbyeEmbed = new Discord.MessageEmbed()
+        .setColor("#FF0000")
+        .setImage(message.author.avatarURL)
+        .setDescription(
+            `**${member.displayName}** has left for adventure :ringed_planet: .`
+        )
+        .setTimestamp();
+});
 const kissRadio = "http://198.178.123.8:8404/;";
 const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3";
 const goldRadio = "http://209.133.216.3:7048/;";
