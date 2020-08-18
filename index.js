@@ -6,7 +6,6 @@ const token = process.env.token;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./rules.js");
 const client = new Discord.Client();
-const rulesEmbed = new Discord.MessageEmbed();
 var dispatcher;
 var connection;
 
