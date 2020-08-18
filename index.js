@@ -14,14 +14,15 @@ var connection;
 client.once("ready", () => {
     console.log("Ready!");
     client.user.setPresence({
-        status: 'online',
+        status: "online",
         activity: {
-                name: 'Chill Vibes 🎮',
-                type: 'STREAMING',
-                url: 'https://www.twitch.tv/snowv_streams'
-            }
-    })
-  });
+            name: "Chill Vibes 🎮",
+            type: "STREAMING",
+            details: 'Watching Snowv',
+            url: "https://www.twitch.tv/snowv_streams"
+        }
+    });
+});
 
 const queue = new Map();
 
