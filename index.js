@@ -242,10 +242,11 @@ client.on("guildMemberRemove", member => {
     channelGoodBye
         .send(
             `**${member.displayName}** has left for adventure :ringed_planet: .`
-        )
+        
         .setColor("#0099ff")
         .setImage("https://i.imgur.com/wSTFkRM.png")
         .setTimestamp();
+        )
 });
 
 const kissRadio = "http://198.178.123.8:8404/;";
