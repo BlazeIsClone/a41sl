@@ -8,8 +8,6 @@ const rulesEmbed = require("./rules.js");
 const client = new Discord.Client();
 var dispatcher;
 var connection;
-const emitter = new EventEmitter()
-emitter.setMaxListeners(0)
 
 //Bot status
 client.once("ready", () => {
