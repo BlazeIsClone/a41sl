@@ -239,7 +239,6 @@ client.on("guildMemberRemove", member => {
         ch => ch.name === "goodbye"
     );
     if (!channelGoodBye) return;
-    channelGoodBye.send(goodbyeEmbed);
 
     const goodbyeEmbed = new Discord.MessageEmbed()
     .setColor("#FF0000")
@@ -250,6 +249,7 @@ client.on("guildMemberRemove", member => {
     )
     .setTimestamp();
 
+    channelGoodBye.send(goodbyeEmbed);
 });
 
 const kissRadio = "http://198.178.123.8:8404/;";
