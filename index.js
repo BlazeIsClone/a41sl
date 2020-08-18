@@ -18,7 +18,7 @@ client.once("ready", () => {
         activity: {
             name: "Chill Vibes 🎮",
             type: "STREAMING",
-            details: 'Watching Snowv',
+            details: "Watching Snowv",
             url: "https://www.twitch.tv/snowv_streams"
         }
     });
@@ -241,9 +241,11 @@ client.on("guildMemberRemove", member => {
     );
     if (!channelGoodBye) return;
     channelGoodBye.send(
-        `**${member.displayName}** has just left server.. Bye Bye`
+        `**${member.displayName}** has just left server.. Bye Bye ${avatarSend}`
     );
 });
+
+const avatarSend = message.reply(message.author.displayAvatarURL());
 
 const kissRadio = "http://198.178.123.8:8404/;";
 const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3";
