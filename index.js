@@ -26,7 +26,7 @@ client.once("ready", () => {
 
 client.on("message", function (message) {
     if (message.content === "!Live") {
-        fetch("https://api.twitch.tv/kraken/streams/snowv_streams", function (
+        fetch("https://api.twitch.tv/kraken/streams/l49jb5v13c6fvssi55ilnh9qes51t7", function (
             err,
             res
         ) {
