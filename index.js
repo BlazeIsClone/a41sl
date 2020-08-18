@@ -239,15 +239,16 @@ client.on("guildMemberRemove", member => {
         ch => ch.name === "goodbye"
     );
     if (!channelGoodBye) return;
-    channelGoodBye.send(
-        `**${member.displayName}** has left for adventure :ringed_planet: .`,
-        goodbyeEmbed
-    );
+    channelGoodBye.send(goodbyeEmbed);
 });
 
 const goodbyeEmbed = new Discord.MessageEmbed()
-    .setColor("#0099ff")
-    .setImage("https://i.imgur.com/wSTFkRM.png");
+    .setColor("#FF0000")
+    .setImage("https://i.imgur.com/wSTFkRM.png")
+    .setDescription(
+        `**${member.displayName}** has left for adventure :ringed_planet: .`
+    )
+    .setTimestamp();
 
 const kissRadio = "http://198.178.123.8:8404/;";
 const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3";
