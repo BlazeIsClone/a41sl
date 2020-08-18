@@ -244,7 +244,7 @@ client.on("guildMemberRemove", member => {
 
 const goodbyeEmbed = new Discord.MessageEmbed()
     .setColor("#FF0000")
-    .setImage("https://i.imgur.com/wSTFkRM.png")
+    .setImage(message.author.avatarURL)
     .setDescription(
         `**${member.displayName}** has left for adventure :ringed_planet: .`
     )
