@@ -16,7 +16,7 @@ client.once("ready", () => {
     client.user.setPresence({
         status: "online",
         activity: {
-            name: "Chill Vibes 🎮",
+            name: "with Snowv 🎮",
             type: "STREAMING",
             details: "Watching Snowv",
             url: "https://www.twitch.tv/snowv_streams"
@@ -241,7 +241,7 @@ client.on("guildMemberRemove", member => {
     );
     if (!channelGoodBye) return;
     channelGoodBye.send(
-        `**${member.displayName}** has just left server.. Bye Bye ${member.displayAvatarURL}`
+        `**${member.displayName}** has just left server.. Bye Bye`
     );
 });
 
