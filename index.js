@@ -6,8 +6,7 @@ const token = process.env.token;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./rules.js");
 const client = new Discord.Client();
-var events = require('events');
-emitter.setMaxListeners(0)
+var events = require('events').EventEmitter.defaultMaxListeners = 15;
 var dispatcher;
 var connection;
 
