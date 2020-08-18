@@ -6,9 +6,11 @@ const token = process.env.token;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./rules.js");
 const client = new Discord.Client();
+var events = require('events');
+const emitter = new MyEmitter();
+emitter.setMaxListeners(0)
 var dispatcher;
 var connection;
-emitter.setMaxListeners(0)
 
 //Bot status
 client.once("ready", () => {
