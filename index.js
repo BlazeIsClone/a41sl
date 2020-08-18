@@ -6,7 +6,7 @@ const token = process.env.token;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./rules.js");
 const client = new Discord.Client();
-var events = require('events').EventEmitter.defaultMaxListeners = 15;
+var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 var dispatcher;
 var connection;
 
@@ -17,7 +17,7 @@ client.once("ready", () => {
         status: "online",
         activity: {
             name: "with SnowV 🎮",
-            type: "STREAMING",
+            type: "WATCHING",
             details: "Watching Snowv",
             url: "https://www.twitch.tv/snowv_streams"
         }
@@ -26,18 +26,18 @@ client.once("ready", () => {
 
 client.on("message", function (message) {
     if (message.content === "!Live") {
-        fetch("https://api.twitch.tv/kraken/streams/l49jb5v13c6fvssi55ilnh9qes51t7", function (
-            err,
-            res
-        ) {
-            if (res.stream == null) {
-                //mybot.reply(message, "currently not live");
-                console.log('currently not live')
-            } else {
-                //mybot.reply(message, "currently live");
-                console.log('currently live')
+        fetch(
+            "https://api.twitch.tv/kraken/users/l49jb5v13c6fvssi55ilnh9qes51t7",
+            function (err, res) {
+                if (res.stream == null) {
+                    //mybot.reply(message, "currently not live");
+                    console.log("currently not live");
+                } else {
+                    //mybot.reply(message, "currently live");
+                    console.log("currently live");
+                }
             }
-        });
+        );
     }
 });
 
