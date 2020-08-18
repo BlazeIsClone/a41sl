@@ -10,7 +10,6 @@ var dispatcher;
 var connection;
 
 //Bot status
-
 client.once("ready", () => {
     console.log("Ready!");
     client.user.setPresence({
@@ -22,6 +21,23 @@ client.once("ready", () => {
             url: "https://www.twitch.tv/snowv_streams"
         }
     });
+});
+
+client.on("message", function (message) {
+    if (message.content === "!Live") {
+        fetch("https://api.twitch.tv/kraken/streams/snowv_streams", function (
+            err,
+            res
+        ) {
+            if (res.stream == null) {
+                //mybot.reply(message, "currently not live");
+                console.log('currently not live')
+            } else {
+                //mybot.reply(message, "currently live");
+                console.log('currently live')
+            }
+        });
+    }
 });
 
 const queue = new Map();
@@ -241,13 +257,11 @@ client.on("guildMemberRemove", member => {
     if (!channelGoodBye) return;
 
     const goodbyeEmbed = new Discord.MessageEmbed()
-    .setColor("#FF0000")
-    .setImage(member.user.displayAvatarURL({ format: "jpg" }))
-    .setTitle("It's a goodbye! :ringed_planet:")
-    .setDescription(
-        `**${member.displayName}** has left for adventure .`
-    )
-    .setTimestamp();
+        .setColor("#FF0000")
+        .setImage(member.user.displayAvatarURL({ format: "jpg" }))
+        .setTitle("It's a goodbye! :ringed_planet:")
+        .setDescription(`**${member.displayName}** has left for adventure .`)
+        .setTimestamp();
 
     channelGoodBye.send(goodbyeEmbed);
 });
