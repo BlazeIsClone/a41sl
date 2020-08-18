@@ -231,7 +231,7 @@ client.on("guildMemberAdd", async member => {
         canvas.toBuffer(),
         "welcome-image.png"
     );
-    channel.send("Hey Welcome to All For One SL, ${member}!", attachment);
+    channel.send(`Hey Welcome to All For One SL, ${member}!`, attachment);
 });
 
 client.on("guildMemberRemove", member => {
@@ -240,7 +240,7 @@ client.on("guildMemberRemove", member => {
     );
     if (!channelGoodBye) return;
     channelGoodBye.send(
-        "**${member.displayName}** has left for adventure :ringed_planet: ."
+        `**${member.displayName}** has left for adventure :ringed_planet: .`
     );
 });
 
