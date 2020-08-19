@@ -7,7 +7,6 @@ const ytdl = require("ytdl-core");
 const rulesEmbed = require("./rules.js");
 const client = new Discord.Client();
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
-const fetch = require("fetch.js");
 var dispatcher;
 var connection;
 
@@ -262,6 +261,7 @@ client.on("guildMemberRemove", member => {
         .setImage(member.user.displayAvatarURL({ format: "jpg" }))
         .setTitle("It's a goodbye! :ringed_planet:")
         .setDescription(`**${member.displayName}** has left for adventure .`)
+        .setMemberCount()
         .setTimestamp();
 
     channelGoodBye.send(goodbyeEmbed);
