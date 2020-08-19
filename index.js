@@ -247,7 +247,7 @@ client.on("guildMemberAdd", async member => {
         canvas.toBuffer(),
         "welcome-image.png"
     );
-    channel.send(`Hey Welcome to All For One SL, ${member}!`, attachment);
+    channel.send(`Hey Welcome to **All For One SL**, ${member}!`, attachment);
 });
 
 client.on("guildMemberRemove", member => {
