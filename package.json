@@ -12,7 +12,7 @@
     "discord.js": "^12.3.1",
     "event": "^1.0.0",
     "ffmpeg": "0.0.4",
-    "ffmpeg-static": "^4.2.6",
+    "ffmpeg-static": "^4.2.7",
     "fluent-ffmpeg": "^2.1.2",
     "node-fetch": "^2.6.0",
     "opusscript": "0.0.7",
