@@ -247,7 +247,8 @@ client.on("guildMemberAdd", async member => {
         canvas.toBuffer(),
         "welcome-image.png"
     );
-    channel.send(`Hey Welcome to All For One SL, ${member}!`, attachment);
+     var memberCount = guild.members.filter(member => !member.user.bot).size;  
+    channel.send(`Hey Welcome to All For One SL, ${member}! ${memberCount}`, attachment);
 });
 
 client.on("guildMemberRemove", member => {
@@ -261,7 +262,6 @@ client.on("guildMemberRemove", member => {
         .setImage(member.user.displayAvatarURL({ format: "jpg" }))
         .setTitle("It's a goodbye! :ringed_planet:")
         .setDescription(`**${member.displayName}** has left for adventure .`)
-        .setMemberCount()
         .setTimestamp();
 
     channelGoodBye.send(goodbyeEmbed);
