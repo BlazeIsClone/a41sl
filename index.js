@@ -23,11 +23,10 @@ client.once("ready", () => {
         }
     });
 });
-
 client.on("message", function (message) {
     if (message.content === "!Live") {
         fetch(
-            "https://api.twitch.tv/kraken/users/l49jb5v13c6fvssi55ilnh9qes51t7",
+            "https://id.twitch.tv/oauth2/token?client_id=l49jb5v13c6fvssi55ilnh9qes51t7&client_secret=y76w62jp1d7gtihqpgb9ek9kwtehz1&grant_type=client_credentials",
             function (err, res) {
                 if (res.stream == null) {
                     //mybot.reply(message, "currently not live");
