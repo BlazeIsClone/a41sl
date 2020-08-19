@@ -7,6 +7,7 @@ const ytdl = require("ytdl-core");
 const rulesEmbed = require("./rules.js");
 const client = new Discord.Client();
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
+const fetch = require("fetch.js");
 var dispatcher;
 var connection;
 
