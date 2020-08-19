@@ -23,11 +23,15 @@ client.once("ready", () => {
         }
     });
 });
-client.on("ready", async function () {
+
+client.on("ready", async function (client, message, arguments) {
+        const guild = client.guilds.get("463027132243771403");
+        setInterval(function () {
         var memberCount = guild.members.filter(member => !member.user.bot).size;
         var memberCountChannel = bot.channels.get("745643386588889178");
-        memberCountChannel.setName("👤members: " + memberCount);
-    });
+        memberCountChannel.setName(`${guild.name} has ${memberCount} members!`);
+    }, 1000);};
+
 client.on("message", function (message) {
     if (message.content === "!Live") {
         fetch(
