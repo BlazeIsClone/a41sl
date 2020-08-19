@@ -247,8 +247,7 @@ client.on("guildMemberAdd", async member => {
         canvas.toBuffer(),
         "welcome-image.png"
     );
-     var memberCount = guild.members.filter(member => !member.user.bot).size;  
-    channel.send(`Hey Welcome to All For One SL, ${member}! ${memberCount}`, attachment);
+    channel.send(`Hey Welcome to All For One SL, ${member}!`, attachment);
 });
 
 client.on("guildMemberRemove", member => {
