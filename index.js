@@ -24,13 +24,14 @@ client.once("ready", () => {
     });
 });
 
-client.on("ready", async function (client, message, arguments) {
+client.on("ready", async (client, message, arguments) => {
     const guild = client.guilds.get("463027132243771403");
     setInterval(function () {
         var memberCount = guild.members.filter(member => !member.user.bot).size;
         var memberCountChannel = bot.channels.get("745643386588889178");
         memberCountChannel.setName(`${guild.name} has ${memberCount} members!`);
     }, 1000);
+    console.log("guild" + guild)
 });
 
 client.on("message", function (message) {
