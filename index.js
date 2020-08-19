@@ -23,13 +23,11 @@ client.once("ready", () => {
         }
     });
 });
-client.on("ready", function () {
-    setInterval(function () {
+client.on("ready", async function () {
         var memberCount = guild.members.filter(member => !member.user.bot).size;
         var memberCountChannel = bot.channels.get("745643386588889178");
         memberCountChannel.setName("👤members: " + memberCount);
-    }, MIN_INTERVAL);
-});
+    });
 client.on("message", function (message) {
     if (message.content === "!Live") {
         fetch(
