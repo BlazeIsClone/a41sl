@@ -244,7 +244,7 @@ client.on("guildMemberAdd", async member => {
     ctx.fillText(
         `Member #${getmemberCount}`,
         canvas.width / 2.5,
-        canvas.height / 3.0
+        canvas.height / 1.5
     );
     ctx.beginPath();
     ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
