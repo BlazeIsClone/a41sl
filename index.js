@@ -242,9 +242,9 @@ client.on("guildMemberAdd", async member => {
     ctx.font = "28px sans-serif";
     ctx.fillStyle = "#ffffff";
     ctx.fillText(
-        `${getmemberCount}`,
-        canvas.width / 2.5,
-        canvas.height / 3.5
+        `Member # ${getmemberCount}`,
+        canvas.width / 1.5,
+        canvas.height / 2.5
     );
     ctx.beginPath();
     ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
