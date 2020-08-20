@@ -1,3 +1,4 @@
+const Discord = require("discord.js");
 const goodbyeEmbed = new Discord.MessageEmbed()
     .setColor("#FF0000")
     .setImage(member.user.displayAvatarURL({ format: "jpg" }))
