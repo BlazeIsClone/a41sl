@@ -243,8 +243,8 @@ client.on("guildMemberAdd", async member => {
     ctx.fillStyle = "#ffffff";
     ctx.fillText(
         `Member # ${getmemberCount}`,
-        canvas.width / 1.5,
-        canvas.height / 2.5
+        canvas.width / 2.5,
+        canvas.height / 4.0
     );
     ctx.beginPath();
     ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
