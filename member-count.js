@@ -3,7 +3,7 @@ module.exports = client => {
 
     const updateMembers = guild => {
         const channel = guild.channels.cache.get(channelId);
-        channel.setName(`Members: ${guild.memberCount.toLocaleString()}`);
+        channel.setName(`:busts_in_silhouette: Members: ${guild.memberCount.toLocaleString()}`);
     };
 
     client.on("guildMemberAdd", member => updateMembers(member.guild));
