@@ -10,6 +10,7 @@ var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 var dispatcher;
 var connection;
 const memberCount = require("./member-count");
+const goodbyeEmbed = require("goodbye.js");
 
 client.on("ready", () => {
     console.log("The client is ready!");
@@ -271,13 +272,6 @@ client.on("guildMemberRemove", member => {
         ch => ch.name === "goodbye"
     );
     if (!channelGoodBye) return;
-
-    const goodbyeEmbed = new Discord.MessageEmbed()
-        .setColor("#FF0000")
-        .setImage(member.user.displayAvatarURL({ format: "jpg" }))
-        .setTitle("It's a goodbye! :ringed_planet:")
-        .setDescription(`**${member.displayName}** has left for adventure .`)
-        .setTimestamp();
 
     channelGoodBye.send(goodbyeEmbed);
 });
