@@ -237,7 +237,15 @@ client.on("guildMemberAdd", async member => {
         canvas.width / 2.5,
         canvas.height / 1.8
     );
-
+    const guild = client.guilds.cache.get("463027132243771403");
+    var getmemberCount = guild.memberCount;
+    ctx.font = "28px sans-serif";
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText(
+        `${getmemberCount}`,
+        canvas.width / 2.5,
+        canvas.height / 3.5
+    );
     ctx.beginPath();
     ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
     ctx.closePath();
