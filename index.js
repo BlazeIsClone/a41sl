@@ -9,6 +9,13 @@ const client = new Discord.Client();
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 var dispatcher;
 var connection;
+const memberCount = require("./member-count");
+
+client.on("ready", () => {
+    console.log("The client is ready!");
+
+    memberCount(client);
+});
 
 //Bot status
 client.once("ready", () => {
@@ -22,16 +29,6 @@ client.once("ready", () => {
             url: "https://www.twitch.tv/snowv_streams"
         }
     });
-});
-
-client.on("ready", async (client, message, arguments) => {
-    const guild = client.guilds.get("463027132243771403");
-    setInterval(function () {
-        var memberCount = guild.members.filter(member => !member.user.bot).size;
-        var memberCountChannel = bot.channels.get("745643386588889178");
-        memberCountChannel.setName(`${guild.name} has ${memberCount} members!`);
-    }, 1000);
-    console.log("guild" + guild)
 });
 
 client.on("message", function (message) {
