@@ -10,7 +10,7 @@ var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 var dispatcher;
 var connection;
 const memberCount = require("./member-count");
-const goodbyeEmbed = require("goodbye.js");
+const goodbyeEmbed = require("./goodbye");
 
 client.on("ready", () => {
     console.log("The client is ready!");
