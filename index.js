@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const { PREFIX } = require("./config.json");
 const { MessageEmbed } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.token;
