@@ -356,7 +356,6 @@ const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
-const TOKEN = process.env.TOKEN;
 
 client.commands = new Collection();
 client.prefix = PREFIX;
