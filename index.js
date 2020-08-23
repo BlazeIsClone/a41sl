@@ -3,12 +3,12 @@ const { MessageEmbed } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.token;
 const ytdl = require("ytdl-core");
-const rulesEmbed = require("./rules.js");
+const rulesEmbed = require("./commands/rules.js");
 const client = new Discord.Client();
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 var dispatcher;
 var connection;
-const memberCount = require("./member-count");
+const memberCount = require("./commands/member-count");
 
 client.on("ready", () => {
     console.log("The client is ready!");
@@ -510,4 +510,4 @@ client.on("message", async (message) => {
           }
 });
 
-client.login(token);
+client.login(TOKEN);
