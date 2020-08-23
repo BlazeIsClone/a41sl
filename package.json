@@ -14,8 +14,12 @@
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.7",
     "fluent-ffmpeg": "^2.1.2",
+    "lyrics-finder": "^21.3.2",
     "node-fetch": "^2.6.0",
     "opusscript": "0.0.7",
+    "simple-youtube-api": "^5.2.1",
+    "soundcloud-downloader": "^0.1.4",
+    "string-progressbar": "^1.0.1",
     "ytdl-core": "^3.2.1"
   },
   "engines": {
