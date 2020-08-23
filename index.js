@@ -9,6 +9,10 @@ var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 var dispatcher;
 var connection;
 const memberCount = require("./commands/member-count");
+const { Collection } = require("discord.js");
+const { readdirSync } = require("fs");
+const { join } = require("path");
+const { PREFIX, STREAM } = require("./config.json");
 
 client.on("ready", () => {
     console.log("The client is ready!");
@@ -284,10 +288,10 @@ const goldRadio = "http://209.133.216.3:7048/;";
 const sunRadio = "http://209.133.216.3:7058/;stream.mp3";
 const yesRadio = "http://live.trusl.com:1150/;";
 
-//Radio Command
+//Radio Commands
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/sun dapn") {
+    if (message.content === `${STREAM} sunfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(sunRadio);
@@ -296,10 +300,9 @@ client.on("message", async message => {
     }
 });
 
-//Radio Command
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/kiss dapn") {
+    if (message.content === `${STREAM} kissfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(kissRadio);
@@ -308,10 +311,9 @@ client.on("message", async message => {
     }
 });
 
-//Radio Command
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/gold dapn") {
+    if (message.content === `${STREAM} kissfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(goldRadio);
@@ -320,10 +322,9 @@ client.on("message", async message => {
     }
 });
 
-//Radio Command
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/tnl dapn") {
+    if (message.content === `${STREAM} tnlfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(tnlrocksRadio);
@@ -332,10 +333,9 @@ client.on("message", async message => {
     }
 });
 
-//Radio Command
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/yes dapn") {
+    if (message.content === `${STREAM} yesfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(yesRadio);
@@ -351,11 +351,6 @@ client.on("message", async message => {
         console.log("dispatcher stoped");
     }
 });
-
-const { Collection } = require("discord.js");
-const { readdirSync } = require("fs");
-const { join } = require("path");
-const { PREFIX } = require("./config.json");
 
 client.commands = new Collection();
 client.prefix = PREFIX;
