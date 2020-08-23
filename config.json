@@ -1,5 +1,5 @@
 {
-    "MAX_PLAYLIST_SIZE": 10,
+    "MAX_PLAYLIST_SIZE": 100,
     "PREFIX": "/",
     "PRUNING": false
 }
