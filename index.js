@@ -352,7 +352,7 @@ client.on("message", async message => {
     }
 });
 
-const { Client, Collection } = require("discord.js");
+const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { TOKEN, PREFIX } = require("./config.json");
