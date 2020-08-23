@@ -20,7 +20,8 @@
     "simple-youtube-api": "^5.2.1",
     "soundcloud-downloader": "^0.1.4",
     "string-progressbar": "^1.0.1",
-    "ytdl-core": "^3.2.1"
+    "ytdl-core": "^3.2.1",
+    "ytdl-core-discord": "^1.2.1"
   },
   "engines": {
     "node": "v12.18.3",
