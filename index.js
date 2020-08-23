@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { prefix } = require("./config.json");
+const { PREFIX } = require("./config.json");
 const { MessageEmbed } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.token;
@@ -52,17 +52,17 @@ const queue = new Map();
 
 client.on("message", async message => {
     if (message.author.bot) return;
-    if (!message.content.startsWith(prefix)) return;
+    if (!message.content.startsWith(PREFIX)) return;
 
     const serverQueue = queue.get(message.guild.id);
 
-    if (message.content.startsWith(`${prefix}play`)) {
+    if (message.content.startsWith(`${PREFIX}play`)) {
         execute(message, serverQueue);
         return;
-    } else if (message.content.startsWith(`${prefix}skip`)) {
+    } else if (message.content.startsWith(`${PREFIX}skip`)) {
         skip(message, serverQueue);
         return;
-    } else if (message.content.startsWith(`${prefix}stop`)) {
+    } else if (message.content.startsWith(`${PREFIX}stop`)) {
         stop(message, serverQueue);
         return;
     } else {
