@@ -29,5 +29,9 @@
   "engines": {
     "node": "v12.18.3",
     "npm": "6.14.4"
+  },
+  "scripts": {
+  "postinstall": "npm run rebuild-sqlite3",
+  "rebuild-sqlite3": "cd node_modules/sqlite3 &amp;&amp; npm run prepublish &amp;&amp; node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v47-darwin-x64 &amp;&amp; node-gyp rebuild --target=0.36.1 --arch=x64 --target_platform=darwin --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/node-v47-darwin-x64"
   }
 }
