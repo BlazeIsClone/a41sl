@@ -1,4 +1,4 @@
-const { discord, twitch } = require("../config");
+const { discord, twitch } = require("../config.js");
 const { getUser, getStream, getGame } = require("./twitch-api");
 const { Stream } = require("./db");
 const CronJob = require("cron").CronJob;

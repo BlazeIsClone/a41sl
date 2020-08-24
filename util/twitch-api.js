@@ -1,4 +1,4 @@
-const { twitch } = require("../config");
+const { twitch } = require("../config.js");
 const fetch = require("node-fetch");
 
 //? Simple function to call Twitch API -
