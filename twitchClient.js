@@ -1,10 +1,12 @@
 const request = require("request");
 const Twitch = require("twitch-js");
+var streamerName = "tfue";
+const username = "foo";
 
-const twitchToken =  process.env.TWITCH_CLIENT_SECRET;
+const twitchToken = process.env.TWITCH_CLIENT_SECRET;
 const twitchClientId = process.env.TWITCH_CLIENT_ID;
 const { api } = new Twitch({ twitchToken, username });
-var streamerName = "tfue";
+
 function streamNameToUserId(streamerName) {
     var requestUrl = `https://api.twitch.tv/helix/users?login=${streamerName}`;
     var options = getRequestOptions(requestUrl);
