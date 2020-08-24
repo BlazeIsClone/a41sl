@@ -31,17 +31,15 @@ snekfetch
                 snekfetch.get(api).then(console.log(r.body));
             }, 30000);
         } else {
-            client.once("ready", () => {
-                console.log("Ready!");
-                client.user.setPresence({
-                    status: "online",
-                    activity: {
-                        name: "with SnowV 🎮",
-                        type: "STREAMING",
-                        details: "Watching Snowv",
-                        url: "https://www.twitch.tv/snowv_streams"
-                    }
-                });
+            console.log("workiggg!");
+            client.user.setPresence({
+                status: "online",
+                activity: {
+                    name: "with SnowV 🎮",
+                    type: "STREAMING",
+                    details: "Watching Snowv",
+                    url: "https://www.twitch.tv/snowv_streams"
+                }
             });
         }
     });
