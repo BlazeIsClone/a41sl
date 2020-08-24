@@ -10,26 +10,33 @@ const memberCount = require("./commands/member-count");
 const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
-const { PREFIX, STREAM } = require("./config.json");
+const { PREFIX, STREAM, discord } = require("./config.json");
 const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
 var dispatcher, connection;
 
-client.on("ready", () => {
-    console.log("The client is ready!");
+// Collection of currently live streamers - cache
+client.streams = new Discord.Collection();
+//Database
+const { db } = require("./util/db");
+
+client.on("ready", async () => {
+    console.log(`[Discord] ${client.user.username} is online.`);
+    await db.init();
+    require("./util/twitch-monitor")(client);
     memberCount(client);
 });
 
 client.once("ready", () => {
-                client.user.setPresence({
-                    status: "online",
-                    activity: {
-                        name: "with SnowV 🎮",
-                        type: "STREAMING",
-                        details: "Watching Snowv",
-                        url: "https://www.twitch.tv/snowv_streams"
-                    }
-                });
-            });
+    client.user.setPresence({
+        status: "online",
+        activity: {
+            name: "with SnowV 🎮",
+            type: "STREAMING",
+            details: "Watching Snowv",
+            url: "https://www.twitch.tv/snowv_streams"
+        }
+    });
+});
 
 // Help Command
 client.on("message", async message => {
