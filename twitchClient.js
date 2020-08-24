@@ -1,6 +1,6 @@
 const request = require("request");
 const Twitch = require("twitch-js");
-const client = new Twitch.client(options);
+const client = new Twitch.client();
 var streamerName = "tfue";
 const username = "foo";
 
