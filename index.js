@@ -14,12 +14,13 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const snekfetch = require("snekfetch");
 const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
+
 client.on("ready", () => {
     console.log("The client is ready!");
     memberCount(client);
 });
 
-const streamer = "galadriex";
+const streamer = "bugha";
 const api = `https://api.twitch.tv/helix/streams?user_login=${streamer}`;
 snekfetch
     .get(api)
