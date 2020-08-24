@@ -26,7 +26,7 @@ snekfetch
     .get(api)
     .set("Client-ID", TWITCH_CLIENT_ID)
     .then(r => {
-        if (r.body.stream === null) {
+        if (r.body.type === null) {
             setInterval(() => {
                 snekfetch.get(api).then(console.log(r.body));
             }, 30000);
