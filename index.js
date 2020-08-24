@@ -6,7 +6,6 @@ const ytdl = require("ytdl-core");
 const rulesEmbed = require("./commands/rules.js");
 const client = new Discord.Client();
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
-var dispatcher, connection;
 const memberCount = require("./commands/member-count");
 const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
@@ -14,25 +13,32 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const snekfetch = require("snekfetch");
 const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
+const twitchClient = require("./twitchClient.js");
+var dispatcher, connection;
 
 client.on("ready", () => {
     console.log("The client is ready!");
     memberCount(client);
 });
 
-const streamer = "bugha";
-const api = `https://api.twitch.tv/helix/streams?user_login=${streamer}`;
-snekfetch
-    .get(api)
-    .set("Client-ID", TWITCH_CLIENT_ID)
-    .then(r => {
-        if (r.body.data === null) {
-            setInterval(() => {
-                snekfetch.get(api).then(console.log(r.body));
-            }, 30000);
-        } else  {
-                console.log("WORKING!");
-            client.once("ready", () => {
+client.on("message", message => {
+    if (message.content.contains("!aretheystreaming")) {
+        let streamerToSearch = message.content.split(" ")[1];
+        let isStreaming = twitchClient.isStreaming(streamerToSearch);
+        if (isStreaming) {
+            message.channel.send(
+                `Yes, ${streamerToSearch} is currently streaming. Go check out his channel!`
+            );
+        } else {
+            message.channel.send(
+                `No, ${streamerToSearch} is currently not streaming. Check again later!`
+            );
+        }
+    }
+});
+
+/*
+client.once("ready", () => {
                 client.user.setPresence({
                     status: "online",
                     activity: {
@@ -43,9 +49,7 @@ snekfetch
                     }
                 });
             });
-        }
-    });
-
+            */
 // Help Command
 client.on("message", async message => {
     if (!message.guild) return;
