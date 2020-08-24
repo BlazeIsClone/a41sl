@@ -23,7 +23,7 @@ client.on("ready", () => {
 
 const streamer = "galadriex";
 const api = `https://api.twitch.tv/helix/streams?user_login=${streamer}`;
-const announcements = bot.channels.find(`name`, "announcements");
+const announcements = client.channels.find(`name`, "disc-bots");
 
 snekfetch
     .get(api)
