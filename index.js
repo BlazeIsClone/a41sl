@@ -13,7 +13,7 @@ const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
-const request = require("snekfetch");
+const snekfetch = require("snekfetch");
 
 client.on("ready", () => {
     console.log("The client is ready!");
