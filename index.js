@@ -6,8 +6,7 @@ const ytdl = require("ytdl-core");
 const rulesEmbed = require("./commands/rules.js");
 const client = new Discord.Client();
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
-var dispatcher;
-var connection;
+var dispatcher, connection;
 const memberCount = require("./commands/member-count");
 const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
@@ -237,10 +236,12 @@ client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-client.on("ready", () => {
+/*client.on("ready", () => {
     console.log(`${client.user.username} ready!`);
     client.user.setActivity(`${PREFIX}help`);
 });
+*/
+
 client.on("warn", info => console.log(info));
 client.on("error", console.error);
 
