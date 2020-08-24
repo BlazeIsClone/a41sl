@@ -6,34 +6,50 @@ const ytdl = require("ytdl-core");
 const rulesEmbed = require("./commands/rules.js");
 const client = new Discord.Client();
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
-var dispatcher;
-var connection;
 const memberCount = require("./commands/member-count");
 const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
+const snekfetch = require("snekfetch");
+const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
+const twitchClient = require("./twitchClient.js");
+var dispatcher, connection;
 
 client.on("ready", () => {
     console.log("The client is ready!");
-
     memberCount(client);
 });
 
-//Bot status
-client.once("ready", () => {
-    console.log("Ready!");
-    client.user.setPresence({
-        status: "online",
-        activity: {
-            name: "with SnowV 🎮",
-            type: "STREAMING",
-            details: "Watching Snowv",
-            url: "https://www.twitch.tv/snowv_streams"
+client.on("message", message => {
+    if (message.content.contains("!aretheystreaming")) {
+        let streamerToSearch = message.content.split(" ")[1];
+        let isStreaming = twitchClient.isStreaming(streamerToSearch);
+        if (isStreaming) {
+            message.channel.send(
+                `Yes, ${streamerToSearch} is currently streaming. Go check out his channel!`
+            );
+        } else {
+            message.channel.send(
+                `No, ${streamerToSearch} is currently not streaming. Check again later!`
+            );
         }
-    });
+    }
 });
 
+/*
+client.once("ready", () => {
+                client.user.setPresence({
+                    status: "online",
+                    activity: {
+                        name: "with SnowV 🎮",
+                        type: "STREAMING",
+                        details: "Watching Snowv",
+                        url: "https://www.twitch.tv/snowv_streams"
+                    }
+                });
+            });
+            */
 // Help Command
 client.on("message", async message => {
     if (!message.guild) return;
@@ -177,7 +193,6 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(kissRadio);
-            console.log("playing sun");
         }
     }
 });
@@ -188,7 +203,6 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(goldRadio);
-            console.log("playing gold");
         }
     }
 });
@@ -199,7 +213,6 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(tnlrocksRadio);
-            console.log("playing tnl");
         }
     }
 });
@@ -210,7 +223,6 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(yesRadio);
-            console.log("playing tnl");
         }
     }
 });
@@ -229,7 +241,11 @@ client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+<<<<<<< HEAD
 /* client.on("ready", () => {
+=======
+/*client.on("ready", () => {
+>>>>>>> bc18261b93f19c169473301b14bcc1b1612d3021
     console.log(`${client.user.username} ready!`);
     client.user.setActivity(`${PREFIX}help`);
 });
