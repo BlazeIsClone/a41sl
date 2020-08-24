@@ -14,20 +14,17 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const snekfetch = require("snekfetch");
-
+const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
 client.on("ready", () => {
     console.log("The client is ready!");
-
     memberCount(client);
 });
 
 const streamer = "galadriex";
 const api = `https://api.twitch.tv/helix/streams?user_login=${streamer}`;
-const announcements = client.channels.find(`name`, "disc-bots");
-
 snekfetch
     .get(api)
-    .set("Client-ID", "l49jb5v13c6fvssi55ilnh9qes51t7")
+    .set("Client-ID", TWITCH_CLIENT_ID)
     .then(r => {
         if (r.body.stream === null) {
             setInterval(() => {
