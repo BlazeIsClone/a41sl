@@ -26,20 +26,22 @@ snekfetch
     .get(api)
     .set("Client-ID", TWITCH_CLIENT_ID)
     .then(r => {
-        if (r.body.type === null) {
+        if (r.body.data === null) {
             setInterval(() => {
                 snekfetch.get(api).then(console.log(r.body));
             }, 30000);
-        } else {
-            console.log("workiggg!");
-            client.user.setPresence({
-                status: "online",
-                activity: {
-                    name: "with SnowV 🎮",
-                    type: "STREAMING",
-                    details: "Watching Snowv",
-                    url: "https://www.twitch.tv/snowv_streams"
-                }
+        } else  {
+                console.log("WORKING!");
+            client.once("ready", () => {
+                client.user.setPresence({
+                    status: "online",
+                    activity: {
+                        name: "with SnowV 🎮",
+                        type: "STREAMING",
+                        details: "Watching Snowv",
+                        url: "https://www.twitch.tv/snowv_streams"
+                    }
+                });
             });
         }
     });
