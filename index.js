@@ -13,6 +13,7 @@ const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
+const request = require("snekfetch");
 
 client.on("ready", () => {
     console.log("The client is ready!");
@@ -20,19 +21,33 @@ client.on("ready", () => {
     memberCount(client);
 });
 
-//Bot status
-client.once("ready", () => {
-    console.log("Ready!");
-    client.user.setPresence({
-        status: "online",
-        activity: {
-            name: "with SnowV 🎮",
-            type: "STREAMING",
-            details: "Watching Snowv",
-            url: "https://www.twitch.tv/snowv_streams"
+const streamer = "galadriex";
+const api = `https://api.twitch.tv/helix/streams?user_login=${streamer}`;
+const announcements = bot.channels.find(`name`, "announcements");
+
+snekfetch
+    .get(api)
+    .set("Client-ID", "l49jb5v13c6fvssi55ilnh9qes51t7")
+    .then(r => {
+        if (r.body.stream === null) {
+            setInterval(() => {
+                snekfetch.get(api).then(console.log(r.body));
+            }, 30000);
+        } else {
+            client.once("ready", () => {
+                console.log("Ready!");
+                client.user.setPresence({
+                    status: "online",
+                    activity: {
+                        name: "with SnowV 🎮",
+                        type: "STREAMING",
+                        details: "Watching Snowv",
+                        url: "https://www.twitch.tv/snowv_streams"
+                    }
+                });
+            });
         }
     });
-});
 
 // Help Command
 client.on("message", async message => {
@@ -177,7 +192,6 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(kissRadio);
-            console.log("playing sun");
         }
     }
 });
@@ -188,7 +202,6 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(goldRadio);
-            console.log("playing gold");
         }
     }
 });
@@ -199,7 +212,6 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(tnlrocksRadio);
-            console.log("playing tnl");
         }
     }
 });
@@ -210,7 +222,6 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(yesRadio);
-            console.log("playing tnl");
         }
     }
 });
