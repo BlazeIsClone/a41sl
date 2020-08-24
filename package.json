@@ -19,10 +19,8 @@
     "opusscript": "0.0.7",
     "request": "^2.88.2",
     "simple-youtube-api": "^5.2.1",
-    "snekfetch": "^4.0.4",
     "soundcloud-downloader": "^0.1.4",
     "string-progressbar": "^1.0.1",
-    "twitch-js": "^1.2.17",
     "ytdl-core": "^3.2.1",
     "ytdl-core-discord": "^1.2.1"
   },

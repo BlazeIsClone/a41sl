@@ -11,9 +11,7 @@ const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
-const snekfetch = require("snekfetch");
 const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
-const twitchClient = require("./twitchClient.js");
 var dispatcher, connection;
 
 client.on("ready", () => {
@@ -21,23 +19,6 @@ client.on("ready", () => {
     memberCount(client);
 });
 
-client.on("message", message => {
-    if (message.content.contains("!aretheystreaming")) {
-        let streamerToSearch = message.content.split(" ")[1];
-        let isStreaming = twitchClient.isStreaming(streamerToSearch);
-        if (isStreaming) {
-            message.channel.send(
-                `Yes, ${streamerToSearch} is currently streaming. Go check out his channel!`
-            );
-        } else {
-            message.channel.send(
-                `No, ${streamerToSearch} is currently not streaming. Check again later!`
-            );
-        }
-    }
-});
-
-/*
 client.once("ready", () => {
                 client.user.setPresence({
                     status: "online",
@@ -49,7 +30,7 @@ client.once("ready", () => {
                     }
                 });
             });
-            */
+
 // Help Command
 client.on("message", async message => {
     if (!message.guild) return;
@@ -241,11 +222,7 @@ client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-<<<<<<< HEAD
-/* client.on("ready", () => {
-=======
 /*client.on("ready", () => {
->>>>>>> bc18261b93f19c169473301b14bcc1b1612d3021
     console.log(`${client.user.username} ready!`);
     client.user.setActivity(`${PREFIX}help`);
 });
