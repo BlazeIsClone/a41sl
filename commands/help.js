@@ -12,12 +12,6 @@ module.exports = {
       .setDescription("List of all commands")
       .setColor("#F8AA2A");
 
-    commands.forEach((cmd) => {
-      helpEmbed.addField(
-        `**${message.client.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""}**`,
-        `${cmd.description}`,
-        true
-      );
     });
 
     helpEmbed.setTimestamp();
