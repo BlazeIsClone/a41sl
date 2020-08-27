@@ -13,11 +13,21 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 var dispatcher, connection;
 
-client.on("ready", async () => {
-    memberCount(client);
-});
+const fs = require("fs");
+const firebase = require("./config");
+const moment = require("moment");
+const setting = require("./setting.json");
+const app = require("express")();
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
+const ngrok = require("ngrok");
+var express = require("express");
+var localtunnel = require("localtunnel");
+var global = require("./global");
 
-client.once("ready", async () => {
+client.on("ready", async () => {
+    console.log(`Logged in as ${client.user.username}!`);
+    memberCount(client);
     client.user.setPresence({
         status: "online",
         activity: {
@@ -221,12 +231,6 @@ client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-/*client.on("ready", () => {
-    console.log(`${client.user.username} ready!`);
-    client.user.setActivity(`${PREFIX}help`);
-});
-*/
-
 client.on("warn", info => console.log(info));
 client.on("error", console.error);
 
@@ -297,4 +301,104 @@ client.on("message", async message => {
     }
 });
 
-client.login(TOKEN);
+// This is the best way to define args. Trust me.
+const args = message.content.slice(setting.prefix.length).trim().split(/ +/g);
+const command = args.shift().toLowerCase();
+
+client.on("add", data => {
+    console.log(data);
+    addSong(data);
+});
+
+client.on("volume", data => {
+    volume(data);
+});
+
+client.on("play", data => {
+    if (global.dispatcher !== null) {
+        global.dispatcher = null;
+    }
+    play(data);
+    console.log("client on play dispatcher: " + global.dispatcher);
+});
+
+client.on("skip", () => {
+    skip();
+});
+
+client.on("pause", () => {
+    pause();
+});
+
+client.on("resume", () => {
+    resume();
+});
+
+var next = 0;
+play = index => {
+    if (global.voiceChannel !== null) {
+        global.Client.emit("voiceChannel", true);
+        console.log("title: " + global.playlist[index].title);
+        let stream = ytdl(global.playlist[index].url, {
+            audioonly: true
+        });
+        global.dispatcher = global.connection.playStream(stream);
+        global.message.channel.send(
+            "```fix" +
+                "\n" +
+                "[Now Playing]: " +
+                global.playlist[index].title +
+                "```"
+        );
+        global.dispatcher.on("end", () => {
+            if (global.dispatcher !== null) {
+                next = index + 1;
+                if (index >= global.playlist.length - 1) {
+                    console.log("end playlist");
+                    global.Client.emit("endPlaylist");
+                    return;
+                } else {
+                    play(next);
+                    global.Client.emit("autoNext", next);
+                }
+            }
+        });
+    } else {
+        global.Client.emit("voiceChannel", false);
+        console.log("No connection in voiceChannel");
+    }
+};
+
+skip = () => {
+    console.log("skip");
+    if (global.dispatcher !== null) {
+        console.log("end");
+        global.dispatcher.end();
+    } else {
+        console.log("null");
+    }
+};
+
+pause = () => {
+    if (global.dispatcher !== null) {
+        console.log("pause");
+        global.dispatcher.pause();
+    }
+};
+
+resume = () => {
+    if (global.dispatcher !== null) {
+        console.log("resume");
+        global.dispatcher.resume();
+    }
+};
+
+volume = data => {
+    if (global.dispatcher !== null) {
+        console.log("dispatcher volume: " + global.dispatcher.volume);
+        global.dispatcher.setVolume(data / 100);
+        console.log("After set: " + global.dispatcher.volume);
+    }
+};
+
+client.login(setting, TOKEN);
