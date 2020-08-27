@@ -405,4 +405,4 @@ volume = data => {
     }
 };
 
-client.login(setting, TOKEN);
+client.login(TOKEN);
