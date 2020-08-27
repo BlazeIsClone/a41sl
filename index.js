@@ -162,7 +162,7 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Sun Fm**")
-                .setImage("https://i.imgur.com/wSTFkRM.png")
+                .setImage("https://lh3.googleusercontent.com/qxVfvXii_pVa5QepZyozdijGPxuSQ957nISY9t9M8DSddQ0JZha2PoopVeiKw5sU0Q4")
                 .setFooter("SunFm - Live");
             message.channel.send(embed);
         }
