@@ -146,6 +146,10 @@ module.exports = {
 
                 case "🔀":
                     reaction.users.remove(user).catch(console.error);
+                    if (!queue)
+                        return message.channel
+                            .send("There is no queue.")
+                            .catch(console.error);
                     if (!canModifyQueue(member)) return;
                     let songs = queue.songs;
                     queue.songs = songs;
@@ -153,6 +157,7 @@ module.exports = {
                         let j = 1 + Math.floor(Math.random() * i);
                         [songs[i], songs[j]] = [songs[j], songs[i]];
                     }
+                    message.client.queue.set(message.guild.id, queue);
                     queue.textChannel
                         .send(`${user} 🔀 shuffled the queue.`)
                         .catch(console.error);
