@@ -199,7 +199,7 @@ client.on("message", async message => {
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Gold Fm**")
                 .setImage(
-                    "https://e7.pngegg.com/pngimages/292/761/png-clipart-melbourne-gold-104-3-logo-fm-broadcasting-radio-gold-music-logo-fm-broadcasting-thumbnail.png"
+                    "https://mytuner.global.ssl.fastly.net/media/tvos_radios/XAryWL2prn.jpeg"
                 )
                 .setFooter("GoldFm - Live");
             message.channel.send(embed);
