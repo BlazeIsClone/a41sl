@@ -159,7 +159,12 @@ client.on("message", async message => {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(sunRadio);
-            console.log("playing sun");
+            let embed = new Discord.MessageEmbed()
+                .setColor("#0099ff")
+                .setTitle("**Live Streaming Sun Fm**")
+                .setImage("https://i.imgur.com/wSTFkRM.png")
+                .setFooter("SunFm - Live");
+            message.channel.send(embed);
         }
     }
 });
