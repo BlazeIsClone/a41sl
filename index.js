@@ -209,7 +209,7 @@ client.on("message", async message => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/stop karapn") {
-        dispatcher = connection.end();
+        dispatcher.end();
         console.log("dispatcher stoped");
     }
 });
