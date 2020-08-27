@@ -49,7 +49,7 @@ module.exports = {
 
             console.error(error);
             return message.channel.send(
-                `Error: ${error.message ? error.message : error}`
+                `error: ${error.message ? error.message : error}`
             );
         }
 
