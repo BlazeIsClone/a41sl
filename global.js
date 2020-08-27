@@ -1,15 +1,5 @@
-var voiceChannel = null
-var dispatcher = null
-var Client = null
-var connection = null
-var playlist = null
-var url = ''
-var message = null
+var dispatcher = null;
+var connection = null;
 
-exports.voiceChannel = voiceChannel
-exports.dispatcher = dispatcher
-exports.Client = Client
-exports.connection = connection
-exports.playlist = playlist
-exports.url = url
-exports.message = message
+exports.dispatcher = dispatcher;
+exports.connection = connection;
