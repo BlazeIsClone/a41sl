@@ -208,7 +208,7 @@ client.on("message", async message => {
 
 client.on("message", async message => {
     if (!message.guild) return;
-    if (message.content === "/stop karapn") {
+    if (message.content === "/stop") {
         dispatcher.end();
         console.log("dispatcher stoped");
     }
