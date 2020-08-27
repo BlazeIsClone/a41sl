@@ -162,7 +162,9 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Sun Fm**")
-                .setImage("https://lh3.googleusercontent.com/qxVfvXii_pVa5QepZyozdijGPxuSQ957nISY9t9M8DSddQ0JZha2PoopVeiKw5sU0Q4")
+                .setImage(
+                    "https://lh3.googleusercontent.com/qxVfvXii_pVa5QepZyozdijGPxuSQ957nISY9t9M8DSddQ0JZha2PoopVeiKw5sU0Q4"
+                )
                 .setFooter("SunFm - Live");
             message.channel.send(embed);
         }
@@ -178,11 +180,11 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Kiss Fm**")
-                .setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/KissFMSriLankaLogo2012.png/220px-KissFMSriLankaLogo2012.png")
+                .setImage(
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/KissFMSriLankaLogo2012.png/220px-KissFMSriLankaLogo2012.png"
+                )
                 .setFooter("KissFm - Live");
             message.channel.send(embed);
-        }
-
         }
     }
 });
@@ -196,11 +198,11 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Gold Fm**")
-                .setImage("https://e7.pngegg.com/pngimages/292/761/png-clipart-melbourne-gold-104-3-logo-fm-broadcasting-radio-gold-music-logo-fm-broadcasting-thumbnail.png")
+                .setImage(
+                    "https://e7.pngegg.com/pngimages/292/761/png-clipart-melbourne-gold-104-3-logo-fm-broadcasting-radio-gold-music-logo-fm-broadcasting-thumbnail.png"
+                )
                 .setFooter("GoldFm - Live");
             message.channel.send(embed);
-        }
-
         }
     }
 });
@@ -214,11 +216,11 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming TNL Fm**")
-                .setImage("https://cdn-profiles.tunein.com/s14406/images/logog.png")
+                .setImage(
+                    "https://cdn-profiles.tunein.com/s14406/images/logog.png"
+                )
                 .setFooter("TnlFm - Live");
             message.channel.send(embed);
-        }
-
         }
     }
 });
@@ -232,14 +234,15 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Yes Fm**")
-                .setImage("https://cdn-profiles.tunein.com/s14405/images/logog.png")
+                .setImage(
+                    "https://cdn-profiles.tunein.com/s14405/images/logog.png"
+                )
                 .setFooter("YesFm - Live");
             message.channel.send(embed);
         }
-
-        }
     }
 });
+
 var queue = require("./commands/play.js");
 client.on("message", async message => {
     if (!message.guild) return;
