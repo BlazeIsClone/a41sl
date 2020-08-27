@@ -1,4 +1,4 @@
-var spotify = require("../config");
+var spotify = require("../config.js");
 const moment = require("moment");
 
 var spotifyApi = spotify.spotifyApi;
