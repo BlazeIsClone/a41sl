@@ -302,9 +302,13 @@ client.on("message", async message => {
 });
 
 // This is the best way to define args. Trust me.
-const args = message.content.slice(setting.prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
-
+client.on("message", message => {
+    const args = message.content
+        .slice(setting.prefix.length)
+        .trim()
+        .split(/ +/g);
+    const command = args.shift().toLowerCase();
+});
 client.on("add", data => {
     console.log(data);
     addSong(data);
