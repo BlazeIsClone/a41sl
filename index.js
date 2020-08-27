@@ -205,11 +205,12 @@ client.on("message", async message => {
         }
     }
 });
-
+var queue = require("./commands/play.js");
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/stop") {
         dispatcher.end();
+        queue.songs = [];
         console.log("dispatcher stoped");
     }
 });
