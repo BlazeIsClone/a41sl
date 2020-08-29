@@ -11,20 +11,22 @@ const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
+const { statusActivityStreaming } = require("./include/statusActivity");
 var global = require("./global");
 
-client.on("ready", async () => {
+client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
+    console.log("Ready!");
+    client.user.setActivity(statusActivityStreaming);
     memberCount(client);
-    client.user.setPresence({
-        status: "online",
-        activity: {
-            name: "Setting Up Stream",
-            type: "STREAMING",
-            details: "Watching Snowv",
-            url: "https://www.twitch.tv/snowv_streams"
-        }
-    });
+});
+
+client.once("reconnecting", () => {
+    console.log("Reconnecting!");
+});
+
+client.once("disconnect", () => {
+    console.log("Disconnect!");
 });
 
 // Rules Command
@@ -146,11 +148,13 @@ client.on("guildMemberRemove", member => {
     channelGoodBye.send(goodbyeEmbed);
 });
 
-const kissRadio = "http://198.178.123.8:8404/;";
-const tnlrocksRadio = "http://live.tnlrn.com:8010/live.mp3";
-const goldRadio = "http://209.133.216.3:7048/;";
-const sunRadio = "http://209.133.216.3:7058/;stream.mp3";
-const yesRadio = "http://live.trusl.com:1150/;";
+const radioChannels = {
+    kissRadio: "http://198.178.123.8:8404/;",
+    tnlrocksRadio: "http://live.tnlrn.com:8010/live.mp3",
+    goldRadio: "http://209.133.216.3:7048/;",
+    sunRadio: "http://209.133.216.3:7058/;stream.mp3",
+    yesRadio: "http://live.trusl.com:1150/;"
+};
 
 //Radio Commands
 client.on("message", async message => {
@@ -158,7 +162,7 @@ client.on("message", async message => {
     if (message.content === `${STREAM} sunfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(sunRadio);
+            dispatcher = connection.play(radioChannels.sunRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Sun Fm**")
@@ -176,7 +180,7 @@ client.on("message", async message => {
     if (message.content === `${STREAM} kissfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(kissRadio);
+            dispatcher = connection.play(radioChannels.kissRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Kiss Fm**")
@@ -194,7 +198,7 @@ client.on("message", async message => {
     if (message.content === `${STREAM} goldfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(goldRadio);
+            dispatcher = connection.play(radioChannels.goldRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Gold Fm**")
@@ -212,7 +216,7 @@ client.on("message", async message => {
     if (message.content === `${STREAM} tnlfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(tnlrocksRadio);
+            dispatcher = connection.play(radioChannels.tnlrocksRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming TNL Fm**")
@@ -230,7 +234,7 @@ client.on("message", async message => {
     if (message.content === `${STREAM} yesfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(yesRadio);
+            dispatcher = connection.play(radioChannels.yesRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Yes Fm**")
