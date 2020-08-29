@@ -11,6 +11,7 @@ const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
+const moment = require("moment");
 var global = require("./global");
 
 client.once("ready", async () => {
@@ -42,9 +43,28 @@ client.on("message", async message => {
     if (message.content === "/ping") {
         const msg = await message.channel.send("Ping?");
         msg.edit(
-            `Latency is ${
-                msg.createdTimestamp - message.createdTimestamp
-            }ms.`
+            `Latency is ${msg.createdTimestamp - message.createdTimestamp}ms.`
+        );
+    }
+});
+
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/stats") {
+        const duration = moment
+            .duration(client.uptime)
+            .format(" D [days], H [hrs], m [mins], s [secs]");
+        message.channel.send(
+            `= STATISTICS =
+      • Mem Usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(
+          2
+      )} MB
+      • Users      :: ${client.users.size.toLocaleString()}
+      • Servers    :: ${client.guilds.size.toLocaleString()}
+      • Channels   :: ${client.channels.size.toLocaleString()}
+      • Discord.js :: v${version}
+      • Node       :: ${process.version}`,
+            { code: "asciidoc" }
         );
     }
 });
