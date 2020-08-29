@@ -48,12 +48,10 @@ client.on("message", async message => {
     }
 });
 
+//Stats Command
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/stats") {
-        const duration = moment
-            .duration(client.uptime)
-            .format(" D [days], H [hrs], m [mins], s [secs]");
         message.channel.send(
             `= STATISTICS =
       • Mem Usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(
