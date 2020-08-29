@@ -11,7 +11,6 @@ const { Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
-const { statusActivityStreaming } = require("./include/statusActivity");
 var global = require("./global");
 
 client.once("ready", async () => {
