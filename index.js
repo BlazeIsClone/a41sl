@@ -36,6 +36,14 @@ client.once("disconnect", () => {
     console.log("Disconnect!");
 });
 
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/ping") {
+        let command = require("./commands/ping.js");
+        command.run(client, message, args);
+    }
+});
+
 // Rules Command
 client.on("message", async message => {
     if (!message.guild) return;
