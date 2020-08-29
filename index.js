@@ -17,7 +17,7 @@ var global = require("./global");
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
     console.log("Ready!");
-    client.user.setActivity(statusActivityStreaming);
+    client.user.setPresence(statusActivityStreaming);
     memberCount(client);
 });
 
