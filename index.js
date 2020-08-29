@@ -17,19 +17,18 @@ var global = require("./global");
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
     console.log("Ready!");
-    client.user.setPresence({statusActivityStreaming});
     memberCount(client);
+    client.user.setPresence({
+        status: "online",
+        activity: {
+            name: "Setting Up Stream",
+            type: "STREAMING",
+            details: "Watching Snowv",
+            url: "https://www.twitch.tv/snowv_streams"
+        }
+    });
 });
-/*client.user.setPresence({
-    status: "online",
-    activity: {
-        name: "Setting Up Stream",
-        type: "STREAMING",
-        details: "Watching Snowv",
-        url: "https://www.twitch.tv/snowv_streams"
-    }
-});
-*/
+
 client.once("reconnecting", () => {
     console.log("Reconnecting!");
 });
