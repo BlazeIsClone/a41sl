@@ -44,7 +44,7 @@ client.on("message", async message => {
         msg.edit(
             `Latency is ${
                 msg.createdTimestamp - message.createdTimestamp
-            }ms. API Latency is ${Math.round(client.ping)}ms`
+            }ms.`
         );
     }
 });
