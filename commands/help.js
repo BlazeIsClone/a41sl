@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const MessageEmbed = new Discord.MessageEmbed()
  
 const helpEmbed = new MessageEmbed()
     .setTitle("👋  Hello There! All The Help You Need Is Here")
