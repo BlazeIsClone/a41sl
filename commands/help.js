@@ -10,19 +10,22 @@ module.exports = {
         let helpEmbed = new MessageEmbed()
             .setTitle("All For One Bot Help")
             .setDescription("List of all commands")
-            .setColor("#F8AA2A");
-
-        commands.forEach(cmd => {
-            helpEmbed.addField(
-                `**${message.client.prefix}${cmd.name} ${
-                    cmd.aliases ? `(${cmd.aliases})` : ""
-                }**`,
-                `${cmd.description}`,
-                true
+            .setColor("#F8AA2A")
+            .setTimestamp()
+            .addFields(
+                { name: "Regular field title", value: "Some value here" },
+                { name: "\u200B", value: "\u200B" },
+                {
+                    name: "Inline field title",
+                    value: "Some value here",
+                    inline: true
+                },
+                {
+                    name: "Inline field title",
+                    value: "Some value here",
+                    inline: true
+                }
             );
-        });
-
-        helpEmbed.setTimestamp();
 
         return message.channel.send(helpEmbed).catch(console.error);
     }
