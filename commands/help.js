@@ -72,7 +72,7 @@ module.exports = {
                 },
                 { name: "\u200B", value: "\u200B" },
                 {
-                    name: "🌐 /ping",
+                    name: "🌐  /ping",
                     value: "To check your latency with the bot"
                 }
             )
