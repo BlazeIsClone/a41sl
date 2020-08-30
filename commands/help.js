@@ -10,7 +10,6 @@ module.exports = {
         let helpEmbed = new MessageEmbed()
             .setTitle("All For One Bot Help")
             .setThumbnail("https://i.imgur.com/wSTFkRM.png")
-            .setImage("https://ibb.co/KVv33rg")
             .setDescription("List of all commands")
             .setColor("#F8AA2A")
             .addFields(
