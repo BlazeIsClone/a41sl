@@ -1,5 +1,5 @@
 const { MessageEmbed, MessageAttachment } = require("discord.js");
-let attachment = new MessageAttachment("../src/img/WELCOME_BANNER.png");
+let attachment = new MessageAttachment("https://i.imgur.com/wSTFkRM.png");
 
 module.exports = {
     name: "help",
