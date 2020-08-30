@@ -38,7 +38,7 @@ client.once("disconnect", () => {
     console.log("Disconnect!");
 });
 
-client.on("guildMemberAdd", async member => {
+client.on("ready", async member => {
     let channel = member.guild.channels.cache.find(
         ch => ch.name === "a41-bot-updates"
     );
