@@ -13,23 +13,30 @@ module.exports = {
             .setColor("#00FF00")
             .addFields(
                 {
+                    name: "/rules",
+                    value: "Will Guide you with server rules."
+                },
+                { name: "\u200B", value: "\u200B" },
+                {
                     name: "/join",
-                    value: "Bot will join you'r voice channel"
+                    value: "Bot will join you'r voice channel."
                 },
                 {
                     name: "/leave",
-                    value: "Bot will leave you'r voice channel "
+                    value: "Bot will leave you'r voice channel."
                 },
                 {
                     name: "/play",
-                    value: "Use this command along with a URL from youTube or soundCloud to play music"
+                    value:
+                        "Use this command along with a URL from youTube or soundCloud to play music."
                 },
 
                 { name: "\u200B", value: "\u200B" },
 
                 {
                     name: "Stream Live Radio",
-                    value: "If you ever ran into an error use /leave command and retry"
+                    value:
+                        "If you ever ran into an error use /leave command and retry"
                 },
                 {
                     name: "Yes Fm",
@@ -61,10 +68,17 @@ module.exports = {
                     name: "Fox Radio",
                     value: "/stream foxfm",
                     inline: true
+                },
+                { name: "\u200B", value: "\u200B" },
+                {
+                    name: "/ping",
+                    value: "To check your latency with the bot"
                 }
             )
 
-            .setFooter("All For One Bot is still on alpha stage contribution would be appreciated ❤️")
+            .setFooter(
+                "All For One Bot is still on alpha stage contribution would be appreciated ❤️"
+            )
             .setTimestamp();
         return message.author.send(helpEmbed).catch(console.error);
     }
