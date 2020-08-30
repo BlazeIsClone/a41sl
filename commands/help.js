@@ -10,7 +10,7 @@ module.exports = {
         let helpEmbed = new MessageEmbed()
             .setTitle("👋 Hello There! all the help you need is here")
             .setThumbnail("https://i.imgur.com/wSTFkRM.png")
-            .setColor("#F8AA2A")
+            .setColor("#00FF00")
             .addFields(
                 {
                     name: "/join",
