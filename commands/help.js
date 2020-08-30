@@ -1,11 +1,11 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, MessageAttachment } = require("discord.js");
 
 module.exports = {
     name: "help",
     aliases: ["h"],
     description: "Display all commands and descriptions",
     execute(message) {
-        let attachment = new MessageAttachment('https://i.pinimg.com/originals/cd/f0/9b/cdf09b00aea778cb509aafc4cccc4e77.png');
+        let attachment = new MessageAttachment('../src/img/WELCOME_BANNER.png');
         let helpEmbed = new MessageEmbed()
             .setTitle("👋  Hello There! All The Help You Need Is Here")
             .setThumbnail("https://i.imgur.com/wSTFkRM.png")
