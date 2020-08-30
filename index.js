@@ -1,5 +1,10 @@
 const Discord = require("discord.js");
-const { MessageEmbed, MessageAttachment } = require("discord.js");
+const {
+    MessageEmbed,
+    MessageAttachment,
+    Collection,
+    MessageEmbed
+} = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
@@ -7,7 +12,6 @@ const rulesEmbed = require("./commands/rules.js");
 const client = new Discord.Client();
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 const memberCount = require("./commands/member-count");
-const { Collection, MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
