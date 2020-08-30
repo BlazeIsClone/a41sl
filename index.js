@@ -54,7 +54,7 @@ client.on("message", async message => {
     if (message.content === "/rules") {
         message.author.send(rulesEmbed);
         message.author.send("My Bot's message", {
-            files: ["https://i.imgur.com/XxxXxXX.jpg"]
+            files: ["https://i.pinimg.com/originals/cd/f0/9b/cdf09b00aea778cb509aafc4cccc4e77.png"]
         });
     }
 });
