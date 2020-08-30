@@ -49,7 +49,7 @@ client.on("message", async message => {
 });
 
 // Help Command
-let helpAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
+const helpAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
 
 client.on("message", async message => {
     if (!message.guild) return;
