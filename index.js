@@ -17,10 +17,6 @@ const botVersion = "0.1v";
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
-    let channel = member.guild.channels.cache.find(
-        ch => ch.name === "a41-bot-updates"
-    );
-    channel.send(`All For One Bot Is Live! ${botVersion}`);
     console.log("Ready!");
     memberCount(client);
     client.user.setPresence({
@@ -40,6 +36,14 @@ client.once("reconnecting", () => {
 
 client.once("disconnect", () => {
     console.log("Disconnect!");
+});
+
+client.on("guildMemberAdd", async member => {
+    let channel = member.guild.channels.cache.find(
+        ch => ch.name === "a41-bot-updates"
+    );
+
+    channel.send(`All For One Bot Is Live! ${botVersion}`);
 });
 
 //Ping Command
