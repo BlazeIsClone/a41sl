@@ -8,7 +8,7 @@ module.exports = {
         let commands = message.client.commands.array();
 
         let helpEmbed = new MessageEmbed()
-            .setTitle("👋 Hello There! all the help you need is here")
+            .setTitle("👋  Hello There! All The Help You Need Is Here")
             .setThumbnail("https://i.imgur.com/wSTFkRM.png")
             .setColor("#00FF00")
             .addFields(
