@@ -7,7 +7,7 @@ const rulesEmbed = require("./commands/rules.js");
 const client = new Discord.Client();
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 const memberCount = require("./commands/member-count");
-const { Collection } = require("discord.js");
+const { Collection, MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
@@ -53,7 +53,9 @@ client.on("message", async message => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/help") {
-        let attachment = new MessageAttachment("https://i.ibb.co/4RTP2QW/Discord-rulesguidelines.jpg");
+        let attachment = new MessageAttachment(
+            "https://i.ibb.co/4RTP2QW/Discord-rulesguidelines.jpg"
+        );
         message.author.send(attachment);
         message.author.send(helpEmbed);
     }
