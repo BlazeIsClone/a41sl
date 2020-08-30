@@ -12,29 +12,30 @@ module.exports = {
             .setThumbnail("https://i.imgur.com/wSTFkRM.png")
             .setColor("#00FF00")
             .addFields(
+                { name: "\u200B", value: "\u200B" },
                 {
-                    name: "/rules",
+                    name: "📋 /rules",
                     value: "Will Guide you with server rules."
                 },
                 { name: "\u200B", value: "\u200B" },
                 {
-                    name: "/join",
-                    value: "Bot will join you'r voice channel."
+                    name: "🎵 Music Streaming",
+                    value: "You can stream you'r YouTube and SoundCloud playlists!"
                 },
                 {
-                    name: "/leave",
-                    value: "Bot will leave you'r voice channel."
+                    name: "/join & /leave",
+                    value: "Use these commands to join and disconnect the bot from you'r voice channel."
                 },
                 {
                     name: "/play",
                     value:
-                        "Use this command along with a URL from youTube or soundCloud to play music."
+                        "Use this command along with a URL to stream music."
                 },
 
                 { name: "\u200B", value: "\u200B" },
 
                 {
-                    name: "Stream Live Radio",
+                    name: "📻 Stream Live Radio",
                     value:
                         "If you ever ran into an error use /leave command and retry"
                 },
@@ -71,7 +72,7 @@ module.exports = {
                 },
                 { name: "\u200B", value: "\u200B" },
                 {
-                    name: "/ping",
+                    name: "🌐 /ping",
                     value: "To check your latency with the bot"
                 }
             )
