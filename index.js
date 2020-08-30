@@ -13,7 +13,7 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
-const { helpEmbed, attachment } = require("./commands/help");
+const { helpEmbed, attachment } = require("./commands/help.js");
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
     console.log("Ready!");
