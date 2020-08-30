@@ -5,7 +5,7 @@ module.exports = {
     aliases: ["h"],
     description: "Display all commands and descriptions",
     execute(message) {
-        let attachment = new MessageAttachment("../src/img/WELCOME_BANNER.png");
+        let attachment = new MessageAttachment("../src/img/SERVER_ICON.jpg");
         let helpEmbed = new MessageEmbed()
             .setTitle("👋  Hello There! All The Help You Need Is Here")
             .setThumbnail({
@@ -88,6 +88,6 @@ module.exports = {
                 "All For One Bot is still on alpha stage contribution would be appreciated ❤️"
             )
             .setTimestamp();
-        return message.author.send(attachment + helpEmbed).catch(console.error);
+        return message.author.send(attachment, helpEmbed).catch(console.error);
     }
 };
