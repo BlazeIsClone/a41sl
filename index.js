@@ -53,6 +53,9 @@ client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/rules") {
         message.author.send(rulesEmbed);
+        message.author.send("My Bot's message", {
+            files: ["https://i.imgur.com/XxxXxXX.jpg"]
+        });
     }
 });
 
