@@ -8,7 +8,14 @@ module.exports = {
         let attachment = new MessageAttachment("../src/img/WELCOME_BANNER.png");
         let helpEmbed = new MessageEmbed()
             .setTitle("👋  Hello There! All The Help You Need Is Here")
-            .setThumbnail("attachment://../src/img/SERVER_ICON.jpg")
+            .setThumbnail({
+                files: [
+                    {
+                        attachment: "../src/img/SERVER_ICON.jpg",
+                        name: "SERVER_ICON.jpg"
+                    }
+                ]
+            })
             .setColor("#00FF00")
             .addFields(
                 { name: "\u200B", value: "\u200B" },
