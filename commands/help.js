@@ -8,7 +8,7 @@ module.exports = {
         let commands = message.client.commands.array();
 
         let helpEmbed = new MessageEmbed()
-            .setTitle("All For One Bot Help")
+            .setTitle("👋 Hello There! all the help you need is here")
             .setThumbnail("https://i.imgur.com/wSTFkRM.png")
             .setColor("#F8AA2A")
             .addFields(
