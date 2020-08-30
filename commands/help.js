@@ -29,7 +29,7 @@ module.exports = {
 
                 {
                     name: "Stream Live Radio",
-                    value: "Use /leave Command to disconnect the bot"
+                    value: "If you ever ran into an error use /leave command and retry"
                 },
                 {
                     name: "Yes Fm",
