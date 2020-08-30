@@ -14,21 +14,33 @@ const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
 var queue = require("./commands/play.js");
-const song = queue.songs[0]; 
+const song = queue.songs[0];
 
 client.once("ready", async () => {
-    console.log(`Logged in as ${client.user.username}!`);
-    console.log("Ready!");
-    memberCount(client);
-    client.user.setPresence({
-        status: "online",
-        activity: {
-            name: `${song.title}`,
-            type: "STREAMING",
-            details: "Watching Snowv",
-            url: "https://www.twitch.tv/snowv_streams"
-        }
-    });
+    if ((song = queue.songs[0])) {
+        console.log(`Logged in as ${client.user.username}!`);
+        console.log("Ready!");
+        memberCount(client);
+        client.user.setPresence({
+            status: "online",
+            activity: {
+                name: "Chilling",
+                type: "STREAMING",
+                details: "Watching Snowv",
+                url: "https://www.twitch.tv/snowv_streams"
+            }
+        });
+    } else {
+        client.user.setPresence({
+            status: "online",
+            activity: {
+                name: `${song.title}`,
+                type: "STREAMING",
+                details: "Watching Snowv",
+                url: "https://www.twitch.tv/snowv_streams"
+            }
+        });
+    }
 });
 
 client.once("reconnecting", () => {
