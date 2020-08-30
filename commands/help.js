@@ -13,7 +13,7 @@ module.exports = {
             .setDescription("List of all commands")
             .setColor("#F8AA2A")
             .addFields(
-                { name: "Stream Live Radio", value: "/stream" },
+                { name: "Stream Live Radio" },
                 { name: "\u200B", value: "\u200B" },
                 {
                     name: "Yes Fm",
@@ -39,6 +39,11 @@ module.exports = {
                 {
                     name: "TNL Radio",
                     value: "/stream tnlfm",
+                    inline: true
+                },
+                {
+                    name: "Fox Radio",
+                    value: "/stream foxfm",
                     inline: true
                 }
             )
