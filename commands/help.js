@@ -1,5 +1,4 @@
 const { MessageEmbed, MessageAttachment } = require("discord.js");
-let attachment = new MessageAttachment("https://i.imgur.com/wSTFkRM.png");
 
 module.exports = {
     name: "help",
@@ -81,5 +80,6 @@ module.exports = {
                 "All For One Bot is still on alpha stage contribution would be appreciated ❤️"
             )
             .setTimestamp();
+        return message.author.send(helpEmbed).catch(console.error);
     }
 };
