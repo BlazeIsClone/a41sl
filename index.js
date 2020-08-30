@@ -12,7 +12,7 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
-const helpEmbed = require("./commands/help");
+const helpEmbed = require("./commands/help.js");
 var global = require("./global");
 
 client.once("ready", async () => {
@@ -53,9 +53,7 @@ client.on("message", async message => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/help") {
-        let attachment = new MessageAttachment(
-            "https://imgur.com/LFv0dD9"
-        );
+        let attachment = new MessageAttachment("https://i.ibb.co/4RTP2QW/Discord-rulesguidelines.jpg");
         message.author.send(attachment);
         message.author.send(helpEmbed);
     }
