@@ -80,6 +80,6 @@ module.exports = {
                 "All For One Bot is still on alpha stage contribution would be appreciated ❤️"
             )
             .setTimestamp();
-        return message.author.send(helpEmbed).catch(console.error);
+        return message.author.send(attachment + helpEmbed).catch(console.error);
     }
 };
