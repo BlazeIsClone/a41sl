@@ -13,7 +13,6 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
-const botVersion = "0.1v";
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
@@ -36,18 +35,6 @@ client.once("reconnecting", () => {
 
 client.once("disconnect", () => {
     console.log("Disconnect!");
-});
-
-client.on("ready", async member => {
-    const member = {
-        guild: "463027132243771403"
-    };
-    const guild = client.guilds.cache.get("463027132243771403");
-    let channel = member.guild.channels.cache.find(
-        ch => ch.name === "a41-bot-updates"
-    );
-
-    channel.send(`All For One Bot Is Live! ${botVersion}`);
 });
 
 //Ping Command
