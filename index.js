@@ -1,5 +1,4 @@
-const Discord = require("discord.js");
-const { MessageEmbed } = require("discord.js");
+const { Discord, MessageEmbed, MessageAttachment } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
@@ -12,6 +11,7 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
+const help = require("./commands/help");
 var global = require("./global");
 
 client.once("ready", async () => {
@@ -48,16 +48,23 @@ client.on("message", async message => {
     }
 });
 
+// Help Command
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/help") {
+        message.author.send(helpEmbed);
+        const attachment = new MessageAttachment(
+            "https://i.pinimg.com/originals/cd/f0/9b/cdf09b00aea778cb509aafc4cccc4e77.png"
+        );
+        message.author.send(attachment);
+    }
+});
+
 // Rules Command
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/rules") {
         message.author.send(rulesEmbed);
-        message.channel.send("My Bot's message", {
-            files: [
-                "https://i.pinimg.com/originals/cd/f0/9b/cdf09b00aea778cb509aafc4cccc4e77.png"
-            ]
-        });
     }
 });
 
