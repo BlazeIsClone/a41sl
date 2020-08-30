@@ -53,7 +53,7 @@ client.on("message", async message => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/help") {
-        const attachment = new MessageAttachment(
+        let attachment = new MessageAttachment(
             "https://imgur.com/LFv0dD9"
         );
         message.author.send(attachment);
