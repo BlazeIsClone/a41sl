@@ -15,7 +15,7 @@ module.exports = {
             .setColor("#F8AA2A")
             .addFields(
                 { name: "Stream Live Radio", value: "Use /leave Command to disconnect the bot" },
-                { name: "\u200B", value: "" },
+                { name: "\u200B", value: "\u200B" },
                 {
                     name: "Yes Fm",
                     value: "/stream yesfm",
