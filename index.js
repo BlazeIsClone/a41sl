@@ -55,7 +55,8 @@ client.on("message", async message => {
         let attachment = new MessageAttachment(
             "https://i.ibb.co/4RTP2QW/Discord-rulesguidelines.jpg"
         );
-        message.author.send(attachment, helpEmbed);
+        message.author.send(attachment);
+        message.author.send(helpEmbed);
     }
 });
 
