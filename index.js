@@ -51,8 +51,8 @@ client.on("message", async message => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/help") {
-        author.send(helpEmbed);
-        author.send(attachment);
+        message.author.send(helpEmbed);
+        message.author.send(attachment);
     }
 });
 // Rules Command
