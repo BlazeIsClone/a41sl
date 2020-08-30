@@ -73,4 +73,5 @@ const helpEmbed = new MessageEmbed()
         "All For One Bot is still on alpha stage contribution would be appreciated ❤️"
     )
     .setTimestamp();
-exports.helpEmbed = helpEmbed;
+
+module.exports = helpEmbed;

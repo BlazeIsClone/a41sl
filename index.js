@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const { MessageAttachment, Collection } = require("discord.js");
-const MessageEmbed = require("discord.js");
+const { MessageEmbed, MessageAttachment, Collection } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
@@ -57,7 +56,7 @@ client.on("message", async message => {
             "https://i.ibb.co/4RTP2QW/Discord-rulesguidelines.jpg"
         );
         //message.author.send(attachment);
-        message.author.send(rulesEmbed);
+        message.author.send(helpEmbed);
     }
 });
 
