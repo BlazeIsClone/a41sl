@@ -1,8 +1,5 @@
-const { MessageEmbed, MessageAttachment } = require("discord.js");
-const attachment = new MessageAttachment(
-    "https://i.pinimg.com/originals/cd/f0/9b/cdf09b00aea778cb509aafc4cccc4e77.png"
-);
-exports.attachment = attachment;
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
     name: "help",
     aliases: ["h"],
