@@ -53,7 +53,7 @@ client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/help") {
         let attachment = new MessageAttachment(
-            "https://hypixel.net/attachments/the-boys-in-blue-forum-banner-png-gr-png.1819695/"
+            "https://i.imgur.com/790FtQS.png"
         );
         message.author.send(helpEmbed);
         message.author.send(attachment);
