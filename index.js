@@ -13,34 +13,20 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
-var queue = require("./commands/play.js");
-const song = queue.songs[0];
 
 client.once("ready", async () => {
-    if ((song = queue.songs[0])) {
-        console.log(`Logged in as ${client.user.username}!`);
-        console.log("Ready!");
-        memberCount(client);
-        client.user.setPresence({
-            status: "online",
-            activity: {
-                name: "Chilling",
-                type: "STREAMING",
-                details: "Watching Snowv",
-                url: "https://www.twitch.tv/snowv_streams"
-            }
-        });
-    } else {
-        client.user.setPresence({
-            status: "online",
-            activity: {
-                name: `${song.title}`,
-                type: "STREAMING",
-                details: "Watching Snowv",
-                url: "https://www.twitch.tv/snowv_streams"
-            }
-        });
-    }
+    console.log(`Logged in as ${client.user.username}!`);
+    console.log("Ready!");
+    memberCount(client);
+    client.user.setPresence({
+        status: "online",
+        activity: {
+            name: "The World 🌎",
+            type: "STREAMING",
+            details: "Watching Snowv",
+            url: "https://www.twitch.tv/snowv_streams"
+        }
+    });
 });
 
 client.once("reconnecting", () => {
@@ -50,6 +36,7 @@ client.once("reconnecting", () => {
 client.once("disconnect", () => {
     console.log("Disconnect!");
 });
+
 //Ping Command
 client.on("message", async message => {
     if (!message.guild) return;
@@ -279,6 +266,7 @@ client.on("message", async message => {
     }
 });
 
+var queue = require("./commands/play.js");
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/stop") {
