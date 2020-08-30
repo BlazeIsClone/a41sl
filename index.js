@@ -21,7 +21,7 @@ client.once("ready", async () => {
     client.user.setPresence({
         status: "online",
         activity: {
-            name: "The World 🌎",
+            name: "The World 🌎 /help",
             type: "STREAMING",
             details: "Watching Snowv",
             url: "https://www.twitch.tv/snowv_streams"
