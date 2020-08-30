@@ -1,8 +1,11 @@
-const Discord = require("discord.js");
 const { MessageEmbed, MessageAttachment } = require("discord.js");
 
 module.exports = {
+    name: "help",
+    aliases: ["h"],
+    description: "Display all commands and descriptions",
     execute(message) {
+        const attachment = new MessageAttachment("https://i.imgur.com/wSTFkRM.png");
         const helpEmbed = new MessageEmbed()
             .setTitle("👋  Hello There! All The Help You Need Is Here")
             .setThumbnail("https://i.imgur.com/wSTFkRM.png")
@@ -78,6 +81,6 @@ module.exports = {
                 "All For One Bot is still on alpha stage contribution would be appreciated ❤️"
             )
             .setTimestamp();
-        return message.author.send(helpEmbed).catch(console.error);
+        return message.author.send(attachment, helpEmbed).catch(console.error);
     }
 };
