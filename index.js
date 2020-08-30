@@ -49,13 +49,12 @@ client.on("message", async message => {
 });
 
 // Help Command
+let helpAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
+
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/help") {
-        let attachment = new MessageAttachment(
-            "https://i.imgur.com/790FtQS.png"
-        );
-        message.author.send(helpEmbed);
+        message.author.send(helpAttachment, helpEmbed);
     }
 });
 
