@@ -54,7 +54,14 @@ const helpAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/help") {
-        message.author.send(helpAttachment, helpEmbed);
+        message.author.send(helpAttachment);
+    }
+});
+
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/help") {
+        message.author.send(helpEmbed);
     }
 });
 
