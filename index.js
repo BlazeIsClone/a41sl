@@ -1,4 +1,5 @@
-const { Discord, MessageEmbed, MessageAttachment } = require("discord.js");
+const { Discord } = require("discord.js");
+const { MessageEmbed, MessageAttachment } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
