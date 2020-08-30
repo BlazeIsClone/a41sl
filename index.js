@@ -13,6 +13,8 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
+var queue = require("./commands/play.js");
+const song = queue.songs[0]; 
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
@@ -36,7 +38,6 @@ client.once("reconnecting", () => {
 client.once("disconnect", () => {
     console.log("Disconnect!");
 });
-
 //Ping Command
 client.on("message", async message => {
     if (!message.guild) return;
@@ -266,7 +267,6 @@ client.on("message", async message => {
     }
 });
 
-var queue = require("./commands/play.js");
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/stop") {
