@@ -5,11 +5,10 @@ module.exports = {
     aliases: ["h"],
     description: "Display all commands and descriptions",
     execute(message) {
-        let commands = message.client.commands.array();
-
+        let attachment = new MessageAttachment('../src/img/WELCOME_BANNER.png');
         let helpEmbed = new MessageEmbed()
             .setTitle("👋  Hello There! All The Help You Need Is Here")
-            .setThumbnail("https://i.imgur.com/wSTFkRM.png")
+            .setThumbnail("../src/img/SERVER_ICON.jpg")
             .setColor("#00FF00")
             .addFields(
                 { name: "\u200B", value: "\u200B" },
