@@ -14,7 +14,7 @@ module.exports = {
             .setColor("#F8AA2A")
             .addFields(
                 { name: "Stream Live Radio" },
-                { name: "\u200B", value: "\u200B" },
+                { name: "\u200B" },
                 {
                     name: "Yes Fm",
                     value: "/stream yesfm",
