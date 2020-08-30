@@ -54,7 +54,7 @@ client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/help") {
         const attachment = new MessageAttachment(
-            "https://i.pinimg.com/originals/cd/f0/9b/cdf09b00aea778cb509aafc4cccc4e77.png"
+            "https://cdn.discordapp.com/attachments/747578389304442972/747579994032570418/Discord_rulesguidelines.jpg"
         );
         message.author.send(attachment);
         message.author.send(helpEmbed);
