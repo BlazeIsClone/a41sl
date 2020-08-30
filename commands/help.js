@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
- 
+const MessageEmbed = require("discord.js");
+
 const helpEmbed = new MessageEmbed()
     .setTitle("👋  Hello There! All The Help You Need Is Here")
     .setThumbnail("https://i.imgur.com/wSTFkRM.png")
