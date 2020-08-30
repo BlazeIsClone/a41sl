@@ -14,12 +14,12 @@ module.exports = {
             .addFields(
                 { name: "\u200B", value: "\u200B" },
                 {
-                    name: "📋 /rules",
+                    name: "📋  /rules",
                     value: "Will Guide you with server rules."
                 },
                 { name: "\u200B", value: "\u200B" },
                 {
-                    name: "🎵 Music Streaming",
+                    name: "🎵  Music Streaming",
                     value: "You can stream you'r YouTube and SoundCloud playlists!"
                 },
                 {
@@ -35,7 +35,7 @@ module.exports = {
                 { name: "\u200B", value: "\u200B" },
 
                 {
-                    name: "📻 Stream Live Radio",
+                    name: "📻  Stream Live Radio",
                     value:
                         "If you ever ran into an error use /leave command and retry"
                 },
