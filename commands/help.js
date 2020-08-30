@@ -5,7 +5,7 @@ module.exports = {
     aliases: ["h"],
     description: "Display all commands and descriptions",
     execute(message) {
-        let attachment = new MessageAttachment('../src/img/WELCOME_BANNER.png');
+        let attachment = new MessageAttachment("../src/img/WELCOME_BANNER.png");
         let helpEmbed = new MessageEmbed()
             .setTitle("👋  Hello There! All The Help You Need Is Here")
             .setThumbnail("https://i.imgur.com/wSTFkRM.png")
@@ -19,16 +19,17 @@ module.exports = {
                 { name: "\u200B", value: "\u200B" },
                 {
                     name: "🎵  Music Streaming",
-                    value: "You can stream you'r YouTube and SoundCloud playlists!"
+                    value:
+                        "You can stream you'r YouTube and SoundCloud playlists!"
                 },
                 {
                     name: "/join & /leave",
-                    value: "Use these commands to join and disconnect the bot from you'r voice channel."
+                    value:
+                        "Use these commands to join and disconnect the bot from you'r voice channel."
                 },
                 {
                     name: "/play",
-                    value:
-                        "Use this command along with a URL to stream music."
+                    value: "Use this command along with a URL to stream music."
                 },
 
                 { name: "\u200B", value: "\u200B" },
@@ -80,6 +81,6 @@ module.exports = {
                 "All For One Bot is still on alpha stage contribution would be appreciated ❤️"
             )
             .setTimestamp();
-        return message.author.send(attachment + helpEmbed).catch(console.error);
+        return message.author.send(attachment, helpEmbed).catch(console.error);
     }
 };
