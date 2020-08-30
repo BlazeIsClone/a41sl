@@ -66,6 +66,7 @@ module.exports = {
                 }
             )
 
+            .setFooter("All For One Bot is still on alpha stage Please feel free to contribute on Git Hub")
             .setTimestamp();
         return message.channel.send(helpEmbed).catch(console.error);
     }
