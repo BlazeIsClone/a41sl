@@ -5,16 +5,10 @@ module.exports = {
     aliases: ["h"],
     description: "Display all commands and descriptions",
     execute(message) {
+        let attachment = new MessageAttachment('https://i.pinimg.com/originals/cd/f0/9b/cdf09b00aea778cb509aafc4cccc4e77.png');
         let helpEmbed = new MessageEmbed()
             .setTitle("👋  Hello There! All The Help You Need Is Here")
-            .setThumbnail({
-                files: [
-                    {
-                        attachment: "../src/img/SERVER_ICON.jpg",
-                        name: "SERVER_ICON.jpg"
-                    }
-                ]
-            })
+            .setThumbnail("https://i.imgur.com/wSTFkRM.png")
             .setColor("#00FF00")
             .addFields(
                 { name: "\u200B", value: "\u200B" },
@@ -25,17 +19,16 @@ module.exports = {
                 { name: "\u200B", value: "\u200B" },
                 {
                     name: "🎵  Music Streaming",
-                    value:
-                        "You can stream you'r YouTube and SoundCloud playlists!"
+                    value: "You can stream you'r YouTube and SoundCloud playlists!"
                 },
                 {
                     name: "/join & /leave",
-                    value:
-                        "Use these commands to join and disconnect the bot from you'r voice channel."
+                    value: "Use these commands to join and disconnect the bot from you'r voice channel."
                 },
                 {
                     name: "/play",
-                    value: "Use this command along with a URL to stream music."
+                    value:
+                        "Use this command along with a URL to stream music."
                 },
 
                 { name: "\u200B", value: "\u200B" },
