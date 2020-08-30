@@ -13,9 +13,14 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
+const botVersion = "0.1v";
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
+    let channel = member.guild.channels.cache.find(
+        ch => ch.name === "a41-bot-updates"
+    );
+    channel.send(`All For One Bot Is Live! ${botVersion}`);
     console.log("Ready!");
     memberCount(client);
     client.user.setPresence({
