@@ -1,4 +1,4 @@
-const Discord  = require("discord.js");
+const Discord = require("discord.js");
 const { MessageEmbed, MessageAttachment } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
@@ -56,7 +56,8 @@ client.on("message", async message => {
         const attachment = new MessageAttachment(
             "https://i.pinimg.com/originals/cd/f0/9b/cdf09b00aea778cb509aafc4cccc4e77.png"
         );
-        message.author.send(attachment, helpEmbed);
+        message.author.send(attachment);
+        message.author.send(helpEmbed);
     }
 });
 
