@@ -56,7 +56,7 @@ client.on("message", async message => {
             "https://i.imgur.com/790FtQS.png"
         );
         message.author.send(helpEmbed);
-        message.author.send(attachment);
+        message.author.send(attachment).catch(console.error);
     }
 });
 
