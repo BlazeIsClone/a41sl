@@ -39,6 +39,7 @@ client.once("disconnect", () => {
 });
 
 client.on("ready", async member => {
+    const guild = client.guilds.cache.get("463027132243771403");
     let channel = member.guild.channels.cache.find(
         ch => ch.name === "a41-bot-updates"
     );
