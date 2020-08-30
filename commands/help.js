@@ -9,7 +9,7 @@ module.exports = {
 
         let helpEmbed = new MessageEmbed()
             .setTitle("All For One Bot Help")
-            .setImage("./src/.img/SERVER_ICON.jpg")
+            .setImage("attachment://./src/.img/SERVER_ICON.jpg")
             .setDescription("List of all commands")
             .setColor("#F8AA2A")
             .addFields(
