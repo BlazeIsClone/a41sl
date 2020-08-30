@@ -14,7 +14,25 @@ module.exports = {
             .setDescription("List of all commands")
             .setColor("#F8AA2A")
             .addFields(
-                { name: "Stream Live Radio", value: "Use /leave Command to disconnect the bot" },
+                {
+                    name: "/join",
+                    value: "Bot will join you'r voice channel"
+                },
+                {
+                    name: "/leave",
+                    value: "Bot will leave you'r voice channel "
+                },
+                {
+                    name: "/play",
+                    value: "Use this command along with a URL from youTube or soundCloud to play music"
+                },
+
+                { name: "\u200B", value: "\u200B" },
+
+                {
+                    name: "Stream Live Radio",
+                    value: "Use /leave Command to disconnect the bot"
+                },
                 { name: "\u200B", value: "\u200B" },
                 {
                     name: "Yes Fm",
