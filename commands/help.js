@@ -7,7 +7,7 @@ module.exports = {
     execute(message) {
         const helpEmbed = new MessageEmbed()
             .setTitle("👋  Hello There! All The Help You Need Is Here")
-            .setThumbnail("src/img/SERVER_ICON.jpg")
+            .setThumbnail("/src/img/SERVER_ICON.jpg")
             .setColor("#00FF00")
             .addFields(
                 { name: "\u200B", value: "\u200B" },
