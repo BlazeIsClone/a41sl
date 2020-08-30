@@ -12,7 +12,7 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
-const help = require("./commands/help");
+const helpEmbed = require("./commands/help");
 var global = require("./global");
 
 client.once("ready", async () => {
