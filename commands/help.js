@@ -9,12 +9,12 @@ module.exports = {
 
         let helpEmbed = new MessageEmbed()
             .setTitle("All For One Bot Help")
-            .setImage("attachment://./src/img/SERVER_ICON.jpg")
+            .setImage("https://ibb.co/KVv33rg")
             .setDescription("List of all commands")
             .setColor("#F8AA2A")
             .addFields(
-                { name: "Stream Live Radio" },
-                { name: "\u200B" },
+                { name: "Stream Live Radio", value: "" },
+                { name: "\u200B", value: "" },
                 {
                     name: "Yes Fm",
                     value: "/stream yesfm",
