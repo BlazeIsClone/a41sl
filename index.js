@@ -160,6 +160,7 @@ client.on("guildMemberAdd", async member => {
         "welcome-image.png"
     );
     channel.send(`Hey Welcome to **All For One SL**, ${member}!`, attachment);
+    message.author.send("hello");
 });
 
 client.on("guildMemberRemove", member => {
