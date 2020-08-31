@@ -62,7 +62,7 @@ client.on("message", async message => {
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/rules") {
-        message.channel.send(rulesEmbed);
+        message.author.send(rulesEmbed);
     }
 });
 
