@@ -25,7 +25,7 @@ const champion = new getchampion();
 const admin = new getadmin();
 const spotlight = new spotlight();
 const cooldown = new set();
-const { pool, client } = require("pg");
+const { pool } = require("pg");
 require("dotenv").config();
 
 client.once("ready", async () => {
