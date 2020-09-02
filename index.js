@@ -26,7 +26,7 @@ const champion = new Champion();
 const admin = new Admin();
 const spotlight = new Spotlight();
 const cooldown = new Set();
-var regexp = require('regexp')
+var regexp = require("regexp");
 require("dotenv").config();
 
 client.once("ready", async () => {
