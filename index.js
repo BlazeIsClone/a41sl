@@ -13,19 +13,19 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
-const getprofile = require("./utils/profile");
-const getimageeditor = require("./utils/imageeditor");
-const getchampion = require("./utils/championdata");
-const getspotlight = require("./utils/spotlight");
-const points = require("./utils/pointschanges");
-const imageeditor = new getimageeditor();
-const getadmin = require("./utils/admin");
-const profile = new getprofile();
-const champion = new getchampion();
-const admin = new getadmin();
+const profile = require("./util/profile");
+const imageeditor = require("./util/imageeditor");
+const champion = require("./util/championdata");
+const spotlight = require("./util/spotlight");
+const points = require("./util/pointschanges");
+const imageeditor = new imageeditor();
+const admin = require("./util/admin");
+const profile = new profile();
+const champion = new champion();
+const admin = new admin();
 const spotlight = new spotlight();
 const cooldown = new set();
-const { pool } = require("pg");
+const { pool, client } = require("pg");
 require("dotenv").config();
 
 client.once("ready", async () => {
@@ -378,6 +378,23 @@ client.on("message", async message => {
     }
 });
 
+require("dotenv").config();
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const discord_token = process.env.token_bot;
+const profile = require("./util/profile");
+const imageeditor = require("./util/imageeditor");
+const champion = require("./util/championdata");
+const spotlight = require("./util/spotlight");
+const points = require("./util/pointschanges");
+const imageeditor = new imageeditor();
+const admin = require("./util/admin");
+const profile = new profile();
+const champion = new champion();
+const admin = new admin();
+const spotlight = new spotlight();
+const cooldown = new set();
+const { pool, client } = require("pg");
 const commands = {
     profile: { regex: new regexp("profile", "gis"), execute: profile.getdata },
     setsummoner: {
