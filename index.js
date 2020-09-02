@@ -14,7 +14,6 @@ const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
 const profile = require("./utils/profile");
-const imageeditor = require("./utils/imageeditor");
 const champion = require("./utils/championdata");
 const spotlight = require("./utils/spotlight");
 const points = require("./utils/pointschanges");
