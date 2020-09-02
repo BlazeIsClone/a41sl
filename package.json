@@ -16,6 +16,7 @@
         "ffmpeg-static": "^4.2.7",
         "fluent-ffmpeg": "^2.1.2",
         "fs": "0.0.1-security",
+        "includes": "0.0.7",
         "localtunnel": "^2.0.0",
         "lyrics-finder": "^21.3.2",
         "moment": "^2.27.0",
