@@ -61,10 +61,12 @@ client.on("message", async message => {
 });
 
 // Rules Command
+const rulesAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
+
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/rules") {
-        message.author.send(rulesEmbed);
+        message.author.send(rulesEmbed, rulesAttachment);
     }
 });
 
