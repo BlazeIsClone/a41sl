@@ -13,19 +13,19 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
+const { pool } = require("pg");
 const getprofile = require("./util/profile.js");
-const getimageeditor = require("./util/imageEditor.js");
+const imageEditor = require("./util/imageEditor.js");
 const getchampion = require("./util/championData.js");
 const getspotlight = require("./util/spotlight.js");
 const points = require("./util/pointsChanges.js");
-const imageeditor = new imageEditor();
+const imageEditor = new imageEditor();
 const getadmin = require("./util/admin");
 const profile = new profile();
 const champion = new champion();
 const admin = new admin();
 const spotlight = new spotlight();
 const cooldown = new set();
-const { pool } = require("pg");
 require("dotenv").config();
 
 client.once("ready", async () => {
