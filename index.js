@@ -378,23 +378,6 @@ client.on("message", async message => {
     }
 });
 
-require("dotenv").config();
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const discord_token = process.env.token_bot;
-const profile = require("./util/profile");
-const imageeditor = require("./util/imageeditor");
-const champion = require("./util/championdata");
-const spotlight = require("./util/spotlight");
-const points = require("./util/pointschanges");
-const imageeditor = new imageeditor();
-const admin = require("./util/admin");
-const profile = new profile();
-const champion = new champion();
-const admin = new admin();
-const spotlight = new spotlight();
-const cooldown = new set();
-const { pool, client } = require("pg");
 const commands = {
     profile: { regex: new regexp("profile", "gis"), execute: profile.getdata },
     setsummoner: {
