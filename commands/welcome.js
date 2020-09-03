@@ -3,10 +3,10 @@ const { MessageAttachment } = require("discord.js");
 const Canvas = require("canvas");
 const client = new Discord.Client();
 
-const canvas = Canvas.createCanvas(700, 250);
-const ctx = canvas.getContext("2d");
+module.exports = (async () => {
+    const canvas = Canvas.createCanvas(700, 250);
+    const ctx = canvas.getContext("2d");
 
-(async () => {
     ctx.strokeStyle = "#0800ff";
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
@@ -49,4 +49,3 @@ const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
     "welcome-image.png"
 );
-module.exports = attachment;
