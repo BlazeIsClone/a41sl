@@ -6,7 +6,6 @@ const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./commands/rules.js");
 const helpEmbed = require("./commands/help.js");
-const goodbyeEmbed = require("./commands/goodbye");
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 const memberCount = require("./commands/member-count");
 const { readdirSync } = require("fs");
@@ -176,6 +175,12 @@ client.on("guildMemberRemove", member => {
         ch => ch.name === "goodbye"
     );
     if (!channelGoodBye) return;
+    const goodbyeEmbed = new Discord.MessageEmbed()
+        .setColor("#FF0000")
+        .setImage(member.user.displayAvatarURL({ format: "jpg" }))
+        .setTitle("✨ It's a goodbye!")
+        .setDescription(`**${member.displayName}** has left for adventure .`)
+        .setTimestamp();
 
     channelGoodBye.send(goodbyeEmbed);
 });
