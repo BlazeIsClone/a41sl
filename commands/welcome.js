@@ -48,9 +48,9 @@ ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
 ctx.closePath();
 ctx.clip();
 
-const avatar = await Canvas.loadImage(
-    member.user.displayAvatarURL({ format: "jpg" })
-);
+const avatar = async () => {
+    await Canvas.loadImage(member.user.displayAvatarURL({ format: "jpg" }));
+};
 ctx.drawImage(avatar, 25, 25, 200, 200);
 ctx.lineWidth = 13;
 ctx.strokeStyle = "white";
