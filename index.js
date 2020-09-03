@@ -106,9 +106,11 @@ client.on("guildMemberAdd", async member => {
     const ctx = canvas.getContext("2d");
 
     const imageLocation = "../src/img/wallpaper.png";
-    const background = await canvas.loadImage(imageLocation);
-    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
+    async function loadimgBuffer() {
+        const background = await canvas.loadImage(imageLocation);
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    }
+    loadimgBuffer();
     ctx.font = applyText(canvas, `${member.displayName}!`);
     ctx.fillStyle = "#ffffff";
     ctx.fillText(
@@ -128,7 +130,10 @@ client.on("guildMemberAdd", async member => {
 
     ctx.drawImage(avatar, 25, 25, 200, 200);
 
-    welcomeChannel.send(`Hey Welcome to **All For One SL**, ${member}!`, attachment);
+    welcomeChannel.send(
+        `Hey Welcome to **All For One SL**, ${member}!`,
+        attachment
+    );
 });
 
 client.on("guildMemberRemove", member => {
