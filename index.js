@@ -176,7 +176,7 @@ client.on("guildMemberRemove", member => {
     );
     if (!channelGoodBye) return;
     const goodbyeEmbed = new Discord.MessageEmbed()
-        .setColor("#FF0000")
+        .setColor("#00FF00")
         .setThumbnail(member.user.displayAvatarURL({ format: "jpg" }))
         .setTitle(`:ringed_planet: ** ${member.displayName} Has Left For Adventure**`)
         .setDescription(
