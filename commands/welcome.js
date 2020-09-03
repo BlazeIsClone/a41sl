@@ -44,8 +44,8 @@ module.exports = (async () => {
     ctx.lineWidth = 13;
     ctx.strokeStyle = "white";
     ctx.stroke();
+    const attachment = new Discord.MessageAttachment(
+        canvas.toBuffer(),
+        "welcome-image.png"
+    );
 })();
-const attachment = new Discord.MessageAttachment(
-    canvas.toBuffer(),
-    "welcome-image.png"
-);
