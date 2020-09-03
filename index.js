@@ -400,7 +400,7 @@ function generateMessages() {
 
 client.on("message", message => {
     if (
-        message.author.id == yourID &&
+        //message.author.id == yourID &&
         message.content.toLowerCase() == setupCMD
     ) {
         var toSend = generateMessages();
