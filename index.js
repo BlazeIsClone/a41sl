@@ -97,7 +97,7 @@ client.on("message", async message => {
 
 // User Welcome Message
 client.on("guildMemberAdd", async member => {
-    const channel = member.guild.channels.cache.find(
+    const welcomeChannel = member.guild.channels.cache.find(
         ch => ch.name === "welcome"
     );
 
@@ -128,7 +128,7 @@ client.on("guildMemberAdd", async member => {
 
     ctx.drawImage(avatar, 25, 25, 200, 200);
 
-    channel.send(`Hey Welcome to **All For One SL**, ${member}!`, attachment);
+    welcomeChannel.send(`Hey Welcome to **All For One SL**, ${member}!`, attachment);
 });
 
 client.on("guildMemberRemove", member => {
