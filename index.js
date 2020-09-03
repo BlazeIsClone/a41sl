@@ -397,8 +397,10 @@ function generateMessages() {
         messages.push(`React below to get the **"${role}"** role!`);
     return messages;
 }
-
 client.on("message", message => {
+    const roleChannel = member.guild.channels.cache.find(
+        ch => ch.name === "request-roles"
+    );
 
     var toSend = generateMessages();
     let mappedArray = [
