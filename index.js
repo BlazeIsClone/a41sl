@@ -397,12 +397,13 @@ function generateMessages() {
         messages.push(`React below to get the **"${role}"** role!`);
     return messages;
 }
-
-client.on("message", message => {
+client.on("message", member => {
+    let guild = client.guilds.cache.get("463027132243771403");
     const roleChannel = member.guild.channels.cache.find(
         ch => ch.name === "request-roles"
     );
-
+});
+client.on("message", message => {
     if (!roleChannel) return;
 
     var toSend = generateMessages();
