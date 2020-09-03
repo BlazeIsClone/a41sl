@@ -58,3 +58,4 @@ const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
     "welcome-image.png"
 );
+module.exports = attachment;
