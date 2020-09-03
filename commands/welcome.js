@@ -48,10 +48,6 @@ const ctx = canvas.getContext("2d");
     const avatar = async () => {
         await Canvas.loadImage(member.user.displayAvatarURL({ format: "jpg" }));
     };
-    async function avatarImage() {
-        ctx.drawImage(avatar, 25, 25, 200, 200);
-    }
-    avatarImage();
     ctx.lineWidth = 13;
     ctx.strokeStyle = "white";
     ctx.stroke();

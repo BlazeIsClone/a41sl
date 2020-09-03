@@ -119,6 +119,8 @@ client.on("guildMemberAdd", async member => {
         canvas.height / 1.45
     );
 
+    ctx.drawImage(avatar, 25, 25, 200, 200);
+
     channel.send(`Hey Welcome to **All For One SL**, ${member}!`, attachment);
 });
 
