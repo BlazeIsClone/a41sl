@@ -102,6 +102,10 @@ client.on("guildMemberAdd", async member => {
     );
 
     if (!channel) return;
+    const imageLocation = "../src/img/wallpaper.png";
+    const background = await canvas.loadImage(imageLocation);
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
     ctx.font = applyText(canvas, `${member.displayName}!`);
     ctx.fillStyle = "#ffffff";
     ctx.fillText(
