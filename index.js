@@ -379,7 +379,7 @@ client.on("message", async message => {
     }
 });
 
-const yourID = "╲⎝⧹🔥BLAZEracer129🔥⧸⎠╱#4100";
+const yourID = "╲⎝⧹🔥BLAZEracer129🔥⧸⎠╱";
 const setupCMD = "!createroleressage";
 let initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
 const roles = ["Hacker", "Artist", "Public Relations", "Intern"];
