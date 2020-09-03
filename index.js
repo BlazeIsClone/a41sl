@@ -411,7 +411,7 @@ client.on("message", message => {
         ...toSend.slice(1).map((message, idx) => [message, reactions[idx]])
     ];
     for (let mapObj of mappedArray) {
-        message.roleChannel.send(mapObj[0]).then(sent => {
+        roleChannel.send(mapObj[0]).then(sent => {
             if (mapObj[1]) {
                 sent.react(mapObj[1]);
             }
