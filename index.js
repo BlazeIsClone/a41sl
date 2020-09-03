@@ -398,9 +398,9 @@ function generateMessages() {
     return messages;
 }
 client.on("message", message => {
-    const roleChannel = member.guild.channels.cache.find(
-        ch => ch.name === "request-roles"
-    );
+    let channelId = "751060284076064779";
+
+    const roleChannel = guild.channels.cache.get(channelId);
 
     var toSend = generateMessages();
     let mappedArray = [
