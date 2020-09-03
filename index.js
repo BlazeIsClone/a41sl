@@ -178,7 +178,9 @@ client.on("guildMemberRemove", member => {
     const goodbyeEmbed = new Discord.MessageEmbed()
         .setColor("#00FF00")
         .setThumbnail(member.user.displayAvatarURL({ format: "jpg" }))
-        .setTitle(`:ringed_planet: ** ${member.displayName} Has Left For Adventure**`)
+        .setTitle(
+            `:ringed_planet: ** ${member.displayName} Has Left For Adventure**`
+        )
         .setDescription(
             "The magic thing about home is that it feels good to leave, and it feels even better to come back."
         )
@@ -205,9 +207,10 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Sun Fm**")
-                .setImage(
+                .setThumbnail(
                     "https://lh3.googleusercontent.com/qxVfvXii_pVa5QepZyozdijGPxuSQ957nISY9t9M8DSddQ0JZha2PoopVeiKw5sU0Q4"
                 )
+                .setDescription("Streaming Live 24/7")
                 .setFooter("SunFm - Live");
             message.channel.send(embed);
         }
@@ -223,9 +226,10 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Kiss Fm**")
-                .setImage(
+                .setThumbnail(
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/KissFMSriLankaLogo2012.png/220px-KissFMSriLankaLogo2012.png"
                 )
+                .setDescription("Streaming Live 24/7")
                 .setFooter("KissFm - Live");
             message.channel.send(embed);
         }
@@ -241,9 +245,10 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Gold Fm**")
-                .setImage(
+                .setThumbnail(
                     "https://mytuner.global.ssl.fastly.net/media/tvos_radios/XAryWL2prn.jpeg"
                 )
+                .setDescription("Streaming Live 24/7")
                 .setFooter("GoldFm - Live");
             message.channel.send(embed);
         }
@@ -259,9 +264,10 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming TNL Fm**")
-                .setImage(
+                .setThumbnail(
                     "https://cdn-profiles.tunein.com/s14406/images/logog.png"
                 )
+                .setDescription("Streaming Live 24/7")
                 .setFooter("TnlFm - Live");
             message.channel.send(embed);
         }
@@ -277,9 +283,10 @@ client.on("message", async message => {
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Yes Fm**")
-                .setImage(
+                .setThumbnail(
                     "https://cdn-profiles.tunein.com/s14405/images/logog.png"
                 )
+                .setDescription("Streaming Live 24/7")
                 .setFooter("YesFm - Live");
             message.channel.send(embed);
         }
