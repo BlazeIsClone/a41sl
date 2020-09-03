@@ -178,8 +178,7 @@ client.on("guildMemberRemove", member => {
     const goodbyeEmbed = new Discord.MessageEmbed()
         .setColor("#FF0000")
         .setThumbnail(member.user.displayAvatarURL({ format: "jpg" }))
-        .setAuthor(`${member.displayName}')
-        .setTitle(":rocket: **Has Left For Adventure**")
+        .setTitle(`:rocket:** ${member.displayName} Has Left For Adventure**`)
         .setDescription("The magic thing about home is that it feels good to leave, and it feels even better to come back.")
         .setTimestamp();
 
