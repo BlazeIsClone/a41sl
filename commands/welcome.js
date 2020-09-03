@@ -1,5 +1,5 @@
 const { MessageAttachment } = require("discord.js");
-const canvas = require("canvas");
+const Canvas = require("canvas");
 
 const canvas = Canvas.createCanvas(700, 250);
 const ctx = canvas.getContext("2d");
