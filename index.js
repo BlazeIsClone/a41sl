@@ -6,7 +6,7 @@ const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./commands/rules.js");
 const helpEmbed = require("./commands/help.js");
-const { attachment } = require("./commands/welcome");
+const { canvas, attachment } = require("./commands/welcome");
 var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 const memberCount = require("./commands/member-count");
 const { readdirSync } = require("fs");
