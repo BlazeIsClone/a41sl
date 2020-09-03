@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 
-module.exports = client => {
+module.exports = member => {
     const goodbyeEmbed = new Discord.MessageEmbed()
         .setColor("#FF0000")
         .setImage(member.user.displayAvatarURL({ format: "jpg" }))
