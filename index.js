@@ -206,7 +206,7 @@ client.on("message", async message => {
             dispatcher = connection.play(radioChannels.sunRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
-                .setTitle("**Live Streaming Sun Fm**")
+                .setTitle(":red_circle: **Live Streaming Sun Fm**")
                 .setThumbnail(
                     "https://lh3.googleusercontent.com/qxVfvXii_pVa5QepZyozdijGPxuSQ957nISY9t9M8DSddQ0JZha2PoopVeiKw5sU0Q4"
                 )
@@ -225,7 +225,7 @@ client.on("message", async message => {
             dispatcher = connection.play(radioChannels.kissRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
-                .setTitle("**Live Streaming Kiss Fm**")
+                .setTitle(":red_circle: **Live Streaming Kiss Fm**")
                 .setThumbnail(
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/KissFMSriLankaLogo2012.png/220px-KissFMSriLankaLogo2012.png"
                 )
@@ -244,7 +244,7 @@ client.on("message", async message => {
             dispatcher = connection.play(radioChannels.goldRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
-                .setTitle("**Live Streaming Gold Fm**")
+                .setTitle(":red_circle: **Live Streaming Gold Fm**")
                 .setThumbnail(
                     "https://mytuner.global.ssl.fastly.net/media/tvos_radios/XAryWL2prn.jpeg"
                 )
@@ -263,7 +263,7 @@ client.on("message", async message => {
             dispatcher = connection.play(radioChannels.tnlrocksRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
-                .setTitle("**Live Streaming TNL Fm**")
+                .setTitle(":red_circle: **Live Streaming TNL Fm**")
                 .setThumbnail(
                     "https://cdn-profiles.tunein.com/s14406/images/logog.png"
                 )
@@ -282,7 +282,7 @@ client.on("message", async message => {
             dispatcher = connection.play(radioChannels.yesRadio);
             let embed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
-                .setTitle("**Live Streaming Yes Fm**")
+                .setTitle(":red_circle: **Live Streaming Yes Fm**")
                 .setThumbnail(
                     "https://cdn-profiles.tunein.com/s14405/images/logog.png"
                 )
