@@ -1,9 +1,11 @@
 const Discord = require("discord.js");
 const { MessageAttachment } = require("discord.js");
 const Canvas = require("canvas");
+const client = new Discord.Client();
 
 const canvas = Canvas.createCanvas(700, 250);
 const ctx = canvas.getContext("2d");
+
 (async () => {
     const imageLocation = "../src/img/wallpaper.png";
     async function backgroundAwait() {
