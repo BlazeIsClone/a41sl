@@ -109,6 +109,16 @@ client.on("guildMemberAdd", async member => {
         canvas.width / 2.5,
         canvas.height / 1.8
     );
+    const guild = client.guilds.cache.get("463027132243771403");
+    var getmemberCount = guild.memberCount;
+    ctx.font = "24px sans-serif";
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText(
+        `Member #${getmemberCount}`,
+        canvas.width / 2.5,
+        canvas.height / 1.45
+    );
+
     channel.send(`Hey Welcome to **All For One SL**, ${member}!`, attachment);
 });
 

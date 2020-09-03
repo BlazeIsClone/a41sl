@@ -40,15 +40,6 @@ const ctx = canvas.getContext("2d");
         return ctx.font;
     };
 
-    const guild = client.guilds.cache.get("463027132243771403");
-    var getmemberCount = guild.memberCount;
-    ctx.font = "24px sans-serif";
-    ctx.fillStyle = "#ffffff";
-    ctx.fillText(
-        `Member #${getmemberCount}`,
-        canvas.width / 2.5,
-        canvas.height / 1.45
-    );
     ctx.beginPath();
     ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
     ctx.closePath();
