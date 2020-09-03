@@ -8,9 +8,9 @@ const ctx = canvas.getContext("2d");
     const imageLocation = "../src/img/wallpaper.png";
     async function backgroundAwait() {
         const background = await canvas.loadImage(imageLocation);
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     }
     backgroundAwait();
-    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.strokeStyle = "#0800ff";
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
