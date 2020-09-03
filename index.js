@@ -398,6 +398,7 @@ function generateMessages() {
     return messages;
 }
 client.on("message", message => {
+    const guild = client.guilds.cache.get("463027132243771403");
     let channelId = "751060284076064779";
 
     const roleChannel = guild.channels.cache.get(channelId);
