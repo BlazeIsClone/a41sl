@@ -6,7 +6,10 @@ const canvas = Canvas.createCanvas(700, 250);
 const ctx = canvas.getContext("2d");
 (async () => {
     const imageLocation = "../src/img/wallpaper.png";
-    const background = await canvas.loadImage(imageLocation);
+    async function backgroundAwait() {
+        const background = await canvas.loadImage(imageLocation);
+    }
+    backgroundAwait();
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.strokeStyle = "#0800ff";
