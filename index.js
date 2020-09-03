@@ -178,8 +178,9 @@ client.on("guildMemberRemove", member => {
     const goodbyeEmbed = new Discord.MessageEmbed()
         .setColor("#FF0000")
         .setThumbnail(member.user.displayAvatarURL({ format: "jpg" }))
-        .setTitle("✨ It's a goodbye!")
-        .setDescription(`**${member.displayName}** has left for adventure .`)
+        .setAuthor(`${member.displayName}')
+        .setTitle(":rocket: **Has Left For Adventure**")
+        .setDescription("The magic thing about home is that it feels good to leave, and it feels even better to come back.")
         .setTimestamp();
 
     channelGoodBye.send(goodbyeEmbed);
