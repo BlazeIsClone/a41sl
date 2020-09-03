@@ -38,13 +38,6 @@ const ctx = canvas.getContext("2d");
         return ctx.font;
     };
 
-    ctx.font = applyText(canvas, `${member.displayName}!`);
-    ctx.fillStyle = "#ffffff";
-    ctx.fillText(
-        `${member.displayName}!`,
-        canvas.width / 2.5,
-        canvas.height / 1.8
-    );
     const guild = client.guilds.cache.get("463027132243771403");
     var getmemberCount = guild.memberCount;
     ctx.font = "24px sans-serif";

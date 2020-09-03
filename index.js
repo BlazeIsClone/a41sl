@@ -102,6 +102,13 @@ client.on("guildMemberAdd", async member => {
     );
 
     if (!channel) return;
+    ctx.font = applyText(canvas, `${member.displayName}!`);
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText(
+        `${member.displayName}!`,
+        canvas.width / 2.5,
+        canvas.height / 1.8
+    );
     channel.send(`Hey Welcome to **All For One SL**, ${member}!`, attachment);
 });
 
