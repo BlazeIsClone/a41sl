@@ -101,7 +101,7 @@ client.on("guildMemberAdd", async member => {
         ch => ch.name === "welcome"
     );
 
-    if (!channel) return;
+    if (!welcomeChannel) return;
     const canvas = Canvas.createCanvas(700, 250);
     const ctx = canvas.getContext("2d");
 
