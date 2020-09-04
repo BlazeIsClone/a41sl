@@ -1,14 +1,13 @@
-({
+{
     "MAX_PLAYLIST_SIZE": 40,
     "PREFIX": "/",
     "PRUNING": false,
-    "STREAM": "/stream"
-},
-{
+    "STREAM": "/stream",
+
     "channel": "lfg-roles",
     "roles": {
         "xbox": "Xbox",
         "ps4": "PS4",
         "steam": "Steam"
     }
-})
+}
