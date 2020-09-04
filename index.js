@@ -14,12 +14,11 @@ const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
 require("dotenv").config();
-var bot = new Discord.Client();
 const config = require("./include/roles-reaction-db.json");
 var load = require("./src/load");
 var track = require("./src/track");
-load(bot, config);
-track(bot, config);
+load(client, config);
+track(client, config);
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
