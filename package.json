@@ -28,7 +28,7 @@
         "request": "^2.88.2",
         "simple-youtube-api": "^5.2.1",
         "socket.io": "^2.3.0",
-        "soundcloud-downloader": "^0.1.5",
+        "soundcloud-downloader": "^0.1.6",
         "spotify-web-api-node": "^4.0.0",
         "string-progressbar": "^1.0.1",
         "ytdl-core": "^3.2.2",
