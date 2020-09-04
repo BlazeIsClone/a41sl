@@ -1,12 +1,23 @@
-{
-    "MAX_PLAYLIST_SIZE": 40,
-    "PREFIX": "/",
-    "PRUNING": false,
-    "STREAM": "/stream",
-
-    "roles": {
-        "xbox": "Xbox",
-        "ps4": "PS4",
-        "steam": "Steam"
+[
+    {
+        "MAX_PLAYLIST_SIZE": 40,
+        "PREFIX": "/",
+        "PRUNING": false,
+        "STREAM": "/stream"
+    },
+    {
+        "message": "751281854857871401",
+        "channel": "751076769486078062",
+        "disjoint": false,
+        "reactions": [
+            {
+                "emoji": "🤔",
+                "roles": ["698098484527759380"]
+            },
+            {
+                "emoji": "👏",
+                "roles": ["696747023772155956"]
+            }
+        ]
     }
-}
+]
