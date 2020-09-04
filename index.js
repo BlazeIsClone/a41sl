@@ -15,13 +15,13 @@ const moment = require("moment");
 var global = require("./global");
 require("dotenv").config();
 
-var bot = new Discord.Client();
+/*var bot = new Discord.Client();
 const config = require("./config.json");
 var load = require("./src/load");
 load(bot, config);
 var track = require("./src/track");
 track(bot, config);
-
+*/
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
     console.log("Ready!");
