@@ -11,15 +11,14 @@ const memberCount = require("./commands/member-count");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
-const config = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
 require("dotenv").config();
 
 var bot = new Discord.Client();
+const config = require("./config.json");
 var load = require("./src/load");
 load(bot, config);
-
 var track = require("./src/track");
 track(bot, config);
 
