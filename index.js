@@ -14,6 +14,7 @@ const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
 require("dotenv").config();
+client.login(token);
 var bot = new Discord.Client();
 const config = require("./include/roles-reaction-db.json");
 var load = require("./src/load");
@@ -384,5 +385,3 @@ client.on("message", async message => {
             .catch(console.error);
     }
 });
-
-client.login(token);
