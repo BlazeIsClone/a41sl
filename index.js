@@ -18,14 +18,13 @@ var bot = new Discord.Client();
 const config = require("./include/roles-reaction-db.json");
 var load = require("./src/load");
 var track = require("./src/track");
+load(bot, config);
+track(bot, config);
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
     console.log("Ready!");
     memberCount(client);
-    load(bot, config);
-    track(bot, config);
-
     client.user.setPresence({
         status: "online",
         activity: {
