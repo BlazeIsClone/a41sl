@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const client = new Discord.Client
+const client = new Discord.Client();
 const { MessageEmbed, MessageAttachment, Collection } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
@@ -11,7 +11,7 @@ const memberCount = require("./commands/member-count");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
-const config = require("./config.json")
+const config = require("./config.json");
 const moment = require("moment");
 const fs = require("fs");
 const fetch = require("fetch");
