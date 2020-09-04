@@ -22,7 +22,7 @@ var load = require("./src/load");
 load(thisbot, config);
 
 var track = require("./src/track");
-track(bot, config);
+track(thisbot, config);
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
