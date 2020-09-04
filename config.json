@@ -1,10 +1,9 @@
-[
-    {
-        "MAX_PLAYLIST_SIZE": 40,
-        "PREFIX": "/",
-        "PRUNING": false,
-        "STREAM": "/stream"
-    },
+{
+    "MAX_PLAYLIST_SIZE": 40,
+    "PREFIX": "/",
+    "PRUNING": false,
+    "STREAM": "/stream"
+}[
     {
         "message": "751281854857871401",
         "channel": "751076769486078062",
