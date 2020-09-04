@@ -18,7 +18,7 @@ function cleanEmojiDiscriminator(emojiDiscriminator) {
 module.exports = function(client, config) {
 	
 	client
-		.on("ready", () => {
+		.on("ready", async () => {
 			//Bot ready
 			console.log("Fetching messages");
 			console.log("Note: If the next message does not say \"ASYNC IIFE working!\", you have to update to Node 7.6.0 or later.");
