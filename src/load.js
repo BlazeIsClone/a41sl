@@ -34,7 +34,7 @@ module.exports = function (client, config) {
                 debug_count_messagesFetched += 1;
                 for (var { emoji } of reactions) {
                     emoji = cleanEmojiDiscriminator(emoji);
-                    var messageReaction = message.reactions.get(emoji);
+                    var messageReaction = message.reactions.cache.get(emoji);
                     if (!messageReaction) {
                         await message
                             .react(emoji)
