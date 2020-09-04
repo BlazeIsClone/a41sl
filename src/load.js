@@ -16,7 +16,7 @@ function cleanEmojiDiscriminator(emojiDiscriminator) {
  * @param {*} config The config file.
  */
 module.exports = function (client, config) {
-    client.on("ready", async() => {
+    client.on("ready", () => {
         //Bot ready
         console.log("Fetching messages");
         console.log(
