@@ -11,12 +11,17 @@ var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 const memberCount = require("./commands/member-count");
 const { readdirSync } = require("fs");
 const { join } = require("path");
-const { PREFIX, STREAM } = require("./config.json");
+const { PREFIX, STREAM, config } = require("./config.json");
 const moment = require("moment");
 const fs = require("fs");
 const fetch = require("fetch");
 var global = require("./global");
 require("dotenv").config();
+var load = require("./src/load");
+load(bot, config);
+
+var track = require("./src/track");
+track(bot, config);
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
@@ -382,123 +387,4 @@ client.on("message", async message => {
     }
 });
 
-//   channel - name of the roles channel
-//   roles   - mapping between reaction and role
-const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
-
-// the client is created with the partial message option to capture events for uncached messages
-// if this options is not set, the bot may not be aware of the message that it should be watching
-
-client.on("ready", onReady);
-client.on("messageReactionAdd", addRole);
-client.on("messageReactionRemove", removeRole);
-
-/**
- * 'ready' event handler for discord.js client
- * find the first message in the specified channel and save it for later
- */
-async function onReady() {
-    const rolesChannelId = "751076769486078062";
-    const guild = client.guilds.cache.get("463027132243771403");
-    const rolesChannel = guild.channels.cache.get(rolesChannelId);
-
-    // channel will not contain messages after it is found
-    try {
-        await rolesChannel.messages.fetch();
-    } catch (err) {
-        console.error("Error fetching channel messages", err);
-        return;
-    }
-
-    async function rolesTrigger() {
-        config.message_id = rolesChannel.messages.first().id;
-    }
-    rolesTrigger();
-
-    console.log(`Watching message '${config.message_id}' for reactions...`);
-}
-
-/**
- * add a role to a user when they add reactions to the configured message
- * @param {Object} reaction - the reaction that the user added
- * @param {Objext} user - the user that added a role to a message
- */
-async function addRole({ message, _emoji }, user) {
-    if (user.bot || message.id !== config.message_id) {
-        return;
-    }
-
-    // partials do not guarantee all data is available, but it can be fetched
-    // fetch the information to ensure everything is available
-    // https://github.com/discordjs/discord.js/blob/master/docs/topics/partials.md
-    if (message.partial) {
-        try {
-            await message.fetch();
-        } catch (err) {
-            console.error("Error fetching message", err);
-            return;
-        }
-    }
-
-    const { guild } = message;
-
-    const member = guild.members.get(user.id);
-    const role = guild.roles.find(
-        role => role.name === config.roles[_emoji.name]
-    );
-
-    if (!role) {
-        console.error(`Role not found for '${_emoji.name}'`);
-        return;
-    }
-
-    try {
-        member.roles.add(role.id);
-    } catch (err) {
-        console.error("Error adding role", err);
-        return;
-    }
-}
-
-/**
- * remove a role from a user when they remove reactions from the configured message
- * @param {Object} reaction - the reaction that the user added
- * @param {Objext} user - the user that added a role to a message
- */
-async function removeRole({ message, _emoji }, user) {
-    if (user.bot || message.id !== config.message_id) {
-        return;
-    }
-
-    // partials do not guarantee all data is available, but it can be fetched
-    // fetch the information to ensure everything is available
-    // https://github.com/discordjs/discord.js/blob/master/docs/topics/partials.md
-    if (message.partial) {
-        try {
-            await message.fetch();
-        } catch (err) {
-            console.error("Error fetching message", err);
-            return;
-        }
-    }
-
-    const { guild } = message;
-
-    const member = guild.members.get(user.id);
-    const role = guild.roles.find(
-        role => role.name === config.roles[_emoji.name]
-    );
-
-    if (!role) {
-        console.error(`Role not found for '${_emoji.name}'`);
-        return;
-    }
-
-    try {
-        member.roles.remove(role.id);
-    } catch (err) {
-        console.error("Error removing role", err);
-        return;
-    }
-}
 client.login(token);
