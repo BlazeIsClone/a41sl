@@ -410,7 +410,10 @@ async function onReady() {
         return;
     }
 
-    config.message_id = rolesChannel.messages.first().id;
+    async function rolesTrigger() {
+        config.message_id = rolesChannel.messages.first().id;
+    }
+    rolesTrigger();
 
     console.log(`Watching message '${config.message_id}' for reactions...`);
 }
