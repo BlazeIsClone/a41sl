@@ -16,12 +16,12 @@ function getEmojiDiscriminator(emoji) {
  * @param {*} client The bot client.
  * @param {*} config The config file.
  */
-module.exports = function (bot, config) {
-    bot
+module.exports = function (client, config) {
+    client
 
         .on("messageReactionAdd", (messageReaction, user) => {
             //Bot should not react to its own reactions
-            if (user == bot.user) return;
+            if (user == client.user) return;
             var member = messageReaction.message.guild.members.get(user.id);
             var emojiDiscriminator = getEmojiDiscriminator(
                 messageReaction.emoji
@@ -64,7 +64,7 @@ module.exports = function (bot, config) {
 
         .on("messageReactionRemove", (messageReaction, user) => {
             //Bot should not react to its own reactions.
-            if (user == bot.user) return;
+            if (user == client.user) return;
             var member = messageReaction.message.guild.members.get(user.id);
             var emojiDiscriminator = getEmojiDiscriminator(
                 messageReaction.emoji

@@ -15,10 +15,10 @@ function cleanEmojiDiscriminator(emojiDiscriminator) {
  * @param {*} client The bot client.
  * @param {*} config The config file.
  */
-module.exports = function(bot, config) {
+module.exports = function(client, config) {
 	
-	bot
-		.on("ready", () => {
+	client
+		.on("ready", async () => {
 			//Bot ready
 			console.log("Fetching messages");
 			console.log("Note: If the next message does not say \"ASYNC IIFE working!\", you have to update to Node 7.6.0 or later.");
@@ -26,7 +26,7 @@ module.exports = function(bot, config) {
 				var debug_count_messagesFetched = 0;
 				console.log("ASYNC IIFE working!");
 				for (var { channel, message: message_id, reactions } of config) {
-					var message = await bot.channels.get(channel).fetchMessage(message_id)
+					var message = await client.channels.get(channel).fetchMessage(message_id)
 						.catch(error => console.error(error));
 					if (!message) continue;
 					debug_count_messagesFetched += 1;
