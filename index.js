@@ -400,9 +400,7 @@ client.on("messageReactionRemove", removeRole);
 async function onReady() {
     const rolesChannelId = "751076769486078062";
     const guild = client.guilds.cache.get("463027132243771403");
-    const rolesChannel = guild => {
-        const channel = guild.channels.cache.get(rolesChannelId);
-    };
+    const rolesChannel = guild.channels.cache.get(rolesChannelId);
 
     // channel will not contain messages after it is found
     try {
