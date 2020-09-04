@@ -11,7 +11,8 @@ var events = (require("events").EventEmitter.defaultMaxListeners = 15);
 const memberCount = require("./commands/member-count");
 const { readdirSync } = require("fs");
 const { join } = require("path");
-const { PREFIX, STREAM, config } = require("./config.json");
+const { PREFIX, STREAM } = require("./config.json");
+const config = require("./config.json")
 const moment = require("moment");
 const fs = require("fs");
 const fetch = require("fetch");
