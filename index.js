@@ -13,8 +13,6 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const config = require("./config.json");
 const moment = require("moment");
-const fs = require("fs");
-const fetch = require("fetch");
 var global = require("./global");
 require("dotenv").config();
 
