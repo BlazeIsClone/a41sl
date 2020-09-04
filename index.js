@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
-const client = new Discord.Client({ partials: ["MESSAGE"] });
-
+const client = new Discord.Client
 const { MessageEmbed, MessageAttachment, Collection } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
@@ -332,7 +331,7 @@ for (const file of commandFiles) {
 }
 
 client.on("message", async message => {
-    //if (message.author.bot) return;
+    if (message.author.bot) return;
     if (!message.guild) return;
 
     const prefixRegex = new RegExp(
