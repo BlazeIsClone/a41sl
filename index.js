@@ -397,19 +397,21 @@ client.on("messageReactionRemove", removeRole);
  * find the first message in the specified channel and save it for later
  */
 async function onReady() {
-    const channel = client.channels.find(
-        channel => channel.name === config.channel
-    );
+    const rolesChannelId = "751076769486078062";
+    const guild = client.guilds.cache.get("463027132243771403");
+    const rolesChannel = guild => {
+        const channel = guild.channels.cache.get(rolesChannelId);
+    };
 
     // channel will not contain messages after it is found
     try {
-        await channel.messages.fetch();
+        await rolesChannel.messages.fetch();
     } catch (err) {
         console.error("Error fetching channel messages", err);
         return;
     }
 
-    config.message_id = channel.messages.first().id;
+    config.message_id = rolesChannel.messages.first().id;
 
     console.log(`Watching message '${config.message_id}' for reactions...`);
 }
