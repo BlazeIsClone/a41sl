@@ -16,9 +16,9 @@ var global = require("./global");
 require("dotenv").config();
 var bot = new Discord.Client();
 const config = require("./include/roles-reaction-db.json");
-var load = require("./src/load.js");
+var load = require("./src/load");
 load(bot, config);
-var track = require("./src/track.js");
+var track = require("./src/track");
 track(bot, config);
 
 client.once("ready", async () => {
