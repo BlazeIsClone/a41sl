@@ -6,7 +6,7 @@ const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./commands/rules.js");
 const helpEmbed = require("./commands/help.js");
-var events = (require("events").EventEmitter.defaultMaxListeners = 15);
+var events = (require("events").EventEmitter.defaultMaxListeners = 20);
 const memberCount = require("./commands/member-count");
 const { readdirSync } = require("fs");
 const { join } = require("path");
