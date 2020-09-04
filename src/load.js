@@ -43,7 +43,7 @@ module.exports = function (client, config) {
                     } else {
                         if (!messageReaction.me) {
                             //Fetch each reaction into cache to keep track of them
-                            messageReaction.fetchUsers();
+                            messageReaction.users.fetch();
                             await message
                                 .react(emoji)
                                 .catch(error => console.error(error));
