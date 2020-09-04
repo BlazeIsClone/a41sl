@@ -26,7 +26,7 @@ module.exports = function (client, config) {
             var debug_count_messagesFetched = 0;
             console.log("ASYNC IIFE working!");
             for (var { channel, message: message_id, reactions } of config) {
-                var message = await client.channels
+                var message = await client.channels.cache
                     .get(channel)
                     .fetchMessage(message_id)
                     .catch(error => console.error(error));
