@@ -17,12 +17,11 @@ const fs = require("fs");
 const fetch = require("fetch");
 var global = require("./global");
 require("dotenv").config();
-var thisbot = new Discord.Client();
 var load = require("./src/load");
-load(thisbot, config);
+load(client, config);
 
 var track = require("./src/track");
-track(thisbot, config);
+track(client, config);
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
