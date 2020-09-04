@@ -15,7 +15,7 @@ const moment = require("moment");
 var global = require("./global");
 require("dotenv").config();
 var bot = new Discord.Client();
-const config = require("./src/roles-reaction-db.json");
+const config = require("./include/roles-reaction-db.json");
 var load = require("./src/load");
 load(bot, config);
 var track = require("./src/track");
