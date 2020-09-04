@@ -15,9 +15,9 @@ function cleanEmojiDiscriminator(emojiDiscriminator) {
  * @param {*} client The bot client.
  * @param {*} config The config file.
  */
-module.exports = function(client, config) {
+module.exports = function(bot, config) {
 	
-	client
+	bot
 		.on("ready", () => {
 			//Bot ready
 			console.log("Fetching messages");
@@ -26,7 +26,7 @@ module.exports = function(client, config) {
 				var debug_count_messagesFetched = 0;
 				console.log("ASYNC IIFE working!");
 				for (var { channel, message: message_id, reactions } of config) {
-					var message = await client.channels.get(channel).fetchMessage(message_id)
+					var message = await bot.channels.get(channel).fetchMessage(message_id)
 						.catch(error => console.error(error));
 					if (!message) continue;
 					debug_count_messagesFetched += 1;
