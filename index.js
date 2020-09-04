@@ -332,7 +332,7 @@ for (const file of commandFiles) {
 }
 
 client.on("message", async message => {
-    if (message.author.bot) return;
+    //if (message.author.bot) return;
     if (!message.guild) return;
 
     const prefixRegex = new RegExp(
