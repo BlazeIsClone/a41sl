@@ -17,9 +17,9 @@ const fs = require("fs");
 const fetch = require("fetch");
 var global = require("./global");
 require("dotenv").config();
-var bot = new Discord.Client();
+var thisbot = new Discord.Client();
 var load = require("./src/load");
-load(bot, config);
+load(thisbot, config);
 
 var track = require("./src/track");
 track(bot, config);
