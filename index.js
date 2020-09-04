@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
+const client = new Discord.Client({ partials: ["MESSAGE"] });
+
 const { MessageEmbed, MessageAttachment, Collection } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
@@ -386,7 +387,6 @@ const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
 // the client is created with the partial message option to capture events for uncached messages
 // if this options is not set, the bot may not be aware of the message that it should be watching
-const client = new Client({ partials: ["MESSAGE"] });
 
 client.on("ready", onReady);
 client.on("messageReactionAdd", addRole);
