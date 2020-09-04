@@ -28,7 +28,7 @@ module.exports = function (client, config) {
             for (var { channel, message: message_id, reactions } of config) {
                 var message = await client.channels.cache
                     .get(channel)
-                    .fetchMessage(message_id)
+                    .messages.fetch(message_id)
                     .catch(error => console.error(error));
                 if (!message) continue;
                 debug_count_messagesFetched += 1;
