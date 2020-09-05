@@ -22,7 +22,9 @@ module.exports = function (client, config) {
         .on("messageReactionAdd", (messageReaction, user) => {
             //Bot should not react to its own reactions
             if (user == client.user) return;
-            var member = messageReaction.message.guild.members.cache.get(user.id);
+            var member = messageReaction.message.guild.members.cache.get(
+                user.id
+            );
             var emojiDiscriminator = getEmojiDiscriminator(
                 messageReaction.emoji
             );
@@ -51,8 +53,8 @@ module.exports = function (client, config) {
                     }
                     rolesNew.push.apply(rolesNew, rolesWhitelist);
                     //Make sure none of the roles on the "add" list get removed again
-                    await member
-                        .setRoles(rolesNew)
+                    await member.roles
+                        .set(rolesNew)
                         .catch(error => console.error(error));
                     if (disjoint)
                         await messageReaction
@@ -65,7 +67,9 @@ module.exports = function (client, config) {
         .on("messageReactionRemove", (messageReaction, user) => {
             //Bot should not react to its own reactions.
             if (user == client.user) return;
-            var member = messageReaction.message.guild.members.cache.get(user.id);
+            var member = messageReaction.message.guild.members.cache.get(
+                user.id
+            );
             var emojiDiscriminator = getEmojiDiscriminator(
                 messageReaction.emoji
             );
