@@ -30,7 +30,7 @@ module.exports = function (client, config) {
                 for (var { channel, reactions, disjoint } of config) {
                     if (channel != messageReaction.message.channel.id) continue;
                     var rolesNew = [];
-                    for (var role of member.roles.keys()) {
+                    for (var role of member.roles.cache.keys()) {
                         rolesNew.push(role);
                     }
                     var rolesWhitelist = [];
