@@ -53,7 +53,7 @@ module.exports = function (client, config) {
                     }
                     rolesNew.push.apply(rolesNew, rolesWhitelist);
                     //Make sure none of the roles on the "add" list get removed again
-                    await member.roles
+                    await guildMember.member.roles
                         .set(rolesNew)
                         .catch(error => console.error(error));
                     if (disjoint)
