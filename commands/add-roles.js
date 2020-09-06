@@ -3,7 +3,7 @@ const addRolesEmbed = new Discord.MessageEmbed()
 
     .setColor("#0099ff")
     .setTitle(
-        "React to this message with the following emotes to recive alearts."
+        "React to this message with the following emotes to receive alearts!"
     )
     .addFields(
         {
