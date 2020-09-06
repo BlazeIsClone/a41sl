@@ -7,6 +7,7 @@ const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
 const rulesEmbed = require("./commands/rules.js");
 const helpEmbed = require("./commands/help.js");
+const addRolesEmbed = require("./commands/add-roles");
 var events = (require("events").EventEmitter.defaultMaxListeners = 20);
 const memberCount = require("./commands/member-count");
 const { readdirSync } = require("fs");
@@ -76,6 +77,17 @@ client.on("message", async message => {
     if (message.content === "/rules") {
         message.author.send(rulesEmbed).catch(console.error);
         message.author.send(rulesAttachment).catch(console.error);
+    }
+});
+
+// Add-Roles Sudo Command
+//const addRolesAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
+
+client.on("message", async message => {
+    if (!message.guild) return;
+    if (message.content === "/sudo rolesEmbed") {
+        message.channel.send(addRolesEmbed).catch(console.error);
+        //message.author.send(addRolesAttachment).catch(console.error);
     }
 });
 

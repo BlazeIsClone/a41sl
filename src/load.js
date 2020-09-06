@@ -19,9 +19,6 @@ module.exports = function (client, config) {
     client.on("ready", () => {
         //Bot ready
         console.log("Fetching messages");
-        console.log(
-            'Note: If the next message does not say "ASYNC IIFE working!", you have to update to Node 7.6.0 or later.'
-        );
         (async () => {
             var debug_count_messagesFetched = 0;
             console.log("ASYNC IIFE working!");
