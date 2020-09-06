@@ -3,7 +3,7 @@ const addRolesEmbed = new Discord.MessageEmbed()
 
     .setColor("#0099ff")
     .setTitle(
-        "To join or leave a role, react to this message with one of the following emotes."
+        "React to this message with the following emotes to recive alearts."
     )
     .addFields(
         {
@@ -11,23 +11,23 @@ const addRolesEmbed = new Discord.MessageEmbed()
             value: "​"
         },
         {
-            name: "💎 • Live Streams Aleart!",
+            name: "🔔 • Live Streams Aleart!",
             value: "​"
         },
         {
-            name: "💎 • Game Giveaways!",
+            name: " 🏷 • Game Giveaways!",
             value: "​"
         },
         {
-            name: "💎 • league of Legends Updates",
+            name: "📈 • league of Legends Updates",
             value: "​"
         },
         {
-            name: "💎 • Minecraft Updates",
+            name: "📦 • Minecraft Updates",
             value: "​"
         },
         {
-            name: "💎 • Wired Magazine Subscription",
+            name: "📰 • Wired Magazine Subscription",
             value: "​"
         }
     );
