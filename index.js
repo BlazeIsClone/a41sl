@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { MessageEmbed, MessageAttachment, Collection } = require("discord.js");
@@ -13,7 +14,6 @@ const { join } = require("path");
 const { PREFIX, STREAM } = require("./config.json");
 const moment = require("moment");
 var global = require("./global");
-require("dotenv").config();
 var bot = new Discord.Client();
 const config = require("./include/roles-reaction-db.json");
 var load = require("./src/load");
