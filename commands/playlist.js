@@ -97,12 +97,11 @@ module.exports = {
                 duration: video.durationSeconds
             };
 
-        let playlistEmbedSecondary = new MessageEmbed()
-            .setTitle(`${playlist.title}`)
-            .setURL(playlist.url)
-            .setColor("#F8AA2A")
-            .setTimestamp();
-
+            let playlistEmbedSecondary = new MessageEmbed()
+                .setTitle(`${playlist.title}`)
+                .setURL(playlist.url)
+                .setColor("#F8AA2A")
+                .setTimestamp();
 
             if (serverQueue) {
                 serverQueue.songs.push(song);

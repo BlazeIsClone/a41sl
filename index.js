@@ -21,6 +21,7 @@ var load = require("./src/load");
 var track = require("./src/track");
 load(client, config);
 track(client, config);
+var queue = require("./commands/play.js");
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
@@ -230,7 +231,35 @@ client.on("message", async message => {
                 )
                 .setDescription(":red_circle: Streaming Live 24/7")
                 .setFooter("SunFm - Live");
-            message.channel.send(embed);
+            message.channel.send(embed).then(embed => {
+                embed.react("⏹");
+
+                const filter = (reaction, user) => {
+                    return (
+                        ["⏹"].includes(reaction.emoji.name) &&
+                        user.id === message.author.id
+                    );
+                };
+
+                embed
+                    .awaitReactions(filter, {
+                        max: 1,
+                        time: 60000,
+                        errors: ["time"]
+                    })
+                    .then(collected => {
+                        const reaction = collected.first();
+
+                        if (reaction.emoji.name === "⏹") {
+                            message.reply("⏹ Stoped the stream");
+                            dispatcher.end();
+                            embed.reactions.removeAll().catch(console.error);
+                        }
+                    })
+                    .catch(collected => {
+                        message.reply("error catched");
+                    });
+            });
         }
     }
 });
@@ -311,7 +340,6 @@ client.on("message", async message => {
     }
 });
 
-var queue = require("./commands/play.js");
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === "/stop") {
