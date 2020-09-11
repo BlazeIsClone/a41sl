@@ -208,6 +208,7 @@ client.on("guildMemberRemove", member => {
     channelGoodBye.send(goodbyeEmbed);
 });
 
+//Radio Commands
 const radioChannels = {
     kissRadio: "http://198.178.123.8:8404/;",
     tnlrocksRadio: "http://live.tnlrn.com:8010/live.mp3",
@@ -215,15 +216,13 @@ const radioChannels = {
     sunRadio: "http://209.133.216.3:7058/;stream.mp3",
     yesRadio: "http://live.trusl.com:1150/;"
 };
-
-//Radio Commands
 client.on("message", async message => {
     if (!message.guild) return;
     if (message.content === `${STREAM} sunfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(radioChannels.sunRadio);
-            let embed = new Discord.MessageEmbed()
+            let sunEmbed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Sun Fm**")
                 .setThumbnail(
@@ -231,8 +230,8 @@ client.on("message", async message => {
                 )
                 .setDescription(":red_circle: Streaming Live 24/7")
                 .setFooter("SunFm - Live");
-            message.channel.send(embed).then(embed => {
-                embed.react("⏹");
+            message.channel.send(sunEmbed).then(sunEmbed => {
+                sunEmbed.react("⏹");
 
                 const filter = (reaction, user) => {
                     return (
@@ -241,7 +240,7 @@ client.on("message", async message => {
                     );
                 };
 
-                embed
+                sunEmbed
                     .awaitReactions(filter, {
                         max: 1,
                         time: 60000,
@@ -253,7 +252,7 @@ client.on("message", async message => {
                         if (reaction.emoji.name === "⏹") {
                             message.reply("⏹ Stoped the stream");
                             dispatcher.end();
-                            embed.reactions.removeAll().catch(console.error);
+                            sunEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
                     .catch(collected => {
@@ -261,73 +260,11 @@ client.on("message", async message => {
                     });
             });
         }
-    }
-});
-
-client.on("message", async message => {
-    if (!message.guild) return;
-    if (message.content === `${STREAM} kissfm`) {
-        if (message.member.voice.channel) {
-            connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(radioChannels.kissRadio);
-            let embed = new Discord.MessageEmbed()
-                .setColor("#0099ff")
-                .setTitle("**Live Streaming Kiss Fm**")
-                .setThumbnail(
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/KissFMSriLankaLogo2012.png/220px-KissFMSriLankaLogo2012.png"
-                )
-                .setDescription(":red_circle: Streaming Live 24/7")
-                .setFooter("KissFm - Live");
-            message.channel.send(embed);
-        }
-    }
-});
-
-client.on("message", async message => {
-    if (!message.guild) return;
-    if (message.content === `${STREAM} goldfm`) {
-        if (message.member.voice.channel) {
-            connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(radioChannels.goldRadio);
-            let embed = new Discord.MessageEmbed()
-                .setColor("#0099ff")
-                .setTitle("**Live Streaming Gold Fm**")
-                .setThumbnail(
-                    "https://mytuner.global.ssl.fastly.net/media/tvos_radios/XAryWL2prn.jpeg"
-                )
-                .setDescription(":red_circle: Streaming Live 24/7")
-                .setFooter("GoldFm - Live");
-            message.channel.send(embed);
-        }
-    }
-});
-
-client.on("message", async message => {
-    if (!message.guild) return;
-    if (message.content === `${STREAM} tnlfm`) {
-        if (message.member.voice.channel) {
-            connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(radioChannels.tnlrocksRadio);
-            let embed = new Discord.MessageEmbed()
-                .setColor("#0099ff")
-                .setTitle("**Live Streaming TNL Fm**")
-                .setThumbnail(
-                    "https://cdn-profiles.tunein.com/s14406/images/logog.png"
-                )
-                .setDescription(":red_circle: Streaming Live 24/7")
-                .setFooter("TnlFm - Live");
-            message.channel.send(embed);
-        }
-    }
-});
-
-client.on("message", async message => {
-    if (!message.guild) return;
-    if (message.content === `${STREAM} yesfm`) {
+    } else if (message.content === `${STREAM} yesfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(radioChannels.yesRadio);
-            let embed = new Discord.MessageEmbed()
+            let yesEmbed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Yes Fm**")
                 .setThumbnail(
@@ -335,7 +272,165 @@ client.on("message", async message => {
                 )
                 .setDescription(":red_circle: Streaming Live 24/7")
                 .setFooter("YesFm - Live");
-            message.channel.send(embed);
+            message.channel.send(yesEmbed).then(yesEmbed => {
+                yesEmbed.react("⏹");
+
+                const filter = (reaction, user) => {
+                    return (
+                        ["⏹"].includes(reaction.emoji.name) &&
+                        user.id === message.author.id
+                    );
+                };
+
+                yesEmbed
+                    .awaitReactions(filter, {
+                        max: 1,
+                        time: 60000,
+                        errors: ["time"]
+                    })
+                    .then(collected => {
+                        const reaction = collected.first();
+
+                        if (reaction.emoji.name === "⏹") {
+                            message.reply("⏹ Stoped the stream");
+                            dispatcher.end();
+                            yesEmbed.reactions.removeAll().catch(console.error);
+                        }
+                    })
+                    .catch(collected => {
+                        message.reply("error catched");
+                    });
+            });
+        }
+    } else if (message.content === `${STREAM} kissfm`) {
+        if (message.member.voice.channel) {
+            connection = await message.member.voice.channel.join();
+            dispatcher = connection.play(radioChannels.kissRadio);
+            let kissEmbed = new Discord.MessageEmbed()
+                .setColor("#0099ff")
+                .setTitle("**Live Streaming Kiss Fm**")
+                .setThumbnail(
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/KissFMSriLankaLogo2012.png/220px-KissFMSriLankaLogo2012.png"
+                )
+                .setDescription(":red_circle: Streaming Live 24/7")
+                .setFooter("KissFm - Live");
+            message.channel.send(kissEmbed).then(kissEmbed => {
+                kissEmbed.react("⏹");
+
+                const filter = (reaction, user) => {
+                    return (
+                        ["⏹"].includes(reaction.emoji.name) &&
+                        user.id === message.author.id
+                    );
+                };
+
+                kissEmbed
+                    .awaitReactions(filter, {
+                        max: 1,
+                        time: 60000,
+                        errors: ["time"]
+                    })
+                    .then(collected => {
+                        const reaction = collected.first();
+
+                        if (reaction.emoji.name === "⏹") {
+                            message.reply("⏹ Stoped the stream");
+                            dispatcher.end();
+                            kissEmbed.reactions
+                                .removeAll()
+                                .catch(console.error);
+                        }
+                    })
+                    .catch(collected => {
+                        message.reply("error catched");
+                    });
+            });
+        }
+    } else if (message.content === `${STREAM} tnlfm`) {
+        if (message.member.voice.channel) {
+            connection = await message.member.voice.channel.join();
+            dispatcher = connection.play(radioChannels.tnlrocksRadio);
+            let tnlEmbed = new Discord.MessageEmbed()
+                .setColor("#0099ff")
+                .setTitle("**Live Streaming TNL Fm**")
+                .setThumbnail(
+                    "https://cdn-profiles.tunein.com/s14406/images/logog.png"
+                )
+                .setDescription(":red_circle: Streaming Live 24/7")
+                .setFooter("TnlFm - Live");
+            message.channel.send(tnlEmbed).then(tnlEmbed => {
+                tnlEmbed.react("⏹");
+
+                const filter = (reaction, user) => {
+                    return (
+                        ["⏹"].includes(reaction.emoji.name) &&
+                        user.id === message.author.id
+                    );
+                };
+
+                tnlEmbed
+                    .awaitReactions(filter, {
+                        max: 1,
+                        time: 60000,
+                        errors: ["time"]
+                    })
+                    .then(collected => {
+                        const reaction = collected.first();
+
+                        if (reaction.emoji.name === "⏹") {
+                            message.reply("⏹ Stoped the stream");
+                            dispatcher.end();
+                            tnlEmbed.reactions.removeAll().catch(console.error);
+                        }
+                    })
+                    .catch(collected => {
+                        message.reply("error catched");
+                    });
+            });
+        }
+    } else if (message.content === `${STREAM} goldfm`) {
+        if (message.member.voice.channel) {
+            connection = await message.member.voice.channel.join();
+            dispatcher = connection.play(radioChannels.goldRadio);
+            let goldEmbed = new Discord.MessageEmbed()
+                .setColor("#0099ff")
+                .setTitle("**Live Streaming Gold Fm**")
+                .setThumbnail(
+                    "https://mytuner.global.ssl.fastly.net/media/tvos_radios/XAryWL2prn.jpeg"
+                )
+                .setDescription(":red_circle: Streaming Live 24/7")
+                .setFooter("GoldFm - Live");
+            message.channel.send(goldEmbed).then(goldEmbed => {
+                goldEmbed.react("⏹");
+
+                const filter = (reaction, user) => {
+                    return (
+                        ["⏹"].includes(reaction.emoji.name) &&
+                        user.id === message.author.id
+                    );
+                };
+
+                goldEmbed
+                    .awaitReactions(filter, {
+                        max: 1,
+                        time: 60000,
+                        errors: ["time"]
+                    })
+                    .then(collected => {
+                        const reaction = collected.first();
+
+                        if (reaction.emoji.name === "⏹") {
+                            message.reply("⏹ Stoped the stream");
+                            dispatcher.end();
+                            goldEmbed.reactions
+                                .removeAll()
+                                .catch(console.error);
+                        }
+                    })
+                    .catch(collected => {
+                        message.reply("error catched");
+                    });
+            });
         }
     }
 });
