@@ -1,6 +1,5 @@
 {
     "MAX_PLAYLIST_SIZE": 40,
     "PREFIX": "/",
-    "PRUNING": false,
-    "STREAM": "process.env.STREAM_PREFIX"
+    "PRUNING": false
 }
