@@ -14,7 +14,6 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const STREAM = process.env.STREAM_PREFIX;
 const { PREFIX } = require("./config.json");
-const moment = require("moment");
 var global = require("./global");
 var bot = new Discord.Client();
 const config = require("./include/roles-reaction-db.json");
@@ -23,6 +22,12 @@ var track = require("./src/track");
 load(client, config);
 track(client, config);
 var queue = require("./commands/play.js");
+const nsfwConfig = require("./config.json");
+const fs = require("fs");
+const moment = require("moment");
+const statsEmbed = require("./cmd/stats");
+var os = require("os");
+moment.locale("fr");
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
@@ -519,6 +524,48 @@ client.on("message", async message => {
             .reply("There was an error executing that command.")
             .catch(console.error);
     }
+});
+//NSFW COMMANDS
+client.config = nsfwConfig;
+client.on("message", function (message) {
+    if (message.author.bot) return;
+    if (message.content.indexOf(nsfwConfig.prefix) !== 0) return;
+    const args = message.content
+        .slice(nsfwConfig.prefix.length)
+        .trim()
+        .split(/ +/g);
+    const command = args.shift().toLowerCase();
+    const cmd = client.commands.get(command);
+    if (!cmd) return;
+    cmd.run(client, message, args);
+});
+
+fs.readdir("./cmd/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./cmd/${file}`);
+        let commandName = file.split(".")[0];
+        console.log(`Load command ${commandName}`);
+        client.commands.set(commandName, props);
+    });
+});
+
+//STATS
+client.on("message", async message => {
+    if (message.content === "/server") {
+        message.channel.send(statsEmbed);
+    }
+});
+
+fs.readdir("./cmd/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./cmd/${file}`);
+        let commandName = file.split(".")[0];
+        client.commands.set(commandName, props);
+    });
 });
 
 client.login(token);
