@@ -546,14 +546,14 @@ fs.readdir("./cmd/", (err, files) => {
         if (!file.endsWith(".js")) return;
         let props = require(`./cmd/${file}`);
         let commandName = file.split(".")[0];
-        console.log(`Load command ${commandName}`);
+        // console.log(`Load command ${commandName}`);
         client.commands.set(commandName, props);
     });
 });
 
 //STATS
 client.on("message", async message => {
-    if (message.content === "/server") {
+    if (message.content === "/system info") {
         message.channel.send(statsEmbed);
     }
 });

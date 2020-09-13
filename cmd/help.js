@@ -7,6 +7,5 @@ module.exports.run = (client, message, args) => {
             "NSFW  :underage: :",
             "`4k`, `anal`, `ass`, `hentai`, `hkitsune`, `hneko`, `holo`, `kemonomimi`, `neko`, `pussy`"
         )
-        .addField("Other :", "`help`, `stats`");
     message.channel.send(help);
 };
