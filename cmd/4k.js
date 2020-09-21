@@ -8,7 +8,7 @@ module.exports.run = (client, message, args) => {
         );
 
     var lo = new Discord.MessageEmbed()
-        .setDescription(`Hold Up... <a:Loading:592829210054098944>`)
+        .setDescription(`Loading... <a:Loading:592829210054098944>`)
         .setTimestamp();
 
     message.channel.send(lo).then(m => {

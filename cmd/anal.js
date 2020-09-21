@@ -7,9 +7,9 @@ module.exports.run = (client, message, args) => {
             ":underage:  This Command Is Only Allowed In NSFW Channels Only!"
         );
 
-    var lo = new Discord.MessageEmbed()
-        .setDescription(`Veuillez patienter... <a:Loading:592829210054098944>`)
-        .setTimestamp();
+    var lo = new Discord.MessageEmbed().setDescription(
+        `Loading... <a:Loading:592829210054098944>`
+    );
 
     message.channel.send(lo).then(m => {
         superagent
@@ -17,10 +17,7 @@ module.exports.run = (client, message, args) => {
             .query({ type: "anal" })
             .end((err, response) => {
                 var embed_nsfw = new Discord.MessageEmbed()
-                    .setDescription(
-                        `:underage:\n**[L'image ne se charge pas ? cliquez ici](${response.body.message})**`
-                    )
-                    .setTimestamp()
+                   //.setDescription(`${response.body.message}`)
                     .setImage(response.body.message);
 
                 m.edit(embed_nsfw);
