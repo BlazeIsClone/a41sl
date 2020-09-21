@@ -17,7 +17,7 @@ module.exports.run = (client, message, args) => {
             .query({ type: "4k" })
             .end((err, response) => {
                 var embed_nsfw = new Discord.MessageEmbed()
-                    .setDescription(`\n**[Enjoy!](${response.body.message})**`)
+                    .setDescription(`${response.body.message}`)
                     .setImage(response.body.message);
 
                 m.edit(embed_nsfw);
