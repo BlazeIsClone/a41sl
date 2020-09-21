@@ -4,7 +4,7 @@ module.exports.run = (client, message, args) => {
 
     if (!message.channel.nsfw)
         return message.channel.send(
-            "This Command Is Only Allowed In NSFW Channels Only!"
+            ":underage:  This Command Is Only Allowed In NSFW Channels Only!"
         );
 
     var lo = new Discord.MessageEmbed()
@@ -17,7 +17,7 @@ module.exports.run = (client, message, args) => {
             .query({ type: "4k" })
             .end((err, response) => {
                 var embed_nsfw = new Discord.MessageEmbed()
-                    .setDescription(`${response.body.message}`)
+                    //.setDescription(`${response.body.message}`)
                     .setImage(response.body.message);
 
                 m.edit(embed_nsfw);
