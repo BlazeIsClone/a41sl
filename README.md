@@ -11,7 +11,7 @@ For self hosting clone this repository
 ```bash
 git clone https://github.com/BlazeIsClone/A41SLBOT.git
 ```
-# 🚧 Requesting Features
+## 🚧 Requesting Features
 
 To request features open a new issue in this repository. 
 
