@@ -11,6 +11,30 @@ For self hosting clone this repository
 ```bash
 git clone https://github.com/BlazeIsClone/A41SLBOT.git
 ```
+# 🚧 Requesting Features
+
+To request features open a new issue in this repository. 
+
+---
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: ''
+assignees: ''
+
+---
+
+**Is your feature request related to a problem? Please describe.**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+
+**Describe the solution you'd like**
+A clear and concise description of what you want to happen.
+
+**Describe alternatives you've considered**
+A clear and concise description of any alternative solutions or features you've considered.
+
+**Additional context**
+Add any other context or screenshots about the feature request.
 
 # 👏 Contributor Covenant Code of Conduct
 
@@ -68,7 +92,7 @@ address, posting via an official social media account, or acting as an appointed
 representative at an online or offline event. Representation of a project may be
 further defined and clarified by project maintainers.
 
-## 📮 Enforcement
+## 🏆 Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported by contacting the project team at sandevabeykoon123@gmail.com. All
