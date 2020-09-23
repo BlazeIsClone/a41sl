@@ -22,7 +22,7 @@
         "lyrics-finder": "^21.3.3",
         "moment": "^2.27.0",
         "ngrok": "^3.2.7",
-        "node-fetch": "^2.6.0",
+        "node-fetch": "^2.6.1",
         "opusscript": "0.0.7",
         "pg": "^8.3.3",
         "regexp": "^1.0.0",
