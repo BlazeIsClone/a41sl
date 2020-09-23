@@ -15,15 +15,6 @@ git clone https://github.com/BlazeIsClone/A41SLBOT.git
 
 To request features open a new issue in this repository. 
 
----
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
-
----
-
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
