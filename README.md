@@ -12,17 +12,9 @@ For self hosting clone this repository
 git clone https://github.com/BlazeIsClone/A41SLBOT.git
 ```
 
-## 👏 Contributing
-
-Pull requests are welcome. For major changes, please feel free to open an issue first to discuss what you would like to be changed or fixed.
+# 👏 Contributor Covenant Code of Conduct
 
 All For One Bot is still on alpha stage contribution would be appreciated ❤️.
-
-## 📜 License
-
-[📄 GNU General Public License v3.0](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
-
-# 📒 Contributor Covenant Code of Conduct
 
 ## 🛡️ Our Pledge
 
@@ -98,3 +90,7 @@ available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.ht
 
 For answers to common questions about this code of conduct, see
 https://www.contributor-covenant.org/faq
+
+## 📜 License
+
+[📄 GNU General Public License v3.0](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
