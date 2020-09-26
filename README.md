@@ -11,6 +11,10 @@ For self hosting clone this repository
 ```bash
 git clone https://github.com/BlazeIsClone/A41SLBOT.git
 ```
+For the code to run you need to setup the environment variables.
+You can reffer to the wiki to setup these.
+[✔️ wiki](https://github.com/BlazeIsClone/A41SLBOT/wiki)
+
 ## 🚧 Requesting Features
 
 To request features open a new issue in this repository. 
