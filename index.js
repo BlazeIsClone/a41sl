@@ -262,7 +262,7 @@ client.on("message", async message => {
                         }
                     })
                     .catch(collected => {
-                        message.reply("error catched");
+                        console.log("error 100");
                     });
             });
         }
