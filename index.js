@@ -258,6 +258,7 @@ client.on("message", async message => {
                         if (reaction.emoji.name === "⏹") {
                             message.reply("⏹ Stoped the stream");
                             dispatcher.end();
+                            connection = message.member.voice.channel.leave();
                             sunEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
@@ -300,6 +301,7 @@ client.on("message", async message => {
                         if (reaction.emoji.name === "⏹") {
                             message.reply("⏹ Stoped the stream");
                             dispatcher.end();
+                            connection = message.member.voice.channel.leave();
                             yesEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
@@ -342,6 +344,7 @@ client.on("message", async message => {
                         if (reaction.emoji.name === "⏹") {
                             message.reply("⏹ Stoped the stream");
                             dispatcher.end();
+                            connection = message.member.voice.channel.leave();
                             kissEmbed.reactions
                                 .removeAll()
                                 .catch(console.error);
@@ -386,6 +389,7 @@ client.on("message", async message => {
                         if (reaction.emoji.name === "⏹") {
                             message.reply("⏹ Stoped the stream");
                             dispatcher.end();
+                            connection = message.member.voice.channel.leave();
                             tnlEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
@@ -428,6 +432,7 @@ client.on("message", async message => {
                         if (reaction.emoji.name === "⏹") {
                             message.reply("⏹ Stoped the stream");
                             dispatcher.end();
+                            connection = message.member.voice.channel.leave();
                             goldEmbed.reactions
                                 .removeAll()
                                 .catch(console.error);
