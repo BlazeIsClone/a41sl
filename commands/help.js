@@ -29,7 +29,7 @@ const helpEmbed = new MessageEmbed()
 
         {
             name: "📻  Stream Live Radio",
-            value: "If you ever ran into an error use /leave command and retry"
+            value: "If you ever run into an error use /leave command and retry"
         },
         {
             name: "Yes Fm",
