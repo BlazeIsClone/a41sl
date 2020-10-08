@@ -476,7 +476,7 @@ for (const file of commandFiles) {
 client.on("message", async (message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
-    if (message.channel.id != musicChannel) {
+    if (message.channel.id != musicChannel && message.content === "/play") {
         return message.reply(
             "⛔✋ Music commands are only available in add-music channel"
         );
