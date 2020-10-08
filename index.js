@@ -28,7 +28,6 @@ const moment = require("moment");
 const statsEmbed = require("./cmd/stats");
 var os = require("os");
 moment.locale("fr");
-const musicChannel = process.env.MUSIC_CHANNEL;
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
@@ -476,11 +475,6 @@ for (const file of commandFiles) {
 client.on("message", async (message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
-    if (message.channel.id != musicChannel && message.content === "/play") {
-        return message.reply(
-            "⛔✋ Music commands are only available in add-music channel"
-        );
-    }
 
     const prefixRegex = new RegExp(
         `^(<@!?${client.user.id}>|${escapeRegex(PREFIX)})\\s*`

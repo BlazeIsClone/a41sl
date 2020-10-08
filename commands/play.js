@@ -5,6 +5,7 @@ const ytdl = require("ytdl-core");
 const YouTubeAPI = require("simple-youtube-api");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 const scdl = require("soundcloud-downloader");
+const musicChannel = process.env.MUSIC_CHANNEL;
 
 module.exports = {
   name: "play",
@@ -15,6 +16,11 @@ module.exports = {
     const { channel } = message.member.voice;
 
     const serverQueue = message.client.queue.get(message.guild.id);
+    if (message.channel.id != musicChannel) {
+      return message.reply(
+        "⛔✋ Music commands are only available in add-music channel"
+      );
+    }
     if (!channel)
       return message
         .reply("You need to join a voice channel first!")
