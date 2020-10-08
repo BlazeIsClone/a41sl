@@ -39,8 +39,8 @@ client.once("ready", async () => {
             name: "/help 👀",
             type: "STREAMING",
             details: "Watching Snowv",
-            url: "https://www.twitch.tv/snowv_streams"
-        }
+            url: "https://www.twitch.tv/snowv_streams",
+        },
     });
 });
 
@@ -53,7 +53,7 @@ client.once("disconnect", () => {
 });
 
 //Ping Command
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (!message.guild) return;
     if (message.content === "/ping") {
         const msg = await message.channel.send("Ping?");
@@ -66,7 +66,7 @@ client.on("message", async message => {
 // Help Command
 const helpAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
 
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (!message.guild) return;
     if (message.content === "/help") {
         message.author.send(helpEmbed).catch(console.error);
@@ -79,7 +79,7 @@ const rulesAttachment = new MessageAttachment(
     "https://i.imgur.com/790FtQS.png"
 );
 
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (!message.guild) return;
     if (message.content === "/rules") {
         message.author.send(rulesEmbed).catch(console.error);
@@ -90,7 +90,7 @@ client.on("message", async message => {
 // Add-Roles Sudo Command
 //const addRolesAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
 
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (!message.guild) return;
     if (message.content === "/sudo rolesEmbed") {
         message.channel.send(addRolesEmbed).catch(console.error);
@@ -99,7 +99,7 @@ client.on("message", async message => {
 });
 
 //Bot Join Command
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (!message.guild) return;
     if (message.content === "/join") {
         if (message.member.voice.channel) {
@@ -111,7 +111,7 @@ client.on("message", async message => {
 });
 
 //Bot Leave Command
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (message.content === "/leave") {
         if (message.member.voice.channel) {
             connection = message.member.voice.channel.leave();
@@ -120,9 +120,9 @@ client.on("message", async message => {
 });
 
 // User Welcome Message
-client.on("guildMemberAdd", async member => {
+client.on("guildMemberAdd", async (member) => {
     const channel = member.guild.channels.cache.find(
-        ch => ch.name === "welcome"
+        (ch) => ch.name === "welcome"
     );
 
     if (!channel) return;
@@ -195,9 +195,9 @@ client.on("guildMemberAdd", async member => {
 });
 
 //GoodBye Command
-client.on("guildMemberRemove", member => {
+client.on("guildMemberRemove", (member) => {
     const channelGoodBye = member.guild.channels.cache.find(
-        ch => ch.name === "goodbye"
+        (ch) => ch.name === "goodbye"
     );
     if (!channelGoodBye) return;
     const goodbyeEmbed = new Discord.MessageEmbed()
@@ -220,9 +220,9 @@ const radioChannels = {
     tnlrocksRadio: "http://live.tnlrn.com:8010/live.mp3",
     goldRadio: "http://209.133.216.3:7048/;",
     sunRadio: "http://209.133.216.3:7058/;stream.mp3",
-    yesRadio: "http://live.trusl.com:1150/;"
+    yesRadio: "http://live.trusl.com:1150/;",
 };
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (!message.guild) return;
     if (message.content === `${STREAM} sunfm`) {
         if (message.member.voice.channel) {
@@ -236,7 +236,7 @@ client.on("message", async message => {
                 )
                 .setDescription(":red_circle: Streaming Live 24/7")
                 .setFooter("SunFm - Live");
-            message.channel.send(sunEmbed).then(sunEmbed => {
+            message.channel.send(sunEmbed).then((sunEmbed) => {
                 sunEmbed.react("⏹");
 
                 const filter = (reaction, user) => {
@@ -250,9 +250,9 @@ client.on("message", async message => {
                     .awaitReactions(filter, {
                         max: 1,
                         time: 60000,
-                        errors: ["time"]
+                        errors: ["time"],
                     })
-                    .then(collected => {
+                    .then((collected) => {
                         const reaction = collected.first();
 
                         if (reaction.emoji.name === "⏹") {
@@ -262,7 +262,7 @@ client.on("message", async message => {
                             sunEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
-                    .catch(collected => {
+                    .catch((collected) => {
                         console.log("error 100");
                     });
             });
@@ -279,7 +279,7 @@ client.on("message", async message => {
                 )
                 .setDescription(":red_circle: Streaming Live 24/7")
                 .setFooter("YesFm - Live");
-            message.channel.send(yesEmbed).then(yesEmbed => {
+            message.channel.send(yesEmbed).then((yesEmbed) => {
                 yesEmbed.react("⏹");
 
                 const filter = (reaction, user) => {
@@ -293,9 +293,9 @@ client.on("message", async message => {
                     .awaitReactions(filter, {
                         max: 1,
                         time: 60000,
-                        errors: ["time"]
+                        errors: ["time"],
                     })
-                    .then(collected => {
+                    .then((collected) => {
                         const reaction = collected.first();
 
                         if (reaction.emoji.name === "⏹") {
@@ -305,7 +305,7 @@ client.on("message", async message => {
                             yesEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
-                    .catch(collected => {
+                    .catch((collected) => {
                         message.reply("error catched");
                     });
             });
@@ -322,7 +322,7 @@ client.on("message", async message => {
                 )
                 .setDescription(":red_circle: Streaming Live 24/7")
                 .setFooter("KissFm - Live");
-            message.channel.send(kissEmbed).then(kissEmbed => {
+            message.channel.send(kissEmbed).then((kissEmbed) => {
                 kissEmbed.react("⏹");
 
                 const filter = (reaction, user) => {
@@ -336,9 +336,9 @@ client.on("message", async message => {
                     .awaitReactions(filter, {
                         max: 1,
                         time: 60000,
-                        errors: ["time"]
+                        errors: ["time"],
                     })
-                    .then(collected => {
+                    .then((collected) => {
                         const reaction = collected.first();
 
                         if (reaction.emoji.name === "⏹") {
@@ -350,7 +350,7 @@ client.on("message", async message => {
                                 .catch(console.error);
                         }
                     })
-                    .catch(collected => {
+                    .catch((collected) => {
                         message.reply("error catched");
                     });
             });
@@ -367,7 +367,7 @@ client.on("message", async message => {
                 )
                 .setDescription(":red_circle: Streaming Live 24/7")
                 .setFooter("TnlFm - Live");
-            message.channel.send(tnlEmbed).then(tnlEmbed => {
+            message.channel.send(tnlEmbed).then((tnlEmbed) => {
                 tnlEmbed.react("⏹");
 
                 const filter = (reaction, user) => {
@@ -381,9 +381,9 @@ client.on("message", async message => {
                     .awaitReactions(filter, {
                         max: 1,
                         time: 60000,
-                        errors: ["time"]
+                        errors: ["time"],
                     })
-                    .then(collected => {
+                    .then((collected) => {
                         const reaction = collected.first();
 
                         if (reaction.emoji.name === "⏹") {
@@ -393,7 +393,7 @@ client.on("message", async message => {
                             tnlEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
-                    .catch(collected => {
+                    .catch((collected) => {
                         message.reply("error catched");
                     });
             });
@@ -410,7 +410,7 @@ client.on("message", async message => {
                 )
                 .setDescription(":red_circle: Streaming Live 24/7")
                 .setFooter("GoldFm - Live");
-            message.channel.send(goldEmbed).then(goldEmbed => {
+            message.channel.send(goldEmbed).then((goldEmbed) => {
                 goldEmbed.react("⏹");
 
                 const filter = (reaction, user) => {
@@ -424,9 +424,9 @@ client.on("message", async message => {
                     .awaitReactions(filter, {
                         max: 1,
                         time: 60000,
-                        errors: ["time"]
+                        errors: ["time"],
                     })
-                    .then(collected => {
+                    .then((collected) => {
                         const reaction = collected.first();
 
                         if (reaction.emoji.name === "⏹") {
@@ -438,7 +438,7 @@ client.on("message", async message => {
                                 .catch(console.error);
                         }
                     })
-                    .catch(collected => {
+                    .catch((collected) => {
                         message.reply("error catched");
                     });
             });
@@ -446,7 +446,7 @@ client.on("message", async message => {
     }
 });
 
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (!message.guild) return;
     if (message.content === "/stop") {
         dispatcher.end();
@@ -459,12 +459,12 @@ client.commands = new Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
 const cooldowns = new Collection();
-const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-client.on("warn", info => console.log(info));
+client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
 
-const commandFiles = readdirSync(join(__dirname, "commands")).filter(file =>
+const commandFiles = readdirSync(join(__dirname, "commands")).filter((file) =>
     file.endsWith(".js")
 );
 for (const file of commandFiles) {
@@ -472,9 +472,12 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
+    if (message.channel.id != "696751701553709068") {
+        return message.reply('⛔✋ Music commands are only available in add-music channel');
+    }
 
     const prefixRegex = new RegExp(
         `^(<@!?${client.user.id}>|${escapeRegex(PREFIX)})\\s*`
@@ -489,7 +492,7 @@ client.on("message", async message => {
     const command =
         client.commands.get(commandName) ||
         client.commands.find(
-            cmd => cmd.aliases && cmd.aliases.includes(commandName)
+            (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
         );
 
     if (!command) return;
@@ -547,7 +550,7 @@ client.on("message", function (message) {
 
 fs.readdir("./cmd/", (err, files) => {
     if (err) return console.error(err);
-    files.forEach(file => {
+    files.forEach((file) => {
         if (!file.endsWith(".js")) return;
         let props = require(`./cmd/${file}`);
         let commandName = file.split(".")[0];
@@ -557,7 +560,7 @@ fs.readdir("./cmd/", (err, files) => {
 });
 
 //STATS
-client.on("message", async message => {
+client.on("message", async (message) => {
     if (message.content === "/system info") {
         message.channel.send(statsEmbed);
     }
@@ -565,7 +568,7 @@ client.on("message", async message => {
 
 fs.readdir("./cmd/", (err, files) => {
     if (err) return console.error(err);
-    files.forEach(file => {
+    files.forEach((file) => {
         if (!file.endsWith(".js")) return;
         let props = require(`./cmd/${file}`);
         let commandName = file.split(".")[0];
