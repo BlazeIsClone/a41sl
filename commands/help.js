@@ -8,64 +8,69 @@ const helpEmbed = new MessageEmbed()
         { name: "\u200B", value: "\u200B" },
         {
             name: "📋  /rules",
-            value: "Will Guide you with server rules."
+            value: "Will Guide you with server rules.",
         },
         { name: "\u200B", value: "\u200B" },
         {
             name: "🎵  Music Streaming",
-            value: "You can stream you'r YouTube and SoundCloud playlists!"
+            value: "You can stream you'r YouTube and SoundCloud playlists!",
         },
         {
             name: "/join & /leave",
             value:
-                "Use these commands to join and disconnect the bot from you'r voice channel."
+                "Use these commands to join and disconnect the bot from you'r voice channel.",
         },
         {
             name: "/play",
-            value: "Use this command along with a URL to stream music."
+            value: "Use this command along with a URL to stream music.",
         },
 
         { name: "\u200B", value: "\u200B" },
 
         {
             name: "📻  Stream Live Radio",
-            value: "If you ever run into an error use /leave command and retry"
+            value: "If you ever run into an error use /leave command and retry",
         },
         {
             name: "Yes Fm",
             value: "/stream yesfm",
-            inline: true
+            inline: true,
         },
         {
             name: "Sun Fm",
             value: "/stream sunfm",
-            inline: true
+            inline: true,
         },
         {
             name: "Kiss Fm",
             value: "/stream kissfm",
-            inline: true
+            inline: true,
         },
         {
             name: "Gold Fm",
             value: "/stream goldfm",
-            inline: true
+            inline: true,
         },
 
         {
             name: "TNL Radio",
             value: "/stream tnlfm",
-            inline: true
+            inline: true,
         },
         {
             name: "Fox Radio",
             value: "/stream foxfm",
-            inline: true
+            inline: true,
+        },
+        { name: "\u200B", value: "\u200B" },
+        {
+            name: "🔞 /nsfw commands",
+            value: "To browse not safe for work content",
         },
         { name: "\u200B", value: "\u200B" },
         {
             name: "🌐  /ping",
-            value: "To check your latency with the bot"
+            value: "To check your latency with the bot",
         }
     )
 

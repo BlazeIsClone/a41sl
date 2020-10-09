@@ -25,31 +25,31 @@ var queue = require("./commands/play.js");
 const nsfwConfig = require("./config.json");
 const fs = require("fs");
 const moment = require("moment");
-const statsEmbed = require("./cmd/stats");
+const statsEmbed = require("./commands/stats");
 var os = require("os");
 moment.locale("fr");
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
-    console.log("Ready!");
+    console.log("Ready! ⚡");
     memberCount(client);
     client.user.setPresence({
         status: "online",
         activity: {
-            name: "/help 👀",
-            type: "STREAMING",
-            details: "Watching Snowv",
-            url: "https://www.twitch.tv/snowv_streams",
+            name: "/help 🪐",
+            type: "PLAYING",
+            details: null,
+            url: null,
         },
     });
 });
 
 client.once("reconnecting", () => {
-    console.log("Reconnecting!");
+    console.log("Reconnecting! 🚧");
 });
 
 client.once("disconnect", () => {
-    console.log("Disconnect!");
+    console.log("Disconnect! 🚩");
 });
 
 //Ping Command
@@ -545,11 +545,11 @@ client.on("message", function (message) {
     cmd.run(client, message, args);
 });
 
-fs.readdir("./cmd/", (err, files) => {
+fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
-        let props = require(`./cmd/${file}`);
+        let props = require(`./commands/${file}`);
         let commandName = file.split(".")[0];
         // console.log(`Load command ${commandName}`);
         client.commands.set(commandName, props);
@@ -559,15 +559,15 @@ fs.readdir("./cmd/", (err, files) => {
 //STATS
 client.on("message", async (message) => {
     if (message.content === "/system info") {
-        message.channel.send(statsEmbed);
+        message.commands.send(statsEmbed);
     }
 });
 
-fs.readdir("./cmd/", (err, files) => {
+fs.readdir("./commands/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
-        let props = require(`./cmd/${file}`);
+        let props = require(`./commands/${file}`);
         let commandName = file.split(".")[0];
         client.commands.set(commandName, props);
     });
