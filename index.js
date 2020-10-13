@@ -432,10 +432,6 @@ client.on("message", async (message) => {
             });
         }
     }
-});
-
-client.on("message", async (message) => {
-    if (!message.guild) return;
     if (message.content === "/stop") {
         dispatcher.end();
         queue.songs = [];
