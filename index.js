@@ -90,7 +90,7 @@ client.on("message", async (message) => {
         }
     }
     if (message.content === "/system info") {
-        message.commands.send(statsEmbed);
+        message.reply(statsEmbed);
     }
     if (!message.guild) return;
     if (message.content === "/stop") {
