@@ -91,6 +91,9 @@ client.on("message", async (message) => {
             }
         }
     });
+    if (message.content === "/system info") {
+        message.commands.send(statsEmbed);
+    }
 });
 
 // Add-Roles Sudo Command
@@ -536,13 +539,6 @@ fs.readdir("./commands/", (err, files) => {
         // console.log(`Load command ${commandName}`);
         client.commands.set(commandName, props);
     });
-});
-
-//STATS
-client.on("message", async (message) => {
-    if (message.content === "/system info") {
-        message.commands.send(statsEmbed);
-    }
 });
 
 fs.readdir("./commands/", (err, files) => {
