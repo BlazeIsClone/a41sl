@@ -52,7 +52,6 @@ client.once("disconnect", () => {
     console.log("Disconnect! 🚩");
 });
 
-//Ping Command
 client.on("message", async (message) => {
     if (!message.guild) return;
     if (message.content === "/ping") {
@@ -61,30 +60,37 @@ client.on("message", async (message) => {
             `Latency is ${msg.createdTimestamp - message.createdTimestamp}ms.`
         );
     }
-});
 
-// Help Command
-const helpAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
+    const helpAttachment = new MessageAttachment(
+        "https://i.imgur.com/790FtQS.png"
+    );
 
-client.on("message", async (message) => {
-    if (!message.guild) return;
     if (message.content === "/help") {
         message.author.send(helpEmbed).catch(console.error);
         message.author.send(helpAttachment).catch(console.error);
     }
-});
 
-// Rules Command
-const rulesAttachment = new MessageAttachment(
-    "https://i.imgur.com/790FtQS.png"
-);
-
-client.on("message", async (message) => {
-    if (!message.guild) return;
+    const rulesAttachment = new MessageAttachment(
+        "https://i.imgur.com/790FtQS.png"
+    );
     if (message.content === "/rules") {
         message.author.send(rulesEmbed).catch(console.error);
         message.author.send(rulesAttachment).catch(console.error);
     }
+    if (message.content === "/join") {
+        if (message.member.voice.channel) {
+            connection = await message.member.voice.channel.join();
+        } else {
+            message.reply("You have to be in a voice channel to play music");
+        }
+    }
+    client.on("message", async (message) => {
+        if (message.content === "/leave") {
+            if (message.member.voice.channel) {
+                connection = message.member.voice.channel.leave();
+            }
+        }
+    });
 });
 
 // Add-Roles Sudo Command
@@ -95,27 +101,6 @@ client.on("message", async (message) => {
     if (message.content === "/sudo rolesEmbed") {
         message.channel.send(addRolesEmbed).catch(console.error);
         //message.author.send(addRolesAttachment).catch(console.error);
-    }
-});
-
-//Bot Join Command
-client.on("message", async (message) => {
-    if (!message.guild) return;
-    if (message.content === "/join") {
-        if (message.member.voice.channel) {
-            connection = await message.member.voice.channel.join();
-        } else {
-            message.reply("You have to be in a voice channel to play music");
-        }
-    }
-});
-
-//Bot Leave Command
-client.on("message", async (message) => {
-    if (message.content === "/leave") {
-        if (message.member.voice.channel) {
-            connection = message.member.voice.channel.leave();
-        }
     }
 });
 
