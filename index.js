@@ -36,7 +36,7 @@ client.once("ready", async () => {
     client.user.setPresence({
         status: "online",
         activity: {
-            name: "/help 🪐",
+            name: "/help 🍜",
             type: "PLAYING",
             details: null,
             url: null,
