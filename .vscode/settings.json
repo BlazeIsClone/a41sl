@@ -1,8 +1,0 @@
-{
-    "breadcrumbs.enabled": false,
-    "workbench.activityBar.visible": false,
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.statusBar.visible": false,
-    "workbench.tips.enabled": false,
-    "editor.minimap.enabled": false
-}
