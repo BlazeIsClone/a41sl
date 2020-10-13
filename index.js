@@ -84,13 +84,11 @@ client.on("message", async (message) => {
             message.reply("You have to be in a voice channel to play music");
         }
     }
-    client.on("message", async (message) => {
-        if (message.content === "/leave") {
-            if (message.member.voice.channel) {
-                connection = message.member.voice.channel.leave();
-            }
+    if (message.content === "/leave") {
+        if (message.member.voice.channel) {
+            connection = message.member.voice.channel.leave();
         }
-    });
+    }
     if (message.content === "/system info") {
         message.commands.send(statsEmbed);
     }
