@@ -92,6 +92,12 @@ client.on("message", async (message) => {
     if (message.content === "/system info") {
         message.commands.send(statsEmbed);
     }
+    if (!message.guild) return;
+    if (message.content === "/stop") {
+        dispatcher.end();
+        queue.songs = [];
+        console.log("dispatcher stoped");
+    }
 });
 
 // Add-Roles Sudo Command
@@ -429,11 +435,6 @@ client.on("message", async (message) => {
                     });
             });
         }
-    }
-    if (message.content === "/stop") {
-        dispatcher.end();
-        queue.songs = [];
-        console.log("dispatcher stoped");
     }
 });
 
