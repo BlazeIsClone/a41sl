@@ -98,7 +98,6 @@ client.on("message", async (message) => {
         queue.songs = [];
         console.log("dispatcher stoped");
     }
-    
 });
 
 // Add-Roles Sudo Command
@@ -456,7 +455,7 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-client.on("message", async (message, err) => {
+client.on("message", async (message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
 
@@ -505,10 +504,11 @@ client.on("message", async (message, err) => {
     timestamps.set(message.author.id, now);
     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-    if (err) {
-        (() => {
-            command.execute(message, args);
-        })().catch(console.error);
+    try {
+        command.execute(message, args);
+        console.log("Try Block Triggered 898");
+    } catch (e) {
+        console.log("error 787");
     }
 });
 //NSFW COMMANDS
