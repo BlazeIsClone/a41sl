@@ -508,7 +508,7 @@ client.on("message", async (message) => {
         command.execute(message, args);
         console.log("Try Block Triggered 898");
     } catch (e) {
-        console.log("error 787");
+        console.log(e + " - error 8078");
     }
 });
 //NSFW COMMANDS
