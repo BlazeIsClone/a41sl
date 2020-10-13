@@ -92,12 +92,12 @@ client.on("message", async (message) => {
     if (message.content === "/system info") {
         message.reply(statsEmbed);
     }
-    if (!message.guild) return;
-    if (message.content === "/stop") {
+    /*if (message.content === "/stop") {
         dispatcher.end();
         queue.songs = [];
         console.log("dispatcher stoped");
     }
+    */
 });
 
 // Add-Roles Sudo Command
@@ -298,7 +298,7 @@ client.on("message", async (message) => {
                         }
                     })
                     .catch((collected) => {
-                        message.reply("error catched");
+                        console.log("error catched");
                     });
             });
         }
@@ -343,7 +343,7 @@ client.on("message", async (message) => {
                         }
                     })
                     .catch((collected) => {
-                        message.reply("error catched");
+                        console.log("error catched");
                     });
             });
         }
@@ -386,7 +386,7 @@ client.on("message", async (message) => {
                         }
                     })
                     .catch((collected) => {
-                        message.reply("error catched");
+                        console.log("error catched");
                     });
             });
         }
@@ -431,7 +431,7 @@ client.on("message", async (message) => {
                         }
                     })
                     .catch((collected) => {
-                        message.reply("error catched");
+                        console.log("error catched");
                     });
             });
         }
