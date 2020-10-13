@@ -92,12 +92,13 @@ client.on("message", async (message) => {
     if (message.content === "/system info") {
         message.reply(statsEmbed);
     }
-    /*if (message.content === "/stop") {
+    if (message.content === "/stop") {
         dispatcher.end();
+        connection = message.member.voice.channel.leave();
         queue.songs = [];
         console.log("dispatcher stoped");
     }
-    */
+    
 });
 
 // Add-Roles Sudo Command
