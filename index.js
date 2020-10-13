@@ -457,7 +457,7 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-client.on("message", async (message) => {
+client.on("message", async (message, err) => {
     if (message.author.bot) return;
     if (!message.guild) return;
 
@@ -506,13 +506,10 @@ client.on("message", async (message) => {
     timestamps.set(message.author.id, now);
     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-    try {
-        command.execute(message, args);
-    } catch (error) {
-        console.error(error);
-        console
-            .log("There was an error executing that command.")
-            .catch(console.error);
+    if (err) {
+        (() => {
+            command.execute(message, args);
+        })().catch(console.error);
     }
 });
 //NSFW COMMANDS
