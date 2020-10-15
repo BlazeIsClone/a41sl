@@ -7,6 +7,7 @@ Join our discord server ➡️ [All For One SL](https://discord.gg/UstfHPG)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/BlazeIsClone/A41SLBOT/commits/master)
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/BlazeIsClone/A41SLBOT/graphs/contributors/)
 [![Discord](https://img.shields.io/discord/591914197219016707.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.com/invite/UstfHPG)
+[![Generic badge](https://img.shields.io/badge/<Instructions>-<wiki>-<COLOR>.svg)](https://github.com/BlazeIsClone/A41SLBOT/wiki/)
 [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/BlazeIsClone/A41SLBOT/)
 
