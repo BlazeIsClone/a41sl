@@ -22,7 +22,7 @@ git clone https://github.com/BlazeIsClone/A41SLBOT.git
 For the code to work you need to setup the environment variables reffer to the wiki to setup these.
 [✔️ wiki](https://github.com/BlazeIsClone/A41SLBOT/wiki)
 
-## 🚧 Requesting Features
+## 🚧 Requesting Features [![Generic badge](https://img.shields.io/badge/Request-Feature-<COLOR>.svg)](https://github.com/BlazeIsClone/A41SLBOT/issues/new?assignees=&labels=&template=feature_request.md&title=)
 
 To request features open a new issue in this repository. 
 
