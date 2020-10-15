@@ -1,5 +1,5 @@
 # **All For One Bot**
-
+[![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?color=blue&style=flat-square)](http.org/licenses/MIT)
 All For One Bot is a free and open source solution to your server managing, built with quality in mind. Our goal is to cover as many functionalities and niches as possible, while still maintaining quality.
 
 Join our discord server ➡️ [All For One SL](https://discord.gg/UstfHPG)
