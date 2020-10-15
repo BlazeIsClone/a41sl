@@ -1,5 +1,11 @@
 # **All For One Bot**
-[![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?color=blue&style=flat-square)](http.org/licenses/MIT)
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/BlazeIsClone/A41SLBOT/graphs/contributors/)
+[![Discord](https://img.shields.io/discord/591914197219016707.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.com/invite/UstfHPG)
+[![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/BlazeIsClone/A41SLBOT/)
+
 All For One Bot is a free and open source solution to your server managing, built with quality in mind. Our goal is to cover as many functionalities and niches as possible, while still maintaining quality.
 
 Join our discord server ➡️ [All For One SL](https://discord.gg/UstfHPG)
@@ -113,6 +119,6 @@ available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.ht
 For answers to common questions about this code of conduct, see
 https://www.contributor-covenant.org/faq
 
-## 📜 License
+## 📜 License [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
 
 [📄 GNU General Public License v3.0](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
