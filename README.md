@@ -1,6 +1,6 @@
 # **All For One Bot**
 
-All For One Bot is a free and open source solution to your server managing, built with quality in mind. Our goal is to cover as many functionalities and niches as possible, while still maintaining quality.
+All For One Bot is a free and open source solution to your server managing, built with quality in mind. Our goal is to cover as many functionalities and niches as possible, while still maintaining quality. This project is still under developement. If You run into any issues please feel free to let me know im happy to help you out.
 
 Join our discord server ➡️ [All For One SL](https://discord.gg/UstfHPG)
 
