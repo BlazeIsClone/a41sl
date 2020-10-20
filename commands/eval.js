@@ -14,7 +14,9 @@ module.exports = {
         const args = message.content.split(" ").slice(1);
 
         if (message.content.startsWith(PREFIX + "eval")) {
-            if (message.author.id !== serverManager) return;
+            if (message.author.id !== serverManager) {
+                message.reply("❗Only Server Admin Has Access To This Command");
+            }
             try {
                 const code = args.join(" ");
                 let evaled = eval(code);
