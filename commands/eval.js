@@ -1,30 +1,33 @@
-var Discord = require("discord.js");
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const { PREFIX, serverOwner, serverManager } = require("../config.json");
 
-exports.run = async (client, message, args, utils, locale) => {
-    if (!["388973110549807104"].includes(message.author.id)) return;
-
-    try {
-        var code = args.join(" ");
-        let evaled = await eval(code);
-        evaled = await clean(evaled);
-        if (typeof evaled !== "string") {
-            evaled = require("util").inspect(evaled);
+module.exports = {
+    execute(message) {
+        function clean(text) {
+            if (typeof text === "string")
+                return text
+                    .replace(/`/g, "`" + String.fromCharCode(8203))
+                    .replace(/@/g, "@" + String.fromCharCode(8203));
+            else return text;
         }
-        message.channel
-            .send(`\\✅ | Catched Console Alert CMD/exec.js :`)
-            .then(() => {
-                message.channel.send(evaled, {
-                    code: "js",
-                    split: "\n"
-                });
-            });
-    } catch (err) {
-        message.channel.send(
-            `\\❌ | Une erreur est survenue lors de l'exécution :\`\`\`js\n${err.stack}\n\`\`\``
-        );
-    }
-};
+        const args = message.content.split(" ").slice(1);
 
-module.exports.cfr = {
-    name: "eval"
+        if (message.content.startsWith(PREFIX + "eval")) {
+            if (message.author.id !== serverManager) return;
+            try {
+                const code = args.join(" ");
+                let evaled = eval(code);
+
+                if (typeof evaled !== "string")
+                    evaled = require("util").inspect(evaled);
+
+                message.channel.send(clean(evaled), { code: "xl" });
+            } catch (err) {
+                message.channel.send(
+                    `\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``
+                );
+            }
+        }
+    },
 };
