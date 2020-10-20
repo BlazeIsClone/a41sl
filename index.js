@@ -26,6 +26,13 @@ const nsfwConfig = require("./config.json");
 const fs = require("fs");
 const moment = require("moment");
 const statsEmbed = require("./commands/stats");
+const {
+    sunRadio,
+    kissRadio,
+    tnlrocksRadio,
+    goldRadio,
+    yesRadio,
+} = require("./config.json");
 var os = require("os");
 moment.locale("fr");
 
@@ -207,19 +214,12 @@ client.on("guildMemberRemove", (member) => {
 });
 
 //Radio Commands
-const radioChannels = {
-    kissRadio: "http://198.178.123.8:8404/;",
-    tnlrocksRadio: "http://live.tnlrn.com:8010/live.mp3",
-    goldRadio: "http://209.133.216.3:7048/;",
-    sunRadio: "http://209.133.216.3:7058/;stream.mp3",
-    yesRadio: "http://live.trusl.com:1150/;",
-};
 client.on("message", async (message) => {
     if (!message.guild) return;
     if (message.content === `${STREAM} sunfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(radioChannels.sunRadio);
+            dispatcher = connection.play(sunRadio);
             let sunEmbed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Sun Fm**")
@@ -262,7 +262,7 @@ client.on("message", async (message) => {
     } else if (message.content === `${STREAM} yesfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(radioChannels.yesRadio);
+            dispatcher = connection.play(yesRadio);
             let yesEmbed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Yes Fm**")
@@ -305,7 +305,7 @@ client.on("message", async (message) => {
     } else if (message.content === `${STREAM} kissfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(radioChannels.kissRadio);
+            dispatcher = connection.play(kissRadio);
             let kissEmbed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Kiss Fm**")
@@ -350,7 +350,7 @@ client.on("message", async (message) => {
     } else if (message.content === `${STREAM} tnlfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(radioChannels.tnlrocksRadio);
+            dispatcher = connection.play(tnlrocksRadio);
             let tnlEmbed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming TNL Fm**")
@@ -393,7 +393,7 @@ client.on("message", async (message) => {
     } else if (message.content === `${STREAM} goldfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
-            dispatcher = connection.play(radioChannels.goldRadio);
+            dispatcher = connection.play(goldRadio);
             let goldEmbed = new Discord.MessageEmbed()
                 .setColor("#0099ff")
                 .setTitle("**Live Streaming Gold Fm**")
