@@ -506,7 +506,6 @@ client.on("message", async (message) => {
 
     try {
         command.execute(message, args);
-        console.log("Try Block Triggered 898");
     } catch (e) {
         console.log(e);
     }
