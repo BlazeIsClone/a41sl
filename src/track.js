@@ -46,7 +46,7 @@ module.exports = function (client, config) {
                     //Check to see if roles are handled mutually eclusive
                     if (disjoint) {
                         rolesNew = rolesNew.filter(
-                            role =>
+                            (role) =>
                                 //Remove role if found on watchlist
                                 !rolesBlacklist.includes(role)
                         );
@@ -55,11 +55,11 @@ module.exports = function (client, config) {
                     //Make sure none of the roles on the "add" list get removed again
                     await member.roles
                         .set(rolesNew)
-                        .catch(error => console.error(error));
+                        .catch((error) => console.error(error));
                     if (disjoint)
                         await messageReaction
                             .remove(user)
-                            .catch(error => console.error(error));
+                            .catch((error) => console.error(error));
                 }
             })();
         })
@@ -90,7 +90,7 @@ module.exports = function (client, config) {
                         }
                     }
                     rolesToRemove.filter(
-                        role =>
+                        (role) =>
                             //Make sure role that is about to be removed is not part of another emoji
                             !rolesToKeep.includes(role) &&
                             //Make sure member actually has role
@@ -98,7 +98,7 @@ module.exports = function (client, config) {
                     );
                     await member.roles
                         .remove(rolesToRemove)
-                        .catch(error => console.error(error));
+                        .catch((error) => console.error(error));
                 }
             })();
         });

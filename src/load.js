@@ -26,7 +26,7 @@ module.exports = function (client, config) {
                 var message = await client.channels.cache
                     .get(channel)
                     .messages.fetch(message_id)
-                    .catch(error => console.error(error));
+                    .catch((error) => console.error(error));
                 if (!message) continue;
                 debug_count_messagesFetched += 1;
                 for (var { emoji } of reactions) {
@@ -35,7 +35,7 @@ module.exports = function (client, config) {
                     if (!messageReaction) {
                         await message
                             .react(emoji)
-                            .catch(error => console.error(error));
+                            .catch((error) => console.error(error));
                         //No fetch necessary since no prior existing reactions.
                     } else {
                         if (!messageReaction.me) {
@@ -43,7 +43,7 @@ module.exports = function (client, config) {
                             messageReaction.users.fetch();
                             await message
                                 .react(emoji)
-                                .catch(error => console.error(error));
+                                .catch((error) => console.error(error));
                         }
                     }
                 }

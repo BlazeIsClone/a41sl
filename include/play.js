@@ -23,7 +23,7 @@ module.exports = {
         try {
             if (song.url.includes("youtube.com")) {
                 stream = await ytdlDiscord(song.url, {
-                    highWaterMark: 1 << 25
+                    highWaterMark: 1 << 25,
                 });
             } else if (song.url.includes("soundcloud.com")) {
                 try {
@@ -74,7 +74,7 @@ module.exports = {
                     module.exports.play(queue.songs[0], message);
                 }
             })
-            .on("error", err => {
+            .on("error", (err) => {
                 console.error(err);
                 queue.songs.shift();
                 module.exports.play(queue.songs[0], message);
@@ -96,7 +96,7 @@ module.exports = {
 
         const filter = (reaction, user) => user.id !== message.client.user.id;
         var collector = playingMessage.createReactionCollector(filter, {
-            time: song.duration > 0 ? song.duration * 1000 : 600000
+            time: song.duration > 0 ? song.duration * 1000 : 600000,
         });
 
         collector.on("collect", (reaction, user) => {
@@ -191,5 +191,5 @@ module.exports = {
                 playingMessage.delete({ timeout: 3000 }).catch(console.error);
             }
         });
-    }
+    },
 };
