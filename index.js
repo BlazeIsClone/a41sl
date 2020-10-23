@@ -190,9 +190,15 @@ client.on("guildMemberAdd", async (member) => {
         canvas.toBuffer(),
         "welcome-image.png"
     );
-    var greetings = ["yo", "hi", "hello", "waazup", "wut u doing"];
+    var greetings = [
+        "Hey Welcome to **All For One SL**!",
+        "Welcome to **All For One SL** enjoy your stay!",
+        "Hello there welcome to **All For One SL**!",
+        "Welcome to **All For One SL** make yourself at home!",
+        "Greetings to *All For One SL** make yourself comfy!",
+    ];
     var greet = () => greetings[Math.floor(Math.random() * greetings.length)];
-    channel.send(greet(), member, attachment);
+    channel.send(`${greet()}, ${member}`, attachment);
 });
 
 //GoodBye Command
