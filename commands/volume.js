@@ -35,5 +35,5 @@ module.exports = {
         return queue.textChannel
             .send(`🔊 Volume set to: **${args[0]}%**`)
             .catch(console.error);
-    }
+    },
 };

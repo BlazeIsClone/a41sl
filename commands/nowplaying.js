@@ -47,5 +47,5 @@ module.exports = {
             );
 
         return message.channel.send(nowPlaying);
-    }
+    },
 };

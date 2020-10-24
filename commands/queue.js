@@ -24,12 +24,12 @@ module.exports = {
             maxLength: 2048,
             char: "\n",
             prepend: "",
-            append: ""
+            append: "",
         });
 
-        splitDescription.forEach(async m => {
+        splitDescription.forEach(async (m) => {
             queueEmbed.setDescription(m);
             message.channel.send(queueEmbed);
         });
-    }
+    },
 };
