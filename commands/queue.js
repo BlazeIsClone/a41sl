@@ -16,7 +16,7 @@ module.exports = {
         );
 
         let queueEmbed = new MessageEmbed()
-            .setTitle("EvoBot Music Queue")
+            .setTitle("Music Queue")
             .setDescription(description)
             .setColor("#F8AA2A");
 

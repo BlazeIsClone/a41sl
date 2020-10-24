@@ -22,7 +22,7 @@ module.exports = {
                 .catch(console.error);
         if (isNaN(args[0]))
             return message
-                .reply("Please use a number to set volume.")
+                .reply("Please use a number from 0 to 100 to set volume.")
                 .catch(console.error);
         if (parseInt(args[0]) > 100 || parseInt(args[0]) < 0)
             return message
@@ -33,7 +33,7 @@ module.exports = {
         queue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
 
         return queue.textChannel
-            .send(`Volume set to: **${args[0]}%**`)
+            .send(`🔊 Volume set to: **${args[0]}%**`)
             .catch(console.error);
     }
 };
