@@ -223,21 +223,15 @@ client.on("guildMemberRemove", (member) => {
 
 //Radio Commands
 client.on("message", async (message) => {
-    const streamWarnHandler = () => {
+    const streamNotInChannel = () => {
         const { channel } = message.member.voice;
         if (!channel) {
             return message
                 .reply("You need to join a voice channel first!")
                 .catch(console.error);
         }
-        if (message.channel.id != musicChannel) {
-            return message
-                .reply(
-                    "⛔ Stream commands are only available in add-music channel"
-                )
-                .catch(console.error);
-        }
     };
+
     const filter = (reaction, user) => {
         return (
             ["⏹"].includes(reaction.emoji.name) && user.id === message.author.id
@@ -245,9 +239,17 @@ client.on("message", async (message) => {
     };
     if (!message.guild) return;
     if (message.author.bot) return;
+    if (
+        message.content.includes(`${STREAM}`) &&
+        message.channel.id != musicChannel
+    ) {
+        return message.reply(
+            "⛔ Music commands are only available in add-music channel"
+        );
+    }
 
     if (message.content === `${STREAM} sunfm`) {
-        streamWarnHandler();
+        streamNotInChannel();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(sunRadio);
@@ -280,7 +282,7 @@ client.on("message", async (message) => {
             });
         }
     } else if (message.content === `${STREAM} yesfm`) {
-        streamWarnHandler();
+        streamNotInChannel();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(yesRadio);
@@ -314,7 +316,7 @@ client.on("message", async (message) => {
             });
         }
     } else if (message.content === `${STREAM} kissfm`) {
-        streamWarnHandler();
+        streamNotInChannel();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(kissRadio);
@@ -349,7 +351,7 @@ client.on("message", async (message) => {
             });
         }
     } else if (message.content === `${STREAM} tnlfm`) {
-        streamWarnHandler();
+        streamNotInChannel();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(tnlrocksRadio);
@@ -383,7 +385,7 @@ client.on("message", async (message) => {
             });
         }
     } else if (message.content === `${STREAM} goldfm`) {
-        streamWarnHandler();
+        streamNotInChannel();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(goldRadio);
