@@ -259,9 +259,7 @@ client.on("message", async (message) => {
                             sunEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
-                    .catch(() => {
-                        console.log("error 100");
-                    });
+                    .catch(console.error);
             });
         }
     } else if (message.content === `${STREAM} yesfm`) {
@@ -293,9 +291,8 @@ client.on("message", async (message) => {
                             yesEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
-                    .catch(() => {
-                        console.log("error catched");
-                    });
+
+                    .catch(console.error);
             });
         }
     } else if (message.content === `${STREAM} kissfm`) {
@@ -329,9 +326,7 @@ client.on("message", async (message) => {
                                 .catch(console.error);
                         }
                     })
-                    .catch(() => {
-                        console.log("error catched");
-                    });
+                    .catch(console.error);
             });
         }
     } else if (message.content === `${STREAM} tnlfm`) {
@@ -364,9 +359,7 @@ client.on("message", async (message) => {
                             tnlEmbed.reactions.removeAll().catch(console.error);
                         }
                     })
-                    .catch(() => {
-                        console.log("error catched");
-                    });
+                    .catch(console.error);
             });
         }
     } else if (message.content === `${STREAM} goldfm`) {
@@ -401,9 +394,7 @@ client.on("message", async (message) => {
                                 .catch(console.error);
                         }
                     })
-                    .catch(() => {
-                        console.log("error catched");
-                    });
+                    .catch(console.error);
             });
         }
     }
