@@ -26,6 +26,7 @@ const nsfwConfig = require("./config.json");
 const fs = require("fs");
 const moment = require("moment");
 const statsEmbed = require("./commands/stats");
+const musicChannel = process.env.MUSIC_CHANNEL;
 const {
     sunRadio,
     kissRadio,
@@ -222,6 +223,21 @@ client.on("guildMemberRemove", (member) => {
 
 //Radio Commands
 client.on("message", async (message) => {
+    const streamWarnHandler = () => {
+        const { channel } = message.member.voice;
+        if (!channel) {
+            return message
+                .reply("You need to join a voice channel first!")
+                .catch(console.error);
+        }
+        if (message.channel.id != musicChannel) {
+            message
+                .reply(
+                    "⛔ Stream commands are only available in add-music channel"
+                )
+                .catch(console.error);
+        }
+    };
     const filter = (reaction, user) => {
         return (
             ["⏹"].includes(reaction.emoji.name) && user.id === message.author.id
@@ -229,7 +245,9 @@ client.on("message", async (message) => {
     };
     if (!message.guild) return;
     if (message.author.bot) return;
+
     if (message.content === `${STREAM} sunfm`) {
+        streamWarnHandler();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(sunRadio);
@@ -262,6 +280,7 @@ client.on("message", async (message) => {
             });
         }
     } else if (message.content === `${STREAM} yesfm`) {
+        streamWarnHandler();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(yesRadio);
@@ -295,6 +314,7 @@ client.on("message", async (message) => {
             });
         }
     } else if (message.content === `${STREAM} kissfm`) {
+        streamWarnHandler();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(kissRadio);
@@ -329,6 +349,7 @@ client.on("message", async (message) => {
             });
         }
     } else if (message.content === `${STREAM} tnlfm`) {
+        streamWarnHandler();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(tnlrocksRadio);
@@ -362,6 +383,7 @@ client.on("message", async (message) => {
             });
         }
     } else if (message.content === `${STREAM} goldfm`) {
+        streamWarnHandler();
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
             dispatcher = connection.play(goldRadio);
@@ -397,13 +419,7 @@ client.on("message", async (message) => {
             });
         }
     }
-    const { channel } = message.member.voice;
-    if (!channel) {
-        return message
-            .reply("You need to join a voice channel first!")
-            .catch(console.error);
-    }
-   });
+});
 
 client.commands = new Collection();
 client.prefix = PREFIX;
