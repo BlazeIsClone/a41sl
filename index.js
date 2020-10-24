@@ -264,7 +264,6 @@ client.on("message", async (message) => {
                     })
                     .catch((collected) => {
                         console.log("error 100");
-                        dispatcher.end();
                         connection = message.member.voice.channel.leave();
                     });
             });
@@ -309,7 +308,6 @@ client.on("message", async (message) => {
                     })
                     .catch((collected) => {
                         console.log("error catched");
-                        dispatcher.end();
                         connection = message.member.voice.channel.leave();
                     });
             });
@@ -356,7 +354,6 @@ client.on("message", async (message) => {
                     })
                     .catch((collected) => {
                         console.log("error catched");
-                        dispatcher.end();
                         connection = message.member.voice.channel.leave();
                     });
             });
@@ -401,7 +398,6 @@ client.on("message", async (message) => {
                     })
                     .catch((collected) => {
                         console.log("error catched");
-                        dispatcher.end();
                         connection = message.member.voice.channel.leave();
                     });
             });
@@ -448,7 +444,6 @@ client.on("message", async (message) => {
                     })
                     .catch((collected) => {
                         console.log("error catched");
-                        dispatcher.end();
                         connection = message.member.voice.channel.leave();
                     });
             });
