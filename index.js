@@ -103,7 +103,6 @@ client.on("message", async (message) => {
         dispatcher.end();
         connection = message.member.voice.channel.leave();
         queue.songs = [];
-        console.log("stream command dispatcher stoped");
     }
 });
 
@@ -228,8 +227,8 @@ client.on("message", async (message) => {
             ["⏹"].includes(reaction.emoji.name) && user.id === message.author.id
         );
     };
-
     if (!message.guild) return;
+    if (message.author.bot) return;
     if (message.content === `${STREAM} sunfm`) {
         if (message.member.voice.channel) {
             connection = await message.member.voice.channel.join();
@@ -398,7 +397,13 @@ client.on("message", async (message) => {
             });
         }
     }
-});
+    const { channel } = message.member.voice;
+    if (!channel) {
+        return message
+            .reply("You need to join a voice channel first!")
+            .catch(console.error);
+    }
+   });
 
 client.commands = new Collection();
 client.prefix = PREFIX;
