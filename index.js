@@ -231,7 +231,7 @@ client.on("message", async (message) => {
                 .catch(console.error);
         }
         if (message.channel.id != musicChannel) {
-            message
+            return message
                 .reply(
                     "⛔ Stream commands are only available in add-music channel"
                 )
