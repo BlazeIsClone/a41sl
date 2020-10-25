@@ -97,7 +97,7 @@ client.on("message", async (message) => {
             connection = message.member.voice.channel.leave();
         }
     }
-    if (message.content === "/system info") {
+    if (message.content === "/server info") {
         message.reply(statsEmbed);
     }
     if (message.content === "/stop") {

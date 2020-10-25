@@ -3,21 +3,11 @@ const client = new Discord.Client();
 const os = require("os");
 const { MessageEmbed } = require("discord.js");
 const statsEmbed = new Discord.MessageEmbed()
-    .addField(
-        `:bust_in_silhouette: Number of Users`,
-        `${client.users.size}`,
-        true
-    )
-    .addField(
-        `:speech_balloon:  Number of channels`,
-        `${client.channels.size}`,
-        true
-    )
     .addField(`:desktop: System Os`, `${os.platform()}`, true)
     .addField(`:gear: Architecture`, `${os.arch()}`, true)
     .addField(
         `:rocket:  Processor`,
-        `${os.cpus().map(i => `${i.model}`)[0]}`,
+        `${os.cpus().map((i) => `${i.model}`)[0]}`,
         true
     )
     .addField(
@@ -31,7 +21,7 @@ const statsEmbed = new Discord.MessageEmbed()
         )}%)`,
         true
     )
-    .addField(
+    /*    .addField(
         `:alarm_clock: Server up Time`,
         "" +
             Math.round(client.uptime / (1000 * 60 * 60)) +
@@ -42,7 +32,7 @@ const statsEmbed = new Discord.MessageEmbed()
             " seconds" +
             ""
     )
+    */
     .addField(`:dividers: Library`, `Discord.js ${Discord.version}`, true);
-
 
 module.exports = statsEmbed;
