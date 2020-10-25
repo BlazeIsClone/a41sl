@@ -195,7 +195,7 @@ client.on("guildMemberAdd", async (member) => {
         "Welcome to **All For One SL** enjoy your stay!",
         "Hello there welcome to **All For One SL**!",
         "Welcome to **All For One SL** make yourself at home!",
-        "Greetings to *All For One SL** make yourself comfy!",
+        "Greetings to **All For One SL** make yourself comfy!",
     ];
     const greet = () => greetings[Math.floor(Math.random() * greetings.length)];
     channel.send(`${greet()}, ${member}`, attachment);
