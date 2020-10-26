@@ -21,6 +21,7 @@
         "localtunnel": "^2.0.0",
         "lyrics-finder": "^21.3.3",
         "moment": "^2.29.1",
+        "mongoose": "^5.10.10",
         "ngrok": "^3.2.7",
         "node-fetch": "^2.6.1",
         "opusscript": "0.0.7",

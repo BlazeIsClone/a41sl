@@ -6,7 +6,7 @@ const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
 module.exports = {
     async play(song, message) {
         const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
-        const { PRUNING } = require("../config.json");
+        const { PRUNING } = require("../../config.json");
         const queue = message.client.queue.get(message.guild.id);
 
         if (!song) {

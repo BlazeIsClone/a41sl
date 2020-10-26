@@ -1,4 +1,4 @@
-const { play } = require("../include/play");
+const { play } = require("../../include/play");
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
 const ytdl = require("ytdl-core");

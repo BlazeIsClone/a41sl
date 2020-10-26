@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const { PREFIX, serverOwner, serverManager } = require("../config.json");
+const { PREFIX, serverOwner, serverManager } = require("../../config.json");
 
 module.exports = {
     execute(message) {

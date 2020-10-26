@@ -5,28 +5,29 @@ const { MessageEmbed, MessageAttachment, Collection } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
-const rulesEmbed = require("./commands/rules.js");
-const helpEmbed = require("./commands/help.js");
-const addRolesEmbed = require("./commands/add-roles");
+const rulesEmbed = require("./src/commands/rules.js");
+const helpEmbed = require("./src/commands/help.js");
+const addRolesEmbed = require("./src/commands/add-roles");
 var events = (require("events").EventEmitter.defaultMaxListeners = 20);
-const memberCount = require("./commands/member-count");
+const memberCount = require("./src/commands/member-count");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const STREAM = process.env.STREAM_PREFIX;
 const { PREFIX } = require("./config.json");
 var global = require("./global");
 var bot = new Discord.Client();
-const config = require("./include/roles-reaction-db.json");
-var load = require("./src/load");
-var track = require("./src/track");
+const config = require("./src/database/roles-reaction-db.json");
+var load = require("./src/events/load.js");
+var track = require("./src/events/track.js");
 load(client, config);
 track(client, config);
-var queue = require("./commands/play.js");
+var queue = require("./src/commands/music/play.js");
 const nsfwConfig = require("./config.json");
 const fs = require("fs");
 const moment = require("moment");
-const statsEmbed = require("./commands/stats");
+const statsEmbed = require("./src/commands/stats");
 const musicChannel = process.env.MUSIC_CHANNEL;
+const mongoose = require("mongoose");
 const {
     sunRadio,
     kissRadio,
@@ -50,14 +51,6 @@ client.once("ready", async () => {
             url: null,
         },
     });
-});
-
-client.once("reconnecting", () => {
-    console.log("Reconnecting! 🚧");
-});
-
-client.once("disconnect", () => {
-    console.log("Disconnect! 🚩");
 });
 
 client.on("message", async (message) => {
@@ -439,11 +432,11 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
 
-const commandFiles = readdirSync(join(__dirname, "commands")).filter((file) =>
-    file.endsWith(".js")
-);
+const commandFiles = readdirSync(
+    join(__dirname, "src/commands/music/")
+).filter((file) => file.endsWith(".js"));
 for (const file of commandFiles) {
-    const command = require(join(__dirname, "commands", `${file}`));
+    const command = require(join(__dirname, "src/commands/music/", `${file}`));
     client.commands.set(command.name, command);
 }
 
@@ -517,22 +510,22 @@ client.on("message", function (message) {
     cmd.run(client, message, args);
 });
 
-fs.readdir("./commands/", (err, files) => {
+fs.readdir("./src/commands/nsfw/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
-        let props = require(`./commands/${file}`);
+        let props = require(`./src/commands/nsfw/${file}`);
         let commandName = file.split(".")[0];
         // console.log(`Load command ${commandName}`);
         client.commands.set(commandName, props);
     });
 });
 
-fs.readdir("./commands/", (err, files) => {
+fs.readdir("./src/commands/nsfw/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
-        let props = require(`./commands/${file}`);
+        let props = require(`./src/commands/nsfw/${file}`);
         let commandName = file.split(".")[0];
         client.commands.set(commandName, props);
     });
