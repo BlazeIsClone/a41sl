@@ -1,9 +1,8 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
-const { PREFIX, serverOwner, serverManager } = require("../../../config.json");
+const { PREFIX, serverManager } = require("../../../config.json");
 
-module.exports = {
-    execute(message) {
+module.exports = (client) => {
+    client.on("message", (message) => {
         function clean(text) {
             if (typeof text === "string")
                 return text
@@ -32,5 +31,5 @@ module.exports = {
                 );
             }
         }
-    },
+    });
 };

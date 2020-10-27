@@ -5,7 +5,6 @@ const { MessageEmbed, MessageAttachment, Collection } = require("discord.js");
 const Canvas = require("canvas");
 const token = process.env.DISCORD_TOKEN;
 const ytdl = require("ytdl-core");
-const rulesEmbed = require("./src/commands/rules.js");
 const helpEmbed = require("./src/commands/help.js");
 const addRolesEmbed = require("./src/commands/add-roles");
 var events = (require("events").EventEmitter.defaultMaxListeners = 20);
@@ -13,20 +12,15 @@ const memberCount = require("./src/commands/member-count");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const STREAM = process.env.STREAM_PREFIX;
-const { PREFIX } = require("./config.json");
+var { PREFIX } = require("./config.json");
 var global = require("./global");
 var bot = new Discord.Client();
 const config = require("./src/database/roles-reaction.json");
-var load = require("./src/events/load.js");
-var track = require("./src/events/track.js");
-var google = require("./src/commands/misc/google");
-var queue = require("./src/commands/music/play.js");
 const nsfwConfig = require("./config.json");
 const fs = require("fs");
 const moment = require("moment");
-const statsEmbed = require("./src/commands/stats");
 const musicChannel = process.env.MUSIC_CHANNEL;
-
+moment.locale("fr");
 const {
     sunRadio,
     kissRadio,
@@ -34,12 +28,32 @@ const {
     goldRadio,
     yesRadio,
 } = require("./config.json");
-var os = require("os");
-moment.locale("fr");
+const load = require("./src/listeners/load.js");
+const track = require("./src/listeners/track.js");
+const google = require("./src/commands/misc/google");
+const eval = require("./src/commands/dev/eval");
+const ping = require("./src/commands/ping");
+const queue = require("./src/commands/music/play.js");
+const help = require("./src/commands/help");
+const serverInfo = require("./src/commands/serverInfo");
+const rules = require("./src/commands/rules");
+const leaveVoice = require("./src/commands/leave");
+const joinVoice = require("./src/commands/join");
+const welcome = require("./src/listeners/welcome");
+const goodbye = require("./src/listeners/goodbye");
 
 load(client, config);
 track(client, config);
 google(client);
+eval(client);
+ping(client);
+help(client);
+serverInfo(client);
+rules(client);
+leaveVoice(client);
+joinVoice(client);
+welcome(client);
+goodbye(client);
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
@@ -57,51 +71,9 @@ client.once("ready", async () => {
 });
 
 client.on("message", async (message) => {
-    if (!message.guild) return;
-    if (message.content === "/ping") {
-        const msg = await message.channel.send("Ping?");
-        msg.edit(
-            `:ping_pong: Latency is \`${
-                msg.createdTimestamp - message.createdTimestamp
-            }ms\``
-        );
-    }
-
-    const helpAttachment = new MessageAttachment(
-        "https://i.imgur.com/790FtQS.png"
-    );
-
-    if (message.content === "/help") {
-        message.author.send(helpEmbed).catch(console.error);
-        message.author.send(helpAttachment).catch(console.error);
-    }
-
-    const rulesAttachment = new MessageAttachment(
-        "https://i.imgur.com/790FtQS.png"
-    );
-    if (message.content === "/rules") {
-        message.author.send(rulesEmbed).catch(console.error);
-        message.author.send(rulesAttachment).catch(console.error);
-    }
-    if (message.content === "/join") {
-        if (message.member.voice.channel) {
-            connection = await message.member.voice.channel.join();
-        } else {
-            message.reply("You have to be in a voice channel to play music");
-        }
-    }
-    if (message.content === "/leave") {
-        if (message.member.voice.channel) {
-            connection = message.member.voice.channel.leave();
-        }
-    }
-    if (message.content === "/server info") {
-        message.reply(statsEmbed);
-    }
     if (message.content === "/stop") {
         dispatcher.end();
         connection = message.member.voice.channel.leave();
-        queue.songs = [];
     }
 });
 
@@ -116,115 +88,7 @@ client.on("message", async (message) => {
     }
 });
 
-// User Welcome Message
-client.on("guildMemberAdd", async (member) => {
-    const channel = member.guild.channels.cache.find(
-        (ch) => ch.name === "welcome"
-    );
 
-    if (!channel) return;
-    const canvas = Canvas.createCanvas(700, 250);
-    const ctx = canvas.getContext("2d");
-
-    const background = await Canvas.loadImage("./src/img/wallpaper.png");
-    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
-    ctx.strokeStyle = "#0800ff";
-    ctx.strokeRect(0, 0, canvas.width, canvas.height);
-
-    // Slightly smaller text placed above the member's display name
-    ctx.font = "28px sans-serif";
-    ctx.fillStyle = "#ffffff";
-    ctx.fillText(
-        "Welcome to the server,",
-        canvas.width / 2.5,
-        canvas.height / 3.5
-    );
-    const applyText = (canvas, text) => {
-        const ctx = canvas.getContext("2d");
-
-        let fontSize = 70;
-
-        do {
-            // Assign the font to the context and decrement it so it can be measured again
-            ctx.font = `${(fontSize -= 10)}px sans-serif`;
-            // Compare pixel width of the text to the canvas minus the approximate avatar size
-        } while (ctx.measureText(text).width > canvas.width - 300);
-
-        // Return the result to use in the actual canvas
-        return ctx.font;
-    };
-
-    ctx.font = applyText(canvas, `${member.displayName}!`);
-    ctx.fillStyle = "#ffffff";
-    ctx.fillText(
-        `${member.displayName}!`,
-        canvas.width / 2.5,
-        canvas.height / 1.8
-    );
-    const guild = client.guilds.cache.get("463027132243771403");
-    var getmemberCount = guild.memberCount;
-    ctx.font = "24px sans-serif";
-    ctx.fillStyle = "#ffffff";
-    ctx.fillText(
-        `Member #${getmemberCount}`,
-        canvas.width / 2.5,
-        canvas.height / 1.45
-    );
-    ctx.beginPath();
-    ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.clip();
-
-    const avatar = await Canvas.loadImage(
-        member.user.displayAvatarURL({ format: "jpg" })
-    );
-    ctx.drawImage(avatar, 25, 25, 200, 200);
-    ctx.lineWidth = 13;
-    ctx.strokeStyle = "white";
-    ctx.stroke();
-
-    const attachment = new Discord.MessageAttachment(
-        canvas.toBuffer(),
-        "welcome-image.png"
-    );
-    const greetings = [
-        "Hey Welcome to **All For One SL**!",
-        "Welcome to **All For One SL** enjoy your stay!",
-        "Hello there welcome to **All For One SL**!",
-        "Welcome to **All For One SL** make yourself at home!",
-        "Greetings to **All For One SL** make yourself comfy!",
-    ];
-    const greet = () => greetings[Math.floor(Math.random() * greetings.length)];
-    channel.send(`${greet()}, ${member}`, attachment);
-});
-
-//GoodBye Command
-const goodbyes = [
-    "The magic thing about home is that it feels good to leave, and it feels even better to come back.",
-    "Goodbyes are not forever, it simply means we'll miss you until we meet again",
-    "It’s time to say goodbye, but I think goodbyes are sad and I’d much rather say hello. Hello to a new adventure.",
-    "I can’t remember all the times I told myself to hold on to these moments as they pass",
-    "Our memories of yesterday will last a lifetime. We’ll take the best, forget the rest, and someday will find that these are the best of times.",
-    "Saying goodbye is the hardest solution of any problem. But sometimes it’s the only choice we have…",
-    "It’s not the days in life we remember, rather the moments.",
-];
-
-client.on("guildMemberRemove", (member) => {
-    const channelGoodBye = member.guild.channels.cache.find(
-        (ch) => ch.name === "goodbye"
-    );
-    if (!channelGoodBye) return;
-    const goodbye = () => goodbyes[Math.floor(Math.random() * goodbyes.length)];
-    const goodbyeEmbed = new Discord.MessageEmbed()
-        .setColor("#00FF00")
-        .setThumbnail(member.user.displayAvatarURL({ format: "jpg" }))
-        .setTitle(`** ${member.displayName} it's time to say goodbye**`)
-        .setDescription(`${goodbye()}`)
-        .setTimestamp();
-
-    channelGoodBye.send(goodbyeEmbed);
-});
 
 //Radio Commands
 client.on("message", async (message) => {
@@ -438,10 +302,10 @@ client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
 
 const commandFiles = readdirSync(
-    join(__dirname, "src/commands/music/")
+    join(__dirname, "./src/commands/music/")
 ).filter((file) => file.endsWith(".js"));
 for (const file of commandFiles) {
-    const command = require(join(__dirname, "src/commands/music/", `${file}`));
+    const command = require(join(__dirname, "./src/commands/music/", `${file}`));
     client.commands.set(command.name, command);
 }
 
@@ -527,10 +391,10 @@ fs.readdir("./src/commands/nsfw/", (err, files) => {
         client.commands.set(commandName, props);
     });
 });
-fs.readdir(`./src/events/`, (err, files) => {
+fs.readdir(`./src/listeners/`, (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
-        let eventFunction = require(`./src/events/${file}`);
+        let eventFunction = require(`./src/listeners/${file}`);
         let eventName = file.split(".")[0];
         client.on(eventName, (...args) => eventFunction.run(client, ...args));
     });
