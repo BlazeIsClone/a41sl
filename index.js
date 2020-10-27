@@ -16,18 +16,17 @@ const STREAM = process.env.STREAM_PREFIX;
 const { PREFIX } = require("./config.json");
 var global = require("./global");
 var bot = new Discord.Client();
-const config = require("./src/database/roles-reaction-db.json");
+const config = require("./src/database/roles-reaction.json");
 var load = require("./src/events/load.js");
 var track = require("./src/events/track.js");
-load(client, config);
-track(client, config);
+var google = require("./src/commands/misc/google");
 var queue = require("./src/commands/music/play.js");
 const nsfwConfig = require("./config.json");
 const fs = require("fs");
 const moment = require("moment");
 const statsEmbed = require("./src/commands/stats");
 const musicChannel = process.env.MUSIC_CHANNEL;
-const mongoose = require("mongoose");
+
 const {
     sunRadio,
     kissRadio,
@@ -37,6 +36,10 @@ const {
 } = require("./config.json");
 var os = require("os");
 moment.locale("fr");
+
+load(client, config);
+track(client, config);
+google(client);
 
 client.once("ready", async () => {
     console.log(`Logged in as ${client.user.username}!`);
@@ -58,7 +61,9 @@ client.on("message", async (message) => {
     if (message.content === "/ping") {
         const msg = await message.channel.send("Ping?");
         msg.edit(
-            `Latency is ${msg.createdTimestamp - message.createdTimestamp}ms.`
+            `:ping_pong: Latency is \`${
+                msg.createdTimestamp - message.createdTimestamp
+            }ms\``
         );
     }
 
@@ -422,7 +427,7 @@ client.on("message", async (message) => {
         }
     }
 });
-
+//music commands
 client.commands = new Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
@@ -490,7 +495,9 @@ client.on("message", async (message) => {
     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
     try {
-        command.execute(message, args);
+        if (typeof command.execute === "function") {
+            command.execute(message, args);
+        }
     } catch (e) {
         console.log(e);
     }
@@ -520,15 +527,12 @@ fs.readdir("./src/commands/nsfw/", (err, files) => {
         client.commands.set(commandName, props);
     });
 });
-
-fs.readdir("./src/commands/nsfw/", (err, files) => {
+fs.readdir(`./src/events/`, (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
-        if (!file.endsWith(".js")) return;
-        let props = require(`./src/commands/nsfw/${file}`);
-        let commandName = file.split(".")[0];
-        client.commands.set(commandName, props);
+        let eventFunction = require(`./src/events/${file}`);
+        let eventName = file.split(".")[0];
+        client.on(eventName, (...args) => eventFunction.run(client, ...args));
     });
 });
-
 client.login(token);

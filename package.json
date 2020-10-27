@@ -8,6 +8,7 @@
     "dependencies": {
         "@discordjs/opus": "^0.3.2",
         "canvas": "^2.6.1",
+        "cheerio": "^1.0.0-rc.3",
         "discord-canvas": "^1.3.2",
         "discord.js": "^12.4.0",
         "dotenv": "^8.2.0",
@@ -17,6 +18,7 @@
         "ffmpeg-static": "^4.2.7",
         "fluent-ffmpeg": "^2.1.2",
         "fs": "0.0.1-security",
+        "google": "^2.1.0",
         "includes": "0.0.7",
         "localtunnel": "^2.0.0",
         "lyrics-finder": "^21.3.3",
@@ -34,6 +36,7 @@
         "soundcloud-downloader": "^0.1.8",
         "spotify-web-api-node": "^4.0.0",
         "string-progressbar": "^1.0.1",
+        "turndown": "^7.0.0",
         "ytdl-core": "^3.4.2",
         "ytdl-core-discord": "^1.2.3"
     },
