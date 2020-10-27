@@ -17,5 +17,7 @@ module.exports = {
         queue.textChannel
             .send(`${message.author} ⏹ stopped the music!`)
             .catch(console.error);
-    }
+        dispatcher.end();
+        message.guild.me.voiceChannel.leave();
+    },
 };
