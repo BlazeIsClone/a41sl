@@ -1,4 +1,4 @@
-<img src="https://cdn.discordapp.com/attachments/724777338474201099/770840501041233930/Sequence_01-min.gif">
+![image description](https://cdn.discordapp.com/attachments/724777338474201099/770879411846250546/0360.png)
 
 # **All For One Bot**
 
