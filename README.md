@@ -1,4 +1,4 @@
-<img align="center" src="https://cdn.discordapp.com/attachments/769526719429214219/770994988296962108/007111.jpg" width=100% />
+<img align="center" src="https://cdn.discordapp.com/attachments/769526719429214219/770996357476515870/007sd1.png" width=100% />
 
 # **All For One Bot**
 
