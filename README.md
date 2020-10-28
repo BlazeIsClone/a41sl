@@ -1,3 +1,5 @@
+<img align="center" src="https://raw.githubusercontent.com/Discord4J/discord4j-web/master/public/logo.svg?sanitize=true" width=27% />
+
 # **All For One Bot**
 
 All For One Bot is a free and open source solution to your server managing, built with quality in mind. Our goal is to cover as many functionalities and niches as possible, while still maintaining quality. This project is still under developement. If You run into any issues please feel free to let me know im happy to help you out.
@@ -11,7 +13,6 @@ Join our discord server ➡️ [All For One SL](https://discord.gg/UstfHPG)
 [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/BlazeIsClone/A41SLBOT/)
 
-
 ## 📥 Installation
 
 For self hosting clone this repository
@@ -19,12 +20,13 @@ For self hosting clone this repository
 ```bash
 git clone https://github.com/BlazeIsClone/A41SLBOT.git
 ```
+
 For the code to work you need to setup the environment variables reffer to the wiki to setup these.
 [✔️ wiki](https://github.com/BlazeIsClone/A41SLBOT/wiki)
 
 ## 🚧 Requesting Features [![Generic badge](https://img.shields.io/badge/Request-Feature-<COLOR>.svg)](https://github.com/BlazeIsClone/A41SLBOT/issues/new?assignees=&labels=&template=feature_request.md&title=)
 
-To request features open a new issue in this repository. 
+To request features open a new issue in this repository.
 
 **Is your feature request related to a problem? Please describe.**
 
