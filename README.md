@@ -1,4 +1,4 @@
-<img align="center" src="https://raw.githubusercontent.com/Discord4J/discord4j-web/master/public/logo.svg?sanitize=true" width=27% />
+<img align="center" src="https://cdn.discordapp.com/attachments/769526719429214219/770994140921987092/007111.jpg" width=27% />
 
 # **All For One Bot**
 
