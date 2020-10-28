@@ -1,26 +1,18 @@
-require("dotenv").config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const { MessageEmbed, MessageAttachment, Collection } = require("discord.js");
-const Canvas = require("canvas");
-const token = process.env.DISCORD_TOKEN;
-const ytdl = require("ytdl-core");
-const helpEmbed = require("./src/commands/help.js");
-const addRolesEmbed = require("./src/commands/add-roles");
-var events = (require("events").EventEmitter.defaultMaxListeners = 20);
-const memberCount = require("./src/commands/member-count");
+const { Collection } = require("discord.js");
+const events = (require("events").EventEmitter.defaultMaxListeners = 20);
 const { readdirSync } = require("fs");
 const { join } = require("path");
-const STREAM = process.env.STREAM_PREFIX;
-var { PREFIX } = require("./config.json");
-var global = require("./global");
-var bot = new Discord.Client();
+const { PREFIX } = require("./config.json");
 const config = require("./src/database/roles-reaction.json");
 const nsfwConfig = require("./config.json");
 const fs = require("fs");
 const moment = require("moment");
-const musicChannel = process.env.MUSIC_CHANNEL;
 moment.locale("fr");
+require("dotenv").config();
+const TOKEN = process.env.DISCORD_TOKEN;
+
 const load = require("./src/listeners/load.js");
 const track = require("./src/listeners/track.js");
 const google = require("./src/commands/misc/google");
@@ -35,6 +27,9 @@ const joinVoice = require("./src/commands/join");
 const welcome = require("./src/listeners/welcome");
 const goodbye = require("./src/listeners/goodbye");
 const streamCommands = require("./src/commands/stream/streamCommands");
+const statusPresence = require("./src/listeners/statusPresence");
+const memberCount = require("./src/listeners/member-count");
+const reactionRoles = require("./src/commands/admin/reactionRoles");
 
 load(client, config);
 track(client, config);
@@ -49,34 +44,10 @@ joinVoice(client);
 welcome(client);
 goodbye(client);
 streamCommands(client);
+statusPresence(client);
+memberCount(client);
+reactionRoles(client);
 
-client.once("ready", async () => {
-    console.log(`Logged in as ${client.user.username}!`);
-    console.log("Ready! ⚡");
-    memberCount(client);
-    client.user.setPresence({
-        status: "online",
-        activity: {
-            name: "/help 🍜",
-            type: "PLAYING",
-            details: null,
-            url: null,
-        },
-    });
-});
-
-// Add-Roles Sudo Command
-//const addRolesAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
-
-client.on("message", async (message) => {
-    if (!message.guild) return;
-    if (message.content === "/sudo rolesEmbed") {
-        message.channel.send(addRolesEmbed).catch(console.error);
-        //message.author.send(addRolesAttachment).catch(console.error);
-    }
-});
-
-//music commands
 client.commands = new Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
@@ -156,7 +127,6 @@ client.on("message", async (message) => {
     }
 });
 
-//NSFW COMMANDS
 client.config = nsfwConfig;
 client.on("message", function (message) {
     if (message.author.bot) return;
@@ -189,4 +159,4 @@ fs.readdir(`./src/listeners/`, (err, files) => {
         client.on(eventName, (...args) => eventFunction.run(client, ...args));
     });
 });
-client.login(token);
+client.login(TOKEN);

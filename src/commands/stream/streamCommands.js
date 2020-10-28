@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const STREAM = process.env.STREAM_PREFIX;
+const musicChannel = process.env.MUSIC_CHANNEL;
 const {
     sunRadio,
     kissRadio,
@@ -8,6 +9,7 @@ const {
     yesRadio,
 } = require("./streams.json");
 
+//stop command is nested
 module.exports = (client) => {
     client.on("message", async (message) => {
         const streamNotInChannel = () => {
@@ -35,7 +37,6 @@ module.exports = (client) => {
                 "⛔ Music commands are only available in add-music channel"
             );
         }
-
         if (message.content === `${STREAM} sunfm`) {
             streamNotInChannel();
             if (message.member.voice.channel) {
@@ -214,6 +215,13 @@ module.exports = (client) => {
                         .catch(console.error);
                 });
             }
+        }
+        if (message.content === "/stop") {
+            if (dispatcher) dispatcher.end();
+            if (typeof dispatcher === "undefined") return;
+            connection = message.member.voice.channel
+                .leave()
+                .catch(console.error);
         }
     });
 };
