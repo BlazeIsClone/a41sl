@@ -1,17 +1,22 @@
 ![image description](https://cdn.discordapp.com/attachments/724777338474201099/770879411846250546/0360.png)
 
+<div align="center">
 # **All For One Bot**
-
+  <p> 
 All For One Bot is a free and open source solution to your server managing, built with quality in mind. Our goal is to cover as many functionalities and niches as possible, while still maintaining quality. This project is still under developement. If You run into any issues please feel free to let me know im happy to help you out.
-
+<br>
 Join our discord server ➡️ [All For One SL](https://discord.gg/UstfHPG)
-
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/BlazeIsClone/A41SLBOT/commits/master)
+  </p>
+  <br>
+<hr>
+[![Maintenance](https://imgshields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/BlazeIsClone/A41SLBOT/commits/master)
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/BlazeIsClone/A41SLBOT/graphs/contributors/)
 [![Discord](https://img.shields.io/discord/591914197219016707.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.com/invite/UstfHPG)
 [![Generic badge](https://img.shields.io/badge/Instructions-wiki-<COLOR>.svg)](https://github.com/BlazeIsClone/A41SLBOT/wiki/)
 [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/BlazeIsClone/A41SLBOT/)
+
+</div>
 
 ## 📥 Installation
 
