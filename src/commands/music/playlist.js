@@ -10,7 +10,7 @@ module.exports = {
     aliases: ["pl"],
     description: "Play a playlist from youtube",
     async execute(message, args) {
-        const { PRUNING } = require("../config.json");
+        const { PRUNING } = require("../../../config.json");
         const { channel } = message.member.voice;
 
         const serverQueue = message.client.queue.get(message.guild.id);
