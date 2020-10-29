@@ -12,6 +12,7 @@ const moment = require("moment");
 moment.locale("fr");
 require("dotenv").config();
 const TOKEN = process.env.DISCORD_TOKEN;
+const Canvas = require("canvas");
 
 const load = require("./src/listeners/load.js");
 const track = require("./src/listeners/track.js");
@@ -47,6 +48,7 @@ streamCommands(client);
 statusPresence(client);
 memberCount(client);
 reactionRoles(client);
+
 client.on("guildMemberAdd", async (member) => {
     const channel = member.guild.channels.cache.find(
         (ch) => ch.name === "welcome"
@@ -128,6 +130,7 @@ client.on("guildMemberAdd", async (member) => {
     var greet = () => greetings[Math.floor(Math.random() * greetings.length)];
     channel.send(`${greet()}, ${member}`, attachment);
 });
+
 client.commands = new Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
