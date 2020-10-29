@@ -14,6 +14,7 @@ Join our discord server ➡️ [All For One SL](https://discord.gg/UstfHPG)
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/BlazeIsClone/A41SLBOT/)
 
 <hr>
+
 ## 📥 Installation
 
 For self hosting clone this repository
