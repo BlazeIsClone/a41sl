@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports = function (client) {
+module.exports = (client) => {
     client.on("guildMemberRemove", (member) => {
         const channelGoodBye = member.guild.channels.cache.find(
             (ch) => ch.name === "goodbye"
