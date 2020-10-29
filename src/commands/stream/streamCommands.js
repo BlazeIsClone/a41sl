@@ -217,8 +217,8 @@ module.exports = (client) => {
             }
         }
         if (message.content === "/stop") {
-            //if (typeof dispatcher === "undefined") return;
-            dispatcher.end();
+            if (typeof dispatcher === "undefined") return;
+            if (dispatcher) return dispatcher.end();
             connection = message.member.voice.channel.leave();
         }
     });
