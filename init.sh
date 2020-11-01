@@ -7,4 +7,4 @@ if [ -z "$DISCORD_WEBHOOK_URL" ]; then
       exit 1;
       fi
      
-     curl -X POST --data-urlencode 'payload_json={"username": "'"$DISCORD_USERNAME"'", "content":"'"All For One Bot Update  - Music commands are now only available in add-music channel!"'"}' $DISCORD_WEBHOOK_URL 
+     # curl -X POST --data-urlencode 'payload_json={"username": "'"$DISCORD_USERNAME"'", "content":"'"  "'"}' $DISCORD_WEBHOOK_URL 
