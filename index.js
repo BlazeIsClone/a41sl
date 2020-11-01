@@ -127,9 +127,9 @@ client.on("message", async (message) => {
 client.config = nsfwConfig;
 client.on("message", function (message) {
     if (message.author.bot) return;
-    if (message.content.indexOf(nsfwConfig.prefix) !== 0) return;
+    if (message.content.indexOf(nsfwConfig.nsfwPrefix) !== 0) return;
     const args = message.content
-        .slice(nsfwConfig.prefix.length)
+        .slice(nsfwConfig.nsfwPrefix.length)
         .trim()
         .split(/ +/g);
     const command = args.shift().toLowerCase();

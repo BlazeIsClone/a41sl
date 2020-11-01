@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { PREFIX, serverManager } = require("../../../config.json");
+const { PREFIX, serverManager, serverOwner } = require("../../../config.json");
 
 module.exports = (client) => {
     client.on("message", (message) => {
@@ -13,7 +13,10 @@ module.exports = (client) => {
         const args = message.content.split(" ").slice(1);
 
         if (message.content.startsWith(PREFIX + "eval")) {
-            if (message.author.id !== serverManager) {
+            if (
+                message.author.id !== serverOwner &&
+                message.author.id !== serverManager
+            ) {
                 message.reply("❗Only Server Admin Has Access To This Command");
                 return;
             }

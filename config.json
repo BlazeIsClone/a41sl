@@ -2,6 +2,7 @@
     "MAX_PLAYLIST_SIZE": 40,
     "PREFIX": "/",
     "PRUNING": false,
-    "prefix": "/nsfw",
-    "serverManager": "463028312567054338"
+    "nsfwPrefix": "/nsfw",
+    "serverManager": "463028312567054338",
+    "serverOwner": "451725062534332417"
 }
