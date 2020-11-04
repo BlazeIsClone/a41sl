@@ -8,6 +8,9 @@ module.exports = function (client) {
     var parts = message.content.split(" "); // Splits message into an array for every space, our layout: "<command> [search query]" will become ["<command>", "search query"]
 
     /* Simple command manager */
+    if (message.content === PREFIX + "google") {
+      message.reply("Usage: /google <image name> ");
+    }
     if (parts[0] === PREFIX + "google") {
       // Check if first part of message is image command
 

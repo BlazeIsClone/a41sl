@@ -4,78 +4,51 @@ const { MessageEmbed, MessageAttachment } = require("discord.js");
 module.exports = (client) => {
     client.on("message", async (message) => {
         const helpEmbed = new MessageEmbed()
-            .setTitle("👋  Hello There! All The Help You Need Is Here")
-            .setThumbnail("https://i.imgur.com/wSTFkRM.png")
             .setColor("#00FF00")
             .addFields(
-                { name: "\u200B", value: "\u200B" },
                 {
-                    name: "📋  /rules",
-                    value: "Will Guide you with server rules.",
+                    name: "This will help you out!",
+                    value: "Use these commands to get command specific help!",
+                    inline: true,
                 },
                 { name: "\u200B", value: "\u200B" },
                 {
-                    name: "🎵  Music Streaming",
-                    value:
-                        "You can stream you'r YouTube and SoundCloud playlists!",
-                },
-                {
-                    name: "/join & /leave",
-                    value:
-                        "Use these commands to join and disconnect the bot from you'r voice channel.",
-                },
-                {
-                    name: "/play",
-                    value: "Use this command along with a URL to stream music.",
-                },
-
-                { name: "\u200B", value: "\u200B" },
-
-                {
-                    name: "📻  Stream Live Radio",
-                    value:
-                        "If you ever run into an error use /leave command and retry",
-                },
-                {
-                    name: "Yes Fm",
-                    value: "/stream yesfm",
+                    name: "📋   /rules",
+                    value: "Community guidelines",
                     inline: true,
                 },
                 {
-                    name: "Sun Fm",
-                    value: "/stream sunfm",
-                    inline: true,
-                },
-                {
-                    name: "Kiss Fm",
-                    value: "/stream kissfm",
-                    inline: true,
-                },
-                {
-                    name: "Gold Fm",
-                    value: "/stream goldfm",
+                    name: "🎵   /music commands",
+                    value: "Music streaming",
                     inline: true,
                 },
 
                 {
-                    name: "TNL Radio",
-                    value: "/stream tnlfm",
+                    name: "🔞   /nsfw commands",
+                    value: "To get NSFW content",
                     inline: true,
                 },
                 {
-                    name: "Fox Radio",
-                    value: "/stream foxfm",
+                    name: "🌍   /google",
+                    value: "Search google images",
                     inline: true,
                 },
-                { name: "\u200B", value: "\u200B" },
+
                 {
-                    name: "🔞 /nsfw commands",
-                    value: "To browse not safe for work content",
+                    name: "🏓   /ping",
+                    value: "Checks latency with the bot",
+                    inline: true,
                 },
+                {
+                    name: "🗃   /server info",
+                    value: "Bot Server information",
+                    inline: true,
+                },
+
                 { name: "\u200B", value: "\u200B" },
                 {
-                    name: "🌐  /ping",
-                    value: "To check your latency with the bot",
+                    name: "❤   Bot Repository",
+                    value: "https://github.com/BlazeIsClone/A41SLBOT",
                 }
             )
 
@@ -88,8 +61,15 @@ module.exports = (client) => {
         );
 
         if (message.content === "/help") {
-            message.author.send(helpEmbed).catch(console.error);
-            message.author.send(helpAttachment).catch(console.error);
+            if (message.author.bot) return;
+            (async () => {
+                await message.reply(helpAttachment).catch(console.error);
+                try {
+                    message.reply(helpEmbed).catch(console.error);
+                } catch (err) {
+                    console.log(err);
+                }
+            })();
         }
     });
 };

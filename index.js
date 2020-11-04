@@ -30,6 +30,7 @@ const streamCommands = require("./src/commands/stream/streamCommands");
 const statusPresence = require("./src/listeners/statusPresence");
 const memberCount = require("./src/listeners/member-count");
 const reactionRoles = require("./src/commands/admin/reactionRoles");
+const musicCommands = require("./src/commands/musicCommands");
 
 load(client, config);
 track(client, config);
@@ -47,6 +48,7 @@ streamCommands(client);
 statusPresence(client);
 memberCount(client);
 reactionRoles(client);
+musicCommands(client);
 
 client.commands = new Collection();
 client.prefix = PREFIX;
