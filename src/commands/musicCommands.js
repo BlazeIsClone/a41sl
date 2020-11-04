@@ -9,7 +9,7 @@ module.exports = (client) => {
                 {
                     name: "List of all music commands",
                     value:
-                        "`play`,`stop`,`,`remove`,`skip`,`skipto`, `pause`,`resume`,`queue`,`nowplaying`,`lyrics`,`volume`",
+                        "`play`,`stop`,`remove`,`skip`,`skipto`, `pause`,`resume`,`queue`,`nowplaying`,`lyrics`,`volume`",
                 },
                 {
                     name:
