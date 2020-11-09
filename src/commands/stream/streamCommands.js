@@ -33,7 +33,7 @@ module.exports = (client) => {
             message.content.includes(`${STREAM}`) &&
             message.channel.id != musicChannel
         ) {
-            return message.reply(
+            return message.author.send(
                 "⛔ Music commands are only available in add-music channel"
             );
         }
