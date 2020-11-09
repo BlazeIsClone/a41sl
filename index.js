@@ -31,6 +31,7 @@ const statusPresence = require("./src/listeners/statusPresence");
 const memberCount = require("./src/listeners/member-count");
 const reactionRoles = require("./src/commands/admin/reactionRoles");
 const musicCommands = require("./src/commands/musicCommands");
+const darkmemes = require("./src/commands/memes/darkmemes");
 
 load(client, config);
 track(client, config);
@@ -49,6 +50,7 @@ statusPresence(client);
 memberCount(client);
 reactionRoles(client);
 musicCommands(client);
+darkmemes(client);
 
 client.commands = new Collection();
 client.prefix = PREFIX;
