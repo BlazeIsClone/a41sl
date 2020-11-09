@@ -6,6 +6,7 @@ const YouTubeAPI = require("simple-youtube-api");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 const scdl = require("soundcloud-downloader");
 const musicChannel = process.env.MUSIC_CHANNEL;
+const { PREFIX } = require("../../../config.json");
 
 module.exports = {
   name: "play",
@@ -113,7 +114,9 @@ module.exports = {
       } catch (error) {
         console.error(error);
         return message
-          .reply("No video was found with a matching title")
+          .reply(
+            `No video was found with a matching title, you can find songs with **${PREFIX}search**`
+          )
           .catch(console.error);
       }
     }
