@@ -115,7 +115,7 @@ module.exports = {
         console.error(error);
         return message
           .reply(
-            `No video was found with a matching title, you can find songs with **${PREFIX}search**`
+            `No video was found with a matching title, you can find songs with **${PREFIX}search** command`
           )
           .catch(console.error);
       }
