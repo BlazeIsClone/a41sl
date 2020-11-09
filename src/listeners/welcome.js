@@ -47,7 +47,8 @@ module.exports = (client) => {
       canvas.width / 2.5,
       canvas.height / 1.8
     );
-    const guild = client.guilds.cache.get("463027132243771403");
+
+    const guild = client.guilds.cache.get(channel.guild.id);
     var getmemberCount = guild.memberCount;
     ctx.font = "24px sans-serif";
     ctx.fillStyle = "#ffffff";

@@ -13,7 +13,7 @@ module.exports = (client) => {
         client.on("guildMemberAdd", (member) => updateMembers(member.guild));
         client.on("guildMemberRemove", (member) => updateMembers(member.guild));
 
-        const guild = client.guilds.cache.get("463027132243771403");
+        const guild = client.guilds.cache.get(channel.guild.id);
         updateMembers(guild);
     });
 };
