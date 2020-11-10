@@ -39,10 +39,4 @@ module.exports = (client) => {
         refreshMemes();
         setInterval(sendMeme, 7200000);
     });
-
-    client.on("message", (message) => {
-        if (message.content === "ping") {
-            message.reply("pong");
-        }
-    });
 };
