@@ -8,7 +8,7 @@ module.exports = (client) => {
   client.on("message", async (message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
-    if (message.content === `${PREFIX} sudo announce`) {
+    if (message.content === `${PREFIX}sudo announce`) {
       let msgBody = "Template";
       const Hook = new webhook.Webhook(webhookUrl);
 
