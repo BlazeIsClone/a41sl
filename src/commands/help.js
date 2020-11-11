@@ -61,6 +61,7 @@ module.exports = (client) => {
         );
 
         if (message.content === "/help") {
+            if (!message.guild) return;
             if (message.author.bot) return;
             (async () => {
                 await message.reply(helpAttachment).catch(console.error);

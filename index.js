@@ -32,6 +32,7 @@ const memberCount = require("./src/listeners/member-count");
 const reactionRoles = require("./src/commands/admin/reactionRoles");
 const musicCommands = require("./src/commands/musicCommands");
 const dankmemes = require("./src/commands/memes/dankmemes");
+const announcementsWebhook = require("./src/webhooks/Announcements");
 
 load(client, config);
 track(client, config);
@@ -51,6 +52,7 @@ memberCount(client);
 reactionRoles(client);
 musicCommands(client);
 dankmemes(client);
+announcementsWebhook(client);
 
 client.commands = new Collection();
 client.prefix = PREFIX;
