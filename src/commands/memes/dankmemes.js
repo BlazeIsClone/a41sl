@@ -34,7 +34,7 @@ module.exports = (client) => {
     };
 
     client.on("ready", () => {
-        console.log("AutoMemer online.");
+        console.log("DankMemer online.");
         memeChannel = client.channels.cache.get(memesChannel);
         refreshMemes();
         setInterval(sendMeme, 7200000);
