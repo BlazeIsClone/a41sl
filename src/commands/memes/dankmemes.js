@@ -26,7 +26,13 @@ module.exports = (client) => {
     };
 
     var sendMeme = () => {
-        memeChannel.send(memes[memeIndex]);
+        var memeMsg = memes[memeIndex];
+        memeChannel.send(memeMsg).then((memMsg) => {
+            memMsg.react("✔");
+            memMsg.react("❌");
+            memMsg.react("😂");
+        });
+
         memeIndex += 1;
         if (memeIndex >= memes.length) {
             refreshMemes();

@@ -1,5 +1,5 @@
 {
-    "MAX_PLAYLIST_SIZE": 40,
+    "MAX_PLAYLIST_SIZE": 500,
     "PREFIX": "/",
     "PRUNING": false,
     "nsfwPrefix": "/nsfw",
