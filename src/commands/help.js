@@ -59,18 +59,5 @@ module.exports = (client) => {
         const helpAttachment = new MessageAttachment(
             "https://i.imgur.com/790FtQS.png"
         );
-
-        if (message.content === "/help") {
-            if (!message.guild) return;
-            if (message.author.bot) return;
-            (async () => {
-                await message.author.send(helpAttachment).catch(console.error);
-                try {
-                    message.author.send(helpEmbed).catch(console.error);
-                } catch (err) {
-                    console.log(err);
-                }
-            })();
-        }
     });
 };
