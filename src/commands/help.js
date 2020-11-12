@@ -64,9 +64,9 @@ module.exports = (client) => {
             if (!message.guild) return;
             if (message.author.bot) return;
             (async () => {
-                await message.reply(helpAttachment).catch(console.error);
+                await message.author.send(helpAttachment).catch(console.error);
                 try {
-                    message.reply(helpEmbed).catch(console.error);
+                    message.author.send(helpEmbed).catch(console.error);
                 } catch (err) {
                     console.log(err);
                 }
