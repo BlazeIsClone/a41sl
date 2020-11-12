@@ -33,6 +33,7 @@ const reactionRoles = require("./src/commands/admin/reactionRoles");
 const musicCommands = require("./src/commands/musicCommands");
 const dankmemes = require("./src/commands/memes/dankmemes");
 const announcementsWebhook = require("./src/webhooks/Announcements");
+const fitgirl = require("./src/webhooks/fitgirl");
 
 load(client, config);
 track(client, config);
@@ -53,6 +54,7 @@ reactionRoles(client);
 musicCommands(client);
 dankmemes(client);
 announcementsWebhook(client);
+//fitgirl(client);
 
 client.commands = new Collection();
 client.prefix = PREFIX;
