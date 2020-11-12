@@ -6,7 +6,6 @@ const { memesChannel } = require("../../../config.json");
 module.exports = (client) => {
     let memes = [];
     let memeIndex = 0;
-    let memeChannel = "";
 
     var refreshMemes = () => {
         memes = [];
