@@ -15,8 +15,8 @@ module.exports = (client) => {
                     name:
                         "Play any song or playlist from Youtube or Soundcloud",
                     value: "/play <URL>",
-                },
-                {
+                }
+                /*{
                     name: "Radio Commands",
                     value: "**prefix** - /stream",
                     inline: true,
@@ -25,11 +25,10 @@ module.exports = (client) => {
                     name: "Radio Channels",
                     value: "`kissfm`,`tnlfm`,`goldfm`,`yesfm`,`sunfm`",
                     inline: true,
-                },
-                { name: "\u200B", value: "\u200B", inline: true }
-            )
+                    },
+                { name: "\u200B", value: "\u200B", inline: true }*/
+            );
 
-            .setTimestamp();
         if (message.content === "/music commands") {
             message.reply(musicCommands).catch(console.err);
         }

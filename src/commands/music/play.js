@@ -19,7 +19,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
     if (message.channel.id != musicChannel) {
       return message.author.send(
-        "⛔ Music commands are only available in add-music channel"
+        "⛔ Music commands are only available in **add-music** channel"
       );
     }
     if (!channel)

@@ -20,6 +20,11 @@ module.exports = (client) => {
                     .catch(console.error);
             }
         };
+        const stopStream = () => {
+            message.reply("⏹ Stoped the stream");
+            dispatcher.end();
+            connection = message.member.voice.channel.leave();
+        };
 
         const filter = (reaction, user) => {
             return (
@@ -61,9 +66,7 @@ module.exports = (client) => {
                             const reaction = collected.first();
 
                             if (reaction.emoji.name === "⏹") {
-                                message.reply("⏹ Stoped the stream");
-                                dispatcher.end();
-                                connection = message.member.voice.channel.leave();
+                                stopStream();
                                 sunEmbed.reactions
                                     .removeAll()
                                     .catch(console.error);
@@ -96,9 +99,7 @@ module.exports = (client) => {
                             const reaction = collected.first();
 
                             if (reaction.emoji.name === "⏹") {
-                                message.reply("⏹ Stoped the stream");
-                                dispatcher.end();
-                                connection = message.member.voice.channel.leave();
+                                stopStream();
                                 yesEmbed.reactions
                                     .removeAll()
                                     .catch(console.error);
@@ -132,9 +133,7 @@ module.exports = (client) => {
                             const reaction = collected.first();
 
                             if (reaction.emoji.name === "⏹") {
-                                message.reply("⏹ Stoped the stream");
-                                dispatcher.end();
-                                connection = message.member.voice.channel.leave();
+                                stopStream();
                                 kissEmbed.reactions
                                     .removeAll()
                                     .catch(console.error);
@@ -168,9 +167,7 @@ module.exports = (client) => {
                             const reaction = collected.first();
 
                             if (reaction.emoji.name === "⏹") {
-                                message.reply("⏹ Stoped the stream");
-                                dispatcher.end();
-                                connection = message.member.voice.channel.leave();
+                                stopStream();
                                 tnlEmbed.reactions
                                     .removeAll()
                                     .catch(console.error);
@@ -204,9 +201,7 @@ module.exports = (client) => {
                             const reaction = collected.first();
 
                             if (reaction.emoji.name === "⏹") {
-                                message.reply("⏹ Stoped the stream");
-                                dispatcher.end();
-                                connection = message.member.voice.channel.leave();
+                                stopStream();
                                 goldEmbed.reactions
                                     .removeAll()
                                     .catch(console.error);
@@ -217,8 +212,6 @@ module.exports = (client) => {
             }
         }
         if (message.content === "/stop") {
-            if (typeof dispatcher === "undefined") return;
-            if (dispatcher) return dispatcher.end();
             connection = message.member.voice.channel.leave();
         }
     });
