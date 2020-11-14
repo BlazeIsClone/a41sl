@@ -12,6 +12,9 @@ const {
 //stop command is nested
 module.exports = (client) => {
     client.on("message", async (message) => {
+        if (!message.guild) return;
+        if (message.author.bot) return;
+
         const streamNotInChannel = () => {
             const { channel } = message.member.voice;
             if (!channel) {
@@ -22,7 +25,6 @@ module.exports = (client) => {
         };
         const stopStream = () => {
             message.reply("⏹ Stoped the stream");
-            dispatcher.end();
             connection = message.member.voice.channel.leave();
         };
 
@@ -32,14 +34,12 @@ module.exports = (client) => {
                 user.id === message.author.id
             );
         };
-        if (!message.guild) return;
-        if (message.author.bot) return;
         if (
             message.content.includes(`${STREAM}`) &&
             message.channel.id != musicChannel
         ) {
             return message.author.send(
-                "⛔ Music commands are only available in add-music channel"
+                "⛔ Music commands are only available in **add-music channel**"
             );
         }
         if (message.content === `${STREAM} sunfm`) {
