@@ -27,8 +27,7 @@ module.exports = (client) => {
     var sendMeme = () => {
         var memeMsg = memes[memeIndex];
         memeChannel.send(memeMsg).then((memMsg) => {
-            memMsg.react("✔");
-            memMsg.react("❌");
+            memMsg.react("😶");
             memMsg.react("😂");
         });
 
