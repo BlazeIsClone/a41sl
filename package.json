@@ -23,6 +23,7 @@
         "moment": "^2.29.1",
         "node-fetch": "^2.6.1",
         "node-superfetch": "^0.1.10",
+        "regexp": "^1.0.0",
         "request": "^2.88.2",
         "rss-parser": "^3.9.0",
         "simple-youtube-api": "^5.2.1",
