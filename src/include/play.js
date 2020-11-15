@@ -1,4 +1,4 @@
-const ytdlDiscord = require("ytdl-core-discord");
+const ytdl = require("ytdl-core");
 const scdl = require("soundcloud-downloader");
 const { canModifyQueue } = require("../util/EvobotUtil");
 const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
@@ -18,13 +18,10 @@ module.exports = {
         }
 
         let stream = null;
-        let streamType = song.url.includes("youtube.com") ? "opus" : "ogg/opus";
-
+        let streamType = null;
         try {
             if (song.url.includes("youtube.com")) {
-                stream = await ytdlDiscord(song.url, {
-                    highWaterMark: 1 << 25,
-                });
+                stream = await ytdl(song.url);
             } else if (song.url.includes("soundcloud.com")) {
                 try {
                     stream = await scdl.downloadFormat(
@@ -32,6 +29,7 @@ module.exports = {
                         scdl.FORMATS.OPUS,
                         SOUNDCLOUD_CLIENT_ID ? SOUNDCLOUD_CLIENT_ID : undefined
                     );
+                    streamType = "ogg/opus";
                 } catch (error) {
                     stream = await scdl.downloadFormat(
                         song.url,
@@ -56,30 +54,51 @@ module.exports = {
         queue.connection.on("disconnect", () =>
             message.client.queue.delete(message.guild.id)
         );
+        if (streamType === null) {
+            const dispatcher = queue.connection
+                .play(stream)
+                .on("finish", () => {
+                    if (collector && !collector.ended) collector.stop();
 
-        const dispatcher = queue.connection
-            .play(stream, { type: streamType })
-            .on("finish", () => {
-                if (collector && !collector.ended) collector.stop();
+                    if (queue.loop) {
+                        // if loop is on, push the song back at the end of the queue
+                        // so it can repeat endlessly
+                        let lastSong = queue.songs.shift();
+                        queue.songs.push(lastSong);
+                        module.exports.play(queue.songs[0], message);
+                    } else {
+                        // Recursively play the next song
+                        queue.songs.shift();
+                        module.exports.play(queue.songs[0], message);
+                    }
+                });
+        } else {
+            const dispatcher = queue.connection
+                .play(stream, { type: streamType })
+                .on("finish", () => {
+                    if (collector && !collector.ended) collector.stop();
 
-                if (queue.loop) {
-                    // if loop is on, push the song back at the end of the queue
-                    // so it can repeat endlessly
-                    let lastSong = queue.songs.shift();
-                    queue.songs.push(lastSong);
-                    module.exports.play(queue.songs[0], message);
-                } else {
-                    // Recursively play the next song
+                    if (queue.loop) {
+                        // if loop is on, push the song back at the end of the queue
+                        // so it can repeat endlessly
+                        let lastSong = queue.songs.shift();
+                        queue.songs.push(lastSong);
+                        module.exports.play(queue.songs[0], message);
+                    } else {
+                        // Recursively play the next song
+                        queue.songs.shift();
+                        module.exports.play(queue.songs[0], message);
+                    }
+                })
+
+                .on("error", (err) => {
+                    console.error(err);
                     queue.songs.shift();
                     module.exports.play(queue.songs[0], message);
-                }
-            })
-            .on("error", (err) => {
-                console.error(err);
-                queue.songs.shift();
-                module.exports.play(queue.songs[0], message);
-            });
-        dispatcher.setVolumeLogarithmic(queue.volume / 100);
+                });
+
+            dispatcher.setVolumeLogarithmic(queue.volume / 100);
+        }
 
         try {
             var playingMessage = await queue.textChannel.send(
