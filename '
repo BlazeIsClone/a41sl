@@ -16,7 +16,7 @@ module.exports = (client) => {
                 let results = response.data.data;
                 let children = results.children;
                 children.forEach((element) => {
-                    memes.push(element.data.url);
+                    memes.push(element.data.title);
                 });
                 sendMeme();
             })
@@ -28,7 +28,7 @@ module.exports = (client) => {
     var sendMeme = () => {
         var memeMsg = new MessageEmbed()
             .setColor("#2C2F33")
-            .setImage(memes[memeIndex]);
+            .setDescription(memes[memeIndex]);
         memeChannel.send(memeMsg).then((memMsg) => {
             memMsg.react("😶");
             memMsg.react("😂");
