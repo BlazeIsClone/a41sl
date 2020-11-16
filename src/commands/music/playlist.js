@@ -106,8 +106,6 @@ module.exports = {
             if (serverQueue) {
                 serverQueue.songs.push(song);
                 if (!PRUNING) message.channel;
-                //   .send(`✅ **${song.title}** has been added to the queue by ${message.author}`)
-                //   .catch(console.error);
                 playlistEmbedSecondary.setDescription(
                     queueConstruct.songs.map(
                         (song, index) => `${index + 1}. ${song.title}`
