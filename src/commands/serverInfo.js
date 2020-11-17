@@ -6,7 +6,17 @@ module.exports = (client) => {
     client.on("message", async (message) => {
         if (!message.guild) return;
         if (message.content === "/server info") {
+            let seconds = Math.floor(message.client.uptime / 1000);
+            let minutes = Math.floor(seconds / 60);
+            let hours = Math.floor(minutes / 60);
+            let days = Math.floor(hours / 24);
+
+            seconds %= 60;
+            minutes %= 60;
+            hours %= 24;
+
             const statsEmbed = new Discord.MessageEmbed()
+                .setColor("#00FF00")
                 .addField(`:desktop: System Os`, `${os.platform()}`, true)
                 .addField(`:gear: Architecture`, `${os.arch()}`, true)
                 .addField(
@@ -29,25 +39,21 @@ module.exports = (client) => {
                     )}%)`,
                     true
                 )
-                /*    .addField(
-        `:alarm_clock: Server up Time`,
-        "" +
-            Math.round(client.uptime / (1000 * 60 * 60)) +
-            " Hours, " +
-            (Math.round(client.uptime / (1000 * 60)) % 60) +
-            " minutes " +
-            (Math.round(client.uptime / 1000) % 60) +
-            " seconds" +
-            ""
-    )
-    */
+                .addField(
+                    `⏱ Server up Time`,
+                    "" +
+                        `${days} days, ${hours} hours,\n ${minutes} minutes, ${seconds} seconds` +
+                        "",
+                    true
+                )
+
                 .addField(
                     `:dividers: Library`,
                     `Discord.js ${Discord.version}`,
                     true
                 );
 
-            message.reply(statsEmbed);
+            message.reply(statsEmbed).catch(console.error);
         }
     });
 };
