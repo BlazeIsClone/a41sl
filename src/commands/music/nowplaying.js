@@ -21,7 +21,6 @@ module.exports = {
             .setTitle("Now playing")
             .setDescription(`${song.title}\n${song.url}`)
             .setColor("#F8AA2A")
-            .setAuthor("All For One Bot")
             .addField(
                 "\u200b",
                 new Date(seek * 1000).toISOString().substr(11, 8) +
