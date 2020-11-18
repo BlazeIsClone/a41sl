@@ -32,6 +32,7 @@ const reactionRoles = require("./src/commands/admin/reactionRoles");
 const musicCommands = require("./src/commands/musicCommands");
 const dankmemes = require("./src/commands/memes/dankmemes");
 const announcementsWebhook = require("./src/webhooks/Announcements");
+const deleteMessages = require("./src/commands/admin/deleteMessages");
 
 load(client, config);
 track(client, config);
@@ -51,6 +52,7 @@ reactionRoles(client);
 musicCommands(client);
 dankmemes(client);
 announcementsWebhook(client);
+deleteMessages(client);
 
 client.commands = new Collection();
 client.prefix = PREFIX;
