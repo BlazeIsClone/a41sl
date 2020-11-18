@@ -37,7 +37,11 @@ module.exports = (client) => {
                                         });
                                 message.reply(
                                         `I've deleted \`${amount}\`  messages for you :thumbsup:`
-                                );
+                                )
+                                        .then((msg) => {
+                                                msg.delete({ timeout: 5000 });
+                                        })
+                                        .catch(console.error);
                         } else {
                                 return message.reply(
                                         `Only ${modsRole} have access to this command`
