@@ -24,7 +24,7 @@ module.exports = (client) => {
                         }
                         if (
                                 message.member.roles.cache.some(
-                                        (r) => r.name === modsRole 
+                                        (r) => r.name === modsRole
                                 )
                         ) {
                                 message.channel
@@ -32,12 +32,15 @@ module.exports = (client) => {
                                         .catch((err) => {
                                                 console.error(err);
                                                 message.channel.send(
-                                                        "there was an error trying to prune messages in this channel!"
+                                                        ":warning: Due to Discord rules bots can only bulk delete messages that are under 14 days old."
                                                 );
                                         });
+                                message.reply(
+                                        `I've deleted \`${amount}\`  messages for you :thumbsup:`
+                                );
                         } else {
                                 return message.reply(
-                                        "You Dont Have acess to this command"
+                                        `Only ${modsRole} have access to this command`
                                 );
                         }
                 }
