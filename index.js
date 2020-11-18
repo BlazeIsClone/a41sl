@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { Collection } = require("discord.js");
-const events = (require("events").EventEmitter.defaultMaxListeners = 25);
+const events = (require("events").EventEmitter.defaultMaxListeners = 35);
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
