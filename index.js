@@ -30,9 +30,9 @@ const statusPresence = require("./src/listeners/statusPresence");
 const memberCount = require("./src/listeners/member-count");
 const reactionRoles = require("./src/commands/admin/reactionRoles");
 const musicCommands = require("./src/commands/musicCommands");
-const dankmemes = require("./src/commands/memes/memes");
+const memes = require("./src/commands/memes/memes");
 const announcementsWebhook = require("./src/webhooks/Announcements");
-const deleteMessages = require("./src/commands/admin/deleteMessages");
+const bulkDelete = require("./src/commands/admin/bulkDelete");
 
 load(client, config);
 track(client, config);
@@ -50,9 +50,9 @@ statusPresence(client);
 memberCount(client);
 reactionRoles(client);
 musicCommands(client);
-dankmemes(client);
+memes(client);
 announcementsWebhook(client);
-deleteMessages(client);
+bulkDelete(client);
 
 client.commands = new Collection();
 client.prefix = PREFIX;
