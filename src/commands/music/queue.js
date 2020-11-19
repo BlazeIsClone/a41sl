@@ -16,7 +16,6 @@ module.exports = {
 
         const emptyQueue = new MessageEmbed()
             .setColor(0xda7272)
-            .setTimestamp()
             .setTitle("Empty Queue")
             .setDescription("Nothing playing in this server");
 
@@ -100,8 +99,7 @@ function generateQueueEmbed(message, queue) {
             .setColor("#F8AA2A")
             .setDescription(
                 `**Current Song - [${queue[0].title}](${queue[0].url})**\n\n${info}`
-            )
-            .setTimestamp();
+            );
         embeds.push(embed);
     }
 

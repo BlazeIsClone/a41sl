@@ -17,7 +17,6 @@ module.exports = {
 
     const uptimeR = new MessageEmbed()
       .setColor(0x7289da)
-      .setTimestamp()
       .setTitle("Uptime Duration")
       .setDescription(
         `**${days}** day(s), **${hours}** hours, **${minutes}** minutes, **${seconds}** seconds`

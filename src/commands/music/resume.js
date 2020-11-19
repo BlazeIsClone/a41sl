@@ -9,7 +9,6 @@ module.exports = {
         const queue = message.client.queue.get(message.guild.id);
         const nothingPlaying = new MessageEmbed()
             .setColor(0xda7272)
-            .setTimestamp()
             .setTitle("Error!")
             .setDescription(`There is nothing playing`);
 
@@ -21,7 +20,6 @@ module.exports = {
             queue.connection.dispatcher.resume();
             const resumed = new MessageEmbed()
                 .setColor(0x7289da)
-                .setTimestamp()
                 .setTitle("Resumed")
                 .setDescription(`${message.author} ▶ resumed the music`);
 
@@ -31,7 +29,6 @@ module.exports = {
         return message.reply("The queue is not paused.").catch(console.error);
         const notPaused = new MessageEmbed()
             .setColor(0xda7272)
-            .setTimestamp()
             .setTitle("Error!")
             .setDescription(`The song/queue is not paused`);
 

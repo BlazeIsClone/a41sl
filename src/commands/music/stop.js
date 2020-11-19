@@ -9,7 +9,6 @@ module.exports = {
 
         const embedA = new MessageEmbed()
             .setColor(0xda7272)
-            .setTimestamp()
             .setTitle("Empty Queue")
             .setDescription("There is nothing in the queue");
 
@@ -21,7 +20,6 @@ module.exports = {
 
         const embedB = new MessageEmbed()
             .setColor(0x7289da)
-            .setTimestamp()
             .setTitle("Stopped!")
             .setDescription(`${message.author.tag} stooped the music`);
 

@@ -9,7 +9,6 @@ module.exports = {
 
         const noQ = new MessageEmbed()
             .setColor(0xda7272)
-            .setTimestamp()
             .setTitle("Empty Queue")
             .setDescription(`There is nothing in the queue`);
 
@@ -25,7 +24,6 @@ module.exports = {
         message.client.queue.set(message.guild.id, queue);
         const shuffled = new MessageEmbed()
             .setColor(0x7289da)
-            .setTimestamp()
             .setTitle("Shuffled")
             .setDescription(`${message.author.tag} shuffled the queue`);
 

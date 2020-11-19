@@ -8,7 +8,6 @@ module.exports = {
   execute(message, args) {
     const noQa = new MessageEmbed()
       .setColor(0xd3d3d3)
-      .setTimestamp()
       .setTitle("Usage")
       .setDescription(
         `${message.client.prefix}${module.exports.name} <Queue Number>`
@@ -21,7 +20,6 @@ module.exports = {
 
     const noQ = new MessageEmbed()
       .setColor(0xda7272)
-      .setTimestamp()
       .setTitle("Empty Queue")
       .setDescription("There is nothing in the queue");
 
@@ -30,7 +28,6 @@ module.exports = {
     if (args[0] > queue.songs.length) {
       const noQw = new MessageEmbed()
         .setColor(0xda7272)
-        .setTimestamp()
         .setTitle("Error!")
         .setDescription(`The queue is only ${queue.songs.length} songs long!`);
 
@@ -50,7 +47,6 @@ module.exports = {
 
     const skipto = new MessageEmbed()
       .setColor(0x7289da)
-      .setTimestamp()
       .setTitle("Skipped!")
       .setDescription(`${message.author.tag} skipped ${args[0] - 1} songs`);
 

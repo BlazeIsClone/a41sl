@@ -8,7 +8,6 @@ module.exports = {
         const queue = message.client.queue.get(message.guild.id);
         const emptyQueue = new MessageEmbed()
             .setColor(0xda7272)
-            .setTimestamp()
             .setTitle("Empty Queue")
             .setDescription("There is nothing in the queue");
 
@@ -18,13 +17,11 @@ module.exports = {
 
         const noArgs = new MessageEmbed()
             .setColor(0xd3d3d3)
-            .setTimestamp()
             .setTitle("Usage")
             .setDescription(`${message.client.prefix}remove <Queue Number>`);
 
         const NaNer = new MessageEmbed()
             .setColor(0xd3d3d3)
-            .setTimestamp()
             .setTitle("Usage")
             .setDescription(`${message.client.prefix}remove <Queue Number>`);
 
@@ -35,7 +32,6 @@ module.exports = {
 
         const remov = new MessageEmbed()
             .setColor(0x7289da)
-            .setTimestamp()
             .setTitle("Song Removed from Queue")
             .setDescription(
                 `${message.author.tag} removed **${song[0].title}** from the queue`
