@@ -11,7 +11,7 @@ module.exports = (client) => {
                         .split(/ +/);
                 let command = args.shift().toLowerCase();
                 if (command === "delete") {
-                        const amount = parseInt(args[0]) + 1;
+                        const amount = parseInt(args[0])++;
 
                         if (isNaN(amount)) {
                                 return message.reply(
@@ -35,19 +35,16 @@ module.exports = (client) => {
                                                         ":warning: Due to Discord rules bots can only bulk delete messages that are under 14 days old."
                                                 );
                                         });
-                                (async () => {
-                                        message.reply(
-                                                `I've deleted \`${
-                                                        amount - 1
-                                                }\`  messages for you :thumbsup:`
-                                        )
-                                                .then((msg) => {
-                                                        msg.delete({
-                                                                timeout: 5000,
-                                                        });
-                                                })
-                                                .catch(console.error);
-                                })();
+                                message.reply(
+                                        "I've sdaf " +
+                                                amount - 
+                                                1 +
+                                                "messages for you :thumbsup:"
+                                )
+                                        .then((msg) => {
+                                                msg.delete({ timeout: 5000 });
+                                        })
+                                        .catch(console.error);
                         } else {
                                 return message.reply(
                                         `Only ${modsRole} have access to this command`
