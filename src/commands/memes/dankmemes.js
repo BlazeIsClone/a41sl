@@ -29,11 +29,7 @@ module.exports = (client) => {
         var memeMsg = new MessageEmbed()
             .setColor("#2C2F33")
             .setImage(memes[memeIndex]);
-        memeChannel.send(memeMsg).then((memMsg) => {
-            memMsg.react("😶");
-            memMsg.react("😂");
-        });
-
+        memeChannel.send(memeMsg).catch(console.error);
         memeIndex += 1;
         if (memeIndex >= memes.length) {
             refreshMemes();
