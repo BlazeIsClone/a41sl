@@ -1,10 +1,18 @@
 const fs = require("fs");
-const config = require("../../../config.json");
+let config;
+const { MessageEmbed } = require("discord.js");
+
+try {
+    config = require("../../../config.json");
+} catch (error) {
+    config = null;
+}
 
 module.exports = {
     name: "pruning",
     description: "Toggle pruning of bot messages",
     execute(message) {
+        if (!config) return;
         config.PRUNING = !config.PRUNING;
 
         fs.writeFile(
@@ -13,18 +21,29 @@ module.exports = {
             (err) => {
                 if (err) {
                     console.log(err);
-                    return message.channel
-                        .send("There was an error writing to the file.")
-                        .catch(console.error);
+
+                    const pruneErr = new MessageEmbed()
+                        .setColor(0xda7272)
+                        .setTimestamp()
+                        .setTitle("Error!")
+                        .setDescription(
+                            "There was an error writing to the file"
+                        );
+
+                    return message.channel.send(pruneErr).catch(console.error);
                 }
 
-                return message.channel
-                    .send(
+                const pruneMsg = new MessageEmbed()
+                    .setColor(0x7289da)
+                    .setTimestamp()
+                    .setTitle("Prune")
+                    .setDescription(
                         `Message pruning is ${
                             config.PRUNING ? "**enabled**" : "**disabled**"
                         }`
-                    )
-                    .catch(console.error);
+                    );
+
+                return message.channel.send(pruneMsg).catch(console.error);
             }
         );
     },

@@ -13,10 +13,14 @@ module.exports = {
             );
 
         const queue = message.client.queue.get(message.guild.id);
-        if (!queue)
-            return message.channel.send(
-                "❌ **Nothing playing in this server**"
-            );
+
+        const emptyQueue = new MessageEmbed()
+            .setColor(0xda7272)
+            .setTimestamp()
+            .setTitle("Empty Queue")
+            .setDescription("Nothing playing in this server");
+
+        if (!queue) return message.channel.send(emptyQueue);
 
         let currentPage = 0;
         const embeds = generateQueueEmbed(message, queue.songs);
@@ -93,7 +97,7 @@ function generateQueueEmbed(message, queue) {
         const embed = new MessageEmbed()
             .setTitle("Song Queue\n")
             .setThumbnail(message.guild.iconURL())
-            .setColor("#FF0000")
+            .setColor("#F8AA2A")
             .setDescription(
                 `**Current Song - [${queue[0].title}](${queue[0].url})**\n\n${info}`
             )

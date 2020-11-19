@@ -5,17 +5,13 @@ const scdl = require("soundcloud-downloader");
 
 let config;
 try {
-  config = require("../config.json");
+  config = require("../../../config.json");
 } catch (error) {
   config = null;
 }
 
-const YOUTUBE_API_KEY = config
-  ? config.YOUTUBE_API_KEY
-  : process.env.YOUTUBE_API_KEY;
-const SOUNDCLOUD_CLIENT_ID = config
-  ? config.SOUNDCLOUD_CLIENT_ID
-  : process.env.SOUNDCLOUD_CLIENT_ID;
+const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
 const MAX_PLAYLIST_SIZE = config
   ? config.MAX_PLAYLIST_SIZE
   : process.env.MAX_PLAYLIST_SIZE;
@@ -34,7 +30,6 @@ module.exports = {
     if (!args.length) {
       const pl = new MessageEmbed()
         .setColor(0xda7272)
-        .setTimestamp()
         .setTitle("Usage")
         .setDescription(
           `${message.client.prefix}playlist <YouTube Playlist URL | Playlist Name>`
@@ -51,7 +46,6 @@ module.exports = {
     if (!permissions.has("CONNECT")) {
       const nullVC = new MessageEmbed()
         .setColor(0xda7272)
-        .setTimestamp()
         .setTitle("Error!")
         .setDescription("Cannot connect to voice channel, missing permissions");
 
@@ -60,7 +54,6 @@ module.exports = {
     if (!permissions.has("SPEAK")) {
       const errVC = new MessageEmbed()
         .setColor(0xda7272)
-        .setTimestamp()
         .setTitle("Voice Channel Error")
         .setDescription(
           "I cannot speak in this voice channel, make sure I have the proper permissions"
@@ -71,7 +64,6 @@ module.exports = {
     if (serverQueue && channel !== message.guild.me.voice.channel) {
       const sameVcErr = new MessageEmbed()
         .setColor(0xda7272)
-        .setTimestamp()
         .setTitle("Error!")
         .setDescription(
           `You must be in the same channel as ${message.client.user}`
@@ -110,7 +102,6 @@ module.exports = {
 
         const playlistNotFound = new MessageEmbed()
           .setColor(0xda7272)
-          .setTimestamp()
           .setTitle("Not Found")
           .setDescription("Playlist Not Found");
         return message.reply(playlistNotFound);
@@ -158,8 +149,7 @@ module.exports = {
       .setTitle(`${playlist.title}`)
       .setDescription(songs.map((song, index) => `${index + 1}. ${song.title}`))
       .setURL(playlist.url)
-      .setColor("#F8AA2A")
-      .setTimestamp();
+      .setColor("#F8AA2A");
 
     if (playlistEmbed.description.length >= 2048)
       playlistEmbed.description =
@@ -182,7 +172,6 @@ module.exports = {
 
         const unableJoinVC = new MessageEmbed()
           .setColor(0xda7272)
-          .setTimestamp()
           .setTitle("Error!")
           .setDescription(`Could not join the channel: ${error.message}`);
 
