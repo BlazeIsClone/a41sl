@@ -30,7 +30,7 @@ const statusPresence = require("./src/listeners/statusPresence");
 const memberCount = require("./src/listeners/member-count");
 const reactionRoles = require("./src/commands/admin/reactionRoles");
 const musicCommands = require("./src/commands/musicCommands");
-const dankmemes = require("./src/commands/memes/dankmemes");
+const dankmemes = require("./src/commands/memes/memes");
 const announcementsWebhook = require("./src/webhooks/Announcements");
 const deleteMessages = require("./src/commands/admin/deleteMessages");
 
