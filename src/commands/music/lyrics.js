@@ -9,7 +9,6 @@ module.exports = {
     const queue = message.client.queue.get(message.guild.id);
     const emptyQueue = new MessageEmbed()
       .setColor(0xda7272)
-      .setTimestamp()
       .setTitle("Empty Queue")
       .setDescription("There is nothing playing");
 
@@ -27,7 +26,6 @@ module.exports = {
       .setTitle(`${queue.songs[0].title} — Lyrics`)
       .setDescription(lyrics)
       .setColor("#F8AA2A")
-      .setTimestamp();
 
     if (lyricsEmbed.description.length >= 2048)
       lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;

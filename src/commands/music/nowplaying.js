@@ -8,7 +8,6 @@ module.exports = {
         const queue = message.client.queue.get(message.guild.id);
         const emptyQueue = new MessageEmbed()
             .setColor(0xda7272)
-            .setTimestamp()
             .setTitle("Empty Queue")
             .setDescription("There is nothing playing");
 
