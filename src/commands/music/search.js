@@ -33,56 +33,56 @@ module.exports = {
 
         let resultsEmbed = new MessageEmbed()
             .setTitle(`**Reply with the song number you want to play**`)
-            .setDescription(`select multiple songs by separating with commas`)
+            .setDescription(`Results for: ${search}`)
             .setColor("#F8AA2A");
 
-        try {
-            const results = await youtube.searchVideos(search, 10);
-            results.map((video, index) =>
-                resultsEmbed.addField(
-                    video.shortURL,
-                    `${index + 1}. ${video.title}`
-                )
+        const results = await youtube.searchVideos(search, 10);
+        if (!results.length)
+            return message.channel.send("No results found for that search!");
+        results.forEach((video, index) =>
+            resultsEmbed.addField(
+                video.shortURL,
+                `${index + 1}. ${video.title}`
+            )
+        );
+
+        const resultsMessage = await message.channel.send(resultsEmbed);
+        const emojis = [
+            "1️⃣",
+            "2️⃣",
+            "3️⃣",
+            "4️⃣",
+            "5️⃣",
+            "6️⃣",
+            "7️⃣",
+            "8️⃣",
+            "9️⃣",
+            "🔟",
+        ];
+        emojis.forEach(
+            async (e) => await resultsMessage.react(e).catch(() => {})
+        );
+        const filter = (reaction, user) =>
+            user.id === message.author.id &&
+            emojis.includes(reaction.emoji.name);
+
+        message.channel.activeCollector = true;
+        const response = await resultsMessage.awaitReactions(filter, {
+            max: 1,
+            time: 60000,
+        });
+
+        if (!response.first()) {
+            message.channel.activeCollector = false;
+            return message.channel.send(
+                "Time limit exceeded, the search has been cancelled."
             );
-
-            let resultsMessage = await message.channel.send(resultsEmbed);
-
-            function filter(msg) {
-                const pattern = /^[0-9]{1,2}(\s*,\s*[0-9]{1,2})*$/g;
-                return pattern.test(msg.content);
-            }
-
-            message.channel.activeCollector = true;
-            const response = await message.channel.awaitMessages(filter, {
-                max: 1,
-                time: 30000,
-                errors: ["time"],
-            });
-            const reply = response.first().content;
-
-            if (reply.includes(",")) {
-                let songs = reply.split(",").map((str) => str.trim());
-
-                for (let song of songs) {
-                    await message.client.commands
-                        .get("play")
-                        .execute(message, [
-                            resultsEmbed.fields[parseInt(song) - 1].name,
-                        ]);
-                }
-            } else {
-                const choice =
-                    resultsEmbed.fields[parseInt(response.first()) - 1].name;
-                message.client.commands.get("play").execute(message, [choice]);
-            }
-
-            message.channel.activeCollector = false;
-            resultsMessage.delete().catch(console.error);
-            response.first().delete().catch(console.error);
-        } catch (error) {
-            console.error(error);
-            message.channel.activeCollector = false;
-            message.reply(error.message).catch(console.error);
         }
+        const choice =
+            results[parseInt(emojis.indexOf(response.first().emoji.name))].url;
+
+        message.channel.activeCollector = false;
+        message.client.commands.get("play").execute(message, [choice]);
+        resultsMessage.delete().catch(() => {});
     },
 };
