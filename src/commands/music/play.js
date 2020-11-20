@@ -140,19 +140,18 @@ module.exports = {
         return message.reply(error.message).catch(console.error);
       }
     }
+    const addedSongToQueue = new MessageEmbed()
+      .setColor(0x7289da)
+      .setTimestamp()
+      .setAuthor(
+        `${song.title} has been added to the queue by \n${message.author.tag}`
+      )
+      .setTitle("Song Added To Queue")
+      .setDescription(`Song added by ${message.author.tag}`);
 
     if (serverQueue) {
       serverQueue.songs.push(song);
-      return serverQueue.textChannel;
-      const addedSongToQueue = new MessageEmbed()
-        .setColor(0x7289da)
-        .setTimestamp()
-        .setAuthor(
-          `**${song.title}** has been added to the queue by ${message.author.tag}`
-        )
-        .setTitle("Song Added To Queue")
-        .setDescription(`Song added by ${message.author.tag}`)
-
+      return serverQueue.textChannel
         .send(addedSongToQueue)
         .catch(console.error);
     }
