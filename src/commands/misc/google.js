@@ -9,8 +9,12 @@ module.exports = (client) => {
     var parts = message.content.split(" "); // Splits message into an array for every space, our layout: "<command> [search query]" will become ["<command>", "search query"]
 
     /* Simple command manager */
+
+    const useCmd = new MessageEmbed()
+      .setDescription("Usage: /google <image name> ")
+      .setTitle("Search Google Images");
     if (message.content === PREFIX + "google") {
-      message.reply("Usage: /google <image name> ");
+      message.reply(useCmd).catch(console.error);
     }
     if (parts[0] === PREFIX + "google") {
       // Check if first part of message is image command
@@ -58,9 +62,14 @@ module.exports = (client) => {
       }
 
       // Send result
-
+      const onLoad = new MessageEmbed().setDescription("⌛ Loading..");
       const resEmbed = new MessageEmbed().setImage(urls[0]);
-      message.channel.send(resEmbed).catch(console.error);
+      (async () => {
+        await message.channel
+          .send(onLoad)
+          .then((onLoad) => onLoad.edit(resEmbed))
+          .catch(console.error);
+      })();
     });
   }
 };
