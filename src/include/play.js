@@ -13,9 +13,7 @@ module.exports = {
     }
 
     const PRUNING = config ? config.PRUNING : process.env.PRUNING;
-    const SOUNDCLOUD_CLIENT_ID = config
-      ? config.SOUNDCLOUD_CLIENT_ID
-      : process.env.SOUNDCLOUD_CLIENT_ID;
+    const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
 
     const queue = message.client.queue.get(message.guild.id);
 

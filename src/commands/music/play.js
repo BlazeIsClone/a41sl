@@ -109,6 +109,7 @@ module.exports = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url,
           duration: songInfo.videoDetails.lengthSeconds,
+          thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
         };
       } catch (error) {
         console.error(error);
@@ -133,6 +134,7 @@ module.exports = {
         song = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url,
+          thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
           duration: songInfo.videoDetails.lengthSeconds,
         };
       } catch (error) {
@@ -143,11 +145,11 @@ module.exports = {
     const addedSongToQueue = new MessageEmbed()
       .setColor(0x7289da)
       .setTimestamp()
+      .setThumbnail(song.thumbnail)
       .setAuthor(
         `${song.title} has been added to the queue by \n${message.author.tag}`
       )
-      .setTitle("Song Added To Queue")
-      .setDescription(`Song added by ${message.author.tag}`);
+      .setTitle("Song Added To Queue");
 
     if (serverQueue) {
       serverQueue.songs.push(song);
