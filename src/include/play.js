@@ -1,3 +1,4 @@
+const Discord = require("discord.js");
 const ytdlDiscord = require("ytdl-core-discord");
 const scdl = require("soundcloud-downloader");
 const { canModifyQueue } = require("../util/EvobotUtil");
@@ -86,10 +87,14 @@ module.exports = {
         module.exports.play(queue.songs[0], message);
       });
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
+    const playingEmbed = new Discord.MessageEmbed()
+      .setColor(`f82a2a`)
+      .setThumbnail(song.thumbnail)
+      .setTitle(`🎶 Started playing: **${song.title}**`)
+      .setDescription(`<${song.url}>`);
+
     try {
-      var playingMessage = await queue.textChannel.send(
-        `🎶 Started playing: **${song.title}** ${song.url}`
-      );
+      var playingMessage = await queue.textChannel.send(playingEmbed);
       await playingMessage.react("⏭");
       await playingMessage.react("⏯");
       await playingMessage.react("🔁");

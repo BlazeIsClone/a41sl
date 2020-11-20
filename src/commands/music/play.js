@@ -45,12 +45,14 @@ module.exports = {
 
       return message.channel.send(sameVC).catch(console.error);
     }
-    if (!args.length)
-      return message
-        .reply(
-          `Usage: ${message.client.prefix}play <YouTube URL | Video Name | Soundcloud URL>`
-        )
-        .catch(console.error);
+    const argsThrow = new MessageEmbed()
+      .setColor(0xda7272)
+      .setTitle("Play")
+      .setDescription(
+        `Usage: ${message.client.prefix}play <YouTube URL | Video Name | Soundcloud URL>`
+      );
+
+    if (!args.length) return message.reply(argsThrow).catch(console.error);
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT")) {
