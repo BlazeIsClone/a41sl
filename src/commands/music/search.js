@@ -43,8 +43,13 @@ module.exports = {
             .setColor("#F8AA2A");
 
         const results = await youtube.searchVideos(search, 10);
+
+        const noResults = new MessageEmbed()
+            .setDescription("No results found for that search!")
+            .setColor("#F8AA2A");
+
         if (!results.length)
-            return message.channel.send("No results found for that search!");
+            return message.channel.send(noResults).catch(console.error);
         results.forEach((video, index) =>
             resultsEmbed.addField(
                 video.shortURL,
