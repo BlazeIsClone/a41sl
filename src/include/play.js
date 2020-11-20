@@ -91,7 +91,8 @@ module.exports = {
       .setColor(`f82a2a`)
       .setThumbnail(song.thumbnail)
       .setTitle(`🎶 Started playing: **${song.title}**`)
-      .setDescription(`<${song.url}>`);
+      .setDescription(`<${song.url}>`)
+      .setTimestamp();
 
     try {
       var playingMessage = await queue.textChannel.send(playingEmbed);
