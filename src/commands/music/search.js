@@ -14,16 +14,22 @@ module.exports = {
     name: "search",
     description: "Search and select videos to play",
     async execute(message, args) {
-        if (!args.length)
-            return message
-                .reply(
-                    `Usage: ${message.client.prefix}${module.exports.name} <Video Name>`
-                )
-                .catch(console.error);
-        if (message.channel.activeCollector)
-            return message.reply(
+        const incUsage = new MessageEmbed()
+            .setTitle(`Search songs`)
+            .setDescription(
+                `Usage: ${message.client.prefix}${module.exports.name} <Video Name>`
+            )
+            .setColor("#F8AA2A");
+        const errMsgCollector = new MessageEmbed()
+            .setTitle(`Search`)
+            .setDescription(
                 "A message collector is already active in this channel."
-            );
+            )
+            .setColor("#F8AA2A");
+
+        if (!args.length) return message.reply(incUsage).catch(console.error);
+        if (message.channel.activeCollector)
+            return message.reply(errMsgCollector).catch(console.error);
         if (!message.member.voice.channel)
             return message
                 .reply("You need to join a voice channel first!")
