@@ -146,12 +146,12 @@ module.exports = {
     }
     const addedSongToQueue = new MessageEmbed()
       .setColor(0x7289da)
-      .setTimestamp()
       .setThumbnail(song.thumbnail)
-      .setAuthor(
-        `${song.title} has been added to the queue by \n${message.author.tag}`
+      .setTitle("Song Added To Queue")
+      .setDescription(
+        `**[${song.title}](${song.url}) has been added to the queue by \n${message.author.tag}**`
       )
-      .setTitle("Song Added To Queue");
+      .setTimestamp();
 
     if (serverQueue) {
       serverQueue.songs.push(song);

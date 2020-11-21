@@ -90,9 +90,8 @@ module.exports = {
     const playingEmbed = new Discord.MessageEmbed()
       .setColor(`f82a2a`)
       .setThumbnail(song.thumbnail)
-      .setTitle(`🎶 Started playing: **${song.title}**`)
       .setAuthor(`${message.author.tag}`)
-      .setDescription(`<${song.url}>`)
+      .setDescription(`**🎶 Started playing: [${song.title}](${song.url})**`)
       .setTimestamp();
 
     try {
