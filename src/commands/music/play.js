@@ -149,8 +149,11 @@ module.exports = {
       .setThumbnail(song.thumbnail)
       .setTitle("Song Added To Queue")
       .setDescription(
-        `**[${song.title}](${song.url}) has been added to the queue by \n${message.author.tag}**`
+        `**[${song.title}](${song.url}) has been added to the queue\nby** ${message.author.tag}` +
+          `\n` +
+          `\`${new Date(song.duration * 1000).toISOString().substr(11, 8)}\``
       )
+
       .setTimestamp();
 
     if (serverQueue) {

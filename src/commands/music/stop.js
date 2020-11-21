@@ -21,7 +21,7 @@ module.exports = {
         const embedB = new MessageEmbed()
             .setColor(0x7289da)
             .setTitle("Stopped!")
-            .setDescription(`${message.author.tag} stooped the music`);
+            .setDescription(`**${message.author.tag}** stooped the music`);
 
         queue.textChannel.send(embedB).catch(console.error);
     },

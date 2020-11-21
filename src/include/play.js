@@ -91,7 +91,13 @@ module.exports = {
       .setColor(`f82a2a`)
       .setThumbnail(song.thumbnail)
       .setAuthor(`${message.author.tag}`)
-      .setDescription(`**🎶 Started playing: [${song.title}](${song.url})**`)
+      .setDescription(
+        ` **🎶 Started playing: [${song.title}](${song.url})**\n` +
+          `\`${new Date(song.duration * 1000 - 1)
+            .toISOString()
+            .substr(11, 8)}\``
+      )
+
       .setTimestamp();
 
     try {
