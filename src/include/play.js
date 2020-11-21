@@ -91,6 +91,7 @@ module.exports = {
       .setColor(`f82a2a`)
       .setThumbnail(song.thumbnail)
       .setTitle(`🎶 Started playing: **${song.title}**`)
+      .setAuthor(`${message.author.tag}`)
       .setDescription(`<${song.url}>`)
       .setTimestamp();
 
