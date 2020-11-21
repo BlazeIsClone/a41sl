@@ -136,7 +136,6 @@ module.exports = {
         title: video.title,
         url: video.url,
         duration: video.durationSeconds,
-        thumbnail: Object.values(video.thumbnails).pop().url,
       });
     });
 
