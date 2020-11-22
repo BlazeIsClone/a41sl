@@ -21,8 +21,8 @@ module.exports = async (client) => {
                 let meme = new Discord.MessageEmbed()
                     .setDescription(`**[${data.title}](${data.postLink})**`)
                     .setImage(data.url)
-                    .setFooter(`👍 ${data.ups}`);
-                    .setColor('#32CD32')
+                    .setFooter(`👍 ${data.ups}`)
+                    .setColor("#32CD32");
 
                 const memeSendChannel = client.channels.cache.get(memesChannel);
                 memeSendChannel.send(meme).catch(console.error);
