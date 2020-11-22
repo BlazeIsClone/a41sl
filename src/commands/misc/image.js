@@ -16,7 +16,7 @@ module.exports = (client) => {
     if (message.content === PREFIX + "image") {
       message.reply(useCmd).catch(console.error);
     }
-    if (parts[0] === PREFIX + "google") {
+    if (parts[0] === PREFIX + "image") {
       // Check if first part of message is image command
 
       // call the image function
