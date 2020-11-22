@@ -32,7 +32,7 @@ module.exports = async (client) => {
         .setDescription(data.collection.items[0].data[0].description)
         .setImage(data.collection.items[0].links[0].href.split(" ").join("%20"))
         .setTimestamp();
-      await message.channel.send(nasasearchembed);
+      await message.channel.send(nasasearchembed).catch(console.error);
       message.react("✔️");
     }
   });
