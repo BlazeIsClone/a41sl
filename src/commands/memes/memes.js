@@ -1,45 +1,31 @@
-const Axios = require("axios");
 const Discord = require("discord.js");
-const client = new Discord.Client();
+const request = require("request");
 const { memesChannel } = require("../../../config.json");
 const { MessageEmbed } = require("discord.js");
 
-module.exports = (client) => {
-    let memes = [];
-    let memeIndex = 0;
+module.exports = async (client) => {
+    client.on("ready", async () => {
+        console.log("MemesAPI ready");
+        var interval = setInterval(function () {
+            let urls = [
+                "https://meme-api.herokuapp.com/gimme/dankmemes",
+                "https://meme-api.herokuapp.com/gimme/wholesomememes",
+                "https://meme-api.herokuapp.com/gimme/memes",
+            ];
 
-    var refreshMemes = () => {
-        memes = [];
-        memeIndex = 0;
-        Axios.get("https://www.reddit.com/r/dankmemes/top/.json?t=day?limit=25")
-            .then((response) => {
-                let results = response.data.data;
-                let children = results.children;
-                children.forEach((element) => {
-                    memes.push(element.data.url);
-                });
-                sendMeme();
-            })
-            .catch((err) => {
-                console.log(err);
+            let subreddit = urls[Math.floor(Math.random() * urls.length)];
+            return request(subreddit, (err, response, body) => {
+                if (err) throw err;
+                var data = JSON.parse(body);
+
+                let meme = new Discord.MessageEmbed()
+                    .setTitle(data.title)
+                    .setImage(data.url)
+                    .setFooter(`👍 ${data.ups}`);
+
+                const memeSendChannel = client.channels.cache.get(memesChannel);
+                memeSendChannel.send(meme).catch(console.error);
             });
-    };
-
-    var sendMeme = () => {
-        var memeMsg = new MessageEmbed()
-            .setColor("#2C2F33")
-            .setImage(memes[memeIndex]);
-        memeChannel.send(memeMsg).catch(console.error);
-        memeIndex += 1;
-        if (memeIndex >= memes.length) {
-            refreshMemes();
-        }
-    };
-
-    client.on("ready", () => {
-        console.log("DankMemer online.");
-        memeChannel = client.channels.cache.get(memesChannel);
-        refreshMemes();
-        setInterval(sendMeme, 7200000);
+        }, 1 * 3600000);
     });
 };
