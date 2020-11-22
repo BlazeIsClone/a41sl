@@ -17,13 +17,14 @@ module.exports = {
     const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
 
     const queue = message.client.queue.get(message.guild.id);
+    const muiscQueueEnded = new Discord.MessageEmbed().setDescription(
+      "❌ Music queue ended."
+    );
 
     if (!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id);
-      return queue.textChannel
-        .send("❌ Music queue ended.")
-        .catch(console.error);
+      return queue.textChannel.send(muiscQueueEnded).catch(console.error);
     }
 
     let stream = null;
