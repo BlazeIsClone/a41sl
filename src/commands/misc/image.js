@@ -11,9 +11,9 @@ module.exports = (client) => {
     /* Simple command manager */
 
     const useCmd = new MessageEmbed()
-      .setDescription("Usage: /google <image name> ")
-      .setTitle("Search Google Images");
-    if (message.content === PREFIX + "google") {
+      .setDescription("Usage: /image <image name> ")
+      .setTitle("Search Images");
+    if (message.content === PREFIX + "image") {
       message.reply(useCmd).catch(console.error);
     }
     if (parts[0] === PREFIX + "google") {

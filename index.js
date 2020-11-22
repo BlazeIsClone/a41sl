@@ -15,7 +15,7 @@ const TOKEN = process.env.DISCORD_TOKEN;
 
 const load = require("./src/listeners/load.js");
 const track = require("./src/listeners/track.js");
-const google = require("./src/commands/misc/google");
+const image = require("./src/commands/misc/image");
 const eval = require("./src/commands/dev/eval");
 const ping = require("./src/commands/ping");
 const queue = require("./src/commands/music/play.js");
@@ -37,7 +37,7 @@ const nasa = require("./src/commands/misc/nasa");
 
 load(client, config);
 track(client, config);
-google(client);
+image(client);
 eval(client);
 ping(client);
 help(client);
