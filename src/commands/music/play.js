@@ -145,16 +145,13 @@ module.exports = {
       }
     }
     const addedSongToQueue = new MessageEmbed()
-      .setColor(0x7289da)
-      .setThumbnail(song.thumbnail)
-      .setTitle("Song Added To Queue")
-      .setDescription(
-        `**[${song.title}](${song.url}) has been added to the queue\nby** ${message.author.tag}` +
-          `\n` +
-          `\`${new Date(song.duration * 1000).toISOString().substr(11, 8)}\``
+      .setThumbnail(
+        song.thumbnail ||
+          "https://cdn.iconscout.com/icon/free/png-256/youtube-85-226402.png"
       )
-
-      .setTimestamp();
+      .setTitle("Queued")
+      .setDescription(`**[${song.title}](${song.url})**`)
+      .setFooter(`${message.author.tag}`);
 
     if (serverQueue) {
       serverQueue.songs.push(song);

@@ -88,7 +88,7 @@ module.exports = {
       });
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
     const playingEmbed = new Discord.MessageEmbed()
-      .setColor(`f82a2a`)
+      .setColor("#0084ff")
       .setTitle("🎵⠀Now Playing")
       .setDescription(`\`${song.title}\``)
       .setThumbnail(
