@@ -21,7 +21,7 @@ module.exports = {
 
         let nowPlaying = new MessageEmbed()
             .setTitle("Now playing")
-            .setDescription(`${song.title}\n${song.url}`)
+            .setDescription(`[${song.title}](${song.url})`)
             .setColor("#F8AA2A")
             .addField(
                 "\u200b",

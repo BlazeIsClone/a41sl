@@ -89,17 +89,14 @@ module.exports = {
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
     const playingEmbed = new Discord.MessageEmbed()
       .setColor(`f82a2a`)
-      .setThumbnail(song.thumbnail)
-      .setAuthor(`${message.author.tag}`)
-      .setDescription(
-        ` **🎶 Started playing: [${song.title}](${song.url})**\n` +
-          `\`${new Date(song.duration * 1000 - 1)
-            .toISOString()
-            .substr(11, 8)}\``
+      .setTitle("🎵⠀Now Playing")
+      .setDescription(`\`${song.title}\``)
+      .setThumbnail(
+        song.thumbnail ||
+          "https://cdn.iconscout.com/icon/free/png-256/youtube-85-226402.png"
       )
-
-      .setTimestamp();
-
+      .addField(`Song's url`, `${song.url}`)
+      .setFooter(`${message.author.tag}`);
     try {
       var playingMessage = await queue.textChannel.send(playingEmbed);
       await playingMessage.react("⏭");
