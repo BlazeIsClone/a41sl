@@ -22,6 +22,7 @@ module.exports = async (client) => {
                     .setDescription(`**[${data.title}](${data.postLink})**`)
                     .setImage(data.url)
                     .setFooter(`👍 ${data.ups}`);
+                    .setColor('#32CD32')
 
                 const memeSendChannel = client.channels.cache.get(memesChannel);
                 memeSendChannel.send(meme).catch(console.error);
