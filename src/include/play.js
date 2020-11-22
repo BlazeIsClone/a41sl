@@ -17,9 +17,9 @@ module.exports = {
     const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
 
     const queue = message.client.queue.get(message.guild.id);
-    const muiscQueueEnded = new Discord.MessageEmbed().setDescription(
-      "❌ Music queue ended."
-    );
+    const muiscQueueEnded = new Discord.MessageEmbed()
+      .setDescription("❌ Music queue ended.")
+      .setColor("#FF0000");
 
     if (!song) {
       queue.channel.leave();
