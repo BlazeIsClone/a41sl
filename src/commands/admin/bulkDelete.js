@@ -4,16 +4,17 @@ module.exports = (client) => {
         client.on("message", async (message) => {
                 if (!message.content.startsWith(PREFIX) || message.author.bot)
                         return;
-                if (!message.member.hasPermission("MANAGE_MESSAGES"))
-                        return message.reply(
-                                "You do not have the permissions to do that"
-                        );
                 let args = message.content
                         .slice(PREFIX.length)
                         .trim()
                         .split(/ +/);
                 let command = args.shift().toLowerCase();
                 if (command === "delete") {
+                        if (!message.member.hasPermission("MANAGE_MESSAGES"))
+                                return message.reply(
+                                        "You do not have the permissions to do that"
+                                );
+
                         const amount = parseInt(args[0]) + 1;
 
                         if (isNaN(amount)) {
