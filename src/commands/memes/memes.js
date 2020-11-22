@@ -26,6 +26,6 @@ module.exports = async (client) => {
                 const memeSendChannel = client.channels.cache.get(memesChannel);
                 memeSendChannel.send(meme).catch(console.error);
             });
-        }, 1 * 3600);
+        }, 1 * 3600000);
     });
 };
