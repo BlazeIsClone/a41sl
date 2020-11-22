@@ -19,13 +19,13 @@ module.exports = async (client) => {
                 var data = JSON.parse(body);
 
                 let meme = new Discord.MessageEmbed()
-                    .setTitle(data.title)
+                    .setDescription(`**[${data.title}](${data.postLink})**`)
                     .setImage(data.url)
                     .setFooter(`👍 ${data.ups}`);
 
                 const memeSendChannel = client.channels.cache.get(memesChannel);
                 memeSendChannel.send(meme).catch(console.error);
             });
-        }, 1 * 3600000);
+        }, 1 * 3600);
     });
 };
