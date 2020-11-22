@@ -1,10 +1,13 @@
 const Discord = require("discord.js");
-const { PREFIX, modsRole } = require("../../../config.json");
+const { PREFIX } = require("../../../config.json");
 module.exports = (client) => {
         client.on("message", async (message) => {
                 if (!message.content.startsWith(PREFIX) || message.author.bot)
                         return;
-
+                if (!message.member.hasPermission("MANAGE_MESSAGES"))
+                        return message.reply(
+                                "You do not have the permissions to do that"
+                        );
                 let args = message.content
                         .slice(PREFIX.length)
                         .trim()
@@ -22,48 +25,32 @@ module.exports = (client) => {
                                         "you need to input a number between 1 and 99."
                                 );
                         }
-                        if (
-                                message.member.roles.cache.some(
-                                        (r) => r.name === modsRole
-                                )
-                        ) {
-                                (async () => {
-                                        try {
-                                                message.channel
-                                                        .bulkDelete(
-                                                                amount,
-                                                                true
-                                                        )
-                                                        .catch((err) => {
-                                                                console.error(
-                                                                        err
-                                                                );
-                                                                message.channel.send(
-                                                                        ":warning: Due to Discord rules bots can only bulk delete messages that are under 14 days old."
-                                                                );
-                                                        });
-                                                message.reply(
-                                                        `I've deleted \`${
-                                                                amount - 1
-                                                        }\`  messages for you :thumbsup:`
-                                                )
-                                                        .then((msg) => {
-                                                                msg.delete({
-                                                                        timeout: 5000,
-                                                                }).catch(
-                                                                        console.error
-                                                                );
-                                                        })
-                                                        .catch(console.error);
-                                        } catch (err) {
-                                                console.log(err);
-                                        }
-                                })();
-                        } else {
-                                return message.reply(
-                                        `Only ${modsRole} have access to this command`
-                                );
-                        }
+
+                        (async () => {
+                                try {
+                                        message.channel
+                                                .bulkDelete(amount, true)
+                                                .catch((err) => {
+                                                        console.error(err);
+                                                        message.channel.send(
+                                                                ":warning: Due to Discord rules bots can only bulk delete messages that are under 14 days old."
+                                                        );
+                                                });
+                                        message.reply(
+                                                `I've deleted \`${
+                                                        amount - 1
+                                                }\`  messages for you :thumbsup:`
+                                        )
+                                                .then((msg) => {
+                                                        msg.delete({
+                                                                timeout: 5000,
+                                                        }).catch(console.error);
+                                                })
+                                                .catch(console.error);
+                                } catch (err) {
+                                        console.log(err);
+                                }
+                        })();
                 }
         });
 };
