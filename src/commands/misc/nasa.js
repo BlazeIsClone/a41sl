@@ -20,7 +20,6 @@ module.exports = async (client) => {
     if (command === "nasa") {
       if (!args) {
         message.channel.send("Enter a valid term to search for!");
-        return;
       }
       let term = args.join(" ");
       let response = await fetch(

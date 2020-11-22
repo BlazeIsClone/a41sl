@@ -18,7 +18,7 @@ module.exports = {
 
     const queue = message.client.queue.get(message.guild.id);
     const muiscQueueEnded = new Discord.MessageEmbed()
-      .setDescription("❌ Music queue ended.")
+      .setDescription("⛔ Music queue ended.")
       .setColor("#FF0000");
 
     if (!song) {
