@@ -11,5 +11,14 @@ module.exports = {
         }
 
         return true;
-    }
+    },
 };
+
+let config;
+
+try {
+    config = require("../../config.json");
+} catch (error) {
+    config = null;
+}
+exports.STAY_TIME = config ? config.STAY_TIME : process.env.STAY_TIME;

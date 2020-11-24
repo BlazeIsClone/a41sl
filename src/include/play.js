@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const ytdlDiscord = require("ytdl-core-discord");
 const scdl = require("soundcloud-downloader");
-const { canModifyQueue } = require("../util/EvobotUtil");
+const { canModifyQueue, STAY_TIME } = require("../util/EvobotUtil");
 
 module.exports = {
   async play(song, message) {
@@ -22,9 +22,14 @@ module.exports = {
       .setColor("#FF0000");
 
     if (!song) {
-      queue.channel.leave();
-      message.client.queue.delete(message.guild.id);
-      return queue.textChannel.send(muiscQueueEnded).catch(console.error);
+      setTimeout(function () {
+        if (queue.connection.dispatcher && message.guild.me.voice.channel)
+          return;
+        queue.channel.leave();
+        queue.textChannel.send("Leaving voice channel...");
+      }, STAY_TIME * 1000);
+      queue.textChannel.send(muiscQueueEnded).catch(console.error);
+      return message.client.queue.delete(message.guild.id);
     }
 
     let stream = null;
@@ -200,7 +205,7 @@ module.exports = {
 
     collector.on("end", () => {
       playingMessage.reactions.removeAll().catch(console.error);
-      if (PRUNING && playingMessage && !playingMessage.deleted) {
+      if (PRUNING == "true" && playingMessage && !playingMessage.deleted) {
         playingMessage.delete({ timeout: 3000 }).catch(console.error);
       }
     });
