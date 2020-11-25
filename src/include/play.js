@@ -90,13 +90,12 @@ module.exports = {
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
     const playingEmbed = new Discord.MessageEmbed()
       .setColor("#0084ff")
-      .setTitle("🎵⠀Now Playing")
-      .setDescription(`\`${song.title}\``)
+      .setTitle("Now Playing")
+      .setDescription(`**[${song.title}](${song.url})**`)
       .setThumbnail(
         song.thumbnail ||
           "https://cdn.iconscout.com/icon/free/png-256/youtube-85-226402.png"
       )
-      .addField(`Song's url`, `${song.url}`)
       .setFooter(`${message.author.tag}`, message.author.avatarURL());
 
     try {
