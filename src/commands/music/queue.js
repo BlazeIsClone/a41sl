@@ -39,7 +39,7 @@ module.exports = {
         }
 
         const filter = (reaction, user) =>
-            ["⬅️", "⏹", "➡️"].includes(reaction.emoji.name) &&
+            ["⬅️", "➡️"].includes(reaction.emoji.name) &&
             message.author.id === user.id;
         const collector = queueEmbed.createReactionCollector(filter, {
             time: 60000,
