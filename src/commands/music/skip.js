@@ -13,7 +13,7 @@ module.exports = {
         if (!canModifyQueue(message.member)) return;
         const skip = new MessageEmbed()
             .setColor(0x7289da)
-            .setTitle("Resumed")
+            .setTitle("Skipped")
             .setDescription(`${message.author} ⏭ skipped the song`);
 
         queue.playing = true;

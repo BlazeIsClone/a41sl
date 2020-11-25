@@ -128,7 +128,7 @@ module.exports = {
           queue.connection.dispatcher.end();
           const skipEmbed = new MessageEmbed()
             .setColor(0x7289da)
-            .setTitle("Resumed")
+            .setTitle("Skipped")
             .setDescription(`${message.author} ⏭ skipped the song`);
 
           queue.textChannel.send(skipEmbed).catch(console.error);
