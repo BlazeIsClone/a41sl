@@ -31,7 +31,6 @@ module.exports = {
 
         try {
             await queueEmbed.react("⬅️");
-            await queueEmbed.react("⏹");
             await queueEmbed.react("➡️");
         } catch (error) {
             console.error(error);

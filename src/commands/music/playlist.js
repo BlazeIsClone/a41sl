@@ -147,7 +147,9 @@ module.exports = {
 
     let playlistEmbed = new MessageEmbed()
       .setTitle(`${playlist.title}`)
-      .setDescription(songs.map((song, index) => `${index + 1}. ${song.title}`))
+      .setDescription(
+        songs.map((song, index) => `\`${index + 1}\` ${song.title}`)
+      )
       .setURL(playlist.url)
       .setColor("#F8AA2A");
 
