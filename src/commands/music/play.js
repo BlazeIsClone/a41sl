@@ -150,8 +150,7 @@ module.exports = {
           "https://cdn.iconscout.com/icon/free/png-256/youtube-85-226402.png"
       )
       .setTitle("Queued")
-      .setDescription(`**[${song.title}](${song.url})**`)
-      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+      .setDescription(`**[${song.title}](${song.url})**`);
 
     if (serverQueue) {
       serverQueue.songs.push(song);
