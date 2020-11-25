@@ -89,14 +89,15 @@ module.exports = {
       });
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
     const playingEmbed = new Discord.MessageEmbed()
-      .setColor("#0084ff")
+      .setColor("#00FF00")
       .setTitle("Now Playing")
-      .setDescription(`**[${song.title}](${song.url})**`)
+      .setDescription(
+        `**[${song.title}](${song.url})**\n\nRequested by: ${message.author}`
+      )
       .setThumbnail(
         song.thumbnail ||
           "https://cdn.iconscout.com/icon/free/png-256/youtube-85-226402.png"
-      )
-      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+      );
 
     try {
       var playingMessage = await queue.textChannel.send(playingEmbed);
