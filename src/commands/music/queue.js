@@ -89,7 +89,7 @@ var generateQueueEmbed = (message, queue) => {
         k += 10;
 
         const info = current
-            .map((track) => `\`${++j}\` - [${track.title}](${track.url})`)
+            .map((track) => `\`${++j}\` [${track.title}](${track.url})`)
             .join("\n");
 
         const embed = new MessageEmbed()
