@@ -80,7 +80,7 @@ module.exports = {
     },
 };
 
-function generateQueueEmbed(message, queue) {
+var generateQueueEmbed = (message, queue) => {
     let embeds = [];
     let k = 10;
 
@@ -90,7 +90,7 @@ function generateQueueEmbed(message, queue) {
         k += 10;
 
         const info = current
-            .map((track) => `${++j} - [${track.title}](${track.url})`)
+            .map((track) => `\`${++j}\` - [${track.title}](${track.url})`)
             .join("\n");
 
         const embed = new MessageEmbed()
@@ -104,4 +104,4 @@ function generateQueueEmbed(message, queue) {
     }
 
     return embeds;
-}
+};
