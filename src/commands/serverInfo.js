@@ -22,6 +22,7 @@ module.exports = (client) => {
             const statsEmbed = new Discord.MessageEmbed()
                 .setColor("#00FF00")
                 .setThumbnail(message.guild.iconURL())
+                .setAuthor(`All For One SL`, message.guild.iconURL())
                 .addField(`System Os`, `${os.platform()}`, false)
                 .addField(`Architecture`, `${os.arch()}`, false)
                 .addField(
@@ -52,8 +53,7 @@ module.exports = (client) => {
                     false
                 )
 
-                .addField(`Library`, `Discord.js ${Discord.version}`, false)
-                .setFooter("All For One Bot", message.author.avatarURL());
+                .addField(`Library`, `Discord.js ${Discord.version}`, false);
 
             message.reply(statsEmbed).catch(console.error);
         }
