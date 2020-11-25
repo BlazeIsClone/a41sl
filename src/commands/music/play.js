@@ -151,7 +151,7 @@ module.exports = {
       )
       .setTitle("Queued")
       .setDescription(`**[${song.title}](${song.url})**`)
-      .setFooter(`${message.author.tag}`);
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
 
     if (serverQueue) {
       serverQueue.songs.push(song);

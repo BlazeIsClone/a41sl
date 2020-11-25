@@ -21,15 +21,16 @@ module.exports = (client) => {
 
             const statsEmbed = new Discord.MessageEmbed()
                 .setColor("#00FF00")
-                .addField(`:desktop: System Os`, `${os.platform()}`, true)
-                .addField(`:gear: Architecture`, `${os.arch()}`, true)
+                .setThumbnail(message.guild.iconURL())
+                .addField(`System Os`, `${os.platform()}`, false)
+                .addField(`Architecture`, `${os.arch()}`, false)
                 .addField(
-                    `:rocket:  Processor`,
+                    `Processor`,
                     `${os.cpus().map((i) => `${i.model}`)[0]}`,
-                    true
+                    false
                 )
                 .addField(
-                    `:pager: RAM`,
+                    `RAM`,
                     `${Math.trunc(
                         process.memoryUsage().heapUsed / 1024 / 1000
                     )} MB / ${Math.trunc(
@@ -41,21 +42,18 @@ module.exports = (client) => {
                             Math.round(os.totalmem() / 1024 / 1024)) *
                             100
                     )}%)`,
-                    true
+                    false
                 )
                 .addField(
-                    `⏱ Server up Time`,
+                    `Server up Time`,
                     "" +
-                        `${days} days, ${hours} hours,\n ${minutes} minutes, ${seconds} seconds` +
+                        `${days} days, ${hours} hours,${minutes} minutes, ${seconds} seconds` +
                         "",
-                    true
+                    false
                 )
 
-                .addField(
-                    `:dividers: Library`,
-                    `Discord.js ${Discord.version}`,
-                    true
-                );
+                .addField(`Library`, `Discord.js ${Discord.version}`, false)
+                .setFooter("All For One Bot", message.author.avatarURL());
 
             message.reply(statsEmbed).catch(console.error);
         }

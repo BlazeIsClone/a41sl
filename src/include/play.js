@@ -97,7 +97,8 @@ module.exports = {
           "https://cdn.iconscout.com/icon/free/png-256/youtube-85-226402.png"
       )
       .addField(`Song's url`, `${song.url}`)
-      .setFooter(`${message.author.tag}`);
+      .setFooter(`${message.author.tag}`, message.author.avatarURL());
+
     try {
       var playingMessage = await queue.textChannel.send(playingEmbed);
       await playingMessage.react("⏭");
