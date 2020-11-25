@@ -34,7 +34,7 @@ module.exports = {
             .setColor(0x7289da)
             .setTitle("Song Removed from Queue")
             .setDescription(
-                `${message.author.tag} removed **${song[0].title}** from the queue`
+                `${message.author} removed **${song[0].title}** from the queue`
             );
 
         queue.textChannel.send(remov);

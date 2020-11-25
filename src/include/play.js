@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const ytdlDiscord = require("ytdl-core-discord");
 const scdl = require("soundcloud-downloader");
 const { canModifyQueue } = require("../util/EvobotUtil");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   async play(song, message) {
@@ -125,9 +126,12 @@ module.exports = {
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return;
           queue.connection.dispatcher.end();
-          queue.textChannel
-            .send(`${user} ⏩ skipped the song`)
-            .catch(console.error);
+          const skipEmbed = new MessageEmbed()
+            .setColor(0x7289da)
+            .setTitle("Resumed")
+            .setDescription(`${message.author} ⏭ skipped the song`);
+
+          queue.textChannel.send(skipEmbed).catch(console.error);
           collector.stop();
           break;
 
@@ -137,15 +141,21 @@ module.exports = {
           if (queue.playing) {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.pause(true);
-            queue.textChannel
-              .send(`${user} ⏸ paused the music.`)
-              .catch(console.error);
+            const pausedEmbed = new MessageEmbed()
+              .setColor(0xda7272)
+              .setTitle("Paused")
+              .setDescription(`${message.author} ⏸ paused the music`);
+
+            queue.textChannel.send(pausedEmbed).catch(console.error);
           } else {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.resume();
-            queue.textChannel
-              .send(`${user} ▶ resumed the music!`)
-              .catch(console.error);
+            const resumedEmbed = new MessageEmbed()
+              .setColor(0x7289da)
+              .setTitle("Resumed")
+              .setDescription(`${message.author} ▶ resumed the music`);
+
+            queue.textChannel.send(resumedEmbed).catch(console.error);
           }
           break;
 
@@ -153,9 +163,12 @@ module.exports = {
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return;
           queue.loop = !queue.loop;
-          queue.textChannel
-            .send(`Loop is now ${queue.loop ? "**on**" : "**off**"}`)
-            .catch(console.error);
+          const loopEmbed = new MessageEmbed()
+            .setColor(0x7289da)
+            .setTitle("Loop")
+            .setDescription(`Loop is now ${queue.loop ? "**on**" : "**off**"}`);
+
+          queue.textChannel.send(loopEmbed).catch(console.error);
           break;
 
         case "🔀":
@@ -172,18 +185,24 @@ module.exports = {
             [songs[i], songs[j]] = [songs[j], songs[i]];
           }
           message.client.queue.set(message.guild.id, queue);
-          queue.textChannel
-            .send(`${user} 🔀 shuffled the queue.`)
-            .catch(console.error);
+          const shuffledEmbed = new MessageEmbed()
+            .setColor(0x7289da)
+            .setTitle("Shuffled")
+            .setDescription(`${message.author} shuffled the queue`);
+
+          queue.textChannel.send(shuffledEmbed).catch(console.error);
           break;
 
         case "⏹":
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return;
           queue.songs = [];
-          queue.textChannel
-            .send(`${user} ⏹ stopped the music!`)
-            .catch(console.error);
+          const stopEmbed = new MessageEmbed()
+            .setColor(0x7289da)
+            .setTitle("Stopped!")
+            .setDescription(`**${message.author}** stooped the music`);
+
+          queue.textChannel.send(stopEmbed).catch(console.error);
           try {
             queue.connection.dispatcher.end();
           } catch (error) {

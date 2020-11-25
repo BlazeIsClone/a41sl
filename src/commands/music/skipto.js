@@ -48,7 +48,7 @@ module.exports = {
     const skipto = new MessageEmbed()
       .setColor(0x7289da)
       .setTitle("Skipped!")
-      .setDescription(`${message.author.tag} skipped ${args[0] - 1} songs`);
+      .setDescription(`${message.author} skipped ${args[0] - 1} songs`);
 
     queue.textChannel.send(skipto).catch(console.error);
   },

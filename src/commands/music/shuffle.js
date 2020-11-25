@@ -25,7 +25,7 @@ module.exports = {
         const shuffled = new MessageEmbed()
             .setColor(0x7289da)
             .setTitle("Shuffled")
-            .setDescription(`${message.author.tag} shuffled the queue`);
+            .setDescription(`${message.author} shuffled the queue`);
 
         queue.textChannel.send(shuffled).catch(console.error);
     },
