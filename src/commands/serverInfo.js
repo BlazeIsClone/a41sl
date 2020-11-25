@@ -1,11 +1,15 @@
 const Discord = require("discord.js");
 const { MessageEmbed, MessageAttachment } = require("discord.js");
+const { PREFIX } = require("../../config.json");
 const os = require("os");
 
 module.exports = (client) => {
     client.on("message", async (message) => {
+        if (!message.content.startsWith(PREFIX) || message.author.bot) return;
+        let args = message.content.slice(PREFIX.length).trim().split(/ +/);
+        let command = args.shift().toLowerCase();
         if (!message.guild) return;
-        if (message.content === "/server info") {
+        if (command === "serverinfo") {
             let seconds = Math.floor(message.client.uptime / 1000);
             let minutes = Math.floor(seconds / 60);
             let hours = Math.floor(minutes / 60);
