@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
 const Canvas = require("canvas");
+const { welcomeChannel } = require("../../config.json");
 
 module.exports = (client) => {
   client.on("guildMemberAdd", async (member) => {
     const channel = member.guild.channels.cache.find(
-      (ch) => ch.name === "👋welcome"
+      (ch) => ch.name === welcomeChannel
     );
 
     if (!channel) return;

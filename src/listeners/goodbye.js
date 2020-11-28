@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
+const { goodbyeChannel } = require("../../config.json");
 
 module.exports = (client) => {
     client.on("guildMemberRemove", (member) => {
         const channelGoodBye = member.guild.channels.cache.find(
-            (ch) => ch.name === "goodbye"
+            (ch) => ch.name === goodbyeChannel
         );
         if (!channelGoodBye) return;
         const goodbyes = [
