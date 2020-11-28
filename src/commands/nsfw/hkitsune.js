@@ -8,10 +8,10 @@ module.exports.run = (client, message, args) => {
         );
 
     var lo = new Discord.MessageEmbed()
-        .setDescription(`Loading... <a:Loading:592829210054098944>`)
+        .setDescription(`🔃Loading...`)
         .setTimestamp();
 
-    message.channel.send(lo).then(m => {
+    message.channel.send(lo).then((m) => {
         superagent
             .get("https://nekobot.xyz/api/image")
             .query({ type: "hkitsune" })

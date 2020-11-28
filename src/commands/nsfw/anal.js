@@ -7,17 +7,15 @@ module.exports.run = (client, message, args) => {
             ":underage:  This Command Is Only Allowed In NSFW Channels Only!"
         );
 
-    var lo = new Discord.MessageEmbed().setDescription(
-        `Loading... <a:Loading:592829210054098944>`
-    );
+    var lo = new Discord.MessageEmbed().setDescription(`🔃Loading...`);
 
-    message.channel.send(lo).then(m => {
+    message.channel.send(lo).then((m) => {
         superagent
             .get("https://nekobot.xyz/api/image")
             .query({ type: "anal" })
             .end((err, response) => {
                 var embed_nsfw = new Discord.MessageEmbed()
-                   //.setDescription(`${response.body.message}`)
+                    //.setDescription(`${response.body.message}`)
                     .setImage(response.body.message);
 
                 m.edit(embed_nsfw);
