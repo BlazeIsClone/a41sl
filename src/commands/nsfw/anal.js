@@ -7,7 +7,7 @@ module.exports.run = (client, message, args) => {
             ":underage:  This Command Is Only Allowed In NSFW Channels Only!"
         );
 
-    var lo = new Discord.MessageEmbed().setDescription(`🔃Loading...`);
+    var lo = new Discord.MessageEmbed().setDescription(`🔃 Loading...`);
 
     message.channel.send(lo).then((m) => {
         superagent
