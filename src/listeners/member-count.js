@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
-const { goodbyeChannelId, guildId } = require("../../config.json");
+const { memberCountChannelId, guildId } = require("../../config.json");
 module.exports = (client) => {
     client.on("ready", async () => {
-        const channelId = goodbyeChannelId;
+        const channelId = memberCountChannelId;
 
         const updateMembers = (guild) => {
             const channel = guild.channels.cache.get(channelId);

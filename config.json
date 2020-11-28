@@ -8,5 +8,6 @@
     "guildId": "463027132243771403",
     "welcomeChannel": "👋welcome",
     "goodbyeChannel": "💀goodbye",
-    "memesChannel": "719922837871263745"
+    "memesChannel": "719922837871263745",
+    "memberCountChannelId":"775215451110244373"
 }
