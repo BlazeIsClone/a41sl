@@ -167,7 +167,7 @@ module.exports = {
             .setColor(0x7289da)
             .setTitle("Loop")
             .setDescription(
-              `🔁Loop is now ${queue.loop ? "**on**" : "**off**"}`
+              `🔁 Loop is now ${queue.loop ? "**on**" : "**off**"}`
             );
 
           queue.textChannel.send(loopEmbed).catch(console.error);
@@ -190,7 +190,7 @@ module.exports = {
           const shuffledEmbed = new MessageEmbed()
             .setColor(0x7289da)
             .setTitle("Shuffled")
-            .setDescription(`🔀shuffled the queue`);
+            .setDescription(`🔀 shuffled the queue`);
 
           queue.textChannel.send(shuffledEmbed).catch(console.error);
           break;
