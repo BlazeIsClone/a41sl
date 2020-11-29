@@ -129,7 +129,7 @@ module.exports = {
           const skipEmbed = new MessageEmbed()
             .setColor(0x7289da)
             .setTitle("Skipped")
-            .setDescription(`${message.author} ⏭ skipped the song`);
+            .setDescription(`⏭ skipped the song`);
 
           queue.textChannel.send(skipEmbed).catch(console.error);
           collector.stop();
@@ -144,7 +144,7 @@ module.exports = {
             const pausedEmbed = new MessageEmbed()
               .setColor(0xda7272)
               .setTitle("Paused")
-              .setDescription(`${message.author} ⏸ paused the music`);
+              .setDescription(`⏸ paused the music`);
 
             queue.textChannel.send(pausedEmbed).catch(console.error);
           } else {
@@ -153,7 +153,7 @@ module.exports = {
             const resumedEmbed = new MessageEmbed()
               .setColor(0x7289da)
               .setTitle("Resumed")
-              .setDescription(`${message.author} ▶ resumed the music`);
+              .setDescription(`▶ resumed the music`);
 
             queue.textChannel.send(resumedEmbed).catch(console.error);
           }
@@ -166,7 +166,9 @@ module.exports = {
           const loopEmbed = new MessageEmbed()
             .setColor(0x7289da)
             .setTitle("Loop")
-            .setDescription(`Loop is now ${queue.loop ? "**on**" : "**off**"}`);
+            .setDescription(
+              `🔁Loop is now ${queue.loop ? "**on**" : "**off**"}`
+            );
 
           queue.textChannel.send(loopEmbed).catch(console.error);
           break;
@@ -188,7 +190,7 @@ module.exports = {
           const shuffledEmbed = new MessageEmbed()
             .setColor(0x7289da)
             .setTitle("Shuffled")
-            .setDescription(`${message.author} shuffled the queue`);
+            .setDescription(`🔀shuffled the queue`);
 
           queue.textChannel.send(shuffledEmbed).catch(console.error);
           break;
@@ -200,7 +202,7 @@ module.exports = {
           const stopEmbed = new MessageEmbed()
             .setColor(0x7289da)
             .setTitle("Stopped!")
-            .setDescription(`**${message.author}** stooped the music`);
+            .setDescription(`⏹ stooped the music`);
 
           queue.textChannel.send(stopEmbed).catch(console.error);
           try {
