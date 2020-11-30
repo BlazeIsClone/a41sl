@@ -202,7 +202,7 @@ module.exports = {
           const stopEmbed = new MessageEmbed()
             .setColor(0x7289da)
             .setTitle("Stopped!")
-            .setDescription(`⏹ stooped the music`);
+            .setDescription(`⏹ stoped the music`);
 
           queue.textChannel.send(stopEmbed).catch(console.error);
           try {

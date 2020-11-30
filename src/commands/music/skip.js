@@ -12,13 +12,13 @@ module.exports = {
                 .reply("There is nothing playing that I could skip for you.")
                 .catch(console.error);
         if (!canModifyQueue(message.member)) return;
-        const skip = new MessageEmbed()
+        const skipEmbed = new MessageEmbed()
             .setColor(0x7289da)
             .setTitle("Skipped")
             .setDescription(`${message.author} ⏭ skipped the song`);
 
         queue.playing = true;
         queue.connection.dispatcher.end();
-        queue.textChannel.send(skip).catch(console.error);
+        queue.textChannel.send(skipEmbed).catch(console.error);
     },
 };
