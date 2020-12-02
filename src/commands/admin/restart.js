@@ -4,6 +4,9 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = (client) => {
         client.on("message", async (message) => {
+                const resMsg = new MessageEmbed()
+                        .setColor(0x7289da)
+                        .setDescription("🔁 Bot Restarting...");
                 if (!message.content.startsWith(PREFIX) || message.author.bot)
                         return;
                 let args = message.content
@@ -16,18 +19,15 @@ module.exports = (client) => {
                                 return message.reply(
                                         "You do not have the permissions to do that"
                                 );
-                        let resMsg = new MessageEmbed()
-                                .setColor(0x7289da)
-                                .setDescription("🔁 Bot Restarting...")(
-                                async () => {
-                                        await message.reply(resMsg);
-                                        try {
-                                                process.exit();
-                                        } catch (err) {
-                                                console.log(err);
-                                        }
+
+                        (async () => {
+                                await message.reply(resMsg);
+                                try {
+                                        process.exit();
+                                } catch (err) {
+                                        console.log(err);
                                 }
-                        )();
+                        })();
                 }
         });
 };
