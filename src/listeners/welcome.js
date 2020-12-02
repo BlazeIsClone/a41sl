@@ -19,7 +19,7 @@ module.exports = (client) => {
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
     // Slightly smaller text placed above the member's display name
-    ctx.font = "28px sans-serif";
+    ctx.font = "28px Helvetica";
     ctx.fillStyle = "#ffffff";
     ctx.fillText(
       "Welcome to the server,",
@@ -33,7 +33,7 @@ module.exports = (client) => {
 
       do {
         // Assign the font to the context and decrement it so it can be measured again
-        ctx.font = `${(fontSize -= 10)}px sans-serif`;
+        ctx.font = `${(fontSize -= 10)}px Helvetica`;
         // Compare pixel width of the text to the canvas minus the approximate avatar size
       } while (ctx.measureText(text).width > canvas.width - 300);
 
@@ -51,7 +51,7 @@ module.exports = (client) => {
 
     const guild = client.guilds.cache.get(channel.guild.id);
     var getmemberCount = guild.memberCount;
-    ctx.font = "24px sans-serif";
+    ctx.font = "24px Helvetica";
     ctx.fillStyle = "#ffffff";
     ctx.fillText(
       `Member #${getmemberCount}`,
