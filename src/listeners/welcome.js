@@ -41,10 +41,10 @@ module.exports = (client) => {
       return ctx.font;
     };
 
-    ctx.font = applyText(canvas, `${member.displayName}!`);
+    ctx.font = applyText(canvas, `${member.displayName}`);
     ctx.fillStyle = "#ffffff";
     ctx.fillText(
-      `${member.displayName}!`,
+      `${member.displayName}`,
       canvas.width / 2.5,
       canvas.height / 1.8
     );
