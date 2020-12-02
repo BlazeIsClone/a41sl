@@ -14,9 +14,11 @@ module.exports = (client) => {
                                 return message.reply(
                                         "You do not have the permissions to do that"
                                 );
-
-                        message.reply("Bot Restarting...");
-                        process.exit();
+                        try {
+                                message.reply("Bot Restarting...");
+                        } finally {
+                                process.exit();
+                        }
                 }
         });
 };
