@@ -9,7 +9,7 @@ module.exports = (client) => {
                         .trim()
                         .split(/ +/);
                 let command = args.shift().toLowerCase();
-                if (command === "restart bot") {
+                if (command === "restart") {
                         if (!message.member.hasPermission("ADMINISTRATOR"))
                                 return message.reply(
                                         "You do not have the permissions to do that"
