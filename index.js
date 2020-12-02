@@ -34,6 +34,7 @@ const memes = require("./src/commands/memes/memes");
 const announcementsWebhook = require("./src/webhooks/Announcements");
 const bulkDelete = require("./src/commands/admin/bulkDelete");
 const nasa = require("./src/commands/misc/nasa");
+const restart = require("./src/commands/admin/restart");
 
 load(client, config);
 track(client, config);
@@ -55,6 +56,7 @@ memes(client);
 announcementsWebhook(client);
 bulkDelete(client);
 nasa(client);
+restart(client);
 
 client.commands = new Collection();
 client.prefix = PREFIX;
