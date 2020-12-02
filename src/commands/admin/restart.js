@@ -5,7 +5,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = (client) => {
         client.on("message", async (message) => {
                 const resMsg = new MessageEmbed()
-                        .setColor(0x7289da)
+                        .setColor("#d42020")
                         .setDescription("🔁 Bot Restarting...");
                 if (!message.content.startsWith(PREFIX) || message.author.bot)
                         return;
