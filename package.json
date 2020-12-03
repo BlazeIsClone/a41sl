@@ -35,7 +35,7 @@
         "turndown": "^7.0.0",
         "webhook-discord": "^3.7.7",
         "ytdl-core": "^4.1.1",
-        "ytdl-core-discord": "github:MGPlayzYT/ytdl-core-discord"
+        "ytdl-core-discord": "^1.2.4"
     },
     "engines": {
         "node": "v12.18.3",
