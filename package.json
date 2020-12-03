@@ -21,6 +21,7 @@
         "includes": "0.0.7",
         "localtunnel": "^2.0.0",
         "lyrics-finder": "^21.4.0",
+        "miniget": "^4.1.0",
         "moment": "^2.29.1",
         "node-fetch": "^2.6.1",
         "node-superfetch": "^0.1.10",
