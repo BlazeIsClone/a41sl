@@ -5,11 +5,10 @@ const { MessageEmbed } = require("discord.js");
 module.exports = (client) => {
         client.on("message", async (message) => {
                 const resMsg = new MessageEmbed()
-                        .setColor("#d42020")
+                        .setColor("#00FF00")
                         .setThumbnail(message.guild.iconURL())
-                        .setDescription(
-                                "🔁 Bot Restarting...\nThis may take upto a minute"
-                        );
+                        .setTitle("🔁 Bot Restarting...")
+                        .setDescription("\n**This may take upto a minute**");
                 if (!message.content.startsWith(PREFIX) || message.author.bot)
                         return;
                 let args = message.content
