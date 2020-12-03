@@ -6,7 +6,10 @@ module.exports = (client) => {
         client.on("message", async (message) => {
                 const resMsg = new MessageEmbed()
                         .setColor("#d42020")
-                        .setDescription("🔁 Bot Restarting...");
+                        .setThumbnail(message.guild.iconURL())
+                        .setDescription(
+                                "🔁 Bot Restarting...\nThis may take upto a minute"
+                        );
                 if (!message.content.startsWith(PREFIX) || message.author.bot)
                         return;
                 let args = message.content
