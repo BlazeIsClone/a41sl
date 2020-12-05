@@ -13,6 +13,7 @@
         "cheerio": "^1.0.0-rc.3",
         "discord.js": "^12.4.1",
         "dotenv": "^8.2.0",
+        "erit-ytdl": "^0.1.2",
         "event": "^1.0.0",
         "ffmpeg": "0.0.4",
         "ffmpeg-static": "^4.2.7",

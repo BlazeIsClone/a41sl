@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const ytdlDiscord = require("ytdl-core-discord");
+const ytdlDiscord = require("erit-ytdl");
 const scdl = require("soundcloud-downloader");
 const { canModifyQueue } = require("../util/EvobotUtil");
 const { MessageEmbed } = require("discord.js");
