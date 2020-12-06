@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
-const { goodbyeChannel } = require("../../config.json");
+const { goodbyeChannel } = require("../../../config.json");
 
 module.exports = (client) => {
     client.on("guildMemberRemove", (member) => {

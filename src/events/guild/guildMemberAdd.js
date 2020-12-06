@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const Canvas = require("canvas");
-const { welcomeChannel } = require("../../config.json");
+const { welcomeChannel } = require("../../../config.json");
 
 module.exports = (client) => {
   client.on("guildMemberAdd", async (member) => {
