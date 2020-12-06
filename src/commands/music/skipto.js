@@ -1,11 +1,18 @@
 const { canModifyQueue } = require("../../util/EvobotUtil");
 const { MessageEmbed } = require("discord.js");
+const musicChannel = process.env.MUSIC_CHANNEL;
 
 module.exports = {
   name: "skipto",
   aliases: ["st"],
   description: "Skip to the selected queue number",
   execute(message, args) {
+    if (message.channel.id != musicChannel) {
+      return message.author.send(
+        "⛔ Music commands are only available in **add-music** channel"
+      );
+    }
+
     const noQa = new MessageEmbed()
       .setColor(0xd3d3d3)
       .setTitle("Usage")

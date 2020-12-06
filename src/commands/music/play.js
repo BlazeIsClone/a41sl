@@ -15,6 +15,12 @@ module.exports = {
   aliases: ["p"],
   description: "Plays audio from YouTube or Soundcloud",
   async execute(message, args) {
+    if (message.channel.id != musicChannel) {
+      return message.author.send(
+        "⛔ Music commands are only available in **add-music** channel"
+      );
+    }
+
     const { channel } = message.member.voice;
 
     const serverQueue = message.client.queue.get(message.guild.id);

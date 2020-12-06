@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const { play } = require("../../include/play");
 const YouTubeAPI = require("simple-youtube-api");
 const scdl = require("soundcloud-downloader");
+const musicChannel = process.env.MUSIC_CHANNEL;
 
 let config;
 try {
@@ -24,6 +25,12 @@ module.exports = {
   aliases: ["pl"],
   description: "Play a playlist from youtube",
   async execute(message, args) {
+    if (message.channel.id != musicChannel) {
+      return message.author.send(
+        "⛔ Music commands are only available in **add-music** channel"
+      );
+    }
+
     const { channel } = message.member.voice;
     const serverQueue = message.client.queue.get(message.guild.id);
 

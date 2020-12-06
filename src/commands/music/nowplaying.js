@@ -1,10 +1,19 @@
 const createBar = require("string-progressbar");
 const { MessageEmbed } = require("discord.js");
+const musicChannel = process.env.MUSIC_CHANNEL;
 
 module.exports = {
-    name: "np",
+    name: "nowplaying",
+    aliases: ["np"],
+
     description: "Show now playing song",
     execute(message) {
+        if (message.channel.id != musicChannel) {
+            return message.author.send(
+                "⛔ Music commands are only available in **add-music** channel"
+            );
+        }
+
         const queue = message.client.queue.get(message.guild.id);
         const emptyQueue = new MessageEmbed()
             .setColor(0xda7272)

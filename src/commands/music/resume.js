@@ -1,11 +1,18 @@
 const { canModifyQueue } = require("../../util/EvobotUtil");
 const { MessageEmbed } = require("discord.js");
+const musicChannel = process.env.MUSIC_CHANNEL;
 
 module.exports = {
     name: "resume",
     aliases: ["r"],
     description: "Resume currently playing music",
     execute(message) {
+        if (message.channel.id != musicChannel) {
+            return message.author.send(
+                "⛔ Music commands are only available in **add-music** channel"
+            );
+        }
+
         const queue = message.client.queue.get(message.guild.id);
         const nothingPlaying = new MessageEmbed()
             .setColor(0xda7272)

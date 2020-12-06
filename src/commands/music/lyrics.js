@@ -1,11 +1,18 @@
 const { MessageEmbed } = require("discord.js");
 const lyricsFinder = require("lyrics-finder");
+const musicChannel = process.env.MUSIC_CHANNEL;
 
 module.exports = {
   name: "lyrics",
   aliases: ["ly"],
   description: "Get lyrics for the currently playing song",
   async execute(message) {
+    if (message.channel.id != musicChannel) {
+      return message.author.send(
+        "⛔ Music commands are only available in **add-music** channel"
+      );
+    }
+
     const queue = message.client.queue.get(message.guild.id);
     const emptyQueue = new MessageEmbed()
       .setColor(0xda7272)
@@ -25,7 +32,7 @@ module.exports = {
     let lyricsEmbed = new MessageEmbed()
       .setTitle(`${queue.songs[0].title} — Lyrics`)
       .setDescription(lyrics)
-      .setColor("#F8AA2A")
+      .setColor("#F8AA2A");
 
     if (lyricsEmbed.description.length >= 2048)
       lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;
