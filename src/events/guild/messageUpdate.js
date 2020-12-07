@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const { auditLogChannel } = require("../../../config.json");
+const { PREFIX } = require("../../../config.json");
 
 module.exports = async (client) => {
   client.on("messageUpdate", async (oldMessage, newMessage) => {
@@ -15,8 +16,9 @@ module.exports = async (client) => {
         (c) => c.name === auditLogChannel
       );
       if (!logChannel) return;
-      if (oldMessage.content.startsWith("https://")) return;
-      if (oldMessage.content.startsWith("http://")) return;
+      if (oldMessage.content.includes("https://")) return;
+      if (oldMessage.content.includes(`${PREFIX}play`)) return;
+
       let messageUpdate = new Discord.MessageEmbed()
         .setTitle("**MESSAGE EDIT**")
         .setThumbnail(oldMessage.author.avatarURL())
