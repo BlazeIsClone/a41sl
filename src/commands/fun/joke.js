@@ -12,13 +12,12 @@ module.exports = async (client) => {
                         .split(/ +/);
 
                 let command = args.shift().toLowerCase();
+                if (!message.member.hasPermission("SEND_MESSAGES"))
+                        return message.reply(
+                                "You do not have the permissions to send messages in this channel"
+                        );
 
-                if (command === "joke" || "jk") {
-                        if (!message.member.hasPermission("SEND_MESSAGES"))
-                                return message.reply(
-                                        "You do not have the permissions to send messages in this channel"
-                                );
-
+                if (command === "joke") {
                         const joke = new DadJokes();
                         const dadjoke = await joke.randomJoke();
                         message.reply(dadjoke);

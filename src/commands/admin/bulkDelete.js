@@ -38,9 +38,9 @@ module.exports = (client) => {
                                                         );
                                                 });
                                         message.reply(
-                                                `I've deleted \`${
+                                                `🗑️ I've deleted \`${
                                                         amount - 1
-                                                }\`  messages for you :thumbsup:`
+                                                }\`  messages for you`
                                         )
                                                 .then((msg) => {
                                                         msg.delete({
