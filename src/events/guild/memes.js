@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const request = require("request");
-const { memesChannel } = require("../../../config.json");
 const { MessageEmbed } = require("discord.js");
+const { memesChannel } = require("../../../config.json");
 
 module.exports = async (client) => {
     client.on("ready", async () => {

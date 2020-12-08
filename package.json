@@ -11,6 +11,7 @@
         "axios": "^0.21.0",
         "canvas": "^2.6.1",
         "cheerio": "^1.0.0-rc.3",
+        "dadjokes-wrapper": "^0.1.4",
         "discord.js": "^12.4.1",
         "dotenv": "^8.2.0",
         "erit-ytdl": "^0.1.2",
