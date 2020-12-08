@@ -13,7 +13,7 @@ module.exports = async (client) => {
 
                 let command = args.shift().toLowerCase();
 
-                if (command === "joke") {
+                if (command === ("joke" && "jk")) {
                         if (!message.member.hasPermission("SEND_MESSAGES"))
                                 return message.reply(
                                         "You do not have the permissions to send messages in this channel"
