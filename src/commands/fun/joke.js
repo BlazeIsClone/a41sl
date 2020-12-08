@@ -1,9 +1,8 @@
-const commando = require("discord.js-commando");
 const DadJokes = require("dadjokes-wrapper");
 const { PREFIX } = require("../../../config.json");
 
 module.exports = async (client) => {
-        client.on("ready", async () => {
+        client.on("message", async (message) => {
                 if (!message.content.startsWith(PREFIX) || message.author.bot)
                         return;
 
