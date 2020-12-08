@@ -33,6 +33,7 @@ const announcementsWebhook = require("./src/webhooks/Announcements");
 const bulkDelete = require("./src/commands/admin/bulkDelete");
 const nasa = require("./src/commands/misc/nasa");
 const restart = require("./src/commands/admin/restart");
+const joke = require("./src/commands/fun/joke");
 
 const guildMemberAdd = require("./src/events/guild/guildMemberAdd");
 const guildMemberRemove = require("./src/events/guild/guildMemberRemove");
@@ -68,6 +69,7 @@ announcementsWebhook(client);
 bulkDelete(client);
 nasa(client);
 restart(client);
+joke(client);
 
 channelCreate(client);
 channelDelete(client);
