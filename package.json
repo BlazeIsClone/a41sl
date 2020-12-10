@@ -28,6 +28,7 @@
         "node-fetch": "^2.6.1",
         "node-superfetch": "^0.1.10",
         "pm2": "^4.5.0",
+        "querystring": "^0.2.0",
         "regexp": "^1.0.0",
         "request": "^2.88.2",
         "rss-parser": "^3.9.0",

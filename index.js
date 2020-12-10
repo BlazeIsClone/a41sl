@@ -34,6 +34,7 @@ const bulkDelete = require("./src/commands/admin/bulkDelete");
 const nasa = require("./src/commands/misc/nasa");
 const restart = require("./src/commands/admin/restart");
 const joke = require("./src/commands/fun/joke");
+const urban = require("./src/commands/fun/urban");
 
 const guildMemberAdd = require("./src/events/guild/guildMemberAdd");
 const guildMemberRemove = require("./src/events/guild/guildMemberRemove");
@@ -70,6 +71,7 @@ bulkDelete(client);
 nasa(client);
 restart(client);
 joke(client);
+urban(client);
 
 channelCreate(client);
 channelDelete(client);
