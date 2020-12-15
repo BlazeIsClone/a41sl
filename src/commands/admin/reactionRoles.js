@@ -1,14 +1,16 @@
 const Discord = require("discord.js");
 module.exports = (client) => {
-    //const addRolesAttachment = new MessageAttachment("https://i.imgur.com/790FtQS.png");
+    const addRolesAttachment = new MessageAttachment(
+        "https://i.imgur.com/XzvxWtQ.png"
+    );
     client.on("message", async (message) => {
         if (!message.guild) return;
-        if (message.content === "/sudo rolesEmbed") {
+        if (message.content === "//rolesEmbed") {
             const addRolesEmbed = new Discord.MessageEmbed()
 
                 .setColor("#0099ff")
-                .setTitle(
-                    "React to this message with the following emotes to receive alearts!"
+                .setDescription(
+                    "**To join or leave a role, react to this message with one of the following emotes.**"
                 )
                 .addFields(
                     {
@@ -16,29 +18,49 @@ module.exports = (client) => {
                         value: "​",
                     },
                     {
-                        name: "🔔 • Live Streams Aleart!",
+                        name: ":lol: League of Legends",
                         value: "​",
                     },
                     {
-                        name: " 🏷 • Game Giveaways!",
+                        name: ":csgo~1: CSGO",
                         value: "​",
                     },
                     {
-                        name: "📈 • league of Legends Updates",
+                        name: ":r6: Rainbow Six Siege",
                         value: "​",
                     },
                     {
-                        name: "📦 • Minecraft Updates",
+                        name: ":amongus: Among Us",
                         value: "​",
                     },
                     {
-                        name: "📰 • Wired Magazine Subscription",
+                        name: ":gta5: GTA Online",
+                        value: "​",
+                    },
+                    {
+                        name: ":wow: World of Warcraft",
+                        value: "​",
+                    },
+                    {
+                        name: ":fortnite: Fortnite",
+                        value: "​",
+                    },
+                    {
+                        name: ":brawlhalla: Brawlhalla",
                         value: "​",
                     }
                 );
 
-            message.channel.send(addRolesEmbed).catch(console.error);
-            //message.author.send(addRolesAttachment).catch(console.error);
+            (async () => {
+                await message.author
+                    .send(addRolesAttachment)
+                    .catch(console.error);
+                try {
+                    message.channel.send(addRolesEmbed).catch(console.error);
+                } catch (err) {
+                    console.log(err);
+                }
+            })();
         }
     });
 };
