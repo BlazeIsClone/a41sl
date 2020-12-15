@@ -13,8 +13,8 @@ moment.locale("fr");
 require("dotenv").config();
 const TOKEN = process.env.DISCORD_TOKEN;
 
-const load = require("./src/listeners/load.js");
-const track = require("./src/listeners/track.js");
+const reactionRolesLoad = require("./src/events/guild/reactionRolesLoad");
+const reactionRolesTrack = require("./src/events/guild/reactionRolesTrack");
 const image = require("./src/commands/misc/image");
 const eval = require("./src/commands/dev/eval");
 const ping = require("./src/commands/ping");
@@ -24,8 +24,8 @@ const serverInfo = require("./src/commands/serverInfo");
 const rules = require("./src/commands/rules");
 const leaveVoice = require("./src/commands/leave");
 const joinVoice = require("./src/commands/join");
-const statusPresence = require("./src/listeners/statusPresence");
-const memberCount = require("./src/listeners/member-count");
+const statusPresence = require("./src/events/client/statusPresence");
+const memberCount = require("./src/events/guild/memberCount");
 const reactionRoles = require("./src/commands/admin/reactionRoles");
 const musicCommands = require("./src/commands/musicCommands");
 const memes = require("./src/events/guild/memes");
@@ -50,8 +50,8 @@ const roleCreate = require("./src/events/guild/roleCreate");
 const roleDelete = require("./src/events/guild/roleDelete");
 const roleUpdate = require("./src/events/guild/roleUpdate");
 
-load(client, config);
-track(client, config);
+reactionRolesLoad(client, config);
+reactionRolesTrack(client, config);
 image(client);
 eval(client);
 ping(client);
@@ -184,14 +184,6 @@ fs.readdir("./src/commands/nsfw/", (err, files) => {
         let commandName = file.split(".")[0];
         // console.log(`Load command ${commandName}`);
         client.commands.set(commandName, props);
-    });
-});
-fs.readdir(`./src/listeners/`, (err, files) => {
-    if (err) return console.error(err);
-    files.forEach((file) => {
-        let eventFunction = require(`./src/listeners/${file}`);
-        let eventName = file.split(".")[0];
-        client.on(eventName, (...args) => eventFunction.run(client, ...args));
     });
 });
 

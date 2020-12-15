@@ -21,7 +21,7 @@ module.exports = function (client, config) {
         console.log("Fetching messages");
         (async () => {
             var debug_count_messagesFetched = 0;
-            console.log("ASYNC IIFE working!");
+            console.log("Reaction Roles Loaded");
             for (var { channel, message: message_id, reactions } of config) {
                 var message = await client.channels.cache
                     .get(channel)

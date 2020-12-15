@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { memberCountChannelId, guildId } = require("../../config.json");
+const { memberCountChannelId, guildId } = require("../../../config.json");
 module.exports = (client) => {
     client.on("ready", async () => {
         const channelId = memberCountChannelId;
