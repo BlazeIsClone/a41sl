@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const { MessageEmbed, MessageAttachment } = require("discord.js");
 module.exports = (client) => {
     const addRolesAttachment = new MessageAttachment(
         "https://i.imgur.com/XzvxWtQ.png"
