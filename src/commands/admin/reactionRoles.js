@@ -20,7 +20,7 @@ module.exports = (client) => {
             const addRolesEmbed = new Discord.MessageEmbed()
                 .setColor("#00FF00")
                 .setTitle(
-                    "**React to this message with one of the following games you play.**"
+                    "**React to this message with one of the following emojies corresponding to the games you play.**"
                 )
                 .setDescription(
                     "\n" +
