@@ -28,7 +28,7 @@ module.exports = (client) => {
                         "\n\n" +
                         "<:csgo:788451154576408577> • CSGO" +
                         "\n\n" +
-                        "<:r6:788451153523769355> • rainbow Six Siege" +
+                        "<:r6:788451153523769355> • Rainbow Six Siege" +
                         "\n\n" +
                         "<:amongus:788451152768663642> • Among Us" +
                         "\n\n" +
