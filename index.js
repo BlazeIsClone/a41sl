@@ -13,8 +13,8 @@ moment.locale("fr");
 require("dotenv").config();
 const TOKEN = process.env.DISCORD_TOKEN;
 
-const reactionRolesLoad = require("./src/events/guild/reactionRolesLoad");
-const reactionRolesTrack = require("./src/events/guild/reactionRolesTrack");
+const reactionRolesLoad = require("./src/events/guild/reactionRoles/reactionRolesLoad");
+const reactionRolesTrack = require("./src/events/guild/reactionRoles/reactionRolesTrack");
 const image = require("./src/commands/misc/image");
 const eval = require("./src/commands/dev/eval");
 const ping = require("./src/commands/ping");

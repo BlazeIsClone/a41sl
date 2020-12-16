@@ -1,8 +1,8 @@
 /**
- * Returns a unique discriminator string that can be used to distinguish between custom emojis.
- * @param {Object} emoji The emoji used as the reaction to the message.
- * @returns {String} The discriminator.
- */
+ *  * Returns a unique discriminator string that can be used to distinguish between custom emojis.
+ *   * @param {Object} emoji The emoji used as the reaction to the message.
+ *    * @returns {String} The discriminator.
+ *     */
 function getEmojiDiscriminator(emoji) {
     if (emoji.id) {
         return `${emoji.name}:${emoji.id}`;
@@ -12,10 +12,10 @@ function getEmojiDiscriminator(emoji) {
 }
 
 /**
- * Fetches all messages that need to be tracked into the cache. Makes sure each message is having the proper reactions attached.
- * @param {*} client The bot client.
- * @param {*} config The config file.
- */
+ *  * Fetches all messages that need to be tracked into the cache. Makes sure each message is having the proper reactions attached.
+ *   * @param {*} client The bot client.
+ *    * @param {*} config The config file.
+ *     */
 module.exports = function (client, config) {
     client
 
