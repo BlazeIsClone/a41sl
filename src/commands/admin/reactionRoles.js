@@ -44,7 +44,11 @@ module.exports = (client) => {
                         "\n\n" +
                         "<:minecraft:788618024260861972> • Minecraft" +
                         "\n\n" +
-                        "<:dota2:788615300370530305> • Dota 2"
+                        "<:dota2:788615300370530305> • Dota 2" +
+                        "\n\n" +
+                        "<:valorant:788451153108140073> • Valorant" +
+                        "\n\n" +
+                        "<:apexlegends:788451151480881182> • Apex Legends"
                 );
 
             (async () => {
