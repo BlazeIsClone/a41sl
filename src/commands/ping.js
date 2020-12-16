@@ -6,7 +6,7 @@ module.exports = (client) => {
         if (message.content === "/ping") {
             const msg = await message.channel.send("Ping?");
             msg.edit(
-                `:ping_pong: Latency is \`${
+                `:ping_pong: **Pong!** Took \`${
                     msg.createdTimestamp - message.createdTimestamp
                 }ms\``
             );
