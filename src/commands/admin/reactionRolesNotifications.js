@@ -11,7 +11,7 @@ module.exports = (client) => {
         if (!message.content.startsWith(PREFIX) || message.author.bot) return;
         let args = message.content.slice(PREFIX.length).trim().split(/ +/);
         let command = args.shift().toLowerCase();
-        if (command === "sudo003") {
+        if (command === "sudo002") {
             if (!message.member.hasPermission("ADMINISTRATOR"))
                 return message.reply(
                     "You do not have the permissions to do that"
@@ -19,7 +19,6 @@ module.exports = (client) => {
 
             const addRolesEmbed = new Discord.MessageEmbed()
                 .setColor("#00FF00")
-
                 .setDescription(
                     "**React with the corresponding emoji to recieve notifications.**" +
                         "\n" +

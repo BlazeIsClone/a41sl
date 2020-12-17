@@ -28,6 +28,7 @@ const statusPresence = require("./src/events/client/statusPresence");
 const memberCount = require("./src/events/guild/memberCount");
 const reactionRolesGames = require("./src/commands/admin/reactionRolesGames");
 const reactionRolesNotifications = require("./src/commands/admin/reactionRolesNotifications");
+const linebreak = require("./src/commands/admin/linebreak");
 const reactionRolesIntro = require("./src/commands/admin/reactionRolesIntro");
 const musicCommands = require("./src/commands/musicCommands");
 const memes = require("./src/events/guild/memes");
@@ -74,6 +75,7 @@ bulkDelete(client);
 nasa(client);
 restart(client);
 joke(client);
+linebreak(client);
 
 channelCreate(client);
 channelDelete(client);
