@@ -21,7 +21,7 @@ module.exports = (client) => {
                 .setColor("#00FF00")
 
                 .setDescription(
-                    "**React to this message with one of the following emojies corresponding to the games you play.**" +
+                    "**React to this message with the following emojis corresponding to the games you play.**" +
                         "\n" +
                         "\n" +
                         "<:lol:788452092935012362> • League of Legends" +
