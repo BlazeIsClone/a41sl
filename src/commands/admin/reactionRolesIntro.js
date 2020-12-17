@@ -21,11 +21,13 @@ module.exports = (client) => {
                 .setColor("#00FF00")
 
                 .setDescription(
-                    "**Select your roles from here to unlock the servers full potential**" +
-                        "\n\n" +
-                        "You will first take your baby steps as a <@&696747023772155956>" +
+                    "**By accepting our community rules and guidelines you are assigned the role**" +
                         "\n" +
-                        "You can prove your greatness to this community to get rewarded!"
+                        "<@&696747023772155956>." +
+                        " Be active and interact with the community to fight your way through the ranks and become one of the elites." +
+                        "\n" +
+                        "\n" +
+                        "Good luck and have fun!"
                 );
 
             (async () => {
