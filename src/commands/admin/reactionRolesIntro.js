@@ -4,7 +4,7 @@ const { PREFIX } = require("../../../config.json");
 module.exports = (client) => {
     client.on("message", async (message) => {
         const addRolesAttachment = new MessageEmbed()
-            .setImage("https://i.imgur.com/sTQnkvP.png")
+            .setImage("https://i.imgur.com/w442vDB.png")
             .setColor("#00FF00");
 
         if (!message.guild) return;
@@ -21,16 +21,11 @@ module.exports = (client) => {
                 .setColor("#00FF00")
 
                 .setDescription(
-                    "**React with the corresponding emoji to recieve notifications.**" +
+                    "**Select your roles from here to unlock the servers full potential**" +
+                        "\n\n" +
+                        "You will first take your baby steps as a <@&696747023772155956>" +
                         "\n" +
-                        "\n" +
-                        "<:announcements_icon:788964246150709318> • Announcements" +
-                        "\n\n" +
-                        "<:events:788964246276931584> • Events" +
-                        "\n\n" +
-                        "<:memes:788964245931819039> • Memes" +
-                        "\n\n" +
-                        "<:giveaways_icon:788965835855233046>  • Giveaways"
+                        "You can prove your greatness to this community to get rewarded!"
                 );
 
             (async () => {
