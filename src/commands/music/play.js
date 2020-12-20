@@ -117,7 +117,7 @@ module.exports = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url,
           duration: songInfo.videoDetails.lengthSeconds,
-          thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
+          thumbnail: songInfo.videoDetails.thumbnails[3].url,
         };
       } catch (error) {
         console.error(error);
@@ -142,7 +142,7 @@ module.exports = {
         song = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url,
-          thumbnail: songInfo.videoDetails.thumbnail.thumbnails[3].url,
+          thumbnail: songInfo.videoDetails.thumbnails[3].url,
           duration: songInfo.videoDetails.lengthSeconds,
         };
       } catch (error) {
