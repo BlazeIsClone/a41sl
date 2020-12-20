@@ -5,8 +5,8 @@ const events = (require("events").EventEmitter.defaultMaxListeners = 50);
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
-const config = require("./src/database/roles-reaction.json");
-const nsfwConfig = require("./config.json");
+const reactionRolesDb = require("./src/database/roles-reaction.json");
+const config = require("./config.json");
 const fs = require("fs");
 const moment = require("moment");
 moment.locale("fr");
@@ -54,8 +54,8 @@ const roleCreate = require("./src/events/guild/roleCreate");
 const roleDelete = require("./src/events/guild/roleDelete");
 const roleUpdate = require("./src/events/guild/roleUpdate");
 
-reactionRolesLoad(client, config);
-reactionRolesTrack(client, config);
+reactionRolesLoad(client, reactionRolesDb);
+reactionRolesTrack(client, reactionRolesDb);
 image(client);
 eval(client);
 ping(client);
@@ -197,5 +197,33 @@ fs.readdir("./src/commands/nsfw/", (err, files) => {
 
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
+
+const Enmap = require("enmap");
+const fs = require("fs");
+
+const client = new Discord.Client();
+// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
+
+fs.readdir("./events/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach((file) => {
+        const event = require(`./events/${file}`);
+        let eventName = file.split(".")[0];
+        client.on(eventName, event.bind(null, client));
+    });
+});
+
+client.commands = new Enmap();
+
+fs.readdir("./commands/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach((file) => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./commands/${file}`);
+        let commandName = file.split(".")[0];
+        console.log(`Attempting to load command ${commandName}`);
+        client.commands.set(commandName, props);
+    });
+});
 
 client.login(TOKEN);
