@@ -12,6 +12,7 @@ const moment = require("moment");
 moment.locale("fr");
 require("dotenv").config();
 const TOKEN = process.env.DISCORD_TOKEN;
+client.config = config;
 
 const reactionRolesLoad = require("./src/events/guild/reactionRoles/reactionRolesLoad");
 const reactionRolesTrack = require("./src/events/guild/reactionRoles/reactionRolesTrack");
@@ -170,12 +171,11 @@ client.on("message", async (message) => {
     }
 });
 
-client.config = nsfwConfig;
 client.on("message", function (message) {
     if (message.author.bot) return;
-    if (message.content.indexOf(nsfwConfig.nsfwPrefix) !== 0) return;
+    if (message.content.indexOf(config.nsfwPrefix) !== 0) return;
     const args = message.content
-        .slice(nsfwConfig.nsfwPrefix.length)
+        .slice(config.nsfwPrefix.length)
         .trim()
         .split(/ +/g);
     const command = args.shift().toLowerCase();
@@ -194,36 +194,20 @@ fs.readdir("./src/commands/nsfw/", (err, files) => {
         client.commands.set(commandName, props);
     });
 });
-
-client.on("error", (e) => console.error(e));
-client.on("warn", (e) => console.warn(e));
-
-const Enmap = require("enmap");
-const fs = require("fs");
-
-const client = new Discord.Client();
-// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
-
-fs.readdir("./events/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach((file) => {
-        const event = require(`./events/${file}`);
-        let eventName = file.split(".")[0];
-        client.on(eventName, event.bind(null, client));
-    });
-});
-
-client.commands = new Enmap();
-
-fs.readdir("./commands/", (err, files) => {
+fs.readdir("./src/commands/general/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
-        let props = require(`./commands/${file}`);
+        let props = require(`./src/commands/general/${file}`);
         let commandName = file.split(".")[0];
-        console.log(`Attempting to load command ${commandName}`);
+        // console.log(`Load command ${commandName}`);
         client.commands.set(commandName, props);
     });
 });
+
+
+
+client.on("error", (e) => console.error(e));
+client.on("warn", (e) => console.warn(e));
 
 client.login(TOKEN);

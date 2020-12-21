@@ -16,6 +16,7 @@
         "discord-slash-commands-client": "^1.0.3",
         "discord.js": "^12.5.1",
         "dotenv": "^8.2.0",
+        "enmap": "^5.8.2",
         "erit-ytdl": "^0.1.2",
         "event": "^1.0.0",
         "ffmpeg": "0.0.4",
