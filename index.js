@@ -16,15 +16,8 @@ client.config = config;
 
 const reactionRolesLoad = require("./src/events/guild/reactionRoles/reactionRolesLoad");
 const reactionRolesTrack = require("./src/events/guild/reactionRoles/reactionRolesTrack");
-const image = require("./src/commands/misc/image");
 const eval = require("./src/commands/dev/eval");
-const ping = require("./src/commands/ping");
 const queue = require("./src/commands/music/play.js");
-const help = require("./src/commands/help");
-const serverInfo = require("./src/commands/serverInfo");
-const rules = require("./src/commands/rules");
-const leaveVoice = require("./src/commands/leave");
-const joinVoice = require("./src/commands/join");
 const statusPresence = require("./src/events/client/statusPresence");
 const memberCount = require("./src/events/guild/memberCount");
 const reactionRolesGames = require("./src/commands/admin/reactionRolesGames");
@@ -32,11 +25,9 @@ const reactionRolesNotifications = require("./src/commands/admin/reactionRolesNo
 const reactionRolesRules = require("./src/commands/admin/reactionRolesRules");
 const linebreak = require("./src/commands/admin/linebreak");
 const reactionRolesIntro = require("./src/commands/admin/reactionRolesIntro");
-const musicCommands = require("./src/commands/musicCommands");
 const memes = require("./src/events/guild/memes");
 const announcementsWebhook = require("./src/webhooks/Announcements");
 const bulkDelete = require("./src/commands/admin/bulkDelete");
-const nasa = require("./src/commands/misc/nasa");
 const restart = require("./src/commands/admin/restart");
 const joke = require("./src/commands/fun/joke");
 
@@ -57,24 +48,15 @@ const roleUpdate = require("./src/events/guild/roleUpdate");
 
 reactionRolesLoad(client, reactionRolesDb);
 reactionRolesTrack(client, reactionRolesDb);
-image(client);
 eval(client);
-ping(client);
-help(client);
-serverInfo(client);
-rules(client);
-leaveVoice(client);
-joinVoice(client);
 statusPresence(client);
 memberCount(client);
 reactionRolesGames(client);
 reactionRolesNotifications(client);
 reactionRolesIntro(client);
-musicCommands(client);
 memes(client);
 announcementsWebhook(client);
 bulkDelete(client);
-nasa(client);
 restart(client);
 joke(client);
 linebreak(client);
@@ -171,11 +153,13 @@ client.on("message", async (message) => {
     }
 });
 
-client.on("message", function (message) {
+client.on("message", (message) => {
     if (message.author.bot) return;
-    if (message.content.indexOf(config.nsfwPrefix) !== 0) return;
+    if (!message.guild) return;
+    if (message.content.indexOf(config.PREFIX || config.nsfwPrefix) !== 0)
+        return;
     const args = message.content
-        .slice(config.nsfwPrefix.length)
+        .slice(config.PREFIX.length)
         .trim()
         .split(/ +/g);
     const command = args.shift().toLowerCase();
@@ -190,17 +174,29 @@ fs.readdir("./src/commands/nsfw/", (err, files) => {
         if (!file.endsWith(".js")) return;
         let props = require(`./src/commands/nsfw/${file}`);
         let commandName = file.split(".")[0];
-        // console.log(`Load command ${commandName}`);
+        console.log(`Load command ${commandName}`);
         client.commands.set(commandName, props);
     });
 });
+
 fs.readdir("./src/commands/general/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
         let props = require(`./src/commands/general/${file}`);
         let commandName = file.split(".")[0];
-        // console.log(`Load command ${commandName}`);
+        console.log(`Load command ${commandName}`);
+        client.commands.set(commandName, props);
+    });
+});
+
+fs.readdir("./src/commands/misc/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach((file) => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./src/commands/misc/${file}`);
+        let commandName = file.split(".")[0];
+        console.log(`Load command ${commandName}`);
         client.commands.set(commandName, props);
     });
 });
