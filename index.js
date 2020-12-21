@@ -16,7 +16,6 @@ client.config = config;
 
 const reactionRolesLoad = require("./src/events/guild/reactionRoles/reactionRolesLoad");
 const reactionRolesTrack = require("./src/events/guild/reactionRoles/reactionRolesTrack");
-const eval = require("./src/commands/dev/eval");
 const queue = require("./src/commands/music/play.js");
 const statusPresence = require("./src/events/client/statusPresence");
 const memberCount = require("./src/events/guild/memberCount");
@@ -47,7 +46,6 @@ const roleUpdate = require("./src/events/guild/roleUpdate");
 
 reactionRolesLoad(client, reactionRolesDb);
 reactionRolesTrack(client, reactionRolesDb);
-eval(client);
 statusPresence(client);
 memberCount(client);
 reactionRolesGames(client);
@@ -59,7 +57,6 @@ bulkDelete(client);
 restart(client);
 linebreak(client);
 reactionRolesRules(client);
-
 channelCreate(client);
 channelDelete(client);
 channelUpdate(client);
@@ -209,6 +206,18 @@ fs.readdir("./src/commands/fun/", (err, files) => {
         client.commands.set(commandName, props);
     });
 });
+
+fs.readdir("./src/commands/dev/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach((file) => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./src/commands/dev/${file}`);
+        let commandName = file.split(".")[0];
+        console.log(`Load command ${commandName}`);
+        client.commands.set(commandName, props);
+    });
+});
+
 
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
