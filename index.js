@@ -29,7 +29,6 @@ const memes = require("./src/events/guild/memes");
 const announcementsWebhook = require("./src/webhooks/Announcements");
 const bulkDelete = require("./src/commands/admin/bulkDelete");
 const restart = require("./src/commands/admin/restart");
-const joke = require("./src/commands/fun/joke");
 
 const guildMemberAdd = require("./src/events/guild/guildMemberAdd");
 const guildMemberRemove = require("./src/events/guild/guildMemberRemove");
@@ -58,7 +57,6 @@ memes(client);
 announcementsWebhook(client);
 bulkDelete(client);
 restart(client);
-joke(client);
 linebreak(client);
 reactionRolesRules(client);
 
@@ -201,7 +199,16 @@ fs.readdir("./src/commands/misc/", (err, files) => {
     });
 });
 
-
+fs.readdir("./src/commands/fun/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach((file) => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./src/commands/fun/${file}`);
+        let commandName = file.split(".")[0];
+        console.log(`Load command ${commandName}`);
+        client.commands.set(commandName, props);
+    });
+});
 
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
