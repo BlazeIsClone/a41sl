@@ -80,6 +80,9 @@ module.exports.run = async (client, message, args) => {
         results[parseInt(emojis.indexOf(response.first().emoji.name))].url;
 
     message.channel.activeCollector = false;
-    message.client.commands.get("play").execute(message, [choice]);
+    client.commands
+        .get("play")
+        .run(client, message, args, [choice])
+        .catch(console.error);
     resultsMessage.delete().catch(() => {});
 };

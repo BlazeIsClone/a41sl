@@ -22,22 +22,7 @@ const track = require("./src/reaction_roles/track");
 track(client, reactionRolesDb);
 
 client.commands = new Collection();
-client.prefix = PREFIX;
 client.queue = new Map();
-const cooldowns = new Collection();
-const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-const commandFiles = readdirSync(
-    join(__dirname, "./src/commands/music/")
-).filter((file) => file.endsWith(".js"));
-for (const file of commandFiles) {
-    const command = require(join(
-        __dirname,
-        "./src/commands/music/",
-        `${file}`
-    ));
-    client.commands.set(command.name, command);
-}
 
 client.on("message", async (message) => {
     if (message.author.bot) return;
