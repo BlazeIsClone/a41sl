@@ -14,13 +14,12 @@ const TOKEN = process.env.DISCORD_TOKEN;
 client.config = config;
 
 var reactionRolesDb = require("./src/database/roles-reaction.json");
-reactionRolesDb = config;
 
-const fetchMessages = require("./src/events/guild/reaction_roles/load");
-fetchMessages(client, config);
+const fetchMessages = require("./src/reaction_roles/load");
+fetchMessages(client, reactionRolesDb);
 
-const track = require("./src/events/guild/reaction_roles/track");
-track(client, config);
+const track = require("./src/reaction_roles/track");
+track(client, reactionRolesDb);
 
 client.commands = new Collection();
 client.prefix = PREFIX;
