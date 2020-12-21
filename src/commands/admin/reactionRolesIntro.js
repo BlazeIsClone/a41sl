@@ -1,45 +1,27 @@
 const Discord = require("discord.js");
-const { MessageEmbed, MessageAttachment } = require("discord.js");
-const { PREFIX } = require("../../../config.json");
-module.exports = (client) => {
-    client.on("message", async (message) => {
-        const addRolesAttachment = new MessageEmbed()
-            .setImage("https://i.imgur.com/w442vDB.png")
-            .setColor("#00FF00");
+const { MessageEmbed } = require("discord.js");
 
-        if (!message.guild) return;
-        if (!message.content.startsWith(PREFIX) || message.author.bot) return;
-        let args = message.content.slice(PREFIX.length).trim().split(/ +/);
-        let command = args.shift().toLowerCase();
-        if (command === "sudo001") {
-            if (!message.member.hasPermission("ADMINISTRATOR"))
-                return message.reply(
-                    "You do not have the permissions to do that"
-                );
+module.exports.run = (client, message, args) => {
+    const addRolesAttachment = new MessageEmbed()
+        .setImage("https://i.imgur.com/w442vDB.png")
+        .setColor("#00FF00");
 
-            const addRolesEmbed = new Discord.MessageEmbed()
-                .setColor("#00FF00")
+    if (!message.member.hasPermission("ADMINISTRATOR"))
+        return message.reply("You do not have the permissions to do that");
 
-                .setDescription(
-                    "**By accepting our community rules and guidelines you are assigned the role**" +
-                        "\n" +
-                        "<@&696747023772155956>." +
-                        " Be active and interact with the community to fight your way through the ranks and become one of the elites." +
-                        "\n" +
-                        "\n" +
-                        "Good luck and have fun!"
-                );
+    const addRolesEmbed = new Discord.MessageEmbed()
+        .setColor("#00FF00")
 
-            (async () => {
-                await message.channel
-                    .send(addRolesAttachment)
-                    .catch(console.error);
-                try {
-                    message.channel.send(addRolesEmbed).catch(console.error);
-                } catch (err) {
-                    console.log(err);
-                }
-            })();
-        }
-    });
+        .setDescription(
+            "**By accepting our community rules and guidelines you are assigned the role**" +
+                "\n" +
+                "<@&696747023772155956>." +
+                " Be active and interact with the community to fight your way through the ranks and become one of the elites." +
+                "\n" +
+                "\n" +
+                "Good luck and have fun!"
+        );
+
+    message.channel.send(addRolesAttachment).catch(console.error);
+    message.channel.send(addRolesEmbed).catch(console.error);
 };

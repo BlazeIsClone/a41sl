@@ -19,15 +19,8 @@ const reactionRolesTrack = require("./src/events/guild/reactionRoles/reactionRol
 const queue = require("./src/commands/music/play.js");
 const statusPresence = require("./src/events/client/statusPresence");
 const memberCount = require("./src/events/guild/memberCount");
-const reactionRolesGames = require("./src/commands/admin/reactionRolesGames");
-const reactionRolesNotifications = require("./src/commands/admin/reactionRolesNotifications");
-const reactionRolesRules = require("./src/commands/admin/reactionRolesRules");
-const linebreak = require("./src/commands/admin/linebreak");
-const reactionRolesIntro = require("./src/commands/admin/reactionRolesIntro");
 const memes = require("./src/events/guild/memes");
 const announcementsWebhook = require("./src/webhooks/Announcements");
-const bulkDelete = require("./src/commands/admin/bulkDelete");
-const restart = require("./src/commands/admin/restart");
 
 const guildMemberAdd = require("./src/events/guild/guildMemberAdd");
 const guildMemberRemove = require("./src/events/guild/guildMemberRemove");
@@ -48,15 +41,8 @@ reactionRolesLoad(client, reactionRolesDb);
 reactionRolesTrack(client, reactionRolesDb);
 statusPresence(client);
 memberCount(client);
-reactionRolesGames(client);
-reactionRolesNotifications(client);
-reactionRolesIntro(client);
 memes(client);
 announcementsWebhook(client);
-bulkDelete(client);
-restart(client);
-linebreak(client);
-reactionRolesRules(client);
 channelCreate(client);
 channelDelete(client);
 channelUpdate(client);
@@ -218,6 +204,16 @@ fs.readdir("./src/commands/dev/", (err, files) => {
     });
 });
 
+fs.readdir("./src/commands/admin/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach((file) => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./src/commands/admin/${file}`);
+        let commandName = file.split(".")[0];
+        console.log(`Load command ${commandName}`);
+        client.commands.set(commandName, props);
+    });
+});
 
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
