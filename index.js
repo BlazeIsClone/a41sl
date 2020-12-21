@@ -14,48 +14,6 @@ require("dotenv").config();
 const TOKEN = process.env.DISCORD_TOKEN;
 client.config = config;
 
-const reactionRolesLoad = require("./src/events/guild/reactionRoles/reactionRolesLoad");
-const reactionRolesTrack = require("./src/events/guild/reactionRoles/reactionRolesTrack");
-const queue = require("./src/commands/music/play.js");
-const memberCount = require("./src/events/guild/memberCount");
-const memes = require("./src/events/guild/memes");
-const announcementsWebhook = require("./src/webhooks/Announcements");
-
-const guildMemberAdd = require("./src/events/guild/guildMemberAdd");
-const guildMemberRemove = require("./src/events/guild/guildMemberRemove");
-const channelCreate = require("./src/events/guild/channelCreate");
-const channelDelete = require("./src/events/guild/channelDelete");
-const channelUpdate = require("./src/events/guild/channelUpdate");
-const guildBanAdd = require("./src/events/guild/guildBanAdd");
-const guildBanRemove = require("./src/events/guild/guildBanRemove");
-const guildMemberUpdate = require("./src/events/guild/guildMemberUpdate");
-const message = require("./src/events/guild/message");
-const messageDelete = require("./src/events/guild/messageDelete");
-const messageUpdate = require("./src/events/guild/messageUpdate");
-const roleCreate = require("./src/events/guild/roleCreate");
-const roleDelete = require("./src/events/guild/roleDelete");
-const roleUpdate = require("./src/events/guild/roleUpdate");
-
-reactionRolesLoad(client, reactionRolesDb);
-reactionRolesTrack(client, reactionRolesDb);
-memberCount(client);
-memes(client);
-announcementsWebhook(client);
-channelCreate(client);
-channelDelete(client);
-channelUpdate(client);
-guildBanAdd(client);
-guildBanRemove(client);
-guildMemberUpdate(client);
-message(client);
-messageDelete(client);
-messageUpdate(client);
-roleCreate(client);
-roleDelete(client);
-roleUpdate(client);
-guildMemberAdd(client);
-guildBanRemove(client);
-
 client.commands = new Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
@@ -212,7 +170,6 @@ fs.readdir("./src/commands/admin/", (err, files) => {
         client.commands.set(commandName, props);
     });
 });
-
 fs.readdir("./src/events/client/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
