@@ -5,7 +5,6 @@ const events = (require("events").EventEmitter.defaultMaxListeners = 50);
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
-const reactionRolesDb = require("./src/database/roles-reaction.json");
 const config = require("./config.json");
 const fs = require("fs");
 const moment = require("moment");
@@ -13,6 +12,15 @@ moment.locale("fr");
 require("dotenv").config();
 const TOKEN = process.env.DISCORD_TOKEN;
 client.config = config;
+
+var reactionRolesDb = require("./src/database/roles-reaction.json");
+reactionRolesDb = config;
+
+const fetchMessages = require("./src/events/guild/reaction_roles/load");
+fetchMessages(client, config);
+
+const track = require("./src/events/guild/reaction_roles/track");
+track(client, config);
 
 client.commands = new Collection();
 client.prefix = PREFIX;
@@ -174,6 +182,15 @@ fs.readdir("./src/events/client/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
         const event = require(`./src/events/client/${file}`);
+        let eventName = file.split(".")[0];
+        console.log(`Load event ${eventName}`);
+        client.on(eventName, event.bind(null, client));
+    });
+});
+fs.readdir("./src/events/guild/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach((file) => {
+        const event = require(`./src/events/guild/${file}`);
         let eventName = file.split(".")[0];
         console.log(`Load event ${eventName}`);
         client.on(eventName, event.bind(null, client));
