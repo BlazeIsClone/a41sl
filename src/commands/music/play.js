@@ -89,7 +89,7 @@ module.exports.run = async (client, message, args) => {
   if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
     return message.client.commands.get("playlist").execute(message, args);
   } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
-    return message.client.commands.get("playlist").execute(message, args);
+    return client.commands.get("playlist").run(client, message, args);
   }
 
   const queueConstruct = {
