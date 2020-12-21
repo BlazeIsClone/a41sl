@@ -17,7 +17,6 @@ client.config = config;
 const reactionRolesLoad = require("./src/events/guild/reactionRoles/reactionRolesLoad");
 const reactionRolesTrack = require("./src/events/guild/reactionRoles/reactionRolesTrack");
 const queue = require("./src/commands/music/play.js");
-const statusPresence = require("./src/events/client/statusPresence");
 const memberCount = require("./src/events/guild/memberCount");
 const memes = require("./src/events/guild/memes");
 const announcementsWebhook = require("./src/webhooks/Announcements");
@@ -39,7 +38,6 @@ const roleUpdate = require("./src/events/guild/roleUpdate");
 
 reactionRolesLoad(client, reactionRolesDb);
 reactionRolesTrack(client, reactionRolesDb);
-statusPresence(client);
 memberCount(client);
 memes(client);
 announcementsWebhook(client);
@@ -212,6 +210,16 @@ fs.readdir("./src/commands/admin/", (err, files) => {
         let commandName = file.split(".")[0];
         console.log(`Load command ${commandName}`);
         client.commands.set(commandName, props);
+    });
+});
+
+fs.readdir("./src/events/client/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach((file) => {
+        const event = require(`./src/events/client/${file}`);
+        let eventName = file.split(".")[0];
+        console.log(`Load event ${eventName}`);
+        client.on(eventName, event.bind(null, client));
     });
 });
 
