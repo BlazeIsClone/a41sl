@@ -96,7 +96,6 @@ client.on("message", async (message) => {
         console.log(e);
     }
 });
-
 client.on("message", (message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
@@ -111,7 +110,6 @@ client.on("message", (message) => {
     if (!cmd) return;
     cmd.run(client, message, args);
 });
-
 fs.readdir("./src/commands/nsfw/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
@@ -133,7 +131,6 @@ fs.readdir("./src/commands/general/", (err, files) => {
         client.commands.set(commandName, props);
     });
 });
-
 fs.readdir("./src/commands/misc/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
@@ -144,7 +141,6 @@ fs.readdir("./src/commands/misc/", (err, files) => {
         client.commands.set(commandName, props);
     });
 });
-
 fs.readdir("./src/commands/fun/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
@@ -155,7 +151,6 @@ fs.readdir("./src/commands/fun/", (err, files) => {
         client.commands.set(commandName, props);
     });
 });
-
 fs.readdir("./src/commands/dev/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
@@ -166,7 +161,6 @@ fs.readdir("./src/commands/dev/", (err, files) => {
         client.commands.set(commandName, props);
     });
 });
-
 fs.readdir("./src/commands/admin/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
