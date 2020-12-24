@@ -7,11 +7,8 @@ const { join } = require("path");
 const { PREFIX } = require("./config.json");
 const config = require("./config.json");
 const fs = require("fs");
-const moment = require("moment");
-moment.locale("fr");
 require("dotenv").config();
 const TOKEN = process.env.DISCORD_TOKEN;
-client.config = config;
 
 var reactionRolesDb = require("./src/database/roles-reaction.json");
 
@@ -21,15 +18,19 @@ fetchMessages(client, reactionRolesDb);
 const track = require("./src/reaction_roles/track");
 track(client, reactionRolesDb);
 
+client.config = config;
 client.commands = new Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+/* ---------- DEBUGING ---------- */
+
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
 
+/* ---------- IMPORT ALL COMMANDS ---------- */
 const adminCmds = fs
     .readdirSync("./src/commands/admin")
     .filter((file) => file.endsWith(".js"));
@@ -38,7 +39,6 @@ for (const file of adminCmds) {
     const adminCommands = require(`./src/commands/admin/${file}`);
     client.commands.set(adminCommands.name, adminCommands);
 }
-
 const devCmds = fs
     .readdirSync("./src/commands/dev")
     .filter((file) => file.endsWith(".js"));
@@ -47,7 +47,6 @@ for (const file of devCmds) {
     const devCommands = require(`./src/commands/dev/${file}`);
     client.commands.set(devCommands.name, devCommands);
 }
-
 const funCmds = fs
     .readdirSync("./src/commands/fun")
     .filter((file) => file.endsWith(".js"));
@@ -56,7 +55,6 @@ for (const file of funCmds) {
     const funCommands = require(`./src/commands/fun/${file}`);
     client.commands.set(funCommands.name, funCommands);
 }
-
 const generalCmds = fs
     .readdirSync("./src/commands/general")
     .filter((file) => file.endsWith(".js"));
@@ -65,7 +63,6 @@ for (const file of generalCmds) {
     const devCommands = require(`./src/commands/general/${file}`);
     client.commands.set(devCommands.name, devCommands);
 }
-
 const memesCmds = fs
     .readdirSync("./src/commands/memes")
     .filter((file) => file.endsWith(".js"));
@@ -74,7 +71,6 @@ for (const file of memesCmds) {
     const memesCommands = require(`./src/commands/memes/${file}`);
     client.commands.set(memesCommands.name, memesCommands);
 }
-
 const miscCmds = fs
     .readdirSync("./src/commands/misc")
     .filter((file) => file.endsWith(".js"));
@@ -83,7 +79,6 @@ for (const file of miscCmds) {
     const miscCommands = require(`./src/commands/misc/${file}`);
     client.commands.set(miscCommands.name, miscCommands);
 }
-
 const musicCmds = fs
     .readdirSync("./src/commands/music")
     .filter((file) => file.endsWith(".js"));
@@ -92,7 +87,6 @@ for (const file of musicCmds) {
     const musicCommands = require(`./src/commands/music/${file}`);
     client.commands.set(musicCommands.name, musicCommands);
 }
-
 const nsfwCmds = fs
     .readdirSync("./src/commands/nsfw")
     .filter((file) => file.endsWith(".js"));
@@ -102,6 +96,7 @@ for (const file of nsfwCmds) {
     client.commands.set(nsfwCommands.name, nsfwCommands);
 }
 
+/* ---------- IMPORT ALL EVENTS ---------- */
 fs.readdir("./src/events/client/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
@@ -118,7 +113,7 @@ fs.readdir("./src/events/guild/", (err, files) => {
         client.on(eventName, event.bind(null, client));
     });
 });
-
+/* ---------- COMMAND HANDLER ---------- */
 client.on("message", async (message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
