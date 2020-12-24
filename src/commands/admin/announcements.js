@@ -4,7 +4,7 @@ require("dotenv").config();
 const webhookUrl = process.env.ANNOUNCEMENTS_WEBHOOK;
 
 module.exports = {
-  name: "announcement",
+  name: "announcements",
   aliases: [],
   description: "Sends an announcement to a channel",
   async execute(client, message, args) {
