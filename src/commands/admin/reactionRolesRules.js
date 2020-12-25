@@ -3,9 +3,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "reactionRolesRules",
-    aliases: [],
     description: "Sends an embed with a rules",
-    async execute(client, message, args) {
+    async execute(message, args) {
         const rulesEmbed = new Discord.MessageEmbed()
             .setColor("#00FF00")
             .setTitle(

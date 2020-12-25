@@ -2,9 +2,8 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "leave",
-    aliases: [],
     description: "Disconnects the bot from your voice channel",
-    async execute(client, message, args) {
+    async execute(message, args) {
         if (!message.member.hasPermission("CONNECT"))
             return message.reply("You do not have the permissions to do that");
 

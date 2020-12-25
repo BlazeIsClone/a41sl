@@ -1,12 +1,10 @@
 const Discord = require("discord.js");
+var superagent = require("superagent");
 
 module.exports = {
-    name: "music-commands",
-    aliases: [],
-    description: "Get music commands",
-    async execute(client, message, args) {
-        var superagent = require("superagent");
-
+    name: "ass",
+    description: "nsfw ass",
+    async execute(message, args) {
         if (!message.channel.nsfw)
             return message.channel.send(
                 ":underage:  This Command Is Only Allowed In NSFW Channels Only!"

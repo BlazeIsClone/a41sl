@@ -1,9 +1,9 @@
 const DadJokes = require("dadjokes-wrapper");
 module.exports = {
         name: "joke",
-        aliases: [],
+        aliases: ["jk"],
         description: "Random jokes",
-        async execute(client, message, args) {
+        async execute(message, args) {
                 if (!message.member.hasPermission("SEND_MESSAGES"))
                         return message.reply(
                                 "You do not have the permissions to send messages in this channel"

@@ -3,9 +3,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "reactionRolesGames",
-    aliases: [],
     description: "Sends an embed with a list of games",
-    async execute(client, message, args) {
+    async execute(message, args) {
         const addRolesAttachment = new MessageEmbed()
             .setImage("https://i.imgur.com/XzvxWtQ.png")
             .setColor("#00FF00");

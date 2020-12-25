@@ -2,9 +2,8 @@ const Discord = require("discord.js");
 
 module.exports = {
         name: "delete",
-        aliases: [],
         description: "Delete messages in chat",
-        async execute(client, message, args) {
+        async execute(message, args) {
                 if (!message.member.hasPermission("MANAGE_MESSAGES"))
                         return message.reply(
                                 "You do not have the permissions to do that"

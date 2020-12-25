@@ -3,9 +3,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "reactionRolesNotifications",
-    aliases: [],
     description: "Sends an embed with a list of notifications",
-    async execute(client, message, args) {
+    async execute(message, args) {
         if (!message.member.hasPermission("ADMINISTRATOR"))
             return message.reply("You do not have the permissions to do that");
 

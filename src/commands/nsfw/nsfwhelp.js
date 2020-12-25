@@ -1,10 +1,9 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "nsfw-commands",
-    aliases: [],
+    name: "nsfwhelp",
     description: "Get all nsfw command",
-    async execute(client, message, args) {
+    async execute(message, args) {
         if (!message.channel.nsfw)
             return message.channel.send(
                 ":underage:  The Help Command For NSFW Content Is Only Allowed In NSFW Channels!"

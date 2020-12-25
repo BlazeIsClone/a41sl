@@ -3,9 +3,8 @@ var superagent = require("superagent");
 
 module.exports = {
     name: "4k",
-    aliases: [],
     description: "Nsfw 4k babes",
-    async execute(client, message, args) {
+    async execute(message, args) {
         if (!message.channel.nsfw)
             return message.channel.send(
                 ":underage:  This Command Is Only Allowed In NSFW Channels Only!"

@@ -3,9 +3,8 @@ const { serverManager, serverOwner } = require("../../../config.json");
 
 module.exports = {
     name: "eval",
-    aliases: [],
     description: "developer only command",
-    async execute(client, message, args) {
+    async execute(message, args) {
         var clean = (text) => {
             if (typeof text === "string")
                 return text

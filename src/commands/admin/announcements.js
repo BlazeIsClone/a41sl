@@ -1,24 +1,24 @@
 const Discord = require("discord.js");
 const webhook = require("webhook-discord");
+const { PREFIX } = require("../../../config.json");
 require("dotenv").config();
-const webhookUrl = process.env.ANNOUNCEMENTS_WEBHOOK;
+const webhookID = process.env.WEBHOOK_ID;
+const webhookToken = process.env.WEBHOOK_TOKEN;
 
 module.exports = {
-  name: "announcements",
-  aliases: [],
+  name: "announce",
   description: "Sends an announcement to a channel",
-  async execute(client, message, args) {
+  async execute(message, args) {
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.reply("You do not have the permissions to do that");
 
-    let msgBody = "YourMSG";
-    const Hook = new webhook.Webhook(webhookUrl);
-
-    const msg = new webhook.MessageBuilder()
-      .setName("All For One Notifier")
-      .setColor("#00FF00")
-      .setDescription(msgBody);
-    Hook.send(msg);
-    message.author.send("Announcement Status: **connected**");
+    const webhookClient = new Discord.WebhookClient(webhookID, webhookToken);
+    const msgArgs = message.content.slice(1).trim().split(" ");
+    var announcement = "";
+    for (const word in args) {
+      announcement = args + "᲼";
+    }
+    webhookClient.send(announcement).catch(console.error);
+    message.author.send("**Announcement status: sent**");
   },
 };

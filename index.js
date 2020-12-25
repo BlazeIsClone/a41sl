@@ -60,8 +60,8 @@ const generalCmds = fs
     .filter((file) => file.endsWith(".js"));
 
 for (const file of generalCmds) {
-    const devCommands = require(`./src/commands/general/${file}`);
-    client.commands.set(devCommands.name, devCommands);
+    const generalCommands = require(`./src/commands/general/${file}`);
+    client.commands.set(generalCommands.name, generalCommands);
 }
 const miscCmds = fs
     .readdirSync("./src/commands/misc")
