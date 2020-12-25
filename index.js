@@ -63,14 +63,6 @@ for (const file of generalCmds) {
     const devCommands = require(`./src/commands/general/${file}`);
     client.commands.set(devCommands.name, devCommands);
 }
-const memesCmds = fs
-    .readdirSync("./src/commands/memes")
-    .filter((file) => file.endsWith(".js"));
-
-for (const file of memesCmds) {
-    const memesCommands = require(`./src/commands/memes/${file}`);
-    client.commands.set(memesCommands.name, memesCommands);
-}
 const miscCmds = fs
     .readdirSync("./src/commands/misc")
     .filter((file) => file.endsWith(".js"));
