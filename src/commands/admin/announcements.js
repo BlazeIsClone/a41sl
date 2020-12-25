@@ -7,7 +7,7 @@ const webhookToken = process.env.WEBHOOK_TOKEN;
 
 module.exports = {
   name: "announce",
-  description: "Sends an announcement to a channel",
+  description: "Sends an announcement",
   async execute(message, args) {
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.reply("You do not have the permissions to do that");

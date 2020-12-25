@@ -13,6 +13,12 @@ module.exports = {
       .setColor("#00FF00");
 
     commands.forEach((cmd) => {
+      if (cmd.name === "reactionRolesGames") return;
+      if (cmd.name === "reactionRolesIntro") return;
+      if (cmd.name === "reactionRolesNotifications") return;
+      if (cmd.name === "reactionRolesRules") return;
+      if (cmd.name === "linebreak") return;
+
       helpEmbed.addField(
         `**${message.client.prefix}${cmd.name} ${
           cmd.aliases ? `(${cmd.aliases})` : ""
