@@ -13,10 +13,10 @@ module.exports = {
       return message.reply("You do not have the permissions to do that");
 
     const webhookClient = new Discord.WebhookClient(webhookID, webhookToken);
-    const msgArgs = message.content.slice(1).trim().split(" ");
+    args = message.content.slice(9).trim();
     var announcement = "";
     for (const word in args) {
-      announcement = args + "᲼";
+      announcement = args;
     }
     webhookClient.send(announcement).catch(console.error);
     message.author.send("**Announcement status: sent**");
