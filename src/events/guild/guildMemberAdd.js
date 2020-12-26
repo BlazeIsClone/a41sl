@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const Canvas = require("canvas");
 const { welcomeChannel } = require("../../../config.json");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, member) => {
   const channel = member.guild.channels.cache.find(
@@ -83,4 +84,18 @@ module.exports = async (client, member) => {
   ];
   const greet = () => greetings[Math.floor(Math.random() * greetings.length)];
   channel.send(`${greet()}, ${member}`, attachment);
+
+  const serverName = member.guild.name;
+  const welcomeDm =
+    `Hello and welcome to **${serverName}**` +
+    "\n" +
+    "Please take a moment to verify yourself in <#749981223287521381> and feel free to assign yourself some roles from <#751076769486078062>" +
+    "\n" +
+    "if you have any further questions, simply message this bot back to send a mod mail to the server staff!";
+  const sendBanner = new MessageEmbed()
+    .setColor("00FF00")
+    .setImage("https://i.imgur.com/PLMbw6K.png");
+
+  await member.send(sendBanner);
+  member.send(welcomeDm);
 };
