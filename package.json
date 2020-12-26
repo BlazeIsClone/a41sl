@@ -13,6 +13,7 @@
         "cheerio": "^1.0.0-rc.3",
         "colors": "^1.4.0",
         "dadjokes-wrapper": "^0.1.4",
+        "discord-slash-commands": "^1.2.2",
         "discord-slash-commands-client": "^1.0.3",
         "discord.js": "^12.5.1",
         "dotenv": "^8.2.0",
