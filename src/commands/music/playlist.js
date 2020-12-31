@@ -143,6 +143,7 @@ module.exports = {
         title: video.title,
         url: video.url,
         duration: video.durationSeconds,
+        user: message.author,
       });
     });
 

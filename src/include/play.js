@@ -93,7 +93,7 @@ module.exports = {
       .setColor("#00FF00")
       .setTitle("Now Playing")
       .setDescription(
-        `**[${song.title}](${song.url})**\n\nRequested by: ${message.author}`
+        `**[${song.title}](${song.url})**\n\nRequested by: ${song.user}`
       )
       .setThumbnail(
         song.thumbnail ||
