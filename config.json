@@ -1,6 +1,6 @@
 {
   "MAX_PLAYLIST_SIZE": 500,
-  "PREFIX": "!",
+  "PREFIX": "/",
   "PRUNING": false,
   "nsfwPrefix": "/nsfw",
   "serverManager": "463028312567054338",
