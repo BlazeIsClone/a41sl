@@ -34,9 +34,7 @@ module.exports = async (client, newChannel, oldChannel) => {
               `${oldChannel.id}` +
               "\n**By:** <@" +
               `${userID}` +
-              "> (ID: " +
-              `${userID}` +
-              ")"
+              ">"
           )
           .setTimestamp()
           .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL());
@@ -46,15 +44,13 @@ module.exports = async (client, newChannel, oldChannel) => {
         let newTopic = new Discord.MessageEmbed()
           .setTitle("**CHANNEL EDIT**")
           .setThumbnail(userAvatar)
-          .setColor("RANDOM")
+          .setColor("#32CD32")
           .setDescription(
             `**\n**:wrench: Successfully Edited **${channelType}** Channel Topic\n\n**Old Topic:**\n\`\`\`${
               oldChannel.topic || "(Not set)"
             }\`\`\`\n**New Topic:**\n\`\`\`${
               newChannel.topic || "(Not set)"
-            }\`\`\`\n**Channel:** ${oldChannel} (ID: ${
-              oldChannel.id
-            })\n**By:** <@${userID}> (ID: ${userID})`
+            }\`\`\`\n**Channel:** ${oldChannel}\n**By:** <@${userID}>`
           )
           .setTimestamp()
           .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL());

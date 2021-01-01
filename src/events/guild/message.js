@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const prefix = process.env.PREFIX;
+const { PREFIX } = require("../../../config.json");
 
 module.exports = async (client, message) => {
   try {
@@ -14,22 +14,22 @@ module.exports = async (client, message) => {
         .setTitle(`Hi!`, message.guild.iconURL())
         .setColor("#32CD32")
         .setDescription(
-          "I'm a " +
+          "I'm " +
+            "**" +
             client.user.username +
-            "! My prefix is `" +
-            prefix +
-            "` To see all commands please type `" +
-            prefix +
-            " help`"
-        )
-        .setTimestamp();
+            "**" +
+            "\n" +
+            "To see all my commands please type `" +
+            PREFIX +
+            "help`"
+        );
       message.channel.send(embed);
     }
 
-    if (!message.content.startsWith(prefix)) return;
+    if (!message.content.startsWith(PREFIX)) return;
     if (!message.member)
       message.member = await message.guild.fetchMember(message);
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
     if (cmd.length === 0) return;
     let command = client.commands.get(cmd);
@@ -40,7 +40,7 @@ module.exports = async (client, message) => {
           color: 16734039,
           description:
             "That command does not exist, Take a look at " +
-            `${prefix}` +
+            `${PREFIX}` +
             " help!",
         },
       });
@@ -56,7 +56,7 @@ module.exports = async (client, message) => {
         color: 16734039,
         description:
           "That command does not exist, Take a look at " +
-          `${prefix}` +
+          `${PREFIX}` +
           " help!",
       },
     });

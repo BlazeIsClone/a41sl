@@ -17,7 +17,7 @@ module.exports = async (client, guild, user) => {
         .setThumbnail(userAvatar)
         .setColor("#32CD32")
         .setDescription(
-          `**\n**:unlock: Successfully \`\`UNBANNED\`\` **${user.username}** From the server\n\n**User:** <@${user.id}> (ID: ${user.id})\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**:unlock: Successfully \`\`UNBANNED\`\` **${user.username}** From the server\n\n**User:** <@${user.id}>\n**By:** <@${userID}>`
         )
         .setTimestamp()
         .setFooter(guild.name, guild.iconURL());

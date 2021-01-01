@@ -16,7 +16,7 @@ module.exports = async (client, role) => {
         .setTitle("**ROLE CREATE**")
         .setThumbnail(userAvatar)
         .setDescription(
-          `**\n**:white_check_mark: Successfully \`\`CREATE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**:white_check_mark: Successfully \`\`CREATE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` \n**By:** <@${userID}>`
         )
         .setColor("#32CD32")
         .setTimestamp()
@@ -25,7 +25,7 @@ module.exports = async (client, role) => {
     });
   } catch (err) {
     let embed = new Discord.MessageEmbed()
-      .setColor("#FF0000")
+      .setColor("#32CD32")
       .setTitle("Error!")
       .setDescription("**Error Code:** *" + err + "*")
       .setTimestamp();

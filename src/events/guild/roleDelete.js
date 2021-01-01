@@ -16,7 +16,7 @@ module.exports = async (client, role) => {
         .setTitle("**ROLE DELETE**")
         .setThumbnail(userAvatar)
         .setDescription(
-          `**\n**:white_check_mark: Successfully \`\`DELETE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**:white_check_mark: Successfully \`\`DELETE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\`\n**By:** <@${userID}>`
         )
         .setColor("#32CD32")
         .setTimestamp()

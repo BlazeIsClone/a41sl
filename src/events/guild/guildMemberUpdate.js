@@ -27,7 +27,7 @@ module.exports = async (client, oldMember, newMember) => {
           .setThumbnail(userAvatar)
           .setColor("#32CD32")
           .setDescription(
-            `**\n**:spy: Successfully \`\`CHANGE\`\` Member Nickname.\n\n**User:** ${oldMember} (ID: ${oldMember.id})\n**Old Nickname:** ${oldNM}\n**New Nickname:** ${newNM}\n**By:** <@${userID}> (ID: ${userID})`
+            `**\n**:spy: Successfully \`\`CHANGE\`\` Member Nickname.\n\n**User:** ${oldMember}\n**Old Nickname:** ${oldNM}\n**New Nickname:** ${newNM}\n**By:** <@${userID}>`
           )
           .setTimestamp()
           .setFooter(oldMember.guild.name, oldMember.guild.iconURL());
@@ -40,7 +40,7 @@ module.exports = async (client, oldMember, newMember) => {
         let roleAdded = new Discord.MessageEmbed()
           .setTitle("**ADDED ROLE TO MEMBER**")
           .setThumbnail(oldMember.guild.iconURL())
-          .setColor("RANDOM")
+          .setColor("#32CD32")
           .setDescription(
             `**\n**:white_check_mark: Successfully \`\`ADDED\`\` Role to **${oldMember.user.username}**\n\n**User:** <@${oldMember.id}> (ID: ${oldMember.user.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
           )
@@ -55,7 +55,7 @@ module.exports = async (client, oldMember, newMember) => {
         let roleRemoved = new Discord.MessageEmbed()
           .setTitle("**REMOVED ROLE FROM MEMBER**")
           .setThumbnail(oldMember.guild.iconURL())
-          .setColor("RANDOM")
+          .setColor("#32CD32")
           .setDescription(
             `**\n**:negative_squared_cross_mark: Successfully \`\`REMOVED\`\` Role from **${oldMember.user.username}**\n\n**User:** <@${oldMember.user.id}> (ID: ${oldMember.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
           )
@@ -68,7 +68,7 @@ module.exports = async (client, oldMember, newMember) => {
       let newOwner = new Discord.MessageEmbed()
         .setTitle("**UPDATE GUILD OWNER**")
         .setThumbnail(oldMember.guild.iconURL())
-        .setColor("RANDOM")
+        .setColor("#32CD32")
         .setDescription(
           `**\n**:white_check_mark: Successfully \`\`TRANSFER\`\` The OwnerShip.\n\n**Old Owner:** <@${oldMember.user.id}> (ID: ${oldMember.user.id})\n**New Owner:** <@${newMember.user.id}> (ID: ${newMember.user.id})`
         )

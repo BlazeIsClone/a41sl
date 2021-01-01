@@ -18,7 +18,7 @@ module.exports = async (client, message) => {
       .setColor("#32CD32")
       .setThumbnail(message.author.avatarURL())
       .setDescription(
-        `**\n**:wastebasket: Successfully \`\`DELETE\`\` **MESSAGE** In ${message.channel}\n\n**Channel:** \`\`${message.channel.name}\`\` (ID: ${message.channel.id})\n**Message ID:** ${message.id}\n**Sent By:** <@${message.author.id}> (ID: ${message.author.id})\n**Message:**\n\`\`\`${message}\`\`\``
+        `**\n**:wastebasket: Successfully \`\`DELETE\`\` **MESSAGE** In ${message.channel}\n\n**Channel:** \`\`${message.channel.name}\`\`\n**Message ID:** ${message.id}\n**Sent By:** <@${message.author.id}>\n**Message:**\n\`\`\`${message}\`\`\``
       )
       .setTimestamp()
       .setFooter(message.guild.name, message.guild.iconURL());
