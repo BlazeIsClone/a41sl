@@ -44,7 +44,7 @@
         "superagent": "^6.1.0",
         "turndown": "^7.0.0",
         "webhook-discord": "^3.7.7",
-        "ytdl-core": "^4.2.1",
+        "ytdl-core": "^4.3.0",
         "ytdl-core-discord": "^1.2.4"
     },
     "engines": {
