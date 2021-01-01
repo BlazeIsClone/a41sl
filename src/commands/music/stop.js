@@ -4,6 +4,7 @@ const musicChannel = process.env.MUSIC_CHANNEL;
 
 module.exports = {
     name: "stop",
+    aliases: ["clear"],
     description: "Stops the music",
     execute(message) {
         if (message.channel.id != musicChannel) {
