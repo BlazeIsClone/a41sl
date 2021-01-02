@@ -19,7 +19,7 @@ module.exports = async (client, oldRole, newRole) => {
           .setThumbnail(userAvatar)
           .setColor("#32CD32")
           .setDescription(
-            `**\n**:white_check_mark: Successfully \`\`EDITED\`\` Role Name.\n\n**Old Name:** \`\`${oldRole.name}\`\`\n**New Name:** \`\`${newRole.name}\`\`\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`
+            `**\n**:white_check_mark: Successfully \`\`EDITED\`\` Role Name.\n\n**Old Name:** \`\`${oldRole.name}\`\`\n**New Name:** \`\`${newRole.name}\`\`\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}>`
           )
           .setTimestamp()
           .setFooter(oldRole.guild.name, oldRole.guild.iconURL());
@@ -41,7 +41,7 @@ module.exports = async (client, oldRole, newRole) => {
           .setThumbnail(userAvatar)
           .setColor("#32CD32")
           .setDescription(
-            `**\n**:white_check_mark: Successfully \`\`EDITED\`\` **${oldRole.name}** Role Color.\n\n**Old Color:** ${oldColor}\n**New Color:** ${newColor}\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`
+            `**\n**:white_check_mark: Successfully \`\`EDITED\`\` **${oldRole.name}** Role Color.\n\n**Old Color:** ${oldColor}\n**New Color:** ${newColor}\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}>`
           )
           .setTimestamp()
           .setFooter(oldRole.guild.name, oldRole.guild.iconURL());
