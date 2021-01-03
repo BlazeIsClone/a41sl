@@ -13,6 +13,8 @@ module.exports = {
       .setColor("#00FF00");
 
     commands.forEach((cmd) => {
+      if (cmd.name === "eval") return;
+      if (cmd.name === "restart") return;
       if (cmd.name === "reactionRolesGames") return;
       if (cmd.name === "reactionRolesIntro") return;
       if (cmd.name === "reactionRolesNotifications") return;
