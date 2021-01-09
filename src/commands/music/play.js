@@ -118,6 +118,7 @@ module.exports = {
           url: songInfo.videoDetails.video_url,
           duration: songInfo.videoDetails.lengthSeconds,
           thumbnail: songInfo.videoDetails.thumbnails[3].url,
+          user: message.author,
         };
       } catch (error) {
         console.error(error);
