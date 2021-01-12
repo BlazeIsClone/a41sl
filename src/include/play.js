@@ -24,7 +24,7 @@ module.exports = {
       .setColor("#FF0000");
 
     const botLeaveChannel = new Discord.MessageEmbed().setDescription(
-      "I disconnected due to inactivity."
+      "Disconnected due to inactivity."
     );
 
     if (!song) {
