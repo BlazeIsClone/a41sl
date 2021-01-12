@@ -3,6 +3,7 @@ const ytdlDiscord = require("erit-ytdl");
 const scdl = require("soundcloud-downloader");
 const { canModifyQueue } = require("../util/EvobotUtil");
 const { MessageEmbed } = require("discord.js");
+const { disconnectDelay } = require("../../config.json");
 
 module.exports = {
   async play(song, message) {
@@ -22,8 +23,19 @@ module.exports = {
       .setDescription("⛔ Music queue ended.")
       .setColor("#FF0000");
 
+    const botLeaveChannel = new Discord.MessageEmbed().setDescription(
+      "I Disconnected due to inactivity."
+    );
+
     if (!song) {
-      queue.channel.leave();
+      setTimeout(() => {
+        if (!queue.connection.dispatcher && message.guild.me.voice.channel) {
+          queue.channel.leave();
+          queue.textChannel.send(botLeaveChannel).catch(console.error);
+        } else {
+          return;
+        }
+      }, disconnectDelay);
       message.client.queue.delete(message.guild.id);
       return queue.textChannel.send(muiscQueueEnded).catch(console.error);
     }
