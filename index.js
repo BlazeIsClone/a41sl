@@ -1,6 +1,9 @@
 const Discord = require("discord.js");
 const { Client, Collection } = require("discord.js");
-const client = new Client({ disableMentions: "everyone" });
+const client = new Client({
+    disableMentions: "everyone",
+    restTimeOffset: 0,
+});
 const events = (require("events").EventEmitter.defaultMaxListeners = 50);
 const { readdirSync } = require("fs");
 const { join } = require("path");
