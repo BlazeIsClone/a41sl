@@ -137,27 +137,26 @@ module.exports = {
         return message.reply(error.message).catch(console.error);
       }
     }
-
-    const newSongs = videos.map((video) => {
-      return (song = {
-        title: video.title,
-        url: video.url,
-        duration: video.durationSeconds,
-        thumbnail: video.videoDetails.thumbnails[3].url,
-        user: message.author,
+    const newSongs = videos
+      .filter((video) => video.title != "Private video")
+      .map((video) => {
+        return (song = {
+          title: video.title,
+          url: video.url,
+          duration: video.durationSeconds,
+          thumbnail: video.videoDetails.thumbnails[3].url,
+          user: message.author,
+        });
       });
-    });
 
     serverQueue
       ? serverQueue.songs.push(...newSongs)
       : queueConstruct.songs.push(...newSongs);
 
-    const songs = serverQueue ? serverQueue.songs : queueConstruct.songs;
-
     let playlistEmbed = new MessageEmbed()
       .setTitle(`${playlist.title}`)
       .setDescription(
-        songs.map((song, index) => `\`${index + 1}\` ${song.title}`)
+        newSongs.map((song, index) => `${index + 1}. ${song.title}`)
       )
       .setURL(playlist.url)
       .setColor("#F8AA2A");
