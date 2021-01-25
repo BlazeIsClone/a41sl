@@ -82,6 +82,14 @@ for (const file of generalCmds) {
     const generalCommands = require(`./src/commands/general/${file}`);
     client.commands.set(generalCommands.name, generalCommands);
 }
+const lolCmds = fs
+    .readdirSync("./src/commands/lol")
+    .filter((file) => file.endsWith(".js"));
+
+for (const file of lolCmds) {
+    const lolCommands = require(`./src/commands/lol/${file}`);
+    client.commands.set(lolCommands.name, lolCommands);
+}
 const miscCmds = fs
     .readdirSync("./src/commands/misc")
     .filter((file) => file.endsWith(".js"));
