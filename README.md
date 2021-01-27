@@ -2,7 +2,7 @@
 
 # **All For One Bot**
 
-All For One Bot is a free and open source solution to your server managing, built with quality in mind. Our goal is to cover as many functionalities and niches as possible, while still maintaining quality. This project is still under developement. If You run into any issues please feel free to let me know im happy to help you out.
+All For One Bot is an open source solution for your discord server management and entertainment. My goal is to cover as many functionalities and niches as possible, while still maintaining usability and code readability. This project is currently under development and if you are planing to implement right now you might have to make minor adjustments to the code. In the future im planing to make intergration seamless and provide detailed documentation. If You run into any issues please feel free to let me know in the discussion or create a new issue.
 
 Join our discord server ➡️ [All For One SL](https://discord.gg/UstfHPG)
 
@@ -24,26 +24,6 @@ git clone https://github.com/BlazeIsClone/A41SLBOT.git
 
 For the code to work you need to setup the environment variables reffer to the wiki to setup these.
 [✔️ wiki](https://github.com/BlazeIsClone/A41SLBOT/wiki)
-
-## 🚧 Requesting Features [![Generic badge](https://img.shields.io/badge/Request-Feature-<COLOR>.svg)](https://github.com/BlazeIsClone/A41SLBOT/issues/new?assignees=&labels=&template=feature_request.md&title=)
-
-To request features open a new issue in this repository.
-
-**Is your feature request related to a problem? Please describe.**
-
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
-
-**Describe the solution you'd like**
-
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-
-Add any other context or screenshots about the feature request.
 
 # 👏 Contributor Covenant Code of Conduct
 
@@ -71,6 +51,10 @@ available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.ht
 For answers to common questions about this code of conduct, see
 https://www.contributor-covenant.org/faq
 
+## 💝 Credits
+A special thanks to [eritislami/evobot](https://github.com/eritislami/evobot) for the code and [SharkSmile](https://github.com/sahaswin) for the amazing logo and inspiration.
+
 ## 📜 License [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
 
 [📄 GNU General Public License v3.0](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
+
