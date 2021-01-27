@@ -25,7 +25,7 @@ git clone https://github.com/BlazeIsClone/A41SLBOT.git
 For the code to work you need to setup the environment variables reffer to the wiki to setup these.
 [✔️ wiki](https://github.com/BlazeIsClone/A41SLBOT/wiki)
 
-# 👏 Contributor Covenant Code of Conduct
+## 👏 Contributor Covenant Code of Conduct
 
 All For One Bot is still on alpha stage contribution would be appreciated ❤️.
 
