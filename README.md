@@ -4,8 +4,6 @@
 
 All For One Bot is an open source solution for your discord server management and entertainment. My goal is to cover as many functionalities and niches as possible, while still maintaining usability and code readability. This project is currently under development and if you are planing to implement right now you might have to make minor adjustments to the code. In the future im planing to make intergration seamless and provide detailed documentation. If You run into any issues please feel free to let me know in the discussion or create a new issue.
 
-Join our discord server ➡️ [All For One SL](https://discord.gg/UstfHPG)
-
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/BlazeIsClone/A41SLBOT/commits/master)
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/BlazeIsClone/A41SLBOT/graphs/contributors/)
 [![Discord](https://img.shields.io/discord/591914197219016707.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.com/invite/UstfHPG)
