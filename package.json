@@ -39,7 +39,7 @@
         "request": "^2.88.2",
         "rss-parser": "^3.9.0",
         "simple-youtube-api": "^5.2.1",
-        "soundcloud-downloader": "^0.2.0",
+        "soundcloud-downloader": "^0.2.1",
         "string-progressbar": "^1.0.1",
         "superagent": "^6.1.0",
         "turndown": "^7.0.0",

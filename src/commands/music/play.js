@@ -1,7 +1,8 @@
 const { play } = require("../../include/play");
 const ytdl = require("ytdl-core");
 const YouTubeAPI = require("simple-youtube-api");
-const scdl = require("soundcloud-downloader");
+const scdl = require("soundcloud-downloader").default;
+const https = require("https");
 const { MessageEmbed } = require("discord.js");
 const musicChannel = process.env.MUSIC_CHANNEL;
 
@@ -88,13 +89,35 @@ module.exports = {
     const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
     const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
     const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
+    const mobileScRegex = /^https?:\/\/(soundcloud\.app\.goo\.gl)\/(.*)$/;
     const url = args[0];
     const urlValid = videoPattern.test(args[0]);
 
+    // Start the playlist if playlist url was provided
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
       return message.client.commands.get("playlist").execute(message, args);
     } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
       return message.client.commands.get("playlist").execute(message, args);
+    }
+
+    if (mobileScRegex.test(url)) {
+      try {
+        https.get(url, function (res) {
+          if (res.statusCode == "302") {
+            return message.client.commands
+              .get("play")
+              .execute(message, [res.headers.location]);
+          } else {
+            return message
+              .reply("No content could be found at that url.")
+              .catch(console.error);
+          }
+        });
+      } catch (error) {
+        console.error(error);
+        return message.reply(error.message).catch(console.error);
+      }
+      return message.reply("Following url redirection...").catch(console.error);
     }
 
     const queueConstruct = {

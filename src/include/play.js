@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const ytdlDiscord = require("erit-ytdl");
-const scdl = require("soundcloud-downloader");
+const scdl = require("soundcloud-downloader").default;
 const { canModifyQueue } = require("../util/EvobotUtil");
 const { MessageEmbed } = require("discord.js");
 const { disconnectDelay } = require("../../config.json");
