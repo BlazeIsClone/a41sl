@@ -1,0 +1,16 @@
+{
+  "MAX_PLAYLIST_SIZE": 500,
+  "PREFIX": "/",
+  "PRUNING": false,
+  "musicChannel": "text-channel-id",
+  "nsfwPrefix": "/nsfw",
+  "serverManager": "user-id",
+  "serverOwner": "user-id",
+  "guildId": "server-id",
+  "welcomeChannel": "text-channel-name",
+  "goodbyeChannel": "text-channel-name",
+  "auditLogChannel": "text-channel-name",
+  "memesChannel": "text-channel-id",
+  "memberCountChannelId": "text-channel-id",
+  "disconnectDelay": 500000
+}
