@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const { play } = require("../../include/play");
 const YouTubeAPI = require("simple-youtube-api");
 const scdl = require("soundcloud-downloader").default;
-const musicChannel = process.env.MUSIC_CHANNEL;
+const { musicChannel } = require("../../../config.json");
 
 let config;
 try {

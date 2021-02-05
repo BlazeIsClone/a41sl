@@ -4,7 +4,7 @@ const YouTubeAPI = require("simple-youtube-api");
 const scdl = require("soundcloud-downloader").default;
 const https = require("https");
 const { MessageEmbed } = require("discord.js");
-const musicChannel = process.env.MUSIC_CHANNEL;
+const { musicChannel } = require("../../../config.json");
 
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
