@@ -26,14 +26,13 @@ If you have any difficulties obtaining API tokens please refer
 
 ⚠ Never share your tokens or api keys publicly 
 
-Rename `config.json.example` to `config.json` and fill out the values:
+Modify `config.json` and fill out the values:
 
 ```json
 {
   "MAX_PLAYLIST_SIZE": 500,
   "PREFIX": "/",
   "PRUNING": false,
-  "STAY_TIME": 30,
   "musicChannel": "text-channel-id",
   "nsfwPrefix": "/nsfw",
   "serverManager": "user-id",
@@ -43,7 +42,8 @@ Rename `config.json.example` to `config.json` and fill out the values:
   "goodbyeChannel": "text-channel-name",
   "auditLogChannel": "text-channel-name",
   "memesChannel": "text-channel-id",
-  "memberCountChannelId": "text-channel-id"
+  "memberCountChannelId": "text-channel-id",
+  "STAY_TIME": 30
 }
 ```
 For API Tokens Rename `.env.example` to `.env` and fill out the values:
