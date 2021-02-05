@@ -3,7 +3,7 @@ const ytdlDiscord = require("erit-ytdl");
 const scdl = require("soundcloud-downloader").default;
 const { canModifyQueue } = require("../util/EvobotUtil");
 const { MessageEmbed } = require("discord.js");
-const { disconnectDelay } = require("../../config.json");
+const { STAY_TIME } = require("../../config.json");
 
 module.exports = {
   async play(song, message) {
@@ -28,16 +28,14 @@ module.exports = {
     );
 
     if (!song) {
-      setTimeout(() => {
-        if (!queue.connection.dispatcher && message.guild.me.voice.channel) {
-          queue.channel.leave();
-          queue.textChannel.send(botLeaveChannel).catch(console.error);
-        } else {
+      setTimeout(function () {
+        if (queue.connection.dispatcher && message.guild.me.voice.channel)
           return;
-        }
-      }, disconnectDelay);
-      message.client.queue.delete(message.guild.id);
-      return queue.textChannel.send(muiscQueueEnded).catch(console.error);
+        queue.channel.leave();
+        queue.textChannel.send(botLeaveChannel);
+      }, STAY_TIME * 1000);
+      queue.textChannel.send(muiscQueueEnded).catch(console.error);
+      return message.client.queue.delete(message.guild.id);
     }
 
     let stream = null;
