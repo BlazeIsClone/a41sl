@@ -1,0 +1,18 @@
+1. Rename this file to .env 
+2. You can use this file to store your environment variables locally.
+3. If you want to host the bot in heroku use config vars feature.
+4. You only have to have DISCORD_TOKEN,YOUTUBE_API_KEY,MUSIC_CHANNEL vars for the bot to work.
+5. MAKE SURE YOU REMOVE THESE COMMENTS AND DONT LEAVE ANY SPACES
+6. Example:DISCORD_TOKEN=xxxxxxxxxxxxxxxxxxxx
+
+DISCORD_TOKEN=
+YOUTUBE_API_KEY=
+SOUNDCLOUD_CLIENT_ID=
+TOKEN_LOL=
+TWITCH_CLIENT_ID=
+TWITCH_CLIENT_SECRET=
+ANNOUNCEMENTS_WEBHOOK=
+MUSIC_CHANNEL=
+WEBHOOK_TOKEN=
+WEBHOOK_ID=
+
