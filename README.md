@@ -2,7 +2,7 @@
 
 # **All For One Bot**
 
-All For One Bot is an open source solution for your discord server management and entertainment. My goal is to cover as many functionalities and niches as possible, while still maintaining usability and code readability. This project is currently under development and if you are planing to implement right now you might have to make minor adjustments to the code. In the future im planing to make intergration seamless and provide detailed documentation. If You run into any issues please feel free to let me know in the discussion or create a new issue.
+All For One Bot is an open source solution for your discord server management and entertainment. My goal is to cover as many functionalities and niches as possible, while still maintaining usability and code readability.
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/BlazeIsClone/A41SLBOT/commits/master)
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/BlazeIsClone/A41SLBOT/graphs/contributors/)
@@ -22,21 +22,47 @@ git clone https://github.com/BlazeIsClone/A41SLBOT.git
 For the code to work you need to setup the environment variables reffer to the wiki to setup these.
 [✔️ wiki](https://github.com/BlazeIsClone/A41SLBOT/wiki)
 
+## ⚙️ Configuration
+
+⚠ Never share your tokens or api keys publicly 
+
+Rename `config.json.example` to `config.json` and fill out the values:
+
+```json
+{
+  "MAX_PLAYLIST_SIZE": 500,
+  "PREFIX": "/",
+  "PRUNING": false,
+  "musicChannel": "text-channel-id",
+  "nsfwPrefix": "/nsfw",
+  "serverManager": "user-id",
+  "serverOwner": "user-id",
+  "guildId": "server-id",
+  "welcomeChannel": "text-channel-name",
+  "goodbyeChannel": "text-channel-name",
+  "auditLogChannel": "text-channel-name",
+  "memesChannel": "text-channel-id",
+  "memberCountChannelId": "text-channel-id",
+  "disconnectDelay": 500000
+}
+```
+For API Tokens Rename `.env.example` to `.env` and fill out the values:
+
+```markdown
+DISCORD_TOKEN=
+YOUTUBE_API_KEY=
+SOUNDCLOUD_CLIENT_ID=
+MUSIC_CHANNEL=
+WEBHOOK_TOKEN=
+WEBHOOK_ID=
+```
+If you are hosting on heroku use the config vars feature.
+
 ## 👏 Contributor Covenant Code of Conduct
 
+This project is currently under development and if you are planing to implement right now you might have to make minor adjustments to the code. In the future im planing to make intergration seamless and provide detailed documentation. If You run into any issues please feel free to let me know in the discussion or create a new issue.
+
 All For One Bot is still on alpha stage contribution would be appreciated ❤️.
-
-## 🔒 Our Responsibilities
-
-Project maintainers are responsible for clarifying the standards of acceptable
-behavior and are expected to take appropriate and fair corrective action in
-response to any instances of unacceptable behavior.
-
-Project maintainers have the right and responsibility to remove, edit, or
-reject comments, commits, code, wiki edits, issues, and other contributions
-that are not aligned to this Code of Conduct, or to ban temporarily or
-permanently any contributor for other behaviors that they deem inappropriate,
-threatening, offensive, or harmful.
 
 ## ✉️ Attribution
 
@@ -49,7 +75,7 @@ For answers to common questions about this code of conduct, see
 https://www.contributor-covenant.org/faq
 
 ## 💝 Credits
-A special thanks to [eritislami/evobot](https://github.com/eritislami/evobot) for the code and [SharkSmile](https://github.com/sahaswin) for the amazing logo and inspiration.
+A special thanks to [eritislami/evobot](https://github.com/eritislami/evobot) for the music system/technology and [SharkSmile](https://github.com/sahaswin) for the amazing logo and inspiration.
 
 ## 📜 License [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
 
