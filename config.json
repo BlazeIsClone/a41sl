@@ -12,6 +12,5 @@
   "auditLogChannel": "🔑audit-log",
   "memesChannel": "719922837871263745",
   "memberCountChannelId": "775215451110244373",
-  "disconnectDelay": 500000,
-  "riotAPIToken": "RGAPI-5506eb09-182e-40b3-baca-a0f88eb34c76"
+  "disconnectDelay": 500000
 }

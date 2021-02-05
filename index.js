@@ -13,14 +13,6 @@ const fs = require("fs");
 require("dotenv").config();
 const TOKEN = process.env.DISCORD_TOKEN;
 
-var reactionRolesDb = require("./src/database/roles-reaction.json");
-
-const fetchMessages = require("./src/reaction_roles/load");
-fetchMessages(client, reactionRolesDb);
-
-const track = require("./src/reaction_roles/track");
-track(client, reactionRolesDb);
-
 client.config = config;
 client.commands = new Collection();
 client.prefix = PREFIX;
@@ -82,14 +74,6 @@ for (const file of generalCmds) {
     const generalCommands = require(`./src/commands/general/${file}`);
     client.commands.set(generalCommands.name, generalCommands);
 }
-const lolCmds = fs
-    .readdirSync("./src/commands/lol")
-    .filter((file) => file.endsWith(".js"));
-
-for (const file of lolCmds) {
-    const lolCommands = require(`./src/commands/lol/${file}`);
-    client.commands.set(lolCommands.name, lolCommands);
-}
 const miscCmds = fs
     .readdirSync("./src/commands/misc")
     .filter((file) => file.endsWith(".js"));
@@ -116,6 +100,15 @@ for (const file of nsfwCmds) {
 }
 
 /* ---------- IMPORT ALL EVENTS ---------- */
+
+var reactionRolesDb = require("./src/database/roles-reaction.json");
+
+const fetchMessages = require("./src/reaction_roles/load");
+fetchMessages(client, reactionRolesDb);
+
+const track = require("./src/reaction_roles/track");
+track(client, reactionRolesDb);
+
 fs.readdir("./src/events/client/", (err, files) => {
     if (err) return console.error(err);
     files.forEach((file) => {
