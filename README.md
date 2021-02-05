@@ -19,8 +19,8 @@ For self hosting clone this repository
 git clone https://github.com/BlazeIsClone/A41SLBOT.git
 ```
 
-For the code to work you need to setup the environment variables reffer to the wiki to setup these.
-[✔️ wiki](https://github.com/BlazeIsClone/A41SLBOT/wiki)
+If you have any difficulties obtaining API tokens please refer
+[📄 wiki](https://github.com/BlazeIsClone/A41SLBOT/wiki)
 
 ## ⚙️ Configuration
 
