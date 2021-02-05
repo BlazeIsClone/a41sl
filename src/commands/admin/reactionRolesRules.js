@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: "rrr",
+    name: "reactionRolesRules",
     description: "Sends an embed with a rules",
     async execute(message, args) {
         const rulesEmbed = new Discord.MessageEmbed()
