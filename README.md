@@ -33,6 +33,7 @@ Rename `config.json.example` to `config.json` and fill out the values:
   "MAX_PLAYLIST_SIZE": 500,
   "PREFIX": "/",
   "PRUNING": false,
+  "STAY_TIME": 30,
   "musicChannel": "text-channel-id",
   "nsfwPrefix": "/nsfw",
   "serverManager": "user-id",
@@ -42,8 +43,7 @@ Rename `config.json.example` to `config.json` and fill out the values:
   "goodbyeChannel": "text-channel-name",
   "auditLogChannel": "text-channel-name",
   "memesChannel": "text-channel-id",
-  "memberCountChannelId": "text-channel-id",
-  "disconnectDelay": 500000
+  "memberCountChannelId": "text-channel-id"
 }
 ```
 For API Tokens Rename `.env.example` to `.env` and fill out the values:
