@@ -19,7 +19,7 @@ module.exports = {
                     "Only Promote social media content in the advertising category. DM advertising is not allowed according to Discord's Terms of Service." +
                     "\n\n" +
                     "**3. Do not spam**" +
-                    "\n\n" +
+                    "\n" +
                     "To keep our server satisfied, we would appreciate it if you do not spam. This includes pinging a member for no reason and posting text walls. We will not hesitate to mute or ban you." +
                     "\n\n" +
                     "**4. Content Posting**" +
