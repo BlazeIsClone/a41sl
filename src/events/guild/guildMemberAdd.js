@@ -91,7 +91,7 @@ module.exports = async (client, member) => {
     "\n" +
     "Please take a moment to verify yourself in <#749981223287521381> and feel free to assign yourself some roles from <#751076769486078062>" +
     "\n" +
-    "if you have any further questions, please feel free to inform to any of our mods." +
+    "if you have any further questions or feedback, please feel free to DM to <@808921187031580673>." +
     "\n" +
     "👋 Stay **safe** and stay **connected**";
 
