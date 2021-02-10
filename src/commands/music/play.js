@@ -28,10 +28,9 @@ module.exports = {
 
     const requiredVC = new MessageEmbed()
       .setColor(0xda7272)
-      .setTimestamp()
       .setAuthor(`${message.author.tag}`)
       .setTitle("Error!")
-      .setDescription("Please join a voice channel before run this command");
+      .setDescription("Please join a voice channel before using this command");
 
     if (message.channel.id != musicChannel) {
       return message.author.send(
