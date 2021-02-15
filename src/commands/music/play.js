@@ -8,14 +8,12 @@ const { musicChannel } = require("../../../config.json");
 const spotifyURI = require("spotify-uri");
 const Spotify = require("node-spotify-api");
 
-const SPOTIFY_SECRET_ID = process.env.SPOTIFY_SECRET_ID;
-const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 const spotify = new Spotify({
-  id: SPOTIFY_CLIENT_ID,
-  secret: SPOTIFY_SECRET_ID,
+  id: process.env.SPOTIFY_CLIENT_ID,
+  secret: process.env.SPOTIFY_SECRET_ID,
 });
 
 module.exports = {
