@@ -5,10 +5,18 @@ const scdl = require("soundcloud-downloader").default;
 const https = require("https");
 const { MessageEmbed } = require("discord.js");
 const { musicChannel } = require("../../../config.json");
+const spotifyURI = require("spotify-uri");
+const Spotify = require("node-spotify-api");
 
+const SPOTIFY_SECRET_ID = process.env.SPOTIFY_SECRET_ID;
+const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const SOUNDCLOUD_CLIENT_ID = process.env.SOUNDCLOUD_CLIENT_ID;
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
+const spotify = new Spotify({
+  id: SPOTIFY_CLIENT_ID,
+  secret: SPOTIFY_SECRET_ID,
+});
 
 module.exports = {
   name: "play",
@@ -89,6 +97,10 @@ module.exports = {
     const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
     const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
     const mobileScRegex = /^https?:\/\/(soundcloud\.app\.goo\.gl)\/(.*)$/;
+    const spotifyPattern = /^.*(https:\/\/open\.spotify\.com\/track)([^#\&\?]*).*/gi;
+    const spotifyValid = spotifyPattern.test(args[0]);
+    const spotifyPlaylistPattern = /^.*(https:\/\/open\.spotify\.com\/playlist)([^#\&\?]*).*/gi;
+    const spotifyPlaylistValid = spotifyPlaylistPattern.test(args[0]);
     const url = args[0];
     const urlValid = videoPattern.test(args[0]);
 
@@ -96,6 +108,8 @@ module.exports = {
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
       return message.client.commands.get("playlist").execute(message, args);
     } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
+      return message.client.commands.get("playlist").execute(message, args);
+    } else if (spotifyPlaylistValid) {
       return message.client.commands.get("playlist").execute(message, args);
     }
 
@@ -132,7 +146,39 @@ module.exports = {
     let songInfo = null;
     let song = null;
 
-    if (urlValid) {
+    if (spotifyValid) {
+      let spotifyTitle, spotifyArtist;
+      const spotifyTrackID = spotifyURI.parse(url).id;
+      const spotifyInfo = await spotify
+        .request(`https://api.spotify.com/v1/tracks/${spotifyTrackID}`)
+        .catch((err) => {
+          return message.channel.send(`Oops... \n` + err);
+        });
+      spotifyTitle = spotifyInfo.name;
+      spotifyArtist = spotifyInfo.artists[0].name;
+
+      try {
+        const final = await youtube.searchVideos(
+          `${spotifyTitle} - ${spotifyArtist}`,
+          1,
+          { part: "snippet" }
+        );
+        songInfo = await ytdl.getInfo(final[0].url);
+        song = {
+          title: songInfo.videoDetails.title,
+          url: songInfo.videoDetails.video_url,
+          duration: songInfo.videoDetails.lengthSeconds,
+          thumbnail: songInfo.videoDetails.thumbnails[3].url,
+          user: message.author,
+        };
+      } catch (err) {
+        console.log(err);
+        const throwErrSpotify = new MessageEmbed().setDescription(
+          `Oops.. There was an error! \n` + err
+        );
+        return message.channel.send(throwErrSpotify);
+      }
+    } else if (urlValid) {
       try {
         songInfo = await ytdl.getInfo(url);
         song = {
@@ -153,6 +199,8 @@ module.exports = {
           title: trackInfo.title,
           url: trackInfo.permalink_url,
           duration: Math.ceil(trackInfo.duration / 1000),
+          thumbnail: trackInfo.artwork_url,
+          user: message.author,
         };
       } catch (error) {
         console.error(error);

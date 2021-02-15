@@ -1,6 +1,6 @@
 {
   "MAX_PLAYLIST_SIZE": 500,
-  "PREFIX": "/",
+  "PREFIX": "//",
   "PRUNING": false,
   "musicChannel": 696751701553709068,
   "nsfwPrefix": "/nsfw",
