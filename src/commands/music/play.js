@@ -1,5 +1,5 @@
 const { play } = require("../../include/play");
-const ytdl = require("ytdl-core");
+const ytdl  = require("ytdl-core");
 const YouTubeAPI = require("simple-youtube-api");
 const scdl = require("soundcloud-downloader").default;
 const https = require("https");
@@ -168,7 +168,7 @@ module.exports = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url,
           duration: songInfo.videoDetails.lengthSeconds,
-          thumbnail: songInfo.videoDetails.thumbnails[3].url,
+          thumbnail: `https://img.youtube.com/vi/${songInfo.videoDetails.videoId}/maxresdefault.jpg`,
           user: message.author,
         };
       } catch (err) {
@@ -185,7 +185,7 @@ module.exports = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url,
           duration: songInfo.videoDetails.lengthSeconds,
-          thumbnail: songInfo.videoDetails.thumbnails[3].url,
+          thumbnail: `https://img.youtube.com/vi/${songInfo.videoDetails.videoId}/maxresdefault.jpg`,
           user: message.author,
         };
       } catch (error) {
@@ -213,7 +213,7 @@ module.exports = {
         song = {
           title: songInfo.videoDetails.title,
           url: songInfo.videoDetails.video_url,
-          thumbnail: songInfo.videoDetails.thumbnails[3].url,
+          thumbnail: `https://img.youtube.com/vi/${songInfo.videoDetails.videoId}/maxresdefault.jpg`,
           duration: songInfo.videoDetails.lengthSeconds,
           user: message.author,
         };

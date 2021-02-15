@@ -185,7 +185,7 @@ module.exports = {
           title: video.title,
           url: video.url,
           duration: video.durationSeconds,
-          thumbnail: Object.values(video.thumbnails).pop().url,
+          thumbnail: `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
           user: message.author,
         });
       });
