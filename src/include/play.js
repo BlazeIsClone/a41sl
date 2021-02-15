@@ -28,7 +28,7 @@ module.exports = {
     );
 
     if (!song) {
-      setTimeout(() => {
+      setTimeout(function () {
         if (queue.connection.dispatcher && message.guild.me.voice.channel)
           return;
         queue.channel.leave();
