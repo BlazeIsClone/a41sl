@@ -161,6 +161,7 @@ module.exports = {
         videos = playlist.tracks.map((track) => ({
           title: track.title,
           url: track.permalink_url,
+          thumbnail: `https://i1.sndcdn.com/avatars-wQ2we7uDPoXzUVzW-qdr1Yg-t500x500.jpg`,
           duration: track.duration / 1000,
         }));
       }
