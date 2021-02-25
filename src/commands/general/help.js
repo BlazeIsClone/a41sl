@@ -15,11 +15,7 @@ module.exports = {
     commands.forEach((cmd) => {
       if (cmd.name === "eval") return;
       if (cmd.name === "restart") return;
-      if (cmd.name === "reactionRolesGames") return;
-      if (cmd.name === "reactionRolesIntro") return;
-      if (cmd.name === "reactionRolesNotifications") return;
-      if (cmd.name === "reactionRolesRules") return;
-      if (cmd.name === "linebreak") return;
+      if (cmd.name === "help") return;
 
       helpEmbed.addField(
         `**${message.client.prefix}${cmd.name} ${

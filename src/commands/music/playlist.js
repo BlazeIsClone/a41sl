@@ -101,6 +101,8 @@ module.exports = {
     let song = null;
     let playlist = null;
     let videos = [];
+    let newSongs = null;
+    let waitMessage = null;
 
     if (spotifyPlaylistValid) {
       try {
@@ -179,7 +181,7 @@ module.exports = {
         return message.reply(error.message).catch(console.error);
       }
     }
-    const newSongs = videos
+    newSongs = videos
       .filter((video) => video.title != "Private video")
       .map((video) => {
         return (song = {
@@ -231,14 +233,13 @@ module.exports = {
       }
     }
   },
-
   convert(second) {
     const a = second.split(":");
     let rre;
     if (a.length == 2) {
-      rre = a[0] * 60 + a[1];
+      rre = +a[0] * 60 + +a[1];
     } else {
-      rre = a[0] * 60 * 60 + a[1] * 60 + a[2];
+      rre = +a[0] * 60 * 60 + +a[1] * 60 + +a[2];
     }
 
     return rre;
