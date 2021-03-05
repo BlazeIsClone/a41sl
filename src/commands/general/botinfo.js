@@ -14,11 +14,11 @@ module.exports = {
         seconds %= 60;
         minutes %= 60;
         hours %= 24;
-
+        const guildID = message.guild.name;
         const statsEmbed = new Discord.MessageEmbed()
             .setColor("#00FF00")
             .setThumbnail(message.guild.iconURL())
-            .setAuthor(`All For One SL`, message.guild.iconURL())
+            .setAuthor(`${guildID}`, message.guild.iconURL())
             .addField(`System Os`, `${os.platform()}`, false)
             .addField(`Architecture`, `${os.arch()}`, false)
             .addField(
