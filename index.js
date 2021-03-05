@@ -103,10 +103,10 @@ for (const file of nsfwCmds) {
 
 var reactionRolesDb = require("./src/database/roles-reaction.json");
 
-const fetchMessages = require("./src/reaction_roles/load");
+const fetchMessages = require("./src/events/reaction_roles/load");
 fetchMessages(client, reactionRolesDb);
 
-const track = require("./src/reaction_roles/track");
+const track = require("./src/events/reaction_roles/track");
 track(client, reactionRolesDb);
 
 fs.readdir("./src/events/client/", (err, files) => {
