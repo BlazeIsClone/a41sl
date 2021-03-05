@@ -32,8 +32,9 @@ Modify `config.json` and fill out the values:
 {
   "MAX_PLAYLIST_SIZE": 500,
   "PREFIX": "/",
-  "PRUNING": false,
-  "musicChannel": "text-channel-id",
+  "musicChannelOne": "text-channel-id",
+  "musicChannelTwo": "text-channel-id",
+  "musicChannelErrorResponse": "Music commands are only available in **add-music** channel",
   "nsfwPrefix": "/nsfw",
   "serverManager": "user-id",
   "serverOwner": "user-id",
