@@ -1,5 +1,9 @@
 const { MessageEmbed } = require("discord.js");
-const musicChannel = process.env.MUSIC_CHANNEL;
+const {
+    musicChannelOne,
+    musicChannelTwo,
+    musicChannelErrorResponse,
+} = require("../../../config.json");
 
 module.exports = {
     name: "queue",
@@ -7,12 +11,12 @@ module.exports = {
     aliases: ["q"],
     description: "Show the music queue and now playing.",
     async execute(message) {
-        if (message.channel.id != musicChannel) {
-            return message.author.send(
-                "⛔ Music commands are only available in **add-music** channel"
-            );
+        if (
+            message.channel.id != musicChannelOne &&
+            message.channel.id != musicChannelTwo
+        ) {
+            return message.author.send(musicChannelErrorResponse);
         }
-
         const permissions = message.channel.permissionsFor(message.client.user);
         if (!permissions.has(["MANAGE_MESSAGES", "ADD_REACTIONS"]))
             return message.reply(

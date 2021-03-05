@@ -1,6 +1,10 @@
 const { MessageEmbed } = require("discord.js");
 const YouTubeAPI = require("simple-youtube-api");
-const musicChannel = process.env.MUSIC_CHANNEL;
+const {
+    musicChannelOne,
+    musicChannelTwo,
+    musicChannelErrorResponse,
+} = require("../../../config.json");
 
 let YOUTUBE_API_KEY;
 try {
@@ -15,10 +19,11 @@ module.exports = {
     name: "search",
     description: "Search and select videos to play",
     async execute(message, args) {
-        if (message.channel.id != musicChannel) {
-            return message.author.send(
-                "⛔ Music commands are only available in **add-music** channel"
-            );
+        if (
+            message.channel.id != musicChannelOne &&
+            message.channel.id != musicChannelTwo
+        ) {
+            return message.author.send(musicChannelErrorResponse);
         }
 
         const incUsage = new MessageEmbed()

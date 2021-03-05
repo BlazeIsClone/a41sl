@@ -4,7 +4,11 @@ const YouTubeAPI = require("simple-youtube-api");
 const scdl = require("soundcloud-downloader").default;
 const https = require("https");
 const { MessageEmbed } = require("discord.js");
-const { musicChannel } = require("../../../config.json");
+const {
+  musicChannelOne,
+  musicChannelTwo,
+  musicChannelErrorResponse,
+} = require("../../../config.json");
 const spotifyURI = require("spotify-uri");
 const Spotify = require("node-spotify-api");
 
@@ -22,12 +26,6 @@ module.exports = {
   aliases: ["p"],
   description: "Plays audio from YouTube or Soundcloud",
   async execute(message, args) {
-    if (message.channel.id != musicChannel) {
-      return message.author.send(
-        "⛔ Music commands are only available in **add-music** channel"
-      );
-    }
-
     const { channel } = message.member.voice;
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -38,10 +36,11 @@ module.exports = {
       .setTitle("Error!")
       .setDescription("Please join a voice channel before using this command");
 
-    if (message.channel.id != musicChannel) {
-      return message.author.send(
-        "⛔ Music commands are only available in **add-music** channel"
-      );
+    if (
+      message.channel.id != musicChannelOne &&
+      message.channel.id != musicChannelTwo
+    ) {
+      return message.author.send(musicChannelErrorResponse);
     }
 
     if (!channel) return message.channel.send(requiredVC).catch(console.error);

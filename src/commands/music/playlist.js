@@ -2,9 +2,13 @@ const { MessageEmbed } = require("discord.js");
 const { play } = require("../../include/play");
 const YouTubeAPI = require("simple-youtube-api");
 const scdl = require("soundcloud-downloader").default;
-const { musicChannel } = require("../../../config.json");
 const ytsr = require("ytsr");
 const { getTracks } = require("spotify-url-info");
+const {
+  musicChannelOne,
+  musicChannelTwo,
+  musicChannelErrorResponse,
+} = require("../../../config.json");
 
 let config;
 try {
@@ -27,12 +31,12 @@ module.exports = {
   aliases: ["pl"],
   description: "Play a playlist or an album",
   async execute(message, args) {
-    if (message.channel.id != musicChannel) {
-      return message.author.send(
-        "⛔ Music commands are only available in **add-music** channel"
-      );
+    if (
+      message.channel.id != musicChannelOne &&
+      message.channel.id != musicChannelTwo
+    ) {
+      return message.author.send(musicChannelErrorResponse);
     }
-
     const { channel } = message.member.voice;
     const serverQueue = message.client.queue.get(message.guild.id);
 

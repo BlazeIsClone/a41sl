@@ -1,8 +1,9 @@
 {
   "MAX_PLAYLIST_SIZE": 500,
   "PREFIX": "/",
-  "PRUNING": false,
-  "musicChannel": 696751701553709068,
+  "musicChannelOne": 696751701553709068,
+  "musicChannelTwo": 769761743965782055,
+  "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel",
   "nsfwPrefix": "/nsfw",
   "serverManager": "463028312567054338",
   "serverOwner": "451725062534332417",

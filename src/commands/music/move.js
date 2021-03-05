@@ -1,17 +1,22 @@
 require("array.prototype.move");
 const { canModifyQueue } = require("../../util/EvobotUtil");
 const { MessageEmbed } = require("discord.js");
-const musicChannel = process.env.MUSIC_CHANNEL;
+const {
+  musicChannelOne,
+  musicChannelTwo,
+  musicChannelErrorResponse,
+} = require("../../../config.json");
 
 module.exports = {
   name: "move",
   aliases: ["mv"],
   description: "Move songs to the top of the queue",
   execute(message, args) {
-    if (message.channel.id != musicChannel) {
-      return message.author.send(
-        "⛔ Music commands are only available in **add-music** channel"
-      );
+    if (
+      message.channel.id != musicChannelOne &&
+      message.channel.id != musicChannelTwo
+    ) {
+      return message.author.send(musicChannelErrorResponse);
     }
 
     const queue = message.client.queue.get(message.guild.id);

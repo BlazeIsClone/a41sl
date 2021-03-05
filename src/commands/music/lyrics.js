@@ -1,18 +1,22 @@
 const { MessageEmbed } = require("discord.js");
 const lyricsFinder = require("lyrics-finder");
-const musicChannel = process.env.MUSIC_CHANNEL;
+const {
+  musicChannelOne,
+  musicChannelTwo,
+  musicChannelErrorResponse,
+} = require("../../../config.json");
 
 module.exports = {
   name: "lyrics",
   aliases: ["ly"],
   description: "Get lyrics for the currently playing song",
   async execute(message) {
-    if (message.channel.id != musicChannel) {
-      return message.author.send(
-        "⛔ Music commands are only available in **add-music** channel"
-      );
+    if (
+      message.channel.id != musicChannelOne &&
+      message.channel.id != musicChannelTwo
+    ) {
+      return message.author.send(musicChannelErrorResponse);
     }
-
     const queue = message.client.queue.get(message.guild.id);
     const emptyQueue = new MessageEmbed()
       .setColor(0xda7272)
