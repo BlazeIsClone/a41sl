@@ -53,9 +53,9 @@ For API Tokens Rename `.env.example` to `.env` and fill out the values:
 DISCORD_TOKEN=
 YOUTUBE_API_KEY=
 SOUNDCLOUD_CLIENT_ID=
-MUSIC_CHANNEL=
-WEBHOOK_TOKEN=
-WEBHOOK_ID=
+ANNOUNCEMENTS_WEBHOOK_URL=
+SPOTIFY_CLIENT_ID=
+SPOTIFY_SECRET_ID=
 ```
 If you are hosting on heroku use the config vars feature.
 
