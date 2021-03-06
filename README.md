@@ -57,7 +57,7 @@ ANNOUNCEMENTS_WEBHOOK_URL=
 SPOTIFY_CLIENT_ID=
 SPOTIFY_SECRET_ID=
 ```
-If you are hosting on heroku use the config vars feature.
+If you are hosting on heroku use the **config vars** feature.
 
 ## 👏 Contributor Covenant Code of Conduct
 
