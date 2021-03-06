@@ -14,7 +14,7 @@ module.exports = {
                     "\n" +
                     "Treat others with kindness and respect, please don’t be rude to others. We want this server to be a place where you can join and chat with people with similar interests. Nobody comes here to argue with others on purpose." +
                     "\n\n" +
-                    "**2. Advertisemen**t" +
+                    "**2. Advertisement**" +
                     "\n" +
                     "Only Promote social media content in the advertising category. DM advertising is not allowed according to Discord's Terms of Service." +
                     "\n\n" +
