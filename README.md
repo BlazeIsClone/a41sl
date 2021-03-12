@@ -5,7 +5,6 @@
 All For One Bot is an open source solution for your discord server management and entertainment. My goal is to cover as many functionalities and niches as possible, while still maintaining usability and code readability.
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/BlazeIsClone/A41SLBOT/commits/master)
-[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/BlazeIsClone/A41SLBOT/graphs/contributors/)
 [![Generic badge](https://img.shields.io/badge/Instructions-wiki-<COLOR>.svg)](https://github.com/BlazeIsClone/A41SLBOT/wiki/)
 [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
 
