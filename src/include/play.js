@@ -69,7 +69,7 @@ module.exports = {
       return message.channel.send(
         new MessageEmbed()
           .setDescription(`Error: ${error.message ? error.message : error}`)
-          .setColor("#FF0000")
+          .setColor("#da7272")
       );
     }
 

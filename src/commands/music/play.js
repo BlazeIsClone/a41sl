@@ -127,7 +127,7 @@ module.exports = {
         console.error(error);
         return message
           .reply(
-            new MessageEmbed().setDescription(error.message).setColor("#FF0000")
+            new MessageEmbed().setDescription(error.message).setColor("#da7272")
           )
           .catch(console.error);
       }
@@ -193,7 +193,7 @@ module.exports = {
         console.error(error);
         return message
           .reply(
-            new MessageEmbed().setDescription(error.message).setColor("#FF0000")
+            new MessageEmbed().setDescription(error.message).setColor("#da7272")
           )
           .catch(console.error);
       }
@@ -211,7 +211,7 @@ module.exports = {
         console.error(error);
         return message
           .reply(
-            new MessageEmbed().setDescription(error.message).setColor("#FF0000")
+            new MessageEmbed().setDescription(error.message).setColor("#da7272")
           )
           .catch(console.error);
       }
@@ -230,7 +230,7 @@ module.exports = {
         console.error(error);
         return message
           .reply(
-            new MessageEmbed().setDescription(error.message).setColor("#FF0000")
+            new MessageEmbed().setDescription(error.message).setColor("#da7272")
           )
           .catch(console.error);
       }
