@@ -125,7 +125,11 @@ module.exports = {
         });
       } catch (error) {
         console.error(error);
-        return message.reply(error.message).catch(console.error);
+        return message
+          .reply(
+            new MessageEmbed().setDescription(error.message).setColor("#FF0000")
+          )
+          .catch(console.error);
       }
       return message.reply("Following url redirection...").catch(console.error);
     }
@@ -187,7 +191,11 @@ module.exports = {
         };
       } catch (error) {
         console.error(error);
-        return message.reply(error.message).catch(console.error);
+        return message
+          .reply(
+            new MessageEmbed().setDescription(error.message).setColor("#FF0000")
+          )
+          .catch(console.error);
       }
     } else if (scRegex.test(url)) {
       try {
@@ -201,7 +209,11 @@ module.exports = {
         };
       } catch (error) {
         console.error(error);
-        return message.reply(error.message).catch(console.error);
+        return message
+          .reply(
+            new MessageEmbed().setDescription(error.message).setColor("#FF0000")
+          )
+          .catch(console.error);
       }
     } else {
       try {
@@ -216,7 +228,11 @@ module.exports = {
         };
       } catch (error) {
         console.error(error);
-        return message.reply(error.message).catch(console.error);
+        return message
+          .reply(
+            new MessageEmbed().setDescription(error.message).setColor("#FF0000")
+          )
+          .catch(console.error);
       }
     }
     const addedSongToQueue = new MessageEmbed()
