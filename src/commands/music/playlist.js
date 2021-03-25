@@ -108,7 +108,11 @@ module.exports = {
 
     if (spotifyPlaylistValid) {
       try {
-        waitMessage = await message.channel.send("fetching playlist...");
+        waitMessage = await message.channel.send(
+          new MessageEmbed()
+            .setDescription("⏳fetching playlist...")
+            .setColor("#00ff00")
+        );
         let playlistTrack = await getTracks(url);
         if (playlistTrack > MAX_PLAYLIST_SIZE) {
           playlistTrack.length = MAX_PLAYLIST_SIZE;
@@ -200,11 +204,12 @@ module.exports = {
       : queueConstruct.songs.push(...newSongs);
 
     let playlistEmbed = new MessageEmbed()
-      .setTitle(`${playlist.title ? playlist.title : "Spotify Playlist"}`)
+      .setTitle("Playlist Added")
       .setDescription(
         newSongs.map((song, index) => `\`${index + 1}\` ${song.title}`)
       )
-      .setURL(playlist.url)
+      .setURL(song.url)
+      .setThumbnail(song.thumbnail)
       .setColor("#F8AA2A");
 
     if (playlistEmbed.description.length >= 2048)
