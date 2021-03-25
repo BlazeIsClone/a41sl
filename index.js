@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Discord = require("discord.js");
 const { Client, Collection } = require("discord.js");
 const client = new Client({
@@ -10,8 +11,7 @@ const { join } = require("path");
 const { PREFIX } = require("./config.json");
 const config = require("./config.json");
 const fs = require("fs");
-require("dotenv").config();
-const TOKEN = process.env.DISCORD_TOKEN;
+var path = require("path");
 
 client.config = config;
 client.commands = new Collection();
@@ -36,76 +36,43 @@ client.on("ready", () => {
     });
 });
 
-/* ---------- DEBUGING ---------- */
-
-client.on("warn", (info) => console.log(info));
-client.on("error", console.error);
-
 /* ---------- IMPORT ALL COMMANDS ---------- */
-const adminCmds = fs
-    .readdirSync("./src/commands/admin")
-    .filter((file) => file.endsWith(".js"));
+var walk = (dir, done) => {
+    var results = [];
+    fs.readdir(dir, (err, list) => {
+        if (err) return done(err);
+        var i = 0;
+        (function next() {
+            var file = list[i++];
+            if (!file) return done(null, results);
+            file = path.resolve(dir, file);
+            fs.stat(file, function (err, stat) {
+                if (stat && stat.isDirectory()) {
+                    walk(file, function (err, res) {
+                        results = results.concat(res);
+                        next();
+                    });
+                } else {
+                    results.push(file);
+                    next();
+                }
+            });
+        })();
+    });
+};
 
-for (const file of adminCmds) {
-    const adminCommands = require(`./src/commands/admin/${file}`);
-    client.commands.set(adminCommands.name, adminCommands);
-}
-const devCmds = fs
-    .readdirSync("./src/commands/dev")
-    .filter((file) => file.endsWith(".js"));
-
-for (const file of devCmds) {
-    const devCommands = require(`./src/commands/dev/${file}`);
-    client.commands.set(devCommands.name, devCommands);
-}
-const funCmds = fs
-    .readdirSync("./src/commands/fun")
-    .filter((file) => file.endsWith(".js"));
-
-for (const file of funCmds) {
-    const funCommands = require(`./src/commands/fun/${file}`);
-    client.commands.set(funCommands.name, funCommands);
-}
-const generalCmds = fs
-    .readdirSync("./src/commands/general")
-    .filter((file) => file.endsWith(".js"));
-
-for (const file of generalCmds) {
-    const generalCommands = require(`./src/commands/general/${file}`);
-    client.commands.set(generalCommands.name, generalCommands);
-}
-const miscCmds = fs
-    .readdirSync("./src/commands/misc")
-    .filter((file) => file.endsWith(".js"));
-
-for (const file of miscCmds) {
-    const miscCommands = require(`./src/commands/misc/${file}`);
-    client.commands.set(miscCommands.name, miscCommands);
-}
-const musicCmds = fs
-    .readdirSync("./src/commands/music")
-    .filter((file) => file.endsWith(".js"));
-
-for (const file of musicCmds) {
-    const musicCommands = require(`./src/commands/music/${file}`);
-    client.commands.set(musicCommands.name, musicCommands);
-}
-const nsfwCmds = fs
-    .readdirSync("./src/commands/nsfw")
-    .filter((file) => file.endsWith(".js"));
-
-for (const file of nsfwCmds) {
-    const nsfwCommands = require(`./src/commands/nsfw/${file}`);
-    client.commands.set(nsfwCommands.name, nsfwCommands);
-}
+walk("./src/commands/", (err, results) => {
+    if (err) throw err;
+    for (const file of results) {
+        const cmdFileName = require(`${file}`);
+        client.commands.set(cmdFileName.name, cmdFileName);
+    }
+});
 
 /* ---------- IMPORT ALL EVENTS ---------- */
-
 var reactionRolesDb = require("./src/database/roles-reaction.json");
-
 const fetchMessages = require("./src/events/reaction_roles/load");
 fetchMessages(client, reactionRolesDb);
-
 const track = require("./src/events/reaction_roles/track");
 track(client, reactionRolesDb);
 
@@ -125,7 +92,8 @@ fs.readdir("./src/events/guild/", (err, files) => {
         client.on(eventName, event.bind(null, client));
     });
 });
-/* ---------- COMMAND HANDLER ---------- */
+
+/* ---------- COMMAND HANDLER CONFIGURATION ---------- */
 client.on("message", async (message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
@@ -185,4 +153,8 @@ client.on("message", async (message) => {
     }
 });
 
-client.login(TOKEN);
+/* ---------- DEBUGING ---------- */
+client.on("warn", (info) => console.log(info));
+client.on("error", console.error);
+
+client.login(process.env.DISCORD_TOKEN);
