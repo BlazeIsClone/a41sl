@@ -60,7 +60,7 @@ module.exports = {
       .setColor(0xda7272)
       .setTitle("Play")
       .setDescription(
-        `Usage: ${message.client.prefix}play <YouTube URL | Video Name | Soundcloud URL>`
+        `Usage: ${message.client.prefix}play <YouTube URL | Spotify Song Link | Soundcloud URL>`
       );
 
     if (!args.length) return message.reply(argsThrow).catch(console.error);
