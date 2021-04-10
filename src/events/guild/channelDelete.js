@@ -25,7 +25,7 @@ module.exports = async (client, channel) => {
         .setTitle("**CHANNEL DELETE**")
         .setThumbnail(userAvatar)
         .setDescription(
-          `**\n**:white_check_mark: Successfully \`\`DELETE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` (ID: ${channel.id})\n**By:** <@${userID}>`
+          `**\n**:white_check_mark: Successfully \`\`DELETE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` \n**By:** <@${userID}>`
         )
         .setColor("#32CD32")
         .setTimestamp()

@@ -30,8 +30,6 @@ module.exports = async (client, newChannel, oldChannel) => {
               `${oldChannel.name}` +
               "``\n**New Name:** ``" +
               `${newChannel.name}` +
-              "``\n**Channel ID: **" +
-              `${oldChannel.id}` +
               "\n**By:** <@" +
               `${userID}` +
               ">"
