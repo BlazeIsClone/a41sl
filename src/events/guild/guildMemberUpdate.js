@@ -42,7 +42,7 @@ module.exports = async (client, oldMember, newMember) => {
           .setThumbnail(oldMember.guild.iconURL())
           .setColor("#32CD32")
           .setDescription(
-            `**\n**:white_check_mark: Successfully \`\`ADDED\`\` Role to **${oldMember.user.username}**\n\n**User:** <@${oldMember.id}> (ID: ${oldMember.user.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+            `**\n**:white_check_mark: Successfully \`\`ADDED\`\` Role to **${oldMember.user.username}**\n\n**User:** <@${oldMember.id}>\n**Role:** \`\`${role.name}\`\`\n**By:** <@${userID}> `
           )
           .setTimestamp()
           .setFooter(userTag, userAvatar);
@@ -57,7 +57,7 @@ module.exports = async (client, oldMember, newMember) => {
           .setThumbnail(oldMember.guild.iconURL())
           .setColor("#32CD32")
           .setDescription(
-            `**\n**:negative_squared_cross_mark: Successfully \`\`REMOVED\`\` Role from **${oldMember.user.username}**\n\n**User:** <@${oldMember.user.id}> (ID: ${oldMember.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+            `**\n**:negative_squared_cross_mark: Successfully \`\`REMOVED\`\` Role from **${oldMember.user.username}**\n\n**User:** <@${oldMember.user.id}> \n**Role:** \`\`${role.name}\`\` \n**By:** <@${userID}> `
           )
           .setTimestamp()
           .setFooter(userTag, userAvatar);
@@ -70,7 +70,7 @@ module.exports = async (client, oldMember, newMember) => {
         .setThumbnail(oldMember.guild.iconURL())
         .setColor("#32CD32")
         .setDescription(
-          `**\n**:white_check_mark: Successfully \`\`TRANSFER\`\` The OwnerShip.\n\n**Old Owner:** <@${oldMember.user.id}> (ID: ${oldMember.user.id})\n**New Owner:** <@${newMember.user.id}> (ID: ${newMember.user.id})`
+          `**\n**:white_check_mark: Successfully \`\`TRANSFER\`\` The OwnerShip.\n\n**Old Owner:** <@${oldMember.user.id}> \n**New Owner:** <@${newMember.user.id}> `
         )
         .setTimestamp()
         .setFooter(oldMember.guild.name, oldMember.guild.iconURL());

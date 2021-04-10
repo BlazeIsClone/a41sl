@@ -21,7 +21,7 @@ module.exports = async (client, oldMessage, newMessage) => {
       .setThumbnail(oldMessage.author.avatarURL())
       .setColor("#32CD32")
       .setDescription(
-        `**\n**:wrench: Successfully \`\`EDIT\`\` **MESSAGE** In ${oldMessage.channel}\n\n**Channel:** \`\`${oldMessage.channel.name}\`\`\n**Message ID:** ${oldMessage.id}\n**Sent By:** <@${oldMessage.author.id}> \n\n**Old Message:**\`\`\`${oldMessage}\`\`\`\n**New Message:**\`\`\`${newMessage}\`\`\``
+        `**\n**:wrench: Successfully \`\`EDIT\`\` **MESSAGE** In ${oldMessage.channel}\n\n**Channel:** \`\`${oldMessage.channel.name}\`\`\n**Sent By:** <@${oldMessage.author.id}> \n\n**Old Message:**\`\`\`${oldMessage}\`\`\`\n**New Message:**\`\`\`${newMessage}\`\`\``
       )
       .setTimestamp()
       .setFooter(oldMessage.guild.name, oldMessage.guild.iconURL());
