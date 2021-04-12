@@ -1,8 +1,8 @@
 <div align="center">
 <img src="https://media.giphy.com/media/kU0et9AnjV2PrWTkS7/giphy.gif" width="500" align="center" />
+  
+<bold><h1>All For One Bot</h1></bold>
 </div>
-
-<center><bold><h1>All For One Bot</h1></bold></center>
 
 All For One Bot is an open source solution for your discord server management and entertainment. My goal is to cover as many functionalities and niches as possible, while still maintaining usability and code readability. Currently the bot can stream music from YouTube, SoundCloud and Spotify.
 
