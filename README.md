@@ -1,4 +1,6 @@
-<img src="https://media.giphy.com/media/kU0et9AnjV2PrWTkS7/giphy.gif" width="500" />
+<div align="center">
+<img src="https://media.giphy.com/media/kU0et9AnjV2PrWTkS7/giphy.gif" width="500" align="center" />
+</div>
 
 # **All For One Bot**
 
