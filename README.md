@@ -1,4 +1,4 @@
-<img src="https://cdn.discordapp.com/attachments/743697611810406471/807118146577891328/unknown.png"  width="700">
+<img src="https://media.giphy.com/media/kU0et9AnjV2PrWTkS7/giphy.gif"/>
 
 # **All For One Bot**
 
