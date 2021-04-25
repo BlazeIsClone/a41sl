@@ -28,9 +28,9 @@ module.exports = async (client, newChannel, oldChannel) => {
               `${channelType}` +
               "** Channel Name\n\n**Old Name:** ``" +
               `${oldChannel.name}` +
-              "\n**New Name:** ``" +
+              "\n**New Name:**" +
               newChannel.name +
-              "``\n**By:** <@" +
+              "\n**By:** <@" +
               `${userID}` +
               ">"
           )
