@@ -26,7 +26,7 @@ module.exports = async (client, newChannel, oldChannel) => {
           .setDescription(
             ":wrench: Successfully Edited **" +
               `${channelType}` +
-              "** Channel Name\n\n**Old Name:** ``" +
+              "** Channel Name\n\n**Old Name:**" +
               `${oldChannel.name}` +
               "\n**New Name:**" +
               newChannel.name +
