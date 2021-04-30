@@ -34,6 +34,7 @@ module.exports = {
         let nowPlaying = new MessageEmbed()
             .setDescription(`**[${song.title}](${song.url})**`)
             .setColor("#00FF00")
+            .setImage(`${song.thumbnail}`)
             .addField(
                 "\u200b",
                 createBar(
