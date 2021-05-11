@@ -5,7 +5,7 @@ const os = require("os");
 module.exports = {
     name: "botinfo",
     description: "Bot server status",
-    async execute(message, args) {
+    run: async(client, message, args) => {
         let seconds = Math.floor(message.client.uptime / 1000);
         let minutes = Math.floor(seconds / 60);
         let hours = Math.floor(minutes / 60);
