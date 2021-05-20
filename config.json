@@ -1,7 +1,7 @@
 {
   "MAX_PLAYLIST_SIZE": 500,
   "PREFIX": "/",
-  "musicChannelOne": 696751701553709068,
+  "musicChannelOne": 844106965159772160,
   "musicChannelTwo": 769761743965782055,
   "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel",
   "nsfwPrefix": "/nsfw",
