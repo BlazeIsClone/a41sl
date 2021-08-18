@@ -4,6 +4,8 @@ const {
   musicChannelOne,
   musicChannelTwo,
   musicChannelErrorResponse,
+  primaryColor,
+  errorColor,
 } = require("../../../config.json");
 
 module.exports = {
@@ -21,7 +23,7 @@ module.exports = {
     const queue = message.client.queue.get(message.guild.id);
 
     const emptyQueue = new MessageEmbed()
-      .setColor(0xda7272)
+      .setColor(errorColor)
       .setTitle("Empty Queue")
       .setDescription("There is nothing playing");
 
@@ -30,7 +32,7 @@ module.exports = {
 
     queue.loop = !queue.loop;
     const loop = new MessageEmbed()
-      .setColor(0x7289da)
+      .setColor(primaryColor)
       .setTitle("Loop")
       .setDescription(
         `Loop is now set to ${queue.loop ? "**on**" : "**off**"}`

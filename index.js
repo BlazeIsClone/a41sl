@@ -20,22 +20,6 @@ client.queue = new Map();
 const cooldowns = new Collection();
 const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-/* ---------- TESTCODE(unstable) ---------- */
-const { Slash } = require("discord-slash-commands");
-const slash = new Slash(client);
-client.on("ready", () => {
-    slash.command({
-        guildOnly: true,
-        guildID: "463027132243771403",
-        data: {
-            name: "command",
-            description: "command description",
-            type: 4,
-            content: `command content`,
-        },
-    });
-});
-
 /* ---------- IMPORT ALL COMMANDS ---------- */
 var walk = (dir, done) => {
     var results = [];
