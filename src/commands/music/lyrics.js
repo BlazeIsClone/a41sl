@@ -4,6 +4,8 @@ const {
   musicChannelOne,
   musicChannelTwo,
   musicChannelErrorResponse,
+  primaryColor,
+  errorColor,
 } = require("../../../config.json");
 
 module.exports = {
@@ -19,7 +21,7 @@ module.exports = {
     }
     const queue = message.client.queue.get(message.guild.id);
     const emptyQueue = new MessageEmbed()
-      .setColor(0xda7272)
+      .setColor(errorColor)
       .setTitle("Empty Queue")
       .setDescription("There is nothing playing");
 
@@ -36,7 +38,7 @@ module.exports = {
     let lyricsEmbed = new MessageEmbed()
       .setTitle(`${queue.songs[0].title} — Lyrics`)
       .setDescription(lyrics)
-      .setColor("#F8AA2A");
+      .setColor(primaryColor);
 
     if (lyricsEmbed.description.length >= 2048)
       lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;

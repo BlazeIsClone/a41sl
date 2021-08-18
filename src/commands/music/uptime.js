@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const { primaryColor } = require("../../../config.json");
 
 module.exports = {
   name: "uptime",
@@ -16,7 +17,7 @@ module.exports = {
     hours %= 24;
 
     const uptimeR = new MessageEmbed()
-      .setColor(0x7289da)
+      .setColor(primaryColor)
       .setTitle("Uptime Duration")
       .setDescription(
         `**${days}** day(s), **${hours}** hours, **${minutes}** minutes, **${seconds}** seconds`

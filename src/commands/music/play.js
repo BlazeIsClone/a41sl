@@ -8,6 +8,8 @@ const {
   musicChannelOne,
   musicChannelTwo,
   musicChannelErrorResponse,
+  primaryColor,
+  errorColor,
 } = require("../../../config.json");
 const spotifyURI = require("spotify-uri");
 const Spotify = require("node-spotify-api");
@@ -31,7 +33,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     const requiredVC = new MessageEmbed()
-      .setColor(0xda7272)
+      .setColor(errorColor)
       .setAuthor(`${message.author.tag}`)
       .setTitle("Error!")
       .setDescription("Please join a voice channel before using this command");
@@ -46,7 +48,7 @@ module.exports = {
     if (!channel) return message.channel.send(requiredVC).catch(console.error);
     if (serverQueue && channel !== message.guild.me.voice.channel) {
       const sameVC = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTimestamp()
         .setAuthor(`${message.author.tag}`)
         .setTitle("Error!")
@@ -57,7 +59,7 @@ module.exports = {
       return message.channel.send(sameVC).catch(console.error);
     }
     const argsThrow = new MessageEmbed()
-      .setColor(0xda7272)
+      .setColor(errorColor)
       .setTitle("Play")
       .setDescription(
         `Usage: ${message.client.prefix}play <YouTube URL | Spotify Song Link | Soundcloud URL>`
@@ -68,7 +70,7 @@ module.exports = {
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT")) {
       const vcError = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTimestamp()
         .setTitle("Voice Channel Error!")
         .setDescription(
@@ -79,7 +81,7 @@ module.exports = {
     }
     if (!permissions.has("SPEAK")) {
       const unableSpeak = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTimestamp()
         .setAuthor(`${message.author.tag}`)
         .setTitle("Audio Error!")
@@ -90,13 +92,16 @@ module.exports = {
       return message.channel.send(unableSpeak);
     }
     const search = args.join(" ");
-    const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
+    const videoPattern =
+      /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
     const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
     const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
     const mobileScRegex = /^https?:\/\/(soundcloud\.app\.goo\.gl)\/(.*)$/;
-    const spotifyPattern = /^.*(https:\/\/open\.spotify\.com\/track)([^#\&\?]*).*/gi;
+    const spotifyPattern =
+      /^.*(https:\/\/open\.spotify\.com\/track)([^#\&\?]*).*/gi;
     const spotifyValid = spotifyPattern.test(args[0]);
-    const spotifyPlaylistPattern = /^.*(https:\/\/open\.spotify\.com\/playlist)([^#\&\?]*).*/gi;
+    const spotifyPlaylistPattern =
+      /^.*(https:\/\/open\.spotify\.com\/playlist)([^#\&\?]*).*/gi;
     const spotifyPlaylistValid = spotifyPlaylistPattern.test(args[0]);
     const url = args[0];
     const urlValid = videoPattern.test(args[0]);
@@ -127,7 +132,9 @@ module.exports = {
         console.error(error);
         return message
           .reply(
-            new MessageEmbed().setDescription(error.message).setColor("#da7272")
+            new MessageEmbed()
+              .setDescription(error.message)
+              .setColor(errorColor)
           )
           .catch(console.error);
       }
@@ -193,7 +200,9 @@ module.exports = {
         console.error(error);
         return message
           .reply(
-            new MessageEmbed().setDescription(error.message).setColor("#da7272")
+            new MessageEmbed()
+              .setDescription(error.message)
+              .setColor(errorColor)
           )
           .catch(console.error);
       }
@@ -211,7 +220,9 @@ module.exports = {
         console.error(error);
         return message
           .reply(
-            new MessageEmbed().setDescription(error.message).setColor("#da7272")
+            new MessageEmbed()
+              .setDescription(error.message)
+              .setColor(errorColor)
           )
           .catch(console.error);
       }
@@ -230,7 +241,9 @@ module.exports = {
         console.error(error);
         return message
           .reply(
-            new MessageEmbed().setDescription(error.message).setColor("#da7272")
+            new MessageEmbed()
+              .setDescription(error.message)
+              .setColor(errorColor)
           )
           .catch(console.error);
       }
@@ -263,7 +276,7 @@ module.exports = {
       await channel.leave();
 
       const unableJoin = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTimestamp()
         .setTitle("Error!")
         .setDescription(`Could not join join the channel: ${error}`);

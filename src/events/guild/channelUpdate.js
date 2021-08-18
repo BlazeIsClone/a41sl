@@ -1,5 +1,9 @@
 const Discord = require("discord.js");
-const { auditLogChannel } = require("../../../config.json");
+const {
+  auditLogChannel,
+  primaryColor,
+  errorColor,
+} = require("../../../config.json");
 
 module.exports = async (client, newChannel, oldChannel) => {
   try {
@@ -22,7 +26,7 @@ module.exports = async (client, newChannel, oldChannel) => {
         let newName = new Discord.MessageEmbed()
           .setTitle("**CHANNEL EDIT**")
           .setThumbnail(userAvatar)
-          .setColor("#32CD32")
+          .setColor(primaryColor)
           .setDescription(
             ":wrench: Successfully Edited **" +
               `${channelType}` +
@@ -42,7 +46,7 @@ module.exports = async (client, newChannel, oldChannel) => {
         let newTopic = new Discord.MessageEmbed()
           .setTitle("**CHANNEL EDIT**")
           .setThumbnail(userAvatar)
-          .setColor("#32CD32")
+          .setColor(primaryColor)
           .setDescription(
             `**\n**:wrench: Successfully Edited **${channelType}** Channel Topic\n\n**Old Topic:**\n\`\`\`${
               oldChannel.topic || "(Not set)"
@@ -57,7 +61,7 @@ module.exports = async (client, newChannel, oldChannel) => {
     });
   } catch (err) {
     let embed = new Discord.MessageEmbed()
-      .setColor("#FF0000")
+      .setColor(errorColor)
       .setTitle("Error!")
       .setDescription("**Error Code:** *" + err + "*")
       .setTimestamp();

@@ -1,5 +1,9 @@
 const Discord = require("discord.js");
-const { auditLogChannel } = require("../../../config.json");
+const {
+  auditLogChannel,
+  primaryColor,
+  errorColor,
+} = require("../../../config.json");
 
 module.exports = async (client, oldRole, newRole) => {
   try {
@@ -17,7 +21,7 @@ module.exports = async (client, oldRole, newRole) => {
         let roleUpdateName = new Discord.MessageEmbed()
           .setTitle("**ROLE NAME UPDATE**")
           .setThumbnail(userAvatar)
-          .setColor("#32CD32")
+          .setColor(primaryColor)
           .setDescription(
             `**\n**:white_check_mark: Successfully \`\`EDITED\`\` Role Name.\n\n**Old Name:** \`\`${oldRole.name}\`\`\n**New Name:** \`\`${newRole.name}\`\`\n**By:** <@${userID}>`
           )
@@ -39,7 +43,7 @@ module.exports = async (client, oldRole, newRole) => {
         let roleUpdateColor = new Discord.MessageEmbed()
           .setTitle("**ROLE COLOR UPDATE**")
           .setThumbnail(userAvatar)
-          .setColor("#32CD32")
+          .setColor(primaryColor)
           .setDescription(
             `**\n**:white_check_mark: Successfully \`\`EDITED\`\` **${oldRole.name}** Role Color.\n\n**Old Color:** ${oldColor}\n**New Color:** ${newColor}\n**By:** <@${userID}>`
           )
@@ -51,7 +55,7 @@ module.exports = async (client, oldRole, newRole) => {
         let roleUpdate = new Discord.MessageEmbed()
           .setTitle("**UPDATE ROLE PERMISSIONS**")
           .setThumbnail(userAvatar)
-          .setColor("#32CD32")
+          .setColor(primaryColor)
           .setDescription(
             `**\n**:first_place: Successfully \`\`CHANGED\`\` **${
               oldRole.name
@@ -64,7 +68,7 @@ module.exports = async (client, oldRole, newRole) => {
     });
   } catch (err) {
     let embed = new Discord.MessageEmbed()
-      .setColor("#FF0000")
+      .setColor(errorColor)
       .setTitle("Error!")
       .setDescription("**Error Code:** *" + err + "*")
       .setTimestamp();

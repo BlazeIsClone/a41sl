@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 const prefix = process.env.PREFIX;
-const { auditLogChannel } = require("../../../config.json");
+const {
+  auditLogChannel,
+  primaryColor,
+  errorColor,
+} = require("../../../config.json");
 
 module.exports = async (client, message) => {
   try {
@@ -15,7 +19,7 @@ module.exports = async (client, message) => {
     if (!logChannel) return;
     let messageDelete = new Discord.MessageEmbed()
       .setTitle("**MESSAGE DELETE**")
-      .setColor("#32CD32")
+      .setColor(errorColor)
       .setThumbnail(message.author.avatarURL())
       .setDescription(
         `**\n**:wastebasket: Successfully \`\`DELETE\`\` **MESSAGE** In ${message.channel}\n\n**Channel:** \`\`${message.channel.name}\`\`\n**Sent By:** <@${message.author.id}>\n**Message:**\n\`\`\`${message}\`\`\``
@@ -25,7 +29,7 @@ module.exports = async (client, message) => {
     logChannel.send(messageDelete);
   } catch (err) {
     let embed = new Discord.MessageEmbed()
-      .setColor("#FF0000")
+      .setColor(errorColor)
       .setTitle("Error!")
       .setDescription("**Error Code:** *" + err + "*")
       .setTimestamp();

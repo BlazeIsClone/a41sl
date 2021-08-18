@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 const Canvas = require("canvas");
-const { welcomeChannel } = require("../../../config.json");
+const {
+  welcomeChannel,
+  primaryColor,
+} = require("../../../config.json");
+
 const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, member) => {
@@ -96,9 +100,9 @@ module.exports = async (client, member) => {
     "👋 Stay **safe** and stay **connected**";
 
   const sendBanner = new MessageEmbed()
-    .setColor("00FF00")
+    .setColor(primaryColor)
     .setImage("https://i.imgur.com/PLMbw6K.png");
 
   await member.send(sendBanner);
   member.send(welcomeDm);
-};
+}

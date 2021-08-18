@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
+const { primaryColor } = require("../../../config.json");
 
 module.exports = {
     name: "reactionRolesNotifications",
@@ -10,7 +11,7 @@ module.exports = {
 
         const addRolesAttachment = new MessageEmbed()
             .setImage("https://i.imgur.com/sTQnkvP.png")
-            .setColor("#00FF00");
+            .setColor(primaryColor);
 
         const addRolesEmbed = new Discord.MessageEmbed()
             .setColor("#00FF00")

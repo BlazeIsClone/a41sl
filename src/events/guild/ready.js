@@ -1,7 +1,12 @@
 const Discord = require("discord.js");
 const request = require("request");
 const { MessageEmbed } = require("discord.js");
-const { memesChannel, memberCountChannelId } = require("../../../config.json");
+const {
+  memesChannel,
+  memberCountChannelId,
+  primaryColor,
+  errorColor,
+} = require("../../../config.json");
 
 module.exports = async (client) => {
   console.log("MemesAPI ready");
@@ -21,7 +26,7 @@ module.exports = async (client) => {
         .setDescription(`**[${data.title}](${data.postLink})**`)
         .setImage(data.url)
         .setFooter(`👍 ${data.ups}`)
-        .setColor("#32CD32");
+        .setColor(primaryColor);
 
       const memeSendChannel = client.channels.cache.get(memesChannel);
       memeSendChannel.send(meme).catch(console.error);

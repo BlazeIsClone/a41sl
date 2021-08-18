@@ -1,12 +1,13 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
+const { primaryColor } = require("../../../config.json");
 
 module.exports = {
     name: "reactionRolesRules",
     description: "Sends an embed with a rules",
     async execute(message, args) {
         const rulesEmbed = new Discord.MessageEmbed()
-            .setColor("#00FF00")
+            .setColor(primaryColor)
             .setDescription(
                 "Here you can meet new people and game with everyone and anyone you know. Use the server responsibly and have fun!" +
                     "\n\n" +
@@ -44,13 +45,13 @@ module.exports = {
             );
 
         const rulesEmbed2 = new Discord.MessageEmbed()
-            .setColor("#00FF00")
+            .setColor(primaryColor)
             .setDescription(
                 "If you agree to all the rules above, click on the ✅ at the end of this post to gain access to the rest of the server. After doing so, you can head to <#751076769486078062> to assign yourself personalized roles!"
             );
         const rulesAttachment = new MessageEmbed()
             .setImage("https://i.imgur.com/TBGYIJ7.png")
-            .setColor("#00FF00");
+            .setColor(primaryColor);
         message.channel.send(rulesAttachment);
         message.channel.send(rulesEmbed);
         message.channel.send(rulesEmbed2);

@@ -1,5 +1,9 @@
 const Discord = require("discord.js");
-const { auditLogChannel } = require("../../../config.json");
+const {
+  auditLogChannel,
+  primaryColor,
+  errorColor,
+} = require("../../../config.json");
 
 module.exports = async (client, role) => {
   try {
@@ -18,14 +22,14 @@ module.exports = async (client, role) => {
         .setDescription(
           `**\n**:white_check_mark: Successfully \`\`DELETE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\`\n**By:** <@${userID}>`
         )
-        .setColor("#32CD32")
+        .setColor(primaryColor)
         .setTimestamp()
         .setFooter(role.guild.name, role.guild.iconURL());
       logChannel.send(roleDelete);
     });
   } catch (err) {
     let embed = new Discord.MessageEmbed()
-      .setColor("#FF0000")
+      .setColor(errorColor)
       .setTitle("Error!")
       .setDescription("**Error Code:** *" + err + "*")
       .setTimestamp();

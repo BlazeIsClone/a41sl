@@ -1,12 +1,13 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
+const { primaryColor } = require("../../../config.json");
 
 module.exports = {
     name: "rules",
     description: "Server Rules and guidelines",
     async execute(message, args) {
         const rulesEmbed = new Discord.MessageEmbed()
-            .setColor("#00FF00")
+            .setColor(primaryColor)
             .setDescription(
                 "Here you can meet new people and game with everyone and anyone you know. Use the server responsibly and have fun!" +
                     "\n\n" +
@@ -46,7 +47,7 @@ module.exports = {
         const rulesAttachment = new MessageEmbed()
             .setImage("https://i.imgur.com/TBGYIJ7.png")
 
-            .setColor("#00FF00");
+            .setColor(primaryColor);
         await message.author.send(rulesAttachment);
         try {
             message.author.send(rulesEmbed);

@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
+const { primaryColor } = require("../../../config.json");
 const os = require("os");
 
 module.exports = {
@@ -16,7 +17,7 @@ module.exports = {
         hours %= 24;
         const guildID = message.guild.name;
         const statsEmbed = new Discord.MessageEmbed()
-            .setColor("#00FF00")
+            .setColor(primaryColor)
             .setThumbnail(message.guild.iconURL())
             .setAuthor(`${guildID}`, message.guild.iconURL())
             .addField(`System Os`, `${os.platform()}`, false)

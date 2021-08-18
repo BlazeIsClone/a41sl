@@ -1,9 +1,11 @@
-const { canModifyQueue } = require("../../util/EvobotUtil");
+const { canModifyQueue } = require("../../util/Util");
 const { MessageEmbed } = require("discord.js");
 const {
   musicChannelOne,
   musicChannelTwo,
   musicChannelErrorResponse,
+  primaryColor,
+  errorColor,
 } = require("../../../config.json");
 
 module.exports = {
@@ -20,28 +22,28 @@ module.exports = {
     const queue = message.client.queue.get(message.guild.id);
 
     const noQ = new MessageEmbed()
-      .setColor(0xda7272)
+      .setColor(errorColor)
       .setTitle("Empty Queue")
       .setDescription(`There is nothing in the queue`);
 
     if (!queue) return message.reply(noQ).catch(console.error);
     if (!canModifyQueue(message.member)) {
       const neededVC = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTitle("Error!")
         .setDescription(`You need to join a voice channel first`);
 
       return message.reply(neededVC).catch(console.error);
     }
     const currentVolume = new MessageEmbed()
-      .setColor(0xd3d3d3)
+      .setColor(primaryColor)
       .setTitle("Volume")
       .setDescription(`The current volume is: **${queue.volume}**`);
 
     if (!args[0]) return message.reply(currentVolume).catch(console.error);
 
     const setVolume = new MessageEmbed()
-      .setColor(0xda7272)
+      .setColor(errorColor)
       .setTitle("Input Invalid")
       .setDescription(`Please use a number to set the volume`);
 
@@ -55,7 +57,7 @@ module.exports = {
     queue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
 
     const vol = new MessageEmbed()
-      .setColor(0x7289da)
+      .setColor(primaryColor)
       .setTitle("Set!")
       .setDescription(`Volume set to: **${args[0]}%**`);
 

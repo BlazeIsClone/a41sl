@@ -1,9 +1,11 @@
-const { canModifyQueue } = require("../../util/EvobotUtil");
+const { canModifyQueue } = require("../../util/Util");
 const { MessageEmbed } = require("discord.js");
 const {
   musicChannelOne,
   musicChannelTwo,
   musicChannelErrorResponse,
+  primaryColor,
+  errorColor,
 } = require("../../../config.json");
 
 module.exports = {
@@ -18,7 +20,7 @@ module.exports = {
       return message.author.send(musicChannelErrorResponse);
     }
     const noQa = new MessageEmbed()
-      .setColor(0xd3d3d3)
+      .setColor(errorColor)
       .setTitle("Usage")
       .setDescription(
         `${message.client.prefix}${module.exports.name} <Queue Number>`
@@ -30,7 +32,7 @@ module.exports = {
     const queue = message.client.queue.get(message.guild.id);
 
     const noQ = new MessageEmbed()
-      .setColor(0xda7272)
+      .setColor(errorColor)
       .setTitle("Empty Queue")
       .setDescription("There is nothing in the queue");
 
@@ -38,7 +40,7 @@ module.exports = {
     if (!canModifyQueue(message.member)) return;
     if (args[0] > queue.songs.length) {
       const noQw = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTitle("Error!")
         .setDescription(`The queue is only ${queue.songs.length} songs long!`);
 
@@ -57,7 +59,7 @@ module.exports = {
     queue.connection.dispatcher.end();
 
     const skipto = new MessageEmbed()
-      .setColor(0x7289da)
+      .setColor(primaryColor)
       .setTitle("Skipped!")
       .setDescription(`${message.author} skipped ${args[0] - 1} songs`);
 

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { auditLogChannel } = require("../../../config.json");
-const { PREFIX } = require("../../../config.json");
+const { PREFIX, primaryColor, errorColor } = require("../../../config.json");
 
 module.exports = async (client, oldMessage, newMessage) => {
   try {
@@ -19,7 +19,7 @@ module.exports = async (client, oldMessage, newMessage) => {
     let messageUpdate = new Discord.MessageEmbed()
       .setTitle("**MESSAGE EDIT**")
       .setThumbnail(oldMessage.author.avatarURL())
-      .setColor("#32CD32")
+      .setColor(primaryColor)
       .setDescription(
         `**\n**:wrench: Successfully \`\`EDIT\`\` **MESSAGE** In ${oldMessage.channel}\n\n**Channel:** \`\`${oldMessage.channel.name}\`\`\n**Sent By:** <@${oldMessage.author.id}> \n\n**Old Message:**\`\`\`${oldMessage}\`\`\`\n**New Message:**\`\`\`${newMessage}\`\`\``
       )
@@ -28,7 +28,7 @@ module.exports = async (client, oldMessage, newMessage) => {
     logChannel.send(messageUpdate);
   } catch (err) {
     let embed = new Discord.MessageEmbed()
-      .setColor("#FF0000")
+      .setColor(errorColor)
       .setTitle("Error!")
       .setDescription("**Error Code:** *" + err + "*")
       .setTimestamp();

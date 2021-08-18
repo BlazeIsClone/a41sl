@@ -8,6 +8,8 @@ const {
   musicChannelOne,
   musicChannelTwo,
   musicChannelErrorResponse,
+  primaryColor,
+  errorColor,
 } = require("../../../config.json");
 
 let config;
@@ -42,7 +44,7 @@ module.exports = {
 
     if (!args.length) {
       const pl = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTitle("Usage")
         .setDescription(
           `${message.client.prefix}playlist <YouTube Playlist URL | Playlist Name>`
@@ -58,7 +60,7 @@ module.exports = {
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT")) {
       const nullVC = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTitle("Error!")
         .setDescription("Cannot connect to voice channel, missing permissions");
 
@@ -66,7 +68,7 @@ module.exports = {
     }
     if (!permissions.has("SPEAK")) {
       const errVC = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTitle("Voice Channel Error")
         .setDescription(
           "I cannot speak in this voice channel, make sure I have the proper permissions"
@@ -76,7 +78,7 @@ module.exports = {
     }
     if (serverQueue && channel !== message.guild.me.voice.channel) {
       const sameVcErr = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(errorColor)
         .setTitle("Error!")
         .setDescription(
           `You must be in the same channel as ${message.client.user}`
@@ -87,7 +89,8 @@ module.exports = {
 
     const search = args.join(" ");
     const pattern = /^.*(youtu.be\/|list=)([^#\&\?]*).*/gi;
-    const spotifyPlaylistPattern = /^.*(https:\/\/open\.spotify\.com\/playlist)([^#\&\?]*).*/gi;
+    const spotifyPlaylistPattern =
+      /^.*(https:\/\/open\.spotify\.com\/playlist)([^#\&\?]*).*/gi;
     const spotifyPlaylistValid = spotifyPlaylistPattern.test(args[0]);
     const url = args[0];
     const urlValid = pattern.test(args[0]);
@@ -111,7 +114,7 @@ module.exports = {
         waitMessage = await message.channel.send(
           new MessageEmbed()
             .setDescription("⏳fetching playlist...")
-            .setColor("#00ff00")
+            .setColor(primaryColor)
         );
         let playlistTrack = await getTracks(url);
         if (playlistTrack > MAX_PLAYLIST_SIZE) {
@@ -157,7 +160,7 @@ module.exports = {
         console.error(error);
 
         const playlistNotFound = new MessageEmbed()
-          .setColor(0xda7272)
+          .setColor(errorColor)
           .setTitle("Not Found")
           .setDescription("Playlist Not Found");
         return message.reply(playlistNotFound);
@@ -210,7 +213,7 @@ module.exports = {
       )
       .setURL(song.url)
       .setThumbnail(song.thumbnail)
-      .setColor("#F8AA2A");
+      .setColor(primaryColor);
 
     if (playlistEmbed.description.length >= 2048)
       playlistEmbed.description =
@@ -232,7 +235,7 @@ module.exports = {
         await channel.leave();
 
         const unableJoinVC = new MessageEmbed()
-          .setColor(0xda7272)
+          .setColor(errorColor)
           .setTitle("Error!")
           .setDescription(`Could not join the channel: ${error.message}`);
 

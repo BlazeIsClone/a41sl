@@ -1,5 +1,9 @@
 const Discord = require("discord.js");
-const { auditLogChannel } = require("../../../config.json");
+const {
+  auditLogChannel,
+  primaryColor,
+  errorColor,
+} = require("../../../config.json");
 
 module.exports = async (client, guild, user) => {
   try {
@@ -15,7 +19,7 @@ module.exports = async (client, guild, user) => {
       let unBanInfo = new Discord.MessageEmbed()
         .setTitle("**UNBAN**")
         .setThumbnail(userAvatar)
-        .setColor("#32CD32")
+        .setColor(primaryColor)
         .setDescription(
           `**\n**:unlock: Successfully \`\`UNBANNED\`\` **${user.username}** From the server\n\n**User:** <@${user.id}>\n**By:** <@${userID}>`
         )
@@ -25,7 +29,7 @@ module.exports = async (client, guild, user) => {
     });
   } catch (err) {
     let embed = new Discord.MessageEmbed()
-      .setColor("#FF0000")
+      .setColor(errorColor)
       .setTitle("Error!")
       .setDescription("**Error Code:** *" + err + "*")
       .setTimestamp();

@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { PREFIX } = require("../../../config.json");
+const { PREFIX, primaryColor } = require("../../../config.json");
 
 module.exports = async (client, message) => {
   const queue = new Map();
@@ -11,7 +11,7 @@ module.exports = async (client, message) => {
   ) {
     const embed = new Discord.MessageEmbed()
       .setTitle(`Hi!`, message.guild.iconURL())
-      .setColor("#32CD32")
+      .setColor(primaryColor)
       .setDescription(
         "I'm " +
           "**" +

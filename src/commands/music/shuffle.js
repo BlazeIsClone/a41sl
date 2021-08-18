@@ -1,9 +1,11 @@
-const { canModifyQueue } = require("../../util/EvobotUtil");
+const { canModifyQueue } = require("../../util/Util");
 const { MessageEmbed } = require("discord.js");
 const {
     musicChannelOne,
     musicChannelTwo,
     musicChannelErrorResponse,
+    primaryColor,
+    errorColor,
 } = require("../../../config.json");
 
 module.exports = {
@@ -19,7 +21,7 @@ module.exports = {
         const queue = message.client.queue.get(message.guild.id);
 
         const noQ = new MessageEmbed()
-            .setColor(0xda7272)
+            .setColor(errorColor)
             .setTitle("Empty Queue")
             .setDescription(`There is nothing in the queue`);
 
@@ -34,7 +36,7 @@ module.exports = {
         queue.songs = songs;
         message.client.queue.set(message.guild.id, queue);
         const shuffled = new MessageEmbed()
-            .setColor(0x7289da)
+            .setColor(primaryColor)
             .setTitle("Shuffled")
             .setDescription(`${message.author} shuffled the queue`);
 

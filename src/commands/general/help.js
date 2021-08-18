@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const { primaryColor } = require("../../../config.json");
 
 module.exports = {
   name: "help",
@@ -10,7 +11,7 @@ module.exports = {
     let helpEmbed = new MessageEmbed()
       .setTitle(`${message.client.user.username} Help`)
       .setDescription("List of all commands")
-      .setColor("#00FF00");
+      .setColor(primaryColor);
 
     commands.forEach((cmd) => {
       if (cmd.name === "eval") return;

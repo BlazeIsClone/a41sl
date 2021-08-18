@@ -1,9 +1,11 @@
-const { canModifyQueue } = require("../../util/EvobotUtil");
+const { canModifyQueue } = require("../../util/Util");
 const { MessageEmbed } = require("discord.js");
 const {
   musicChannelOne,
   musicChannelTwo,
   musicChannelErrorResponse,
+  primaryColor,
+  errorColor,
 } = require("../../../config.json");
 
 module.exports = {
@@ -18,7 +20,7 @@ module.exports = {
     }
     const queue = message.client.queue.get(message.guild.id);
     const emptyQueue = new MessageEmbed()
-      .setColor(0xda7272)
+      .setColor(errorColor)
       .setTimestamp()
       .setTitle("Empty Queue")
       .setDescription("There is nothing playing");
@@ -30,7 +32,7 @@ module.exports = {
       queue.playing = false;
       queue.connection.dispatcher.pause(true);
       const paused = new MessageEmbed()
-        .setColor(0xda7272)
+        .setColor(primaryColor)
         .setTimestamp()
         .setTitle("Paused")
         .setDescription(`${message.author} ⏸ paused the music`);

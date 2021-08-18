@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const ytdlDiscord = require("erit-ytdl");
 const scdl = require("soundcloud-downloader").default;
-const { canModifyQueue } = require("../util/EvobotUtil");
+const { canModifyQueue } = require("../util/Util.js");
 const { MessageEmbed } = require("discord.js");
-const { STAY_TIME } = require("../../config.json");
+const { STAY_TIME, primaryColor, errorColor } = require("../../config.json");
 
 module.exports = {
   async play(song, message) {
@@ -21,7 +21,7 @@ module.exports = {
     const queue = message.client.queue.get(message.guild.id);
     const muiscQueueEnded = new Discord.MessageEmbed()
       .setDescription("⛔ Music queue ended.")
-      .setColor("#FF0000");
+      .setColor(errorColor);
 
     const botLeaveChannel = new Discord.MessageEmbed().setDescription(
       "Disconnected due to inactivity."
@@ -69,7 +69,7 @@ module.exports = {
       return message.channel.send(
         new MessageEmbed()
           .setDescription(`Error: ${error.message ? error.message : error}`)
-          .setColor("#da7272")
+          .setColor(errorColor)
       );
     }
 
@@ -101,7 +101,7 @@ module.exports = {
       });
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
     const playingEmbed = new Discord.MessageEmbed()
-      .setColor("#00FF00")
+      .setColor(primaryColor)
       .setTitle("Now Playing")
       .setDescription(
         `**[${song.title}](${song.url})**\n\nRequested by: ${song.user}`
@@ -138,7 +138,7 @@ module.exports = {
           if (!canModifyQueue(member)) return;
           queue.connection.dispatcher.end();
           const skipEmbed = new MessageEmbed()
-            .setColor(0x7289da)
+            .setColor(primaryColor)
             .setTitle("Skipped")
             .setDescription(`⏭ skipped the song`);
 
@@ -153,7 +153,7 @@ module.exports = {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.pause(true);
             const pausedEmbed = new MessageEmbed()
-              .setColor(0xda7272)
+              .setColor(primaryColor)
               .setTitle("Paused")
               .setDescription(`⏸ paused the music`);
 
@@ -162,7 +162,7 @@ module.exports = {
             queue.playing = !queue.playing;
             queue.connection.dispatcher.resume();
             const resumedEmbed = new MessageEmbed()
-              .setColor(0x7289da)
+              .setColor(primaryColor)
               .setTitle("Resumed")
               .setDescription(`▶ resumed the music`);
 
@@ -175,7 +175,7 @@ module.exports = {
           if (!canModifyQueue(member)) return;
           queue.loop = !queue.loop;
           const loopEmbed = new MessageEmbed()
-            .setColor(0x7289da)
+            .setColor(primaryColor)
             .setTitle("Loop")
             .setDescription(
               `🔁 Loop is now ${queue.loop ? "**on**" : "**off**"}`
@@ -199,7 +199,7 @@ module.exports = {
           }
           message.client.queue.set(message.guild.id, queue);
           const shuffledEmbed = new MessageEmbed()
-            .setColor(0x7289da)
+            .setColor(primaryColor)
             .setTitle("Shuffled")
             .setDescription(`🔀 shuffled the queue`);
 
@@ -211,7 +211,7 @@ module.exports = {
           if (!canModifyQueue(member)) return;
           queue.songs = [];
           const stopEmbed = new MessageEmbed()
-            .setColor(0x7289da)
+            .setColor(errorColor)
             .setTitle("Stopped!")
             .setDescription(`⏹ stoped the music`);
 
