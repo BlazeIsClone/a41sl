@@ -1,16 +1,16 @@
 {
-  "MAX_PLAYLIST_SIZE": 500,
   "PREFIX": "/",
+  "MAX_PLAYLIST_SIZE": 500,
   "STAY_TIME": 300,
-  "musicChannelOne": 869530749362118676,
-  "musicChannelTwo": 769761743965782055,
-  "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel",
   "primaryColor": "#0aadff",
   "errorColor": "#EF522F",
-  "serverManager": "463028312567054338",
+  "musicChannelOne": 869530749362118676,
+  "musicChannelTwo": 769761743965782055,
+  "serverManager": 463028312567054338,
   "welcomeChannel": "👋welcome",
   "goodbyeChannel": "💀goodbye",
   "auditLogChannel": "🔑audit-log",
-  "memesChannelId": 769761743965782055 ,
-  "memberCountChannelName": "member-count"
+  "memesChannelId": 769761743965782055,
+  "memberCountChannelName": "member-count",
+  "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel"
 }
