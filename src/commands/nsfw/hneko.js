@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "hneko",
+    name: "nsfw-hneko",
     description: "Nsfw hneko",
     async execute(message, args) {
         var superagent = require("superagent");

@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "nsfw-help",
+    aliases: ["nsfw"],
     description: "Get all nsfw command",
     async execute(message, args) {
         if (!message.channel.nsfw)

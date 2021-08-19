@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 var superagent = require("superagent");
 
 module.exports = {
-    name: "ass",
+    name: "nsfw-ass",
     description: "nsfw ass",
     async execute(message, args) {
         if (!message.channel.nsfw)

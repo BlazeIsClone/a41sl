@@ -24,6 +24,7 @@
         "ffmpeg-static": "^4.4.0",
         "fluent-ffmpeg": "^2.1.2",
         "fs": "0.0.1-security",
+        "images-scraper": "^6.3.0",
         "includes": "0.0.7",
         "install": "^0.13.0",
         "localtunnel": "^2.0.1",
