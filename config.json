@@ -7,11 +7,10 @@
   "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel",
   "primaryColor": "#0aadff",
   "errorColor": "#EF522F",
-  "nsfwPrefix": "/nsfw",
   "serverManager": "463028312567054338",
   "welcomeChannel": "👋welcome",
   "goodbyeChannel": "💀goodbye",
   "auditLogChannel": "🔑audit-log",
-  "memesChannel": "719922837871263745",
-  "memberCountChannelId": "775215451110244373"
+  "memesChannelId": 769761743965782055 ,
+  "memberCountChannelName": "member-count"
 }

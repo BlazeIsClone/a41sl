@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const request = require("request");
 const { MessageEmbed } = require("discord.js");
 const {
-  memesChannel,
-  memberCountChannelId,
+  memesChannelId,
+  memberCountChannelName,
   primaryColor,
   errorColor,
 } = require("../../../config.json");
@@ -28,12 +28,10 @@ module.exports = async (client) => {
         .setFooter(`👍 ${data.ups}`)
         .setColor(primaryColor);
 
-      const memeSendChannel = client.channels.cache.get(memesChannel);
+      const memeSendChannel = client.channels.cache.get(memesChannelId);
       memeSendChannel.send(meme).catch(console.error);
     });
   }, 1 * 3600000);
-
-  const channelId = memberCountChannelId;
 
   const getGuildId = client.guilds.cache.map((guild) => guild.id);
   const getGuildName = client.guilds.cache.map((guild) => guild.name);
@@ -44,7 +42,11 @@ module.exports = async (client) => {
   console.log(`Bot Connected to : ${guildName}`);
 
   function updateMembers(guild) {
-    const channel = guild.channels.cache.get(channelId);
+    const channel = member.guild.channels.cache.find(
+      (ch) => ch.name === memberCountChannelName
+    );
+
+    if (!channel) return;
 
     channel.setName(`💂 Members: ${guild.memberCount.toLocaleString()}`);
   }
