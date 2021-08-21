@@ -5,7 +5,7 @@ const client = new Client({
     disableMentions: "everyone",
     restTimeOffset: 0,
 });
-const events = (require("events").EventEmitter.defaultMaxListeners = 70);
+const events = (require("events").EventEmitter.defaultMaxListeners = 100);
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
