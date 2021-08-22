@@ -42,7 +42,7 @@ module.exports = async (client, member) => {
   };
 
   ctx.font = applyText(canvas, `${member.displayName}`);
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = primaryColor;
   ctx.fillText(
     `${member.displayName}`,
     canvas.width / 2.5,
