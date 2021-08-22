@@ -4,13 +4,14 @@
   "STAY_TIME": 300,
   "primaryColor": "#0aadff",
   "errorColor": "#EF522F",
-  "musicChannelOne": 869530749362118676,
-  "musicChannelTwo": 769761743965782055,
+  "musicChannelOne": null,
+  "musicChannelTwo": null,
   "serverManager": 463028312567054338,
-  "welcomeChannel": "👋welcome",
-  "goodbyeChannel": "💀goodbye",
+  "welcomeChannel": "spawn-despawn",
+  "goodbyeChannel": "spawn-despawn",
   "auditLogChannel": "🔑audit-log",
   "memesChannelId": 769761743965782055,
   "memberCountChannelName": "member-count",
-  "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel"
+  "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel",
+  "guildId": 463027132243771403
 }

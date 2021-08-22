@@ -46,11 +46,9 @@ module.exports = async (client) => {
       (ch) => ch.name === memberCountChannelName
     );
 
-    if (!channel) return;
-
     channel.setName(`💂 Members: ${guild.memberCount.toLocaleString()}`);
-  }
 
-  client.on("guildMemberAdd", (member) => updateMembers(member.guild));
-  client.on("guildMemberRemove", (member) => updateMembers(member.guild));
+    client.on("guildMemberAdd", (member) => updateMembers(member.guild));
+    client.on("guildMemberRemove", (member) => updateMembers(member.guild));
+  }
 };

@@ -1,9 +1,6 @@
 const Discord = require("discord.js");
 const Canvas = require("canvas");
-const {
-  welcomeChannel,
-  primaryColor,
-} = require("../../../config.json");
+const { welcomeChannel, primaryColor } = require("../../../config.json");
 
 const { MessageEmbed } = require("discord.js");
 
@@ -12,7 +9,6 @@ module.exports = async (client, member) => {
     (ch) => ch.name === welcomeChannel
   );
 
-  if (!channel) return;
   const canvas = Canvas.createCanvas(700, 250);
   const ctx = canvas.getContext("2d");
 
@@ -90,6 +86,7 @@ module.exports = async (client, member) => {
   channel.send(`${greet()}, ${member}`, attachment);
 
   const serverName = member.guild.name;
+
   const welcomeDm =
     `Hello and welcome to **${serverName}**` +
     "\n" +
@@ -105,4 +102,4 @@ module.exports = async (client, member) => {
 
   await member.send(sendBanner);
   member.send(welcomeDm);
-}
+};

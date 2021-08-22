@@ -1,8 +1,11 @@
 const Discord = require("discord.js");
 
 module.exports = async (client) => {
-
-const arrayOfStatus = [`Welcome to ${client.guilds.cache.map((guild) => guild.name)}`, "Have Fun!", "Do Crazy Shit!", "Dont Kill ur self"]
+  const arrayOfStatus = [
+    `${client.guilds.cache.map((guild) => guild.name)}`,
+    `${client.guilds.cache.map((guild) => guild.memberCount)} members`,
+    `${client.guilds.cache.map((guild)=> guild.premiumSubscriptionCount)} boosts`,
+  ];
 
   console.log(`Logged in as ${client.user.username}!`);
   console.log("Discord.js API Ready! ⚡");
@@ -15,11 +18,11 @@ const arrayOfStatus = [`Welcome to ${client.guilds.cache.map((guild) => guild.na
       status: "online",
       activity: {
         name: `${status}`,
-        type: "PLAYING",
+        type: "WATCHING",
         details: null,
         url: null,
       },
     });
     index++;
-  }, 5000);
+  }, 10 * 1000);
 };
