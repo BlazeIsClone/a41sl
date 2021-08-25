@@ -5,13 +5,12 @@
   "primaryColor": "#17d6d5",
   "errorColor": "#EF522F",
   "musicChannelOne": null,
-  "musicChannelTwo": null,
-  "serverManager": 463028312567054338,
+  "musicChannelTwo": 869530749362118676,
   "welcomeChannel": "spawn-despawn",
   "goodbyeChannel": "spawn-despawn",
   "auditLogChannel": "🔑audit-log",
+  "guildId": 463027132243771403,
   "memesChannelId": 769761743965782055,
   "memberCountChannelName": "member-count",
-  "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel",
-  "guildId": 463027132243771403
+  "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel"
 }
