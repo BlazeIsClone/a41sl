@@ -13,14 +13,10 @@ module.exports = {
       else return text;
     };
 
-    if (
-      message.author.id !== message.guild.owner.id &&
-      message.author.id !== serverManager
-    ) {
-      message.reply(
-        `❗Only <@${message.guild.owner.id}> has access to this command`
+    if (!message.member.hasPermission("ADMINISTRATOR")) {
+      return message.reply(
+        `❗Only administrators have access to this command`
       );
-      return;
     }
     try {
       const code = args.join(" ");

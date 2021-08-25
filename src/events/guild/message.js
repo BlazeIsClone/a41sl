@@ -10,7 +10,8 @@ module.exports = async (client, message) => {
     message.content === `<@!${client.user.id}>`
   ) {
     const embed = new Discord.MessageEmbed()
-      .setTitle(`Hi!`, message.guild.iconURL())
+      .setTitle(`👋 Hello There!`, message.guild.iconURL())
+      .setThumbnail(client.user.avatarURL())
       .setColor(primaryColor)
       .setDescription(
         "I'm " +
