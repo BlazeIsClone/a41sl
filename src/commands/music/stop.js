@@ -33,7 +33,7 @@ module.exports = {
     queue.connection.dispatcher.end();
 
     const embedB = new MessageEmbed()
-      .setColor(errorColor)
+      .setColor(primaryColor)
       .setTitle("Stopped!")
       .setDescription(`**${message.author}** stoped the music`);
 
