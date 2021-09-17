@@ -27,7 +27,7 @@ git clone https://github.com/BlazeIsClone/A41SLBOT.git
 
 Modify `config.json` and fill out the values:
 
-```json
+```md
 {
   "PREFIX": "/",
   "MAX_PLAYLIST_SIZE": 500,
