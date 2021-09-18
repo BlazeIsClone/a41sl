@@ -22,7 +22,7 @@ module.exports = async (client, member) => {
   ctx.font = "28px Helvetica";
   ctx.fillStyle = "#ffffff";
   ctx.fillText(
-    "Welcome to the server,",
+    "Verified, Welcome to the server!",
     canvas.width / 2.5,
     canvas.height / 3.5
   );
@@ -76,7 +76,7 @@ module.exports = async (client, member) => {
     "welcome-image.png"
   );
   const greetings = [
-    "New member detected, Welcome!",
+    "New member detected",
   ];
   const greet = () => greetings[Math.floor(Math.random() * greetings.length)];
   channel.send(`${greet()}, ${member}`, attachment);
