@@ -22,7 +22,7 @@ module.exports = async (client, member) => {
   ctx.font = "28px Helvetica";
   ctx.fillStyle = "#ffffff";
   ctx.fillText(
-    "Verified, Welcome to the server!",
+    "User Verified, Welcome!",
     canvas.width / 2.5,
     canvas.height / 3.5
   );
