@@ -76,10 +76,10 @@ module.exports = async (client, member) => {
     "welcome-image.png"
   );
   const greetings = [
-    "New member detected",
+    "New Member Detected- ",
   ];
   const greet = () => greetings[Math.floor(Math.random() * greetings.length)];
-  channel.send(`${greet()}, ${member}`, attachment);
+  channel.send(`${greet()} ${member}`, attachment);
 
   const serverName = member.guild.name;
 
