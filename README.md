@@ -27,24 +27,24 @@ git clone https://github.com/BlazeIsClone/A41SLBOT.git
 
 Modify `config.json` and fill out the values:
 
-```json
+```md
 {
-  "MAX_PLAYLIST_SIZE": 500,
   "PREFIX": "/",
-  "musicChannelOne": "text-channel-id",
+  "MAX_PLAYLIST_SIZE": 500,
+  "STAY_TIME": 300,
+  "primaryColor": "#17d6d5",
+  "errorColor": "#EF522F",
+  "musicChannelOne": text-channel-id,
   "musicChannelTwo": null,
-  "musicChannelErrorResponse": "Music commands are only available in **add-music** channel",
-  "nsfwPrefix": "/nsfw",
-  "serverManager": "user-id",
-  "serverOwner": "user-id",
-  "guildId": "server-id",
   "welcomeChannel": "text-channel-name",
   "goodbyeChannel": "text-channel-name",
   "auditLogChannel": "text-channel-name",
-  "memesChannel": "text-channel-id",
-  "memberCountChannelId": "text-channel-id",
-  "STAY_TIME": 30
+  "guildId": server-id,
+  "memesChannelId": text-channel-id,
+  "memberCountChannelName": "text-channel-name",
+  "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel"
 }
+
 ```
 For API Tokens Rename `.env.example` to `.env` and fill out the values:
 
