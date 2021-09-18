@@ -76,11 +76,7 @@ module.exports = async (client, member) => {
     "welcome-image.png"
   );
   const greetings = [
-    "Hey Welcome to **All For One SL**!",
-    "Welcome to **All For One SL** enjoy your stay!",
-    "Hello there welcome to **All For One SL**!",
-    "Welcome to **All For One SL** make yourself at home!",
-    "Greetings to **All For One SL** make yourself comfy!",
+    "New member detected, Welcome!",
   ];
   const greet = () => greetings[Math.floor(Math.random() * greetings.length)];
   channel.send(`${greet()}, ${member}`, attachment);
