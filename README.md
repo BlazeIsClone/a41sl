@@ -12,6 +12,10 @@ All For One Bot is an open source solution for your discord server management an
 
 <hr>
 
+## ⤴ Discord V13
+
+The bot is currently on a rewrite to migrate to discord.js v13 from v12. Latest releases will be pushed into the v13 branch until a stable release!.
+
 ## 📥 Installation
 
 For self hosting clone this repository
@@ -78,6 +82,7 @@ For answers to common questions about this code of conduct, see
 https://www.contributor-covenant.org/faq
 
 ## 💝 Credits
+
 A special thanks to [eritislami/evobot](https://github.com/eritislami/evobot) for the music system/technology and [SharkSmile](https://github.com/sahaswin) for the amazing logo and inspiration.
 
 ## 📜 License [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://github.com/BlazeIsClone/A41SLBOT/blob/master/LICENSE.txt)
