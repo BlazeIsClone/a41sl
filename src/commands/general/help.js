@@ -6,9 +6,9 @@ module.exports = {
   aliases: ["h"],
   description: "Display all commands and descriptions",
   execute(message) {
-    let commands = message.client.commands.array();
+    let commands = [...message.client.commands.values()];
 
-    let helpEmbed = new MessageEmbed()
+    let embedObj = new MessageEmbed()
       .setTitle(`${message.client.user.username} Help`)
       .setDescription("List of all commands")
       .setColor(primaryColor);
@@ -22,15 +22,14 @@ module.exports = {
       if (cmd.name === "reactionRolesRules") return;
       if (cmd.name === "linebreak") return;
 
-      helpEmbed.addField(
-        `**${message.client.prefix}${cmd.name} ${
-          cmd.aliases ? `(${cmd.aliases})` : ""
+      embedObj.addField(
+        `**${message.client.prefix}${cmd.name} ${cmd.aliases ? `(${cmd.aliases})` : ""
         }**`,
         `${cmd.description}`,
         true
       );
     });
 
-    return message.channel.send(helpEmbed).catch(console.error);
+    return message.channel.send(embedObj);
   },
 };

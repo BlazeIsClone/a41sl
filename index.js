@@ -1,9 +1,14 @@
 require("dotenv").config();
 const Discord = require("discord.js");
-const { Client, Collection } = require("discord.js");
+const { Client, Intents, Collection } = require("discord.js");
 const client = new Client({
     disableMentions: "everyone",
     restTimeOffset: 0,
+    intents: [
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_MEMBERS,
+        Intents.FLAGS.GUILD_MESSAGES,
+    ]
 });
 const events = (require("events").EventEmitter.defaultMaxListeners = 100);
 const { readdirSync } = require("fs");
@@ -56,9 +61,9 @@ walk("./src/commands/", (err, results) => {
 /* ---------- IMPORT ALL EVENTS ---------- */
 var reactionRolesDb = require("./src/database/roles-reaction.json");
 const fetchMessages = require("./src/events/reaction_roles/load");
-fetchMessages(client, reactionRolesDb);
+//fetchMessages(client, reactionRolesDb);
 const track = require("./src/events/reaction_roles/track");
-track(client, reactionRolesDb);
+//track(client, reactionRolesDb);
 
 fs.readdir("./src/events/client/", (err, files) => {
     if (err) return console.error(err);
@@ -78,7 +83,7 @@ fs.readdir("./src/events/guild/", (err, files) => {
 });
 
 /* ---------- COMMAND HANDLER CONFIGURATION ---------- */
-client.on("message", async (message) => {
+client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
     if (!message.guild) return;
 
@@ -117,8 +122,7 @@ client.on("message", async (message) => {
             return message.reply(
                 `please wait ${timeLeft.toFixed(
                     1
-                )} more second(s) before reusing the \`${
-                    command.name
+                )} more second(s) before reusing the \`${command.name
                 }\` command.`
             );
         }
