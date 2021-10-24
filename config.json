@@ -1,16 +1,1 @@
-{
-  "PREFIX": "/",
-  "MAX_PLAYLIST_SIZE": 500,
-  "STAY_TIME": 300,
-  "primaryColor": "#17d6d5",
-  "errorColor": "#EF522F",
-  "musicChannelOne": 888726524486901820,
-  "musicChannelTwo": 869530749362118676,
-  "welcomeChannel": "spawn-despawn",
-  "goodbyeChannel": "spawn-despawn",
-  "auditLogChannel": "🔑audit-log",
-  "guildId": 463027132243771403,
-  "memesChannelId": 769761743965782055,
-  "memberCountChannelName": "member-count",
-  "musicChannelErrorResponse": "⛔ Music commands are only available in **add-music** channel"
-}
+{}
