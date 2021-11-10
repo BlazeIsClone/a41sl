@@ -1,18 +1,9 @@
-require("dotenv").config();
-const Discord = require("discord.js");
-const client = new Client({
-    disableMentions: "everyone",
-    restTimeOffset: 0,
-    intents: [
-        Intents.FLAGS.GUILDS,
-    ]
-});
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
+require('module-alias/register');
+const ClientManager = require('./src/ClientManager');
+const client = new ClientManager({
+	partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+	intents: 32770,
+	disableMentions: 'everyone',
 });
 
-/* ---------- DEBUGING ---------- */
-client.on("warn", (info) => console.log(info));
-client.on("error", console.error);
-
-client.login(process.env.DISCORD_TOKEN);
+client.setup();

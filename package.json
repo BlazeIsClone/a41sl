@@ -1,23 +1,37 @@
 {
-  "name": "a41sl-bot",
-  "version": "2.0.0",
-  "description": "A feature-rich discord server moderation and music streaming bot built for All For One SL™ discord server",
-  "main": "index.js",
-  "author": "BlazeIsClone",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BlazeIsClone/A41SLBOT"
-  },
-  "dependencies": {
-    "discord.js": "13.2.0",
-    "pm2": "^5.1.0"
-  },
-  "engines": {
-    "node": "16.6.0",
-    "npm": "^7.0.0"
-  },
-  "scripts": {
-    "start": "pm2-runtime start ecosystem.config.js --env production"
-  }
+	"name": "a41sl-bot",
+	"version": "2.0.0",
+	"description": "A feature-rich discord server moderation and music streaming bot built for All For One SL™ discord server",
+	"main": "index.js",
+	"author": "BlazeIsClone",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/BlazeIsClone/A41SLBOT"
+	},
+	"dependencies": {
+		"discord.js": "13.2.0",
+		"dotenv": "^10.0.0",
+		"module-alias": "^2.2.2",
+		"pm2": "^5.1.0"
+	},
+	"engines": {
+		"node": "16.6.0",
+		"npm": "^7.0.0"
+	},
+	"scripts": {
+		"start": "pm2-runtime start ecosystem.config.js --env dev",
+		"production": "pm2-runtime start ecosystem.production.config.js --env production",
+		"container": "docker run --env-file .env --name a41slbot a41slbot:0.1"
+	},
+	"_moduleAliases": {
+		"@commands": "src/commands",
+		"@events": "src/events",
+		"@models": "src/models",
+		"@config": "src/config",
+		"@utils": "src/utils"
+	},
+	"devDependencies": {
+		"eslint": "^8.2.0"
+	}
 }
