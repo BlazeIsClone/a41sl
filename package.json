@@ -10,6 +10,9 @@
     "url": "https://github.com/BlazeIsClone/A41SLBOT"
   },
   "dependencies": {
+    "@discordjs/builders": "^0.8.2",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.24.0",
     "discord.js": "13.2.0",
     "dotenv": "^10.0.0",
     "module-alias": "^2.2.2",
@@ -22,6 +25,7 @@
   "scripts": {
     "start": "pm2 start ecosystem.config.js",
     "stop": "pm2 delete ecosystem.config.js",
+    "dev": "pm2-runtime start ecosystem.config.js",
     "container": "docker run --env-file .env --name a41slbot a41slbot:0.1"
   },
   "_moduleAliases": {

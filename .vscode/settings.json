@@ -1,5 +1,6 @@
 {
   "javascript.suggestionActions.enabled": false,
+  "javascript.preferences.useAliasesForRenames": false,
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false
