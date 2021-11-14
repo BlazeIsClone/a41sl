@@ -1,0 +1,18 @@
+{
+  "extends": ["blaze"],
+  "rules": {
+    "no-console": 2,
+    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "all",
+        "singleQuote": true,
+        "endOfLine": "auto",
+        "printWidth": 120,
+        "useTabs": true,
+        "tabWidth": 8
+      }
+    ]
+  }
+}

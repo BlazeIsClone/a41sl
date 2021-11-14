@@ -1,37 +1,56 @@
 {
-	"name": "a41sl-bot",
-	"version": "2.0.0",
-	"description": "A feature-rich discord server moderation and music streaming bot built for All For One SL™ discord server",
-	"main": "index.js",
-	"author": "BlazeIsClone",
-	"license": "ISC",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/BlazeIsClone/A41SLBOT"
-	},
-	"dependencies": {
-		"discord.js": "13.2.0",
-		"dotenv": "^10.0.0",
-		"module-alias": "^2.2.2",
-		"pm2": "^5.1.0"
-	},
-	"engines": {
-		"node": "16.6.0",
-		"npm": "^7.0.0"
-	},
-	"scripts": {
-		"start": "pm2-runtime start ecosystem.config.js --env dev",
-		"production": "pm2-runtime start ecosystem.production.config.js --env production",
-		"container": "docker run --env-file .env --name a41slbot a41slbot:0.1"
-	},
-	"_moduleAliases": {
-		"@commands": "src/commands",
-		"@events": "src/events",
-		"@models": "src/models",
-		"@config": "src/config",
-		"@utils": "src/utils"
-	},
-	"devDependencies": {
-		"eslint": "^8.2.0"
-	}
+  "name": "a41sl-bot",
+  "version": "2.0.0",
+  "description": "A feature-rich discord server moderation and music streaming bot built for All For One SL™ discord server",
+  "main": "index.js",
+  "author": "BlazeIsClone",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BlazeIsClone/A41SLBOT"
+  },
+  "dependencies": {
+    "discord.js": "13.2.0",
+    "dotenv": "^10.0.0",
+    "module-alias": "^2.2.2",
+    "pm2": "^5.1.0"
+  },
+  "engines": {
+    "node": "16.6.0",
+    "npm": "^7.0.0"
+  },
+  "scripts": {
+    "start": "pm2-runtime start ecosystem.config.js --env dev",
+    "production": "pm2-runtime start ecosystem.production.config.js --env production",
+    "container": "docker run --env-file .env --name a41slbot a41slbot:0.1"
+  },
+  "_moduleAliases": {
+    "@commands": "src/commands",
+    "@events": "src/events",
+    "@models": "src/models",
+    "@config": "src/config",
+    "@utils": "src/utils",
+    "@src": "src"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "@babel/preset-react": "^7.16.0",
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.2",
+    "eslint-config-blaze": "^1.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
+  }
 }

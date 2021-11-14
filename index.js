@@ -1,5 +1,7 @@
 require('module-alias/register');
-const ClientManager = require('./src/ClientManager');
+
+const ClientManager = require('@src/ClientManager');
+
 const client = new ClientManager({
 	partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 	intents: 32770,
