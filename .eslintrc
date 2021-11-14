@@ -1,17 +1,20 @@
 {
   "extends": ["blaze"],
   "rules": {
-    "no-console": 2,
     "import/no-unresolved": [2, { "caseSensitive": false }],
+    "import/no-dynamic-require": 0,
+    "no-param-reassign": 0,
+    "global-require": 0,
     "prettier/prettier": [
       "error",
       {
         "trailingComma": "all",
         "singleQuote": true,
         "endOfLine": "auto",
-        "printWidth": 120,
+        "printWidth": 80,
         "useTabs": true,
-        "tabWidth": 8
+        "tabWidth": 8,
+        "arrowParens": "avoid"
       }
     ]
   }

@@ -4,7 +4,7 @@ module.exports = {
 			name: 'a41slbot',
 			script: './index.js',
 			watch: true,
-			ignore_watch: ['node_modules', '.git'],
+			ignore_watch: ['node_modules', '.git', '.vscode'],
 		},
 	],
 };

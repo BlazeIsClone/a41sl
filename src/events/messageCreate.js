@@ -17,9 +17,16 @@ module.exports = async (client, message) => {
 
 	if (!message.content.startsWith(prefix)) return;
 	const commandfile =
-		client.commands.get(cmd.slice(prefix.length).toString().toLowerCase()) ||
 		client.commands.get(
-			client.aliases.get(cmd.slice(prefix.length).toString().toLowerCase()),
+			cmd.slice(prefix.length).toString().toLowerCase(),
+		) ||
+		client.commands.get(
+			client.aliases.get(
+				cmd
+					.slice(prefix.length)
+					.toString()
+					.toLowerCase(),
+			),
 		);
 	if (commandfile) {
 		commandfile.run(client, message, args);

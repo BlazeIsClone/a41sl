@@ -20,8 +20,8 @@
     "npm": "^7.0.0"
   },
   "scripts": {
-    "start": "pm2-runtime start ecosystem.config.js --env dev",
-    "production": "pm2-runtime start ecosystem.production.config.js --env production",
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 delete ecosystem.config.js",
     "container": "docker run --env-file .env --name a41slbot a41slbot:0.1"
   },
   "_moduleAliases": {

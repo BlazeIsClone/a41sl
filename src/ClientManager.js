@@ -1,7 +1,5 @@
-const { Client, Collection } = require('discord.js');
-
 require('dotenv').config();
-
+const { Client, Collection } = require('discord.js');
 const EventHandler = require('@utils/loadEvents');
 
 const { DISCORD_TOKEN } = process.env;
@@ -16,7 +14,6 @@ module.exports = class ClientManager extends Client {
 	setup() {
 		this.events = new EventHandler(this);
 		this.events.init();
-		// eslint-disable-next-line global-require
 		require('@utils/loadCommands')(this);
 		this.login(DISCORD_TOKEN);
 	}
