@@ -50,7 +50,7 @@ Modify `config.json` and fill out the values:
 }
 
 ```
-For API Tokens Rename `.env.example` to `.env` and fill out the values:
+For API Tokens fill out the values in `.env`:
 
 ```markdown
 DISCORD_TOKEN=
