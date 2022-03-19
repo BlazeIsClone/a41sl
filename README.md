@@ -12,6 +12,10 @@ All For One Bot is an open source solution for your discord server management an
 
 <hr>
 
+### ⚠️ END-OF-LIFE SUPPORT! Time has come to say goodbyes, this project is no longer be maintained.
+
+<hr>
+
 ## ⤴ Discord V13
 
 The bot is currently on a rewrite to migrate to discord.js v13 from v12. Latest releases will be pushed into the v13 branch until a stable release!.
