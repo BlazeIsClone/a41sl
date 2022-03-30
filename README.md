@@ -12,7 +12,7 @@ All For One Bot is an open source solution for your discord server management an
 
 <hr>
 
-### ⚠️ END-OF-LIFE SUPPORT! Time has come to say goodbyes, this project is no longer be maintained.
+### ⚠️ END-OF-LIFE SUPPORT! Time has come to say goodbyes, this project is no longer maintained.
 
 <hr>
 
