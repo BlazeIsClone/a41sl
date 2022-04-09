@@ -30,7 +30,7 @@
         "localtunnel": "^2.0.1",
         "lyrics-finder": "^21.7.0",
         "miniget": "^4.2.1",
-        "moment": "^2.29.1",
+        "moment": "^2.29.2",
         "node-fetch": "^2.6.1",
         "node-spotify-api": "^1.1.1",
         "node-superfetch": "^0.2.3",
