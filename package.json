@@ -31,7 +31,7 @@
         "lyrics-finder": "^21.7.0",
         "miniget": "^4.2.1",
         "moment": "^2.29.1",
-        "node-fetch": "^2.6.1",
+        "node-fetch": "^2.6.7",
         "node-spotify-api": "^1.1.1",
         "node-superfetch": "^0.2.3",
         "npm": "^7.19.0",
