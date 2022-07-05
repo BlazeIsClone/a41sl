@@ -6,7 +6,7 @@
     "author": "Blaze",
     "license": "ISC",
     "dependencies": {
-        "@discordjs/opus": "^0.5.3",
+        "@discordjs/opus": "^0.8.0",
         "array.prototype.move": "0.0.4",
         "axios": "^0.21.1",
         "canvas": "^2.8.0",
